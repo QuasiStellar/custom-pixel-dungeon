@@ -37,7 +37,7 @@ public class FileUtils {
 	// Helper methods for setting/using a default base path and file address mode
 	
 	private static Files.FileType defaultFileType = null;
-	private static String defaultPath = "";
+	public static String defaultPath = "";
 	
 	public static void setDefaultFileProperties( Files.FileType type, String path ){
 		defaultFileType = type;

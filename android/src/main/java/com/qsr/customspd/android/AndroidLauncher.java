@@ -45,6 +45,7 @@ import com.qsr.customspd.services.updates.UpdateImpl;
 import com.qsr.customspd.services.updates.Updates;
 import com.watabou.noosa.Game;
 import com.qsr.customspd.ui.Button;
+import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.FileUtils;
 
 public class AndroidLauncher extends AndroidApplication {
@@ -57,6 +58,14 @@ public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		try {
+			Class.forName("dalvik.system.CloseGuard")
+				.getMethod("setEnabled", boolean.class)
+				.invoke(null, true);
+		} catch (ReflectiveOperationException e) {
+			throw new RuntimeException(e);
+		}
 
 		try {
 			GdxNativesLoader.load();

@@ -24,11 +24,14 @@ package com.qsr.customspd.windows;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.MarketplaceMod;
+import com.qsr.customspd.modding.Mod;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.HealthBar;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.qsr.customspd.utils.GdxUtils;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
 
@@ -60,6 +63,14 @@ public class IconTitle extends Component {
 		icon( icon );
 		label( Messages.titleCase( heap.title() ) );
 		icon.view( heap );
+	}
+
+	public IconTitle( Mod mod ) {
+		this(mod.getIcon(), mod.getInfo().getName());
+	}
+
+	public IconTitle( MarketplaceMod mod ) {
+		this(new Image(GdxUtils.Pixmap(mod.getIconPixmap())), mod.getInfo().getName());
 	}
 
 	public IconTitle( Image icon, String label ) {

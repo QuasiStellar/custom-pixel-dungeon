@@ -132,7 +132,7 @@ public class Messages {
 			if (c != null && c.getSuperclass() != null){
 				return get(c.getSuperclass(), k, args);
 			} else {
-				return NO_TEXT_FOUND;
+				return key.toLowerCase(Locale.ENGLISH);
 			}
 		}
 	}

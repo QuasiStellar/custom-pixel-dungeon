@@ -304,12 +304,7 @@ public class Game implements ApplicationListener {
 	}
 	
 	public static void runOnRenderThread(Callback c){
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				c.call();
-			}
-		});
+		Gdx.app.postRunnable(c::call);
 	}
 	
 	public static void vibrate( int milliseconds ) {

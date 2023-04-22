@@ -22,6 +22,7 @@
 package com.watabou.gltextures;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.watabou.glwrap.Texture;
 import com.watabou.noosa.Game;
@@ -115,9 +116,9 @@ public class TextureCache {
 			return all.get( src );
 			
 		} else if (src instanceof SmartTexture) {
-			
-			return (SmartTexture)src;
-			
+
+			return (SmartTexture) src;
+
 		} else {
 
 			SmartTexture tx = new SmartTexture( getBitmap( src ) );
@@ -152,8 +153,13 @@ public class TextureCache {
 				return null;
 				
 			} else if (src instanceof String) {
-				
-				return new Pixmap(Gdx.files.internal((String)src));
+
+				FileHandle internal = Gdx.files.internal((String) src);
+				if (internal.exists()) {
+					return new Pixmap(internal);
+				} else {
+					return new Pixmap(Gdx.files.external((String) src));
+				}
 				
 			} else if (src instanceof Pixmap) {
 				

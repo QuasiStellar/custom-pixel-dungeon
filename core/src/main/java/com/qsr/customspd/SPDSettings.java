@@ -202,8 +202,6 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_LAST_DAILY	= "last_daily";
 	public static final String KEY_INTRO		= "intro";
 
-	public static final String KEY_SUPPORT_NAGGED= "support_nagged";
-	
 	public static void intro( boolean value ) {
 		put( KEY_INTRO, value );
 	}
@@ -242,14 +240,6 @@ public class SPDSettings extends GameSettings {
 
 	public static long lastDaily() {
 		return getLong( KEY_LAST_DAILY, 0);
-	}
-
-	public static void supportNagged( boolean value ) {
-		put( KEY_SUPPORT_NAGGED, value );
-	}
-
-	public static boolean supportNagged() {
-		return getBoolean(KEY_SUPPORT_NAGGED, false);
 	}
 
 	//Input
