@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -218,7 +219,7 @@ public class Momentum extends Buff implements ActionIndicator.Action {
 		freerunCooldown = 10 + 4*momentumStacks;
 		Sample.INSTANCE.play(Assets.Sounds.MISS, 1f, 0.8f);
 		target.sprite.emitter().burst(Speck.factory(Speck.JET), 5+ momentumStacks);
-		SpellSprite.show(target, SpellSprite.HASTE, 1, 1, 0);
+		SpellSprite.show(target, Asset.HASTE, 1, 1, 0);
 		momentumStacks = 0;
 		BuffIndicator.refreshHero();
 		ActionIndicator.clearAction(this);

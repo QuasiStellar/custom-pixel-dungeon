@@ -139,6 +139,7 @@ import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.mechanics.ShadowCaster;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.scenes.AlchemyScene;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.InterlevelScene;
@@ -1829,7 +1830,7 @@ public class Hero extends Char {
 				PotionOfHealing.cure(this);
 				Buff.prolong(this, AnkhInvulnerability.class, AnkhInvulnerability.DURATION);
 
-				SpellSprite.show(this, SpellSprite.ANKH);
+				SpellSprite.show(this, Asset.ANKH);
 				GameScene.flash(0x80FFFF40);
 				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 				GLog.w(Messages.get(this, "revive"));

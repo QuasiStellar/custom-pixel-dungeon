@@ -21,13 +21,12 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
-
 import java.util.HashMap;
 
 //FIXME this is seriously underused atm, should add more of these!
@@ -51,9 +50,7 @@ public class SpellSprite extends Image {
 	private static final float FADE_IN_TIME		= 0.2f;
 	private static final float STATIC_TIME		= 0.8f;
 	private static final float FADE_OUT_TIME	= 0.4f;
-	
-	private static TextureFilm film;
-	
+
 	private Char target;
 	
 	private Phase phase;
@@ -61,17 +58,9 @@ public class SpellSprite extends Image {
 	private float passed;
 	
 	private static HashMap<Char,SpellSprite> all = new HashMap<>();
-	
-	public SpellSprite() {
-		super( Assets.Effects.SPELL_ICONS );
-		
-		if (film == null) {
-			film = new TextureFilm( texture, SIZE );
-		}
-	}
-	
-	public void reset( int index ) {
-		frame( film.get( index ) );
+
+	public void reset( Asset asset ) {
+		texture( ModManager.INSTANCE.getAssetFileHandle(asset) );
 		origin.set( width / 2, height / 2 );
 		
 		phase = Phase.FADE_IN;
@@ -130,11 +119,11 @@ public class SpellSprite extends Image {
 		all.remove( target );
 	}
 	
-	public static void show( Char ch, int index ) {
-		show(ch, index, 1, 1, 1);
+	public static void show( Char ch, Asset asset ) {
+		show(ch, asset, 1, 1, 1);
 	}
 	
-	public static void show( Char ch, int index, float r, float g, float b ) {
+	public static void show( Char ch, Asset asset, float r, float g, float b ) {
 		
 		if (!ch.sprite.visible) {
 			return;
@@ -147,7 +136,7 @@ public class SpellSprite extends Image {
 		
 		SpellSprite sprite = GameScene.spellSprite();
 		sprite.target = ch;
-		sprite.reset( index );
+		sprite.reset( asset );
 		sprite.hardlight(r, g, b);
 		sprite.revive();
 		all.put( ch, sprite );

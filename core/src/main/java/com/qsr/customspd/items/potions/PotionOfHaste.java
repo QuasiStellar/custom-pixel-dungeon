@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.buffs.Haste;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
@@ -41,7 +42,7 @@ public class PotionOfHaste extends Potion {
 		
 		GLog.w( Messages.get(this, "energetic") );
 		Buff.prolong( hero, Haste.class, Haste.DURATION);
-		SpellSprite.show(hero, SpellSprite.HASTE, 1, 1, 0);
+		SpellSprite.show(hero, Asset.HASTE, 1, 1, 0);
 	}
 	
 	@Override

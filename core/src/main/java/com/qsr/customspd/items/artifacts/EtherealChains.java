@@ -33,17 +33,19 @@ import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.effects.Chains;
-import com.qsr.customspd.effects.Effects;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
@@ -184,7 +186,7 @@ public class EtherealChains extends Artifact {
 		Sample.INSTANCE.play( Assets.Sounds.CHAINS );
 		hero.sprite.parent.add(new Chains(hero.sprite.center(),
 				enemy.sprite.center(),
-				Effects.Type.ETHEREAL_CHAIN,
+				new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.ETHEREAL_CHAIN)),
 				new Callback() {
 			public void call() {
 				Actor.add(new Pushing(enemy, enemy.pos, pulledPos, new Callback() {
@@ -248,7 +250,7 @@ public class EtherealChains extends Artifact {
 		Sample.INSTANCE.play( Assets.Sounds.CHAINS );
 		hero.sprite.parent.add(new Chains(hero.sprite.center(),
 				DungeonTilemap.raisedTileCenterToWorld(newHeroPos),
-				Effects.Type.ETHEREAL_CHAIN,
+				new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.ETHEREAL_CHAIN)),
 				new Callback() {
 			public void call() {
 				Actor.add(new Pushing(hero, hero.pos, newHeroPos, new Callback() {

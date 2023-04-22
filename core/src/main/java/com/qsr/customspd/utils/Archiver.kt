@@ -7,7 +7,6 @@ import java.io.FileOutputStream
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
-
 object Archiver {
     fun unzip(array: ByteArray, destDirectory: String) {
         File(destDirectory).run {
@@ -28,7 +27,9 @@ object Archiver {
             if (!parentFolder.exists()) parentFolder.mkdirs()
             val outputStream = BufferedOutputStream(FileOutputStream(filePath))
             var l: Int
-            while (zipInputStream.read(buff).also { l = it } > 0) { outputStream.write(buff, 0, l) }
+            while (zipInputStream.read(buff).also { l = it } > 0) {
+                outputStream.write(buff, 0, l)
+            }
             outputStream.close()
         }
         zipInputStream.close()

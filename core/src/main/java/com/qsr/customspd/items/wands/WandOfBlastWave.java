@@ -27,7 +27,6 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Paralysis;
-import com.qsr.customspd.effects.Effects;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.items.spells.AquaBlast;
@@ -37,6 +36,8 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.features.Door;
 import com.qsr.customspd.levels.traps.TenguDartTrap;
 import com.qsr.customspd.mechanics.Ballistica;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.tiles.DungeonTilemap;
@@ -235,7 +236,7 @@ public class WandOfBlastWave extends DamageWand {
 		private float time;
 
 		public BlastWave(){
-			super(Effects.get(Effects.Type.RIPPLE));
+			super(new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.RIPPLE)));
 			origin.set(width / 2, height / 2);
 		}
 

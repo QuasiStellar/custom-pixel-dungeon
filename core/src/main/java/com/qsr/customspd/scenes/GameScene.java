@@ -65,6 +65,7 @@ import com.qsr.customspd.levels.rooms.Room;
 import com.qsr.customspd.levels.rooms.secret.SecretRoom;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.DiscardedItemSprite;
@@ -408,7 +409,7 @@ public class GameScene extends PixelScene {
 			case RESURRECT:
 				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 				ScrollOfTeleportation.appearVFX( Dungeon.hero );
-				SpellSprite.show(Dungeon.hero, SpellSprite.ANKH);
+				SpellSprite.show(Dungeon.hero, Asset.ANKH);
 				new Flare( 5, 16 ).color( 0xFFFF00, true ).show( hero, 4f ) ;
 				break;
 			case RETURN:

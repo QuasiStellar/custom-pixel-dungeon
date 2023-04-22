@@ -23,6 +23,8 @@ package com.qsr.customspd.effects;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
@@ -36,7 +38,7 @@ public class Wound extends Image {
 	private float time;
 	
 	public Wound() {
-		super( Effects.get( Effects.Type.WOUND ) );
+		super( new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.WOUND)) );
 		hardlight(1f, 0f, 0f);
 		origin.set( width / 2, height / 2 );
 	}

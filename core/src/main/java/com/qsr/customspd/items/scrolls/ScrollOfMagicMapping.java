@@ -28,6 +28,7 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
@@ -76,7 +77,7 @@ public class ScrollOfMagicMapping extends Scroll {
 			Sample.INSTANCE.play( Assets.Sounds.SECRET );
 		}
 		
-		SpellSprite.show( curUser, SpellSprite.MAP );
+		SpellSprite.show( curUser, Asset.MAP );
 		Sample.INSTANCE.play( Assets.Sounds.READ );
 
 		identify();

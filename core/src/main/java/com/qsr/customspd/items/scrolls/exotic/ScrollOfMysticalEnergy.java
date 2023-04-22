@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.buffs.ArtifactRecharge;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 
@@ -44,7 +45,7 @@ public class ScrollOfMysticalEnergy extends ExoticScroll {
 		Sample.INSTANCE.play( Assets.Sounds.READ );
 		Sample.INSTANCE.play( Assets.Sounds.CHARGEUP );
 		
-		SpellSprite.show( curUser, SpellSprite.CHARGE, 0, 1, 1 );
+		SpellSprite.show( curUser, Asset.CHARGE, 0, 1, 1 );
 		identify();
 		ScrollOfRecharging.charge(curUser);
 		

@@ -23,13 +23,6 @@ package com.qsr.customspd;
 
 public class Assets {
 
-	public static class Effects {
-		public static final String EFFECTS      = "effects/effects.png";
-		public static final String FIREBALL     = "effects/fireball.png";
-		public static final String SPECKS       = "effects/specks.png";
-		public static final String SPELL_ICONS  = "effects/spell_icons.png";
-	}
-
 	public static class Environment {
 		public static final String TERRAIN_FEATURES = "environment/terrain_features.png";
 

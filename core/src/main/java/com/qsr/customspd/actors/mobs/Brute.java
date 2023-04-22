@@ -30,6 +30,7 @@ import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.Gold;
 import com.qsr.customspd.levels.features.Chasm;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.BruteSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
@@ -93,7 +94,7 @@ public class Brute extends Mob {
 	protected void triggerEnrage(){
 		Buff.affect(this, BruteRage.class).setShield(HT/2 + 4);
 		if (Dungeon.level.heroFOV[pos]) {
-			SpellSprite.show( this, SpellSprite.BERSERK);
+			SpellSprite.show( this, Asset.BERSERK);
 		}
 		spend( TICK );
 		hasRaged = true;

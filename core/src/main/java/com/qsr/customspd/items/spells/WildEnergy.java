@@ -33,6 +33,7 @@ import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
 import com.qsr.customspd.items.scrolls.exotic.ScrollOfMysticalEnergy;
 import com.qsr.customspd.items.wands.CursedWand;
 import com.qsr.customspd.mechanics.Ballistica;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
@@ -55,7 +56,7 @@ public class WildEnergy extends TargetedSpell {
 		Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
 		Sample.INSTANCE.play( Assets.Sounds.CHARGEUP );
 		ScrollOfRecharging.charge(hero);
-		SpellSprite.show(hero, SpellSprite.CHARGE);
+		SpellSprite.show(hero, Asset.CHARGE);
 
 		hero.belongings.charge(1f);
 		for (Buff b : hero.buffs()){

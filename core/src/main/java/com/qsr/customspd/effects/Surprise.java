@@ -23,6 +23,8 @@ package com.qsr.customspd.effects;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
@@ -36,7 +38,7 @@ public class Surprise extends Image {
 	private float time;
 
 	public Surprise() {
-		super(Effects.get(Effects.Type.EXCLAMATION));
+		super(new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.EXCLAMATION)));
 		origin.set(width / 2, height / 2);
 	}
 

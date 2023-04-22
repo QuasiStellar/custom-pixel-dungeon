@@ -31,6 +31,7 @@ import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
@@ -79,7 +80,7 @@ public class WandOfMagicMissile extends DamageWand {
 
 	@Override
 	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
-		SpellSprite.show(attacker, SpellSprite.CHARGE);
+		SpellSprite.show(attacker, Asset.CHARGE);
 		for (Wand.Charger c : attacker.buffs(Wand.Charger.class)){
 			if (c.wand() != this){
 				c.gainCharge(0.5f * procChanceMultiplier(attacker));

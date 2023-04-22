@@ -27,14 +27,16 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Cripple;
 import com.qsr.customspd.effects.Chains;
-import com.qsr.customspd.effects.Effects;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.GuardSprite;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
@@ -98,7 +100,7 @@ public class Guard extends Mob {
 					Sample.INSTANCE.play(Assets.Sounds.CHAINS);
 					sprite.parent.add(new Chains(sprite.center(),
 							enemy.sprite.destinationCenter(),
-							Effects.Type.CHAIN,
+							new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.CHAIN)),
 							new Callback() {
 						public void call() {
 							Actor.addDelayed(new Pushing(enemy, enemy.pos, newPosFinal, new Callback() {

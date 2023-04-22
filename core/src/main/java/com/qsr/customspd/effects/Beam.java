@@ -22,6 +22,8 @@
 package com.qsr.customspd.effects;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.watabou.glwrap.Blending;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
@@ -36,8 +38,8 @@ public class Beam extends Image {
 	
 	private float timeLeft;
 
-	private Beam(PointF s, PointF e, Effects.Type asset, float duration) {
-		super( Effects.get( asset ) );
+	private Beam(PointF s, PointF e, Image image, float duration) {
+		super( image );
 		
 		origin.set( 0, height / 2 );
 		
@@ -56,19 +58,19 @@ public class Beam extends Image {
 
 	public static class DeathRay extends Beam{
 		public DeathRay(PointF s, PointF e){
-			super(s, e, Effects.Type.DEATH_RAY, 0.5f);
+			super(s, e, new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.DEATH_RAY)), 0.5f);
 		}
 	}
 
 	public static class LightRay extends Beam{
 		public LightRay(PointF s, PointF e){
-			super(s, e, Effects.Type.LIGHT_RAY, 1f);
+			super(s, e, new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.LIGHT_RAY)), 1f);
 		}
 	}
 
 	public static class HealthRay extends Beam{
 		public HealthRay(PointF s, PointF e){
-			super(s, e, Effects.Type.HEALTH_RAY, 0.75f);
+			super(s, e, new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.HEALTH_RAY)), 0.75f);
 		}
 	}
 	

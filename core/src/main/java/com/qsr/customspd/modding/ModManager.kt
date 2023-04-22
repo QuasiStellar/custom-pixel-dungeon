@@ -29,11 +29,13 @@ object ModManager {
     private const val ENABLED_MODS = "enabled_mods"
     private const val ENABLED_MODS_FILE = "$ENABLED_MODS.dat"
 
+    private val SLASH = File.separatorChar
+
     private const val SUMMARY_ZIP = "Summary.zip"
-    private val SUMMARY_PATH = "${File.separator}Summary"
-    private val MOD_LIST_PATH = "$SUMMARY_PATH${File.separator}mod_list.json"
-    private val MOD_INFO_PATH = "$SUMMARY_PATH${File.separator}%s.json"
-    private val MOD_INFO_ICON = "$SUMMARY_PATH${File.separator}%s.png"
+    private val SUMMARY_PATH = "${SLASH}Summary"
+    private val MOD_LIST_PATH = "$SUMMARY_PATH${SLASH}mod_list.json"
+    private val MOD_INFO_PATH = "$SUMMARY_PATH${SLASH}%s.json"
+    private val MOD_INFO_ICON = "$SUMMARY_PATH${SLASH}%s.png"
 
     private const val MARKETPLACE = "https://d5dsgaub4mu915q7vd3p.apigw.yandexcloud.net"
 
@@ -42,6 +44,14 @@ object ModManager {
 
     private val _downloadedMods: MutableStateFlow<Set<String>> = MutableStateFlow(emptySet())
     val downloadedMods: StateFlow<Set<String>> = _downloadedMods
+
+    fun getAssetFileHandle(asset: Asset): String {
+        enabledModNames.forEach {
+            val path = "$SLASH$it$SLASH${asset.path.replace('/', SLASH)}"
+            if (getFileHandle(path).exists()) return "$STORAGE$SLASH$path"
+        }
+        return asset.path
+    }
 
     @OptIn(DelicateCoroutinesApi::class)
     fun getMarketplaceMods() = GlobalScope.launch {

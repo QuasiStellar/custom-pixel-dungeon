@@ -21,49 +21,52 @@
 
 package com.watabou.gltextures;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.watabou.glwrap.Texture;
 import com.watabou.noosa.Game;
+import com.watabou.utils.FileUtils;
 
+import java.io.File;
 import java.util.HashMap;
 
 public class TextureCache {
-	
+
 	private static HashMap<Object,SmartTexture> all = new HashMap<>();
 
 	public synchronized static SmartTexture createSolid( int color ) {
 		final String key = "1x1:" + color;
-		
+
 		if (all.containsKey( key )) {
-			
+
 			return all.get( key );
-			
+
 		} else {
-			
+
 			Pixmap pixmap =new Pixmap( 1, 1, Pixmap.Format.RGBA8888 );
 			// In the rest of the code ARGB is used
 			pixmap.setColor( (color << 8) | (color >>> 24) );
 			pixmap.fill();
-			
+
 			SmartTexture tx = new SmartTexture( pixmap );
 			all.put( key, tx );
-			
+
 			return tx;
 		}
 	}
-	
+
 	public synchronized static SmartTexture createGradient( int... colors ) {
-		
+
 		final String key = "" + colors;
-		
+
 		if (all.containsKey( key )) {
-			
+
 			return all.get( key );
-			
+
 		} else {
-			
+
 			Pixmap pixmap = new Pixmap( colors.length, 1, Pixmap.Format.RGBA8888);
 			for (int i=0; i < colors.length; i++) {
 				// In the rest of the code ARGB is used
@@ -77,7 +80,7 @@ public class TextureCache {
 			all.put( key, tx );
 			return tx;
 		}
-		
+
 	}
 
 	//texture is created at given size, but size is not enforced if it already exists
@@ -100,7 +103,7 @@ public class TextureCache {
 			return tx;
 		}
 	}
-	
+
 	public synchronized static void remove( Object key ){
 		SmartTexture tx = all.get( key );
 		if (tx != null){
@@ -110,11 +113,11 @@ public class TextureCache {
 	}
 
 	public synchronized static SmartTexture get( Object src ) {
-		
+
 		if (all.containsKey( src )) {
-			
+
 			return all.get( src );
-			
+
 		} else if (src instanceof SmartTexture) {
 
 			return (SmartTexture) src;
@@ -125,61 +128,61 @@ public class TextureCache {
 			all.put( src, tx );
 			return tx;
 		}
-		
+
 	}
-	
+
 	public synchronized static void clear() {
-		
+
 		for (Texture txt : all.values()) {
 			txt.delete();
 		}
 		all.clear();
-		
+
 	}
-	
+
 	public synchronized static void reload() {
 		for (SmartTexture tx : all.values()) {
 			tx.reload();
 		}
 	}
-	
+
 	public static Pixmap getBitmap( Object src ) {
-		
+
 		try {
-			if (src instanceof Integer){
-				
-				//libGDX does not support android resource integer handles, and they were
-				//never used by the game anyway, should probably remove this entirely
-				return null;
-				
-			} else if (src instanceof String) {
+			if (src instanceof String) {
 
 				FileHandle internal = Gdx.files.internal((String) src);
 				if (internal.exists()) {
 					return new Pixmap(internal);
-				} else {
-					return new Pixmap(Gdx.files.external((String) src));
 				}
-				
+
+				FileHandle modded = FileUtils.getFileHandle(Files.FileType.External, FileUtils.defaultPath, (String) src);
+				if (modded.exists()) {
+					return new Pixmap(modded);
+				}
+
+				FileHandle external = FileUtils.getFileHandle(Files.FileType.External, (String) src);
+				return new Pixmap(external);
+
 			} else if (src instanceof Pixmap) {
-				
+
 				return (Pixmap)src;
-				
+
 			} else {
-				
+
 				return null;
-				
+
 			}
 		} catch (Exception e) {
-			
+
 			Game.reportException(e);
 			return null;
-			
+
 		}
 	}
-	
+
 	public synchronized static boolean contains( Object key ) {
 		return all.containsKey( key );
 	}
-	
+
 }

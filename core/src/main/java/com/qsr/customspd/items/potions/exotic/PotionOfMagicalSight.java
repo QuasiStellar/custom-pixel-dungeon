@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.MagicalSight;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.SpellSprite;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class PotionOfMagicalSight extends ExoticPotion {
@@ -38,7 +39,7 @@ public class PotionOfMagicalSight extends ExoticPotion {
 	public void apply(Hero hero) {
 		identify();
 		Buff.affect(hero, MagicalSight.class, MagicalSight.DURATION);
-		SpellSprite.show(hero, SpellSprite.VISION);
+		SpellSprite.show(hero, Asset.VISION);
 		Dungeon.observe();
 		
 	}

@@ -41,6 +41,7 @@ import com.qsr.customspd.items.food.MeatPie;
 import com.qsr.customspd.items.food.Pasty;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
@@ -121,7 +122,7 @@ public class HornOfPlenty extends Artifact {
 
 				hero.sprite.operate(hero.pos);
 				hero.busy();
-				SpellSprite.show(hero, SpellSprite.FOOD);
+				SpellSprite.show(hero, Asset.FOOD);
 				Sample.INSTANCE.play(Assets.Sounds.EAT);
 				GLog.i( Messages.get(this, "eat") );
 

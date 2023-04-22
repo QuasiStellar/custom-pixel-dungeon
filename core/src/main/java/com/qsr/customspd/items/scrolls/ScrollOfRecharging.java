@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.buffs.Recharging;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.effects.particles.EnergyParticle;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -49,7 +50,7 @@ public class ScrollOfRecharging extends Scroll {
 		Sample.INSTANCE.play( Assets.Sounds.CHARGEUP );
 
 		GLog.i( Messages.get(this, "surge") );
-		SpellSprite.show( curUser, SpellSprite.CHARGE );
+		SpellSprite.show( curUser, Asset.CHARGE );
 		identify();
 
 		readAnimation();

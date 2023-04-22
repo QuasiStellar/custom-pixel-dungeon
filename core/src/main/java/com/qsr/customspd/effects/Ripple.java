@@ -22,6 +22,8 @@
 package com.qsr.customspd.effects;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
@@ -33,7 +35,7 @@ public class Ripple extends Image {
 	private float time;
 	
 	public Ripple() {
-		super( Effects.get( Effects.Type.RIPPLE ) );
+		super(new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.RIPPLE)));
 	}
 	
 	public void reset( int p ) {

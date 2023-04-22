@@ -36,6 +36,7 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.HeroIcon;
 import com.watabou.noosa.Image;
@@ -133,7 +134,7 @@ public class Endure extends ArmorAbility {
 			if (damageBonus > 0) {
 				target.sprite.centerEmitter().start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
 				Sample.INSTANCE.play(Assets.Sounds.CHALLENGE);
-				SpellSprite.show(target, SpellSprite.BERSERK);
+				SpellSprite.show(target, Asset.BERSERK);
 			} else {
 				detach();
 			}

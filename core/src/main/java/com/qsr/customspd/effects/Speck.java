@@ -21,10 +21,10 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.Assets;
+import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.modding.ModManager;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.ColorMath;
 import com.watabou.utils.PointF;
@@ -74,18 +74,11 @@ public class Speck extends Image {
 	private int type;
 	private float lifespan;
 	private float left;
-	
-	private static TextureFilm film;
-	
+
 	private static SparseArray<Emitter.Factory> factories = new SparseArray<>();
 	
 	public Speck() {
 		super();
-		
-		texture( Assets.Effects.SPECKS );
-		if (film == null) {
-			film = new TextureFilm( texture, SIZE, SIZE );
-		}
 		
 		origin.set( SIZE / 2f );
 	}
@@ -105,7 +98,7 @@ public class Speck extends Image {
 
 		return this;
 	}
-	
+
 	public void reset( int index, float x, float y, int type ) {
 		revive();
 		
@@ -113,16 +106,19 @@ public class Speck extends Image {
 		switch (type) {
 		case DISCOVER:
 		case RED_LIGHT:
-			frame( film.get( LIGHT ) );
+		case LIGHT:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.LIGHT));
 			break;
 		case EVOKE:
 		case MASK:
 		case CROWN:
 		case FORGE:
-			frame( film.get( STAR ) );
+		case STAR:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.STAR));
 			break;
 		case RATTLE:
-			frame( film.get( BONE ) );
+		case BONE:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.BONE));
 			break;
 		case JET:
 		case TOXIC:
@@ -135,13 +131,43 @@ public class Speck extends Image {
 		case SMOKE:
 		case BLIZZARD:
 		case INFERNO:
-			frame( film.get( STEAM ) );
+		case STEAM:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.STEAM));
 			break;
 		case CALM:
-			frame( film.get( SCREAM ) );
+		case SCREAM:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.SCREAM));
 			break;
-		default:
-			frame( film.get( type ) );
+		case UP:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.UP));
+			break;
+		case BUBBLE:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.BUBBLE));
+			break;
+		case CHANGE:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.CHANGE));
+			break;
+		case COIN:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.COIN));
+			break;
+		case HEALING:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.HEALING));
+			break;
+		case HEART:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.HEART));
+			break;
+		case NOTE:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.NOTE));
+			break;
+		case QUESTION:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.QUESTION));
+			break;
+		case ROCK:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.ROCK));
+			break;
+		case WOOL:
+			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.WOOL));
+			break;
 		}
 		
 		this.x = x - origin.x;

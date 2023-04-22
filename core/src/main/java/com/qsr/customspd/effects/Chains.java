@@ -44,14 +44,14 @@ public class Chains extends Group {
 
 	private PointF from, to;
 
-	public Chains(int from, int to, Effects.Type type, Callback callback){
+	public Chains(int from, int to, Image image, Callback callback){
 		this(DungeonTilemap.tileCenterToWorld(from),
 				DungeonTilemap.tileCenterToWorld(to),
-				type,
+				image,
 				callback);
 	}
 
-	public Chains(PointF from, PointF to, Effects.Type type, Callback callback){
+	public Chains(PointF from, PointF to, Image image, Callback callback){
 		super();
 
 		this.callback = callback;
@@ -72,7 +72,7 @@ public class Chains extends Group {
 
 		chains = new Image[numChains];
 		for (int i = 0; i < chains.length; i++){
-			chains[i] = new Image(Effects.get(type));
+			chains[i] = image;
 			chains[i].angle = rotation;
 			chains[i].origin.set( chains[i].width()/ 2, chains[i].height() );
 			add(chains[i]);
