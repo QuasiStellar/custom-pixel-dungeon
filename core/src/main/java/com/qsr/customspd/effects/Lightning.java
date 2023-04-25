@@ -21,8 +21,8 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.modding.Asset;
-import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.glwrap.Blending;
 import com.watabou.noosa.Game;
@@ -130,13 +130,13 @@ public class Lightning extends Group {
 			start = from;
 			end = to;
 
-			arc1 = new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.LIGHTNING));
+			arc1 = new Image(Asset.getAssetFileHandle(GeneralAsset.LIGHTNING));
 			arc1.x = start.x - arc1.origin.x;
 			arc1.y = start.y - arc1.origin.y;
 			arc1.origin.set( 0, arc1.height()/2 );
 			add( arc1 );
 
-			arc2 = new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.LIGHTNING));
+			arc2 = new Image(Asset.getAssetFileHandle(GeneralAsset.LIGHTNING));
 			arc2.origin.set( 0, arc2.height()/2 );
 			add( arc2 );
 

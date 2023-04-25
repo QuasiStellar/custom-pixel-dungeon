@@ -21,8 +21,8 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.modding.Asset;
-import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.particles.Emitter;
@@ -107,18 +107,18 @@ public class Speck extends Image {
 		case DISCOVER:
 		case RED_LIGHT:
 		case LIGHT:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.LIGHT));
+			texture(Asset.getAssetFileHandle(GeneralAsset.LIGHT));
 			break;
 		case EVOKE:
 		case MASK:
 		case CROWN:
 		case FORGE:
 		case STAR:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.STAR));
+			texture(Asset.getAssetFileHandle(GeneralAsset.STAR));
 			break;
 		case RATTLE:
 		case BONE:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.BONE));
+			texture(Asset.getAssetFileHandle(GeneralAsset.BONE));
 			break;
 		case JET:
 		case TOXIC:
@@ -132,41 +132,41 @@ public class Speck extends Image {
 		case BLIZZARD:
 		case INFERNO:
 		case STEAM:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.STEAM));
+			texture(Asset.getAssetFileHandle(GeneralAsset.STEAM));
 			break;
 		case CALM:
 		case SCREAM:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.SCREAM));
+			texture(Asset.getAssetFileHandle(GeneralAsset.SCREAM));
 			break;
 		case UP:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.UP));
+			texture(Asset.getAssetFileHandle(GeneralAsset.UP));
 			break;
 		case BUBBLE:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.BUBBLE));
+			texture(Asset.getAssetFileHandle(GeneralAsset.BUBBLE));
 			break;
 		case CHANGE:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.CHANGE));
+			texture(Asset.getAssetFileHandle(GeneralAsset.CHANGE));
 			break;
 		case COIN:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.COIN));
+			texture(Asset.getAssetFileHandle(GeneralAsset.COIN));
 			break;
 		case HEALING:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.HEALING));
+			texture(Asset.getAssetFileHandle(GeneralAsset.HEALING));
 			break;
 		case HEART:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.HEART));
+			texture(Asset.getAssetFileHandle(GeneralAsset.HEART));
 			break;
 		case NOTE:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.NOTE));
+			texture(Asset.getAssetFileHandle(GeneralAsset.NOTE));
 			break;
 		case QUESTION:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.QUESTION));
+			texture(Asset.getAssetFileHandle(GeneralAsset.QUESTION));
 			break;
 		case ROCK:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.ROCK));
+			texture(Asset.getAssetFileHandle(GeneralAsset.ROCK));
 			break;
 		case WOOL:
-			texture(ModManager.INSTANCE.getAssetFileHandle(Asset.WOOL));
+			texture(Asset.getAssetFileHandle(GeneralAsset.WOOL));
 			break;
 		}
 		

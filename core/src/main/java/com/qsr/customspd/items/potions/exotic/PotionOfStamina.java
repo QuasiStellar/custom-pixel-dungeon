@@ -25,7 +25,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Stamina;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.SpellSprite;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class PotionOfStamina extends ExoticPotion {
@@ -39,7 +39,7 @@ public class PotionOfStamina extends ExoticPotion {
 		identify();
 		
 		Buff.affect(hero, Stamina.class, Stamina.DURATION);
-		SpellSprite.show(hero, Asset.HASTE, 0.5f, 1, 0.5f);
+		SpellSprite.show(hero, GeneralAsset.HASTE, 0.5f, 1, 0.5f);
 	}
 	
 }

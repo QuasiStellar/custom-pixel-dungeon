@@ -21,6 +21,8 @@
 
 package com.qsr.customspd;
 
+import com.qsr.customspd.modding.TileMapCompilationManager;
+import com.qsr.customspd.modding.TileMapCompiler;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.scenes.TitleScene;
@@ -35,14 +37,19 @@ public class ShatteredPixelDungeon extends Game {
 
 	public static final int LAST_SUPPORTED_SAVES_VERSION = 1;
 	public static final int v2_0_0_0_1 = 1;
+
+	public static TileMapCompiler tileMapCompiler;
 	
-	public ShatteredPixelDungeon( PlatformSupport platform ) {
+	public ShatteredPixelDungeon(PlatformSupport platform, TileMapCompiler compiler) {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
+		tileMapCompiler = compiler;
 	}
 	
 	@Override
 	public void create() {
 		super.create();
+
+		TileMapCompilationManager.compileTileMaps();
 
 		updateSystemUI();
 		SPDAction.loadBindings();

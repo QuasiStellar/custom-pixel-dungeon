@@ -31,7 +31,7 @@ import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
@@ -94,7 +94,7 @@ public class PotionOfPurity extends Potion {
 	public void apply( Hero hero ) {
 		GLog.w( Messages.get(this, "protected") );
 		Buff.prolong( hero, BlobImmunity.class, BlobImmunity.DURATION );
-		SpellSprite.show(hero, Asset.PURITY);
+		SpellSprite.show(hero, GeneralAsset.PURITY);
 		identify();
 	}
 	

@@ -31,6 +31,7 @@ import com.qsr.customspd.effects.BannerSprites;
 import com.qsr.customspd.effects.Fireball;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.services.news.News;
 import com.qsr.customspd.services.updates.AvailableUpdateData;
 import com.qsr.customspd.services.updates.Updates;
@@ -40,6 +41,7 @@ import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
+import com.qsr.customspd.windows.WndMessage;
 import com.qsr.customspd.windows.WndMods;
 import com.qsr.customspd.windows.WndOptions;
 import com.qsr.customspd.windows.WndSettings;
@@ -311,6 +313,10 @@ public class TitleScene extends PixelScene {
 						if (index == 0) {
 							Updates.launchUpdate(Updates.updateData());
 						} else if (index == 1){
+							if (TileMapCompilationManager.INSTANCE.isBusy()) {
+								ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+								return;
+							}
 							ChangesScene.changesSelected = 0;
 							ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
 						}
@@ -318,6 +324,10 @@ public class TitleScene extends PixelScene {
 				});
 
 			} else {
+				if (TileMapCompilationManager.INSTANCE.isBusy()) {
+					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+					return;
+				}
 				ChangesScene.changesSelected = 0;
 				ShatteredPixelDungeon.switchNoFade( ChangesScene.class );
 			}

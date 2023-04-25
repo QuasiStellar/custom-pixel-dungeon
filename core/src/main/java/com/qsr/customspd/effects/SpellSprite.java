@@ -22,8 +22,8 @@
 package com.qsr.customspd.effects;
 
 import com.qsr.customspd.actors.Char;
-import com.qsr.customspd.modding.Asset;
-import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
@@ -59,8 +59,8 @@ public class SpellSprite extends Image {
 	
 	private static HashMap<Char,SpellSprite> all = new HashMap<>();
 
-	public void reset( Asset asset ) {
-		texture( ModManager.INSTANCE.getAssetFileHandle(asset) );
+	public void reset(GeneralAsset asset ) {
+		texture( Asset.getAssetFileHandle(asset) );
 		origin.set( width / 2, height / 2 );
 		
 		phase = Phase.FADE_IN;
@@ -119,11 +119,11 @@ public class SpellSprite extends Image {
 		all.remove( target );
 	}
 	
-	public static void show( Char ch, Asset asset ) {
+	public static void show(Char ch, GeneralAsset asset ) {
 		show(ch, asset, 1, 1, 1);
 	}
 	
-	public static void show( Char ch, Asset asset, float r, float g, float b ) {
+	public static void show(Char ch, GeneralAsset asset, float r, float g, float b ) {
 		
 		if (!ch.sprite.visible) {
 			return;

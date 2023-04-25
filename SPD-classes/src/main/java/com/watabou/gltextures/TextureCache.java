@@ -161,7 +161,7 @@ public class TextureCache {
 					return new Pixmap(modded);
 				}
 
-				FileHandle external = FileUtils.getFileHandle(Files.FileType.External, (String) src);
+				FileHandle external = FileUtils.getFileHandle((String) src);
 				return new Pixmap(external);
 
 			} else if (src instanceof Pixmap) {

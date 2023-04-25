@@ -35,12 +35,15 @@ import com.qsr.customspd.effects.BannerSprites;
 import com.qsr.customspd.effects.Fireball;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.windows.WndError;
 import com.qsr.customspd.windows.WndHardNotification;
+import com.qsr.customspd.windows.WndMessage;
+import com.qsr.customspd.windows.WndMods;
 import com.watabou.glwrap.Blending;
 import com.watabou.input.ControllerHandler;
 import com.watabou.noosa.Camera;
@@ -168,6 +171,10 @@ public class WelcomeScene extends PixelScene {
 				@Override
 				protected void onClick() {
 					super.onClick();
+					if (TileMapCompilationManager.INSTANCE.isBusy()) {
+						ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+						return;
+					}
 					updateVersion(previousVersion);
 					ShatteredPixelDungeon.switchScene(ChangesScene.class);
 				}

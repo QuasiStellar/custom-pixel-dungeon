@@ -28,11 +28,11 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.HeroAction;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
-import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.ui.ActionIndicator;
@@ -253,7 +253,7 @@ public class Preparation extends Buff implements ActionIndicator.Action {
 	
 	@Override
 	public Image actionIcon() {
-		Image actionIco = new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.WOUND));
+		Image actionIco = new Image(Asset.getAssetFileHandle(GeneralAsset.WOUND));
 		tintIcon(actionIco);
 		return actionIco;
 	}

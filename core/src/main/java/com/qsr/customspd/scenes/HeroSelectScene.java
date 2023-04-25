@@ -30,6 +30,7 @@ import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
@@ -37,6 +38,7 @@ import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
+import com.qsr.customspd.windows.WndMods;
 import com.qsr.customspd.windows.WndOptions;
 import com.qsr.customspd.windows.WndTextInput;
 import com.qsr.customspd.utils.DungeonSeed;
@@ -131,6 +133,10 @@ public class HeroSelectScene extends PixelScene {
 			@Override
 			protected void onClick() {
 				super.onClick();
+				if (TileMapCompilationManager.INSTANCE.isBusy()) {
+					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+					return;
+				}
 
 				if (GamesInProgress.selectedClass == null) return;
 
@@ -647,6 +653,11 @@ public class HeroSelectScene extends PixelScene {
 							@Override
 							protected void onSelect(int index) {
 								if (index == 0){
+									if (TileMapCompilationManager.INSTANCE.isBusy()) {
+										ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+										return;
+									}
+
 									if (diff <= 0) {
 										long time = Game.realTime - (Game.realTime % DAY);
 

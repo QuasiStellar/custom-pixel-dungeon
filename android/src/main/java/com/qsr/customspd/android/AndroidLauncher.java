@@ -139,7 +139,7 @@ public class AndroidLauncher extends AndroidApplication {
 
 		Button.longClick = ViewConfiguration.getLongPressTimeout()/1000f;
 		
-		initialize(new ShatteredPixelDungeon(support), config);
+		initialize(new ShatteredPixelDungeon(support, new AndroidTileMapCompiler()), config);
 		
 	}
 

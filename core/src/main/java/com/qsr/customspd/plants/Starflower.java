@@ -29,7 +29,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.SpellSprite;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class Starflower extends Plant {
@@ -47,7 +47,7 @@ public class Starflower extends Plant {
 			new Flare( 6, 32 ).color(0xFFFF00, true).show( ch.sprite, 2f );
 			if (ch instanceof Hero && ((Hero) ch).subClass == HeroSubClass.WARDEN){
 				Buff.prolong(ch, Recharging.class, Recharging.DURATION);
-				SpellSprite.show( ch, Asset.CHARGE );
+				SpellSprite.show( ch, GeneralAsset.CHARGE );
 			}
 		}
 

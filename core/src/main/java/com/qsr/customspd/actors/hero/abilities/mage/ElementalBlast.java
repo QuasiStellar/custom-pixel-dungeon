@@ -72,7 +72,7 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.mechanics.ConeAOE;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.HeroIcon;
@@ -371,7 +371,7 @@ public class ElementalBlast extends ArmorAbility {
 						//*** Wand of Magic Missile ***
 						if (finalWandCls == WandOfMagicMissile.class) {
 							Buff.affect(hero, Recharging.class, effectMulti* Recharging.DURATION / 2f);
-							SpellSprite.show( hero, Asset.CHARGE );
+							SpellSprite.show( hero, GeneralAsset.CHARGE );
 
 						//*** Wand of Living Earth ***
 						} else if (finalWandCls == WandOfLivingEarth.class && charsHit > 0){

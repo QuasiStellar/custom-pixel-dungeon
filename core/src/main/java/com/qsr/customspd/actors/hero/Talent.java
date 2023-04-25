@@ -65,7 +65,7 @@ import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
@@ -433,7 +433,7 @@ public enum Talent {
 			//5/8 turns of recharging
 			Buff.prolong( hero, Recharging.class, 2 + 3*(hero.pointsInTalent(ENERGIZING_MEAL)) );
 			ScrollOfRecharging.charge( hero );
-			SpellSprite.show(hero, Asset.CHARGE);
+			SpellSprite.show(hero, GeneralAsset.CHARGE);
 		}
 		if (hero.hasTalent(MYSTICAL_MEAL)){
 			//3/5 turns of recharging
@@ -442,7 +442,7 @@ public enum Talent {
 				Buff.affect( hero, ArtifactRecharge.class).set(1 + 2*(hero.pointsInTalent(MYSTICAL_MEAL))).ignoreHornOfPlenty = foodSource instanceof HornOfPlenty;
 			}
 			ScrollOfRecharging.charge( hero );
-			SpellSprite.show(hero, Asset.CHARGE, 0, 1, 1);
+			SpellSprite.show(hero, GeneralAsset.CHARGE, 0, 1, 1);
 		}
 		if (hero.hasTalent(INVIGORATING_MEAL)){
 			//effectively 1/2 turns of haste
@@ -552,7 +552,7 @@ public enum Talent {
 				if (staff != null) {
 					staff.gainCharge(2 + 2 * hero.pointsInTalent(ENERGIZING_UPGRADE), true);
 					ScrollOfRecharging.charge(Dungeon.hero);
-					SpellSprite.show(hero, Asset.CHARGE);
+					SpellSprite.show(hero, GeneralAsset.CHARGE);
 				}
 			} else {
 				Buff.affect(hero, Recharging.class, 4 + 8 * hero.pointsInTalent(ENERGIZING_UPGRADE));
@@ -564,12 +564,12 @@ public enum Talent {
 				if (cloak != null) {
 					cloak.overCharge(1 + hero.pointsInTalent(MYSTICAL_UPGRADE));
 					ScrollOfRecharging.charge(Dungeon.hero);
-					SpellSprite.show(hero, Asset.CHARGE, 0, 1, 1);
+					SpellSprite.show(hero, GeneralAsset.CHARGE, 0, 1, 1);
 				}
 			} else {
 				Buff.affect(hero, ArtifactRecharge.class).set( 2 + 4*hero.pointsInTalent(MYSTICAL_UPGRADE) ).ignoreHornOfPlenty = false;
 				ScrollOfRecharging.charge(Dungeon.hero);
-				SpellSprite.show(hero, Asset.CHARGE, 0, 1, 1);
+				SpellSprite.show(hero, GeneralAsset.CHARGE, 0, 1, 1);
 			}
 		}
 	}

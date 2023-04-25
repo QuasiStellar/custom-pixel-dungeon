@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.BrokenSeal.WarriorShield;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.BuffIcon;
@@ -183,7 +183,7 @@ public class Berserk extends Buff implements ActionIndicator.Action {
 
 	private void startBerserking(){
 		state = State.BERSERK;
-		SpellSprite.show(target, Asset.BERSERK);
+		SpellSprite.show(target, GeneralAsset.BERSERK);
 		Sample.INSTANCE.play( Assets.Sounds.CHALLENGE );
 		GameScene.flash(0xFF0000);
 

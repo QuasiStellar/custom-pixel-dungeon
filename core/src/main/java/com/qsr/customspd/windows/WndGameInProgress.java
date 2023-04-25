@@ -27,6 +27,7 @@ import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.scenes.InterlevelScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.scenes.StartScene;
@@ -117,6 +118,10 @@ public class WndGameInProgress extends Window {
 			@Override
 			protected void onClick() {
 				super.onClick();
+				if (TileMapCompilationManager.INSTANCE.isBusy()) {
+					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
+					return;
+				}
 				
 				GamesInProgress.curSlot = slot;
 				

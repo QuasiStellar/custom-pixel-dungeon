@@ -21,9 +21,8 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.Assets;
-import com.qsr.customspd.modding.Asset;
-import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.glwrap.Blending;
 import com.watabou.glwrap.Texture;
 import com.watabou.noosa.Game;
@@ -34,7 +33,6 @@ import com.watabou.noosa.particles.PixelParticle;
 import com.watabou.noosa.ui.Component;
 import com.watabou.utils.ColorMath;
 import com.watabou.utils.Random;
-import com.watabou.utils.RectF;
 
 public class Fireball extends Component {
 
@@ -51,7 +49,7 @@ public class Fireball extends Component {
 		sparks = new Group();
 		add( sparks );
 		
-		bLight = new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.B_LIGHT));
+		bLight = new Image(Asset.getAssetFileHandle(GeneralAsset.B_LIGHT));
 		bLight.origin.set( bLight.width / 2 );
 		bLight.angularSpeed = -90;
 		add( bLight );
@@ -69,7 +67,7 @@ public class Fireball extends Component {
 		}, 0.1f );
 		add( emitter );
 		
-		fLight = new Image(ModManager.INSTANCE.getAssetFileHandle(Asset.F_LIGHT));
+		fLight = new Image(Asset.getAssetFileHandle(GeneralAsset.F_LIGHT));
 		fLight.origin.set( fLight.width / 2 );
 		fLight.angularSpeed = 360;
 		add( fLight );
@@ -130,8 +128,8 @@ public class Fireball extends Component {
 			
 			super(
 				new Image(Random.Int( 2 ) == 0
-					? ModManager.INSTANCE.getAssetFileHandle(Asset.FLAME1)
-					: ModManager.INSTANCE.getAssetFileHandle(Asset.FLAME2))
+					? Asset.getAssetFileHandle(GeneralAsset.FLAME1)
+					: Asset.getAssetFileHandle(GeneralAsset.FLAME2))
 			);
 			
 			origin.set( width / 2, height / 2 );

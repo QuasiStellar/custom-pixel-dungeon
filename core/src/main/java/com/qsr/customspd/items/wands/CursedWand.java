@@ -61,7 +61,7 @@ import com.qsr.customspd.levels.traps.SummoningTrap;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.InterlevelScene;
@@ -251,7 +251,7 @@ public class CursedWand {
 				new ShockingTrap().set( user.pos ).activate();
 				Buff.prolong(user, Recharging.class, Recharging.DURATION);
 				ScrollOfRecharging.charge(user);
-				SpellSprite.show(user, Asset.CHARGE);
+				SpellSprite.show(user, GeneralAsset.CHARGE);
 				return true;
 		}
 

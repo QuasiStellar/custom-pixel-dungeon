@@ -22,7 +22,7 @@ import kotlinx.serialization.json.Json
 
 object ModManager {
 
-    private const val STORAGE = "MODS"
+    const val STORAGE = "MODS"
 
     private const val MOD_INFO_FILE = "mod_info.json"
 
@@ -45,12 +45,12 @@ object ModManager {
     private val _downloadedMods: MutableStateFlow<Set<String>> = MutableStateFlow(emptySet())
     val downloadedMods: StateFlow<Set<String>> = _downloadedMods
 
-    fun getAssetFileHandle(asset: Asset): String {
-        enabledModNames.forEach {
-            val path = "$SLASH$it$SLASH${asset.path.replace('/', SLASH)}"
+    fun getAssetFileHandle(assetPath: String): String {
+        lazyEnabledModNames.forEach {
+            val path = "$SLASH$it$SLASH${assetPath.replace('/', SLASH)}"
             if (getFileHandle(path).exists()) return "$STORAGE$SLASH$path"
         }
-        return asset.path
+        return assetPath
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -117,15 +117,11 @@ object ModManager {
 
     fun getEnabledMods(): List<Mod> = getEnabledModsWithoutSaving().also { saveToEnabled(it) }
 
-    fun isEnabled(mod: Mod): Boolean = mod.info.name in getEnabledMods().map { it.info.name }
+    fun isEnabled(mod: Mod): Boolean = mod.info.name in lazyEnabledModNames.map { it }
 
-    fun enableMod(modName: String) = saveToEnabled(
-        arrayOf(modName) + enabledModNames
-    )
+    fun enableMod(modName: String) = saveToEnabled(arrayOf(modName) + enabledModNames())
 
-    fun disableMod(modName: String) = saveToEnabled(
-        (enabledModNames.toList() - modName).toTypedArray()
-    )
+    fun disableMod(modName: String) = saveToEnabled((enabledModNames().toList() - modName).toTypedArray())
 
     private fun saveToEnabled(mods: List<Mod>) = saveToEnabled(
         mods.map { it.info.name }.toTypedArray()
@@ -134,17 +130,22 @@ object ModManager {
     private fun saveToEnabled(modNames: Array<String>) = FileUtils.bundleToFile(
         ENABLED_MODS_FILE,
         Bundle().apply { put(ENABLED_MODS, modNames) }
-    )
+    ).also { _lazyEnabledModNames = null }
 
     private fun getEnabledModsWithoutSaving(): List<Mod> =
         if (FileUtils.getFileHandle(ENABLED_MODS_FILE).exists())
             getInstalledMods().filter {
-                it.info.name in enabledModNames
-            }.sortedBy { enabledModNames.indexOf(it.info.name) }
+                it.info.name in lazyEnabledModNames
+            }.sortedBy { lazyEnabledModNames.indexOf(it.info.name) }
         else emptyList()
 
-    private val enabledModNames
-        get() = FileUtils.bundleFromFile(ENABLED_MODS_FILE).getStringArray(ENABLED_MODS)
+    private var _lazyEnabledModNames: Array<String>? = null
+    private val lazyEnabledModNames get() = _lazyEnabledModNames ?: enabledModNames().also { _lazyEnabledModNames = it }
+
+    private fun enabledModNames() = if (FileUtils.getFileHandle(ENABLED_MODS_FILE).exists())
+        FileUtils.bundleFromFile(ENABLED_MODS_FILE).getStringArray(ENABLED_MODS)
+    else
+        emptyArray<String>().also { saveToEnabled(emptyArray()) }
 
     private val storage: FileHandle
         get() = FileUtils.getFileHandle(Files.FileType.External, FileUtils.defaultPath, STORAGE).apply { if (!exists()) mkdirs() }

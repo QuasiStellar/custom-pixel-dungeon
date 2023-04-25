@@ -35,7 +35,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.artifacts.Artifact;
 import com.qsr.customspd.items.artifacts.HornOfPlenty;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.modding.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -80,7 +80,7 @@ public class Food extends Item {
 			
 			hero.sprite.operate( hero.pos );
 			hero.busy();
-			SpellSprite.show( hero, Asset.FOOD );
+			SpellSprite.show( hero, GeneralAsset.FOOD );
 			Sample.INSTANCE.play( Assets.Sounds.EAT );
 			
 			hero.spend( eatingTime() );

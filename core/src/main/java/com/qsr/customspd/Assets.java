@@ -24,16 +24,16 @@ package com.qsr.customspd;
 public class Assets {
 
 	public static class Environment {
-		public static final String TERRAIN_FEATURES = "environment/terrain_features.png";
+		public static final String TERRAIN_FEATURES = "temp_terrain_features.png";
 
-		public static final String VISUAL_GRID  = "environment/visual_grid.png";
-		public static final String WALL_BLOCKING= "environment/wall_blocking.png";
+		public static final String VISUAL_GRID  = "temp_visual_grid.png";
+		public static final String WALL_BLOCKING= "temp_wall_blocking.png";
 
-		public static final String TILES_SEWERS = "environment/tiles_sewers.png";
-		public static final String TILES_PRISON = "environment/tiles_prison.png";
-		public static final String TILES_CAVES  = "environment/tiles_caves.png";
-		public static final String TILES_CITY   = "environment/tiles_city.png";
-		public static final String TILES_HALLS  = "environment/tiles_halls.png";
+		public static final String TILES_SEWERS = "temp_tiles_sewers.png";
+		public static final String TILES_PRISON = "temp_tiles_prison.png";
+		public static final String TILES_CAVES  = "temp_tiles_caves.png";
+		public static final String TILES_CITY   = "temp_tiles_city.png";
+		public static final String TILES_HALLS  = "temp_tiles_halls.png";
 
 		public static final String WATER_SEWERS = "environment/water0.png";
 		public static final String WATER_PRISON = "environment/water1.png";

@@ -23,6 +23,7 @@ package com.qsr.customspd.windows
 import com.qsr.customspd.ShatteredPixelDungeon
 import com.qsr.customspd.messages.Messages
 import com.qsr.customspd.modding.ModManager
+import com.qsr.customspd.modding.TileMapCompilationManager
 import com.qsr.customspd.scenes.PixelScene
 import com.qsr.customspd.ui.RenderedTextBlock
 import com.qsr.customspd.ui.ScrollingListPane
@@ -80,12 +81,17 @@ class WndMods : WndTabbed() {
                 marketplaceTab.visible = marketplaceTab.active
                 if (value) {
                     marketplaceTab.updateList()
+                    last_index = 2
                 }
-                if (value) last_index = 1
             }
         })
         layoutTabs()
         select(last_index)
+    }
+
+    override fun hide() {
+        super.hide()
+        TileMapCompilationManager.compileTileMaps()
     }
 
     private class EnabledModsTab : Component() {
