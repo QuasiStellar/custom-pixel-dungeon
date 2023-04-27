@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.mobs.DemonSpawner;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.painters.Painter;
@@ -83,7 +85,7 @@ public class DemonSpawnerRoom extends SpecialRoom {
 	public static class CustomFloor extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 		}
 
 		@Override

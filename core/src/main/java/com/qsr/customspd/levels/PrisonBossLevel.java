@@ -34,6 +34,8 @@ import com.qsr.customspd.actors.blobs.StormCloud;
 import com.qsr.customspd.actors.buffs.Doom;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Tengu;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Heap;
@@ -114,7 +116,7 @@ public class PrisonBossLevel extends Level {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_PRISON;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_PRISON);
 	}
 	
 	private static final String STATE	        = "state";
@@ -839,7 +841,7 @@ public class PrisonBossLevel extends Level {
 	public static class ExitVisual extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.PRISON_EXIT;
+			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_EXIT);
 			
 			tileW = 14;
 			tileH = 11;
@@ -885,7 +887,7 @@ public class PrisonBossLevel extends Level {
 	public static class ExitVisualWalls extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.PRISON_EXIT;
+			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_EXIT);
 			
 			tileW = 14;
 			tileH = 22;

@@ -21,6 +21,8 @@
 
 package com.qsr.customspd;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.NinePatch;
 
 public class Chrome {
@@ -44,37 +46,36 @@ public class Chrome {
 	}
 	
 	public static NinePatch get( Type type ) {
-		String Asset = Assets.Interfaces.CHROME;
 		switch (type) {
 		case WINDOW:
-			return new NinePatch( Asset, 0, 0, 20, 20, 6 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.WINDOW), 6 );
 		case WINDOW_SILVER:
-			return new NinePatch( Asset, 86, 0, 22, 22, 7 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.WINDOW_SILVER), 7 );
 		case TOAST:
-			return new NinePatch( Asset, 20, 0, 9, 9, 4 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TOAST), 4 );
 		case TOAST_TR:
 		case GREY_BUTTON_TR:
-			return new NinePatch( Asset, 20, 9, 9, 9, 4 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TOAST_TR), 4 );
 		case TOAST_WHITE:
-			return new NinePatch( Asset, 29, 0, 9, 9, 4 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TOAST_WHITE), 4 );
 		case RED_BUTTON:
-			return new NinePatch( Asset, 38, 0, 6, 6, 2 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.RED_BUTTON), 2 );
 		case GREY_BUTTON:
-			return new NinePatch( Asset, 38, 6, 6, 6, 2 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.GREY_BUTTON), 2 );
 		case TAG:
-			return new NinePatch( Asset, 22, 18, 16, 14, 3 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TAG), 3 );
 		case GEM:
-			return new NinePatch( Asset, 0, 32, 32, 32, 13 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.GEM), 13 );
 		case SCROLL:
-			return new NinePatch( Asset, 32, 32, 32, 32, 5, 11, 5, 11 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.SCROLL), 5, 11, 5, 11 );
 		case TAB_SET:
-			return new NinePatch( Asset, 64, 0, 20, 20, 6 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TAB_SET), 6 );
 		case TAB_SELECTED:
-			return new NinePatch( Asset, 65, 22, 8, 13, 3, 7, 3, 5 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TAB_SELECTED), 3, 7, 3, 5 );
 		case TAB_UNSELECTED:
-			return new NinePatch( Asset, 75, 22, 8, 13, 3, 7, 3, 5 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.TAB_UNSELECTED), 3, 7, 3, 5 );
 		case BLANK:
-			return new NinePatch( Asset, 45, 0, 1, 1, 0, 0, 0, 0 );
+			return new NinePatch( Asset.getAssetFileHandle(GeneralAsset.BLANK), 0 );
 		default:
 			return null;
 		}

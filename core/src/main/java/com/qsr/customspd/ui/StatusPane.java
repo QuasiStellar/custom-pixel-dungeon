@@ -26,6 +26,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CircleArc;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
@@ -76,8 +78,6 @@ public class StatusPane extends Component {
 	private BusyIndicator busy;
 	private CircleArc counter;
 
-	private static String asset = Assets.Interfaces.STATUS;
-
 	private boolean large;
 
 	public StatusPane( boolean large ){
@@ -85,8 +85,8 @@ public class StatusPane extends Component {
 
 		this.large = large;
 
-		if (large)  bg = new NinePatch( asset, 0, 64, 41, 39, 33, 0, 4, 0 );
-		else        bg = new NinePatch( asset, 0, 0, 128, 36, 85, 0, 45, 0 );
+		if (large)  bg = new NinePatch(Asset.getAssetFileHandle(GeneralAsset.STATUS_BG_LARGE), 33, 0, 4, 0);
+		else        bg = new NinePatch(Asset.getAssetFileHandle(GeneralAsset.STATUS_BG), 85, 0, 45, 0);
 		add( bg );
 
 		heroInfo = new Button(){
@@ -116,17 +116,17 @@ public class StatusPane extends Component {
 		compass = new Compass( Statistics.amuletObtained ? Dungeon.level.entrance() : Dungeon.level.exit() );
 		add( compass );
 
-		if (large)  rawShielding = new Image(asset, 0, 112, 128, 9);
-		else        rawShielding = new Image(asset, 0, 40, 50, 4);
+		if (large)  rawShielding = new Image(Asset.getAssetFileHandle(GeneralAsset.SHIELD_LARGE));
+		else        rawShielding = new Image(Asset.getAssetFileHandle(GeneralAsset.SHIELD));
 		rawShielding.alpha(0.5f);
 		add(rawShielding);
 
-		if (large)  shieldedHP = new Image(asset, 0, 112, 128, 9);
-		else        shieldedHP = new Image(asset, 0, 40, 50, 4);
+		if (large)  shieldedHP = new Image(Asset.getAssetFileHandle(GeneralAsset.SHIELD_LARGE));
+		else        shieldedHP = new Image(Asset.getAssetFileHandle(GeneralAsset.SHIELD));
 		add(shieldedHP);
 
-		if (large)  hp = new Image(asset, 0, 103, 128, 9);
-		else        hp = new Image(asset, 0, 36, 50, 4);
+		if (large)  hp = new Image(Asset.getAssetFileHandle(GeneralAsset.HP_LARGE));
+		else        hp = new Image(Asset.getAssetFileHandle(GeneralAsset.HP));
 		add( hp );
 
 		hpText = new BitmapText(PixelScene.pixelFont);
@@ -142,8 +142,8 @@ public class StatusPane extends Component {
 		};
 		add(heroInfoOnBar);
 
-		if (large)  exp = new Image(asset, 0, 121, 128, 7);
-		else        exp = new Image(asset, 0, 44, 16, 1);
+		if (large)  exp = new Image(Asset.getAssetFileHandle(GeneralAsset.EXP_LARGE));
+		else        exp = new Image(Asset.getAssetFileHandle(GeneralAsset.EXP));
 		add( exp );
 
 		if (large){

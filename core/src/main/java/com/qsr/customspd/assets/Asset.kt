@@ -7,6 +7,6 @@ interface Asset {
 
     companion object {
         @JvmStatic
-        fun getAssetFileHandle(asset: GeneralAsset) = ModManager.getAssetFileHandle(asset.path)
+        fun getAssetFileHandle(asset: Asset) = ModManager.getAssetFileHandle(asset.path)
     }
 }

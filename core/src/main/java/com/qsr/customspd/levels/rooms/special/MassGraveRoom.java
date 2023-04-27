@@ -21,8 +21,9 @@
 
 package com.qsr.customspd.levels.rooms.special;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.mobs.Skeleton;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Gold;
 import com.qsr.customspd.items.Heap;
@@ -101,7 +102,7 @@ public class MassGraveRoom extends SpecialRoom {
 		private static final int FLOOR          = 7;
 
 		{
-			texture = Assets.Environment.PRISON_QUEST;
+			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_QUEST);
 		}
 
 		@Override

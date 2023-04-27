@@ -22,6 +22,8 @@
 package com.qsr.customspd.levels.rooms.sewerboss;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.rooms.standard.StandardRoom;
 import com.qsr.customspd.tiles.CustomTilemap;
@@ -65,7 +67,7 @@ public abstract class GooBossRoom extends StandardRoom {
 	public static class GooNest extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.SEWER_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.SEWER_BOSS);
 		}
 		
 		@Override

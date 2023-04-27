@@ -24,6 +24,8 @@ package com.qsr.customspd.levels;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.mobs.npcs.Blacksmith;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.painters.CavesPainter;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.rooms.Room;
@@ -101,7 +103,7 @@ public class CavesLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_CAVES;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_CAVES);
 	}
 	
 	@Override

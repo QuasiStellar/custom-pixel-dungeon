@@ -34,20 +34,6 @@ public class Assets {
 		public static final String TILES_CAVES  = "temp_tiles_caves.png";
 		public static final String TILES_CITY   = "temp_tiles_city.png";
 		public static final String TILES_HALLS  = "temp_tiles_halls.png";
-
-		public static final String WATER_SEWERS = "environment/water0.png";
-		public static final String WATER_PRISON = "environment/water1.png";
-		public static final String WATER_CAVES  = "environment/water2.png";
-		public static final String WATER_CITY   = "environment/water3.png";
-		public static final String WATER_HALLS  = "environment/water4.png";
-
-		public static final String WEAK_FLOOR       = "environment/custom_tiles/weak_floor.png";
-		public static final String SEWER_BOSS       = "environment/custom_tiles/sewer_boss.png";
-		public static final String PRISON_QUEST     = "environment/custom_tiles/prison_quests.png";
-		public static final String PRISON_EXIT      = "environment/custom_tiles/prison_exit.png";
-		public static final String CAVES_BOSS       = "environment/custom_tiles/caves_boss.png";
-		public static final String CITY_BOSS        = "environment/custom_tiles/city_boss.png";
-		public static final String HALLS_SP         = "environment/custom_tiles/halls_special.png";
 	}
 	
 	//TODO include other font assets here? Some are platform specific though...
@@ -56,22 +42,11 @@ public class Assets {
 	}
 
 	public static class Interfaces {
-		public static final String ARCS_BG  = "interfaces/arcs1.png";
-		public static final String ARCS_FG  = "interfaces/arcs2.png";
-
-		public static final String BANNERS  = "interfaces/banners.png";
-		public static final String BADGES   = "interfaces/badges.png";
-		public static final String LOCKED   = "interfaces/locked_badge.png";
-
-		public static final String CHROME   = "interfaces/chrome.png";
 		public static final String ICONS    = "interfaces/icons.png";
-		public static final String STATUS   = "interfaces/status_pane.png";
 		public static final String MENU     = "interfaces/menu_pane.png";
 		public static final String MENU_BTN = "interfaces/menu_button.png";
 		public static final String TOOLBAR  = "interfaces/toolbar.png";
 		public static final String SHADOW   = "interfaces/shadow.png";
-		public static final String BOSSHP   = "interfaces/boss_hp.png";
-
 		public static final String SURFACE  = "interfaces/surface.png";
 
 		public static final String LOADING_SEWERS   = "interfaces/loading_sewers.png";

@@ -31,7 +31,8 @@ import com.qsr.customspd.Rankings;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
-import com.qsr.customspd.effects.BannerSprites;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Fireball;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
@@ -106,7 +107,7 @@ public class WelcomeScene extends PixelScene {
 		//darkens the arches
 		add(new ColorBlock(w, h, 0x88000000));
 
-		Image title = BannerSprites.get( BannerSprites.Type.PIXEL_DUNGEON );
+		Image title = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON));
 		add( title );
 
 		float topRegion = Math.max(title.height - 6, h*0.45f);
@@ -119,7 +120,7 @@ public class WelcomeScene extends PixelScene {
 		placeTorch(title.x + 22, title.y + 46);
 		placeTorch(title.x + title.width - 22, title.y + 46);
 
-		Image signs = new Image( BannerSprites.get( BannerSprites.Type.PIXEL_DUNGEON_SIGNS ) ) {
+		Image signs = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
 			private float time = 0;
 			@Override
 			public void update() {

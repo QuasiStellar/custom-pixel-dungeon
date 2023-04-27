@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.features.LevelTransition;
 
 public class DeadEndLevel extends Level {
@@ -43,7 +45,7 @@ public class DeadEndLevel extends Level {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_HALLS;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
 	}
 	
 	@Override

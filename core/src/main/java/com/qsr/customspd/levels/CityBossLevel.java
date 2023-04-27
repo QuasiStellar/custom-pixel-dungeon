@@ -30,6 +30,8 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.DwarfKing;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.Imp;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.levels.features.LevelTransition;
@@ -107,7 +109,7 @@ public class CityBossLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_CITY;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_CITY);
 	}
 
 	private static final String IMP_SHOP = "imp_shop";
@@ -410,7 +412,7 @@ public class CityBossLevel extends Level {
 	public static class CustomGroundVisuals extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.CITY_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.CITY_BOSS);
 			tileW = 15;
 			tileH = 48;
 		}
@@ -595,7 +597,7 @@ public class CityBossLevel extends Level {
 
 	public static class CustomWallVisuals extends CustomTilemap {
 		{
-			texture = Assets.Environment.CITY_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.CITY_BOSS);
 			tileW = 15;
 			tileH = 48;
 		}

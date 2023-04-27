@@ -24,6 +24,8 @@ package com.qsr.customspd.ui;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.BloodParticle;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
@@ -50,8 +52,6 @@ public class BossHealthBar extends Component {
 	private Image skull;
 	private Emitter blood;
 
-	private static String asset = Assets.Interfaces.BOSSHP;
-
 	private static BossHealthBar instance;
 	private static boolean bleeding;
 
@@ -70,20 +70,20 @@ public class BossHealthBar extends Component {
 
 	@Override
 	protected void createChildren() {
-		bar = new Image(asset, 0, 0, 64, 16);
+		bar = new Image(Asset.getAssetFileHandle(GeneralAsset.BOSS_BAR), 0, 0, 64, 16);
 		add(bar);
 
 		width = bar.width;
 		height = bar.height;
 
-		rawShielding = new Image(asset, 15, 25, 47, 4);
+		rawShielding = new Image(Asset.getAssetFileHandle(GeneralAsset.BOSS_SHIELD), 15, 25, 47, 4);
 		rawShielding.alpha(0.5f);
 		add(rawShielding);
 
-		shieldedHP = new Image(asset, 15, 25, 47, 4);
+		shieldedHP = new Image(Asset.getAssetFileHandle(GeneralAsset.BOSS_SHIELD), 15, 25, 47, 4);
 		add(shieldedHP);
 
-		hp = new Image(asset, 15, 19, 47, 4);
+		hp = new Image(Asset.getAssetFileHandle(GeneralAsset.BOSS_HP), 15, 19, 47, 4);
 		add(hp);
 
 		hpText = new BitmapText(PixelScene.pixelFont);
@@ -115,7 +115,7 @@ public class BossHealthBar extends Component {
 			add(buffs);
 		}
 
-		skull = new Image(asset, 5, 18, 6, 6);
+		skull = new Image(Asset.getAssetFileHandle(GeneralAsset.BOSS_SKULL), 5, 18, 6, 6);
 		add(skull);
 
 		blood = new Emitter();

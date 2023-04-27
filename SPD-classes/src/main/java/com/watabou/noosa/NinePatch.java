@@ -45,9 +45,6 @@ public class NinePatch extends Visual {
 	protected int marginRight;
 	protected int marginTop;
 	protected int marginBottom;
-	
-	protected float nWidth;
-	protected float nHeight;
 
 	protected boolean flipHorizontal;
 	protected boolean flipVertical;
@@ -59,22 +56,12 @@ public class NinePatch extends Visual {
 	}
 	
 	public NinePatch( Object tx, int left, int top, int right, int bottom ) {
-		this( tx, 0, 0, 0, 0, left, top, right, bottom );
-	}
-	
-	public NinePatch( Object tx, int x, int y, int w, int h, int margin ) {
-		this( tx, x, y, w, h, margin, margin, margin, margin );
-	}
-	
-	public NinePatch( Object tx, int x, int y, int w, int h, int left, int top, int right, int bottom ) {
 		super( 0, 0, 0, 0 );
 		
 		texture = TextureCache.get( tx );
-		w = w == 0 ? texture.width : w;
-		h = h == 0 ? texture.height : h;
-		
-		nWidth = width = w;
-		nHeight = height = h;
+
+		width = texture.width;
+		height = texture.height;
 		
 		vertices = new float[16];
 		quads = Quad.createSet( 9 );
@@ -84,8 +71,8 @@ public class NinePatch extends Visual {
 		marginTop	= top;
 		marginBottom= bottom;
 		
-		outterF = texture.uvRect( x, y, x + w, y + h );
-		innerF = texture.uvRect( x + left, y + top, x + w - right, y + h - bottom );
+		outterF = texture.uvRect( 0, 0, texture.width, texture.height );
+		innerF = texture.uvRect( left, top, texture.width - right, texture.height - bottom );
 
 		updateVertices();
 	}

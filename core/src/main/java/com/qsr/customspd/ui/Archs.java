@@ -22,6 +22,8 @@
 package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.glwrap.Blending;
 import com.watabou.noosa.Game;
@@ -46,7 +48,7 @@ public class Archs extends Component {
 
 	@Override
 	protected void createChildren() {
-		arcsBg = new SkinnedBlock( 1, 1, Assets.Interfaces.ARCS_BG ){
+		arcsBg = new SkinnedBlock( 1, 1, Asset.getAssetFileHandle(GeneralAsset.ARCS_BG) ){
 			@Override
 			protected NoosaScript script() {
 				return NoosaScriptNoLighting.get();
@@ -64,7 +66,7 @@ public class Archs extends Component {
 		arcsBg.offsetTo( 0,  offsB );
 		add( arcsBg );
 
-		arcsFg = new SkinnedBlock( 1, 1, Assets.Interfaces.ARCS_FG ){
+		arcsFg = new SkinnedBlock( 1, 1, Asset.getAssetFileHandle(GeneralAsset.ARCS_FG) ){
 			@Override
 			protected NoosaScript script() {
 				return NoosaScriptNoLighting.get();

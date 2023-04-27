@@ -104,7 +104,7 @@ public class v0_6_X_Changes {
 				"_-_ Bulk curse makes armor large, slowing movement through doorways.\n" +
 				"_-_ Overgrowth curse causes random plant effects when you are struck."));
 		
-		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.CHAMPION_3.image), "New and Changed Badges",
+		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.CHAMPION_3.asset), "New and Changed Badges",
 				"_-_ Added badges for winning with 3 challenges at once and 6 challenges at once.\n\n" +
 				"_-_ 'Death by glyph' badge is now 'death by deferred damage'.\n\n" +
 				"_-_ Removed rare monster slayer badge."));
@@ -703,7 +703,7 @@ public class v0_6_X_Changes {
 				"_-_ Added a completely overhauled tutorial experience, which replaces the existing signpost system.\n\n" +
 				"_-_ Massively expanded the items catalog, now contains every identifiable item in the game."));
 		
-		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.ALL_ITEMS_IDENTIFIED.image), "Badge Changes",
+		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.ALL_ITEMS_IDENTIFIED.asset), "Badge Changes",
 				"_-_ Added new badges for identifying all weapons, armor, wands, and artifacts.\n\n" +
 				"_-_ All identification-based badges are now tied to the new item list system, and progress for them will persist between runs.\n\n" +
 				"_-_ Removed the Night Hunter badge\n\n" +

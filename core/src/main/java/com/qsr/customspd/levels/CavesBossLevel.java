@@ -33,6 +33,8 @@ import com.qsr.customspd.actors.blobs.Electricity;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.DM300;
 import com.qsr.customspd.actors.mobs.Pylon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BlobEmitter;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
@@ -96,7 +98,7 @@ public class CavesBossLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_CAVES;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_CAVES);
 	}
 
 	private static int WIDTH = 33;
@@ -609,7 +611,7 @@ public class CavesBossLevel extends Level {
 	public static class CityEntrance extends CustomTilemap{
 
 		{
-			texture = Assets.Environment.CAVES_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
 		}
 
 		private static short[] entryWay = new short[]{
@@ -657,7 +659,7 @@ public class CavesBossLevel extends Level {
 	public static class EntranceOverhang extends CustomTilemap{
 
 		{
-			texture = Assets.Environment.CAVES_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
 		}
 
 		private static short[] entryWay = new short[]{
@@ -701,7 +703,7 @@ public class CavesBossLevel extends Level {
 	public static class ArenaVisuals extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.CAVES_BOSS;
+			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
 		}
 
 		@Override

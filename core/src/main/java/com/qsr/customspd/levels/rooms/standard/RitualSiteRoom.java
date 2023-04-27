@@ -22,6 +22,8 @@
 package com.qsr.customspd.levels.rooms.standard;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.quest.CeremonialCandle;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
@@ -81,7 +83,7 @@ public class RitualSiteRoom extends StandardRoom {
 	public static class RitualMarker extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.PRISON_QUEST;
+			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_QUEST);
 			
 			tileW = tileH = 3;
 		}

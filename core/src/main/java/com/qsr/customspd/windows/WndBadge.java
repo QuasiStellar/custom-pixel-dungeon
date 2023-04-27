@@ -37,7 +37,7 @@ public class WndBadge extends Window {
 		
 		super();
 		
-		Image icon = BadgeBanner.image( badge.image );
+		Image icon = BadgeBanner.image( badge.asset);
 		icon.scale.set( 2 );
 		if (!unlocked) icon.brightness(0.4f);
 		add( icon );
@@ -78,6 +78,6 @@ public class WndBadge extends Window {
 		PixelScene.align(info);
 		resize( (int)w, (int)(info.bottom() + MARGIN) );
 		
-		if (unlocked) BadgeBanner.highlight( icon, badge.image );
+		if (unlocked) BadgeBanner.highlight( icon, badge.asset);
 	}
 }

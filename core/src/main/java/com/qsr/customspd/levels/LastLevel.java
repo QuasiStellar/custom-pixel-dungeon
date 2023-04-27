@@ -27,6 +27,8 @@ import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Amulet;
 import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.painters.Painter;
@@ -64,7 +66,7 @@ public class LastLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_HALLS;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
 	}
 
 	@Override
@@ -252,7 +254,7 @@ public class LastLevel extends Level {
 	public static class CustomFloor extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 		}
 
 		private static final int[] CANDLES = new int[]{
@@ -323,7 +325,7 @@ public class LastLevel extends Level {
 	public static class CenterPieceVisuals extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 
 			tileW = 16;
 			tileH = 10;
@@ -353,7 +355,7 @@ public class LastLevel extends Level {
 	public static class CenterPieceWalls extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 
 			tileW = 16;
 			tileH = 9;

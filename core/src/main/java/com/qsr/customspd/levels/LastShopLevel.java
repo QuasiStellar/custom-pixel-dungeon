@@ -26,6 +26,8 @@ import com.qsr.customspd.Bones;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.levels.builders.Builder;
@@ -57,7 +59,7 @@ public class LastShopLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_CITY;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_CITY);
 	}
 	
 	@Override

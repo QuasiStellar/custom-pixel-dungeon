@@ -319,7 +319,7 @@ public class v1_X_Changes {
 				"The daily run makes it easy to compete again friends or other folks on the internet, without having to coordinate and share a specific seed.\n\n" +
 				"The game does keep track of your previous daily scores, but at the moment there is no leaderboard. You must win at least once to have access to daily runs."));
 
-		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.HIGH_SCORE_2.image ), "New Score System!",
+		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.HIGH_SCORE_2.asset), "New Score System!",
 				"_The game's scoring system has been overhauled to go along with seeded runs and dailies!_\n\n" +
 				"The score system now factors in a bunch of new criteria like exploration, performance during boss fights, quest completions, and enabled challenges. This should make score a much better measure of player performance.\n\n" +
 				"A score breakdown page has also been added to the rankings screen. This page even works for old games, and retroactively applies the challenge bonus!"));
@@ -336,7 +336,7 @@ public class v1_X_Changes {
 				"_-_ Keyboard and controller key bindings now have separate windows\n" +
 				"_-_ Added a few new key/button bindings actions"));
 
-		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.BOSS_CHALLENGE_5.image ), "New Badges!",
+		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.BOSS_CHALLENGE_5.asset), "New Badges!",
 				"_14 new badges have been added to the game!_\n\n" +
 				"_-_ Five of these badges are 'high score' badges, meant to tie into the new score system.\n" +
 				"_-_ Another five of these badges are 'boss challenge' badges, which each require you to defeat a boss in a particular way.\n" +
@@ -359,7 +359,7 @@ public class v1_X_Changes {
 				"Several talents that were previously exempt from being chosen by the scroll now have alternative effects that let them be used by any hero.\n\n" +
 				"These alternative effects only appear when getting these talents via metamorphosis."));
 
-		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.MONSTERS_SLAIN_5.image ), "Badge Changes",
+		changes.addButton( new ChangeButton(BadgeBanner.image( Badges.Badge.MONSTERS_SLAIN_5.asset), "Badge Changes",
 				"I'm making several changes to existing badges, based on feedback and data from Steam players:\n\n" +
 				"_-_ Several gold tier badges have been bumped up to platinum tier to better reflect their difficulty\n" +
 				"_-_ The 'grim reaper' badge has been bumped up to gold tier, from silver\n\n" +
@@ -503,7 +503,7 @@ public class v1_X_Changes {
 				"_The Master Thieves' Armband has been reworked!_\n\n" +
 				"This rework focuses on giving the armband usefulness outside of shops. You can now use it to steal from enemies as well as shopkeepers, and it gains charge as you gain exp, instead of when you collect gold."));
 
-		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.MONSTERS_SLAIN_5.image), "New Badges!",
+		changes.addButton( new ChangeButton(BadgeBanner.image(Badges.Badge.MONSTERS_SLAIN_5.asset), "New Badges!",
 				"_Badges now have names, and 8 new badges have been added!_\n\n" +
 				"These new badges are all part of the existing series badges (e.g. defeat X enemies), and primarily exist around the gold badge level.\n\n" +
 				"The 'games played' badges have also been adjusted to unlock either on a large number of games played, or a smaller number of games won."));

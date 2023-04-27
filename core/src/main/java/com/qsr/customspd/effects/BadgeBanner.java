@@ -23,6 +23,8 @@ package com.qsr.customspd.effects;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.Game;
@@ -49,28 +51,21 @@ public class BadgeBanner extends Image {
 	private static final float STATIC_TIME		= 1f;
 	private static final float FADE_OUT_TIME	= 1.75f;
 	
-	private int index;
+	private Asset asset;
 	private float time;
-	
-	private static TextureFilm atlas;
-	
+
 	public static ArrayList<BadgeBanner> showing = new ArrayList<>();
 	
-	private BadgeBanner( int index ) {
+	private BadgeBanner( Asset asset ) {
 		
-		super( Assets.Interfaces.BADGES );
+		super( Asset.getAssetFileHandle(asset) );
 		
-		if (atlas == null) {
-			atlas = new TextureFilm( texture, SIZE, SIZE );
-		}
-		
-		setup(index);
+		setup(asset);
 	}
 	
-	public void setup( int index ){
-		this.index = index;
-		
-		frame( atlas.get( index ) );
+	public void setup( Asset asset ){
+		this.asset = asset;
+
 		origin.set( width / 2, height / 2 );
 		
 		alpha( 0 );
@@ -110,7 +105,7 @@ public class BadgeBanner extends Image {
 				state = State.STATIC;
 				scale.set( DEFAULT_SCALE );
 				alpha( 1 );
-				highlight( this, index );
+				highlight( this, asset );
 				break;
 			case STATIC:
 				time = FADE_OUT_TIME;
@@ -137,45 +132,41 @@ public class BadgeBanner extends Image {
 	}
 
 	//map to cache highlight positions so we don't have to keep looking at texture pixels
-	private static HashMap<Integer, Point> highlightPositions = new HashMap<>();
+	private static HashMap<Asset, Point> highlightPositions = new HashMap<>();
 
 	//we also hardcode any special cases
 	static {
-		highlightPositions.put(Badges.Badge.MASTERY_COMBO.image, new Point(3, 7));
+		highlightPositions.put(Badges.Badge.MASTERY_COMBO.asset, new Point(3, 7));
 	}
 
 	//adds a shine to an appropriate pixel on a badge
-	public static void highlight( Image image, int index ) {
+	public static void highlight( Image image, Asset asset ) {
 		
 		PointF p = new PointF();
 
-		if (highlightPositions.containsKey(index)){
-			p.x = highlightPositions.get(index).x * image.scale.x;
-			p.y = highlightPositions.get(index).y * image.scale.y;
+		if (highlightPositions.containsKey(asset)){
+			p.x = highlightPositions.get(asset).x * image.scale.x;
+			p.y = highlightPositions.get(asset).y * image.scale.y;
 		} else {
 
-			SmartTexture tx = TextureCache.get(Assets.Interfaces.BADGES);
+			SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle(asset));
 
 			int size = 16;
 
-			int cols = tx.width / size;
-			int row = index / cols;
-			int col = index % cols;
-
 			int x = 3;
 			int y = 4;
-			int bgColor = tx.getPixel(col * size + x, row * size + y);
+			int bgColor = tx.getPixel(x, y);
 			int curColor = 0;
 
 			for (x = 3; x <= 12; x++) {
-				curColor = tx.getPixel(col * size + x, row * size + y);
+				curColor = tx.getPixel(x, y);
 				if (curColor != bgColor) break;
 			}
 
 			if (curColor == bgColor) {
 				y++;
 				for (x = 3; x <= 12; x++) {
-					curColor = tx.getPixel(col * size + x, row * size + y);
+					curColor = tx.getPixel(x, y);
 					if (curColor != bgColor) break;
 				}
 			}
@@ -183,7 +174,7 @@ public class BadgeBanner extends Image {
 			p.x = x * image.scale.x;
 			p.y = y * image.scale.y;
 
-			highlightPositions.put(index, new Point(x, y));
+			highlightPositions.put(asset, new Point(x, y));
 		}
 
 		p.offset(
@@ -197,8 +188,8 @@ public class BadgeBanner extends Image {
 		image.parent.add( star );
 	}
 	
-	public static BadgeBanner show( int image ) {
-		BadgeBanner banner = new BadgeBanner(image);
+	public static BadgeBanner show( Asset asset ) {
+		BadgeBanner banner = new BadgeBanner(asset);
 		showing.add(banner);
 		return banner;
 	}
@@ -207,12 +198,7 @@ public class BadgeBanner extends Image {
 		return !showing.isEmpty();
 	}
 	
-	public static Image image( int index ) {
-		Image image = new Image( Assets.Interfaces.BADGES );
-		if (atlas == null) {
-			atlas = new TextureFilm( image.texture, 16, 16 );
-		}
-		image.frame( atlas.get( index ) );
-		return image;
+	public static Image image( Asset asset ) {
+		return new Image( Asset.getAssetFileHandle(asset) );
 	}
 }

@@ -41,7 +41,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.DemonSpawner;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Snake;
-import com.qsr.customspd.effects.BannerSprites;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.BlobEmitter;
 import com.qsr.customspd.effects.EmoIcon;
 import com.qsr.customspd.effects.Flare;
@@ -1285,7 +1285,7 @@ public class GameScene extends PixelScene {
 	public static void gameOver() {
 		if (scene == null) return;
 
-		Banner gameOver = new Banner( BannerSprites.get( BannerSprites.Type.GAME_OVER ) );
+		Banner gameOver = new Banner( Asset.getAssetFileHandle(GeneralAsset.GAME_OVER) );
 		gameOver.show( 0x000000, 2f );
 		scene.showBanner( gameOver );
 
@@ -1339,7 +1339,7 @@ public class GameScene extends PixelScene {
 	
 	public static void bossSlain() {
 		if (Dungeon.hero.isAlive()) {
-			Banner bossSlain = new Banner( BannerSprites.get( BannerSprites.Type.BOSS_SLAIN ) );
+			Banner bossSlain = new Banner( Asset.getAssetFileHandle(GeneralAsset.BOSS_SLAIN) );
 			bossSlain.show( 0xFFFFFF, 0.3f, 5f );
 			scene.showBanner( bossSlain );
 			

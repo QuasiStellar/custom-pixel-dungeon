@@ -42,7 +42,7 @@ public class BadgesList extends ScrollPane {
 		
 		for (Badges.Badge badge : Badges.filterReplacedBadges( global )) {
 			
-			if (badge.image == -1) {
+			if (badge.asset == null) {
 				continue;
 			}
 			
@@ -91,7 +91,7 @@ public class BadgesList extends ScrollPane {
 			super();
 			
 			this.badge = badge;
-			icon.copy( BadgeBanner.image( badge.image ));
+			icon.copy( BadgeBanner.image( badge.asset));
 			label.text( badge.title() );
 		}
 		

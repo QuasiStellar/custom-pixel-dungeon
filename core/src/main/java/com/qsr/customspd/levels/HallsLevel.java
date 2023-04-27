@@ -23,6 +23,8 @@ package com.qsr.customspd.levels;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Torch;
 import com.qsr.customspd.levels.painters.HallsPainter;
 import com.qsr.customspd.levels.painters.Painter;
@@ -121,7 +123,7 @@ public class HallsLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_HALLS;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
 	}
 	
 	@Override

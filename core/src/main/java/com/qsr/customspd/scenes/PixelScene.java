@@ -364,7 +364,7 @@ public class PixelScene extends Scene {
 			public void call() {
 				Scene s = Game.scene();
 				if (s != null) {
-					BadgeBanner banner = BadgeBanner.show(badge.image);
+					BadgeBanner banner = BadgeBanner.show(badge.asset);
 					s.add(banner);
 					float offset = Camera.main.centerOffset.y;
 

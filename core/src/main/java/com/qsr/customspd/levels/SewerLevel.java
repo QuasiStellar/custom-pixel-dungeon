@@ -24,6 +24,8 @@ package com.qsr.customspd.levels;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.mobs.npcs.Ghost;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Ripple;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.painters.SewerPainter;
@@ -93,7 +95,7 @@ public class SewerLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_SEWERS;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_SEWERS);
 	}
 	
 	@Override

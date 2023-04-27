@@ -44,7 +44,7 @@ public class BadgesGrid extends Component {
 
 		for (Badges.Badge badge : Badges.filterReplacedBadges( global )) {
 
-			if (badge.image == -1) {
+			if (badge.asset == null) {
 				continue;
 			}
 
@@ -57,7 +57,7 @@ public class BadgesGrid extends Component {
 
 			ArrayList<Badges.Badge> lockedBadges = new ArrayList<>();
 			for (Badges.Badge badge : Badges.Badge.values()) {
-				if (badge.image != -1 && !Badges.isUnlocked(badge)) {
+				if (badge.asset != null && !Badges.isUnlocked(badge)) {
 					lockedBadges.add(badge);
 				}
 			}
@@ -120,7 +120,7 @@ public class BadgesGrid extends Component {
 			this.badge = badge;
 			this.unlocked = unlocked;
 
-			icon = BadgeBanner.image(badge.image);
+			icon = BadgeBanner.image(badge.asset);
 			if (!unlocked) {
 				icon.brightness(0.4f);
 			}
@@ -142,7 +142,7 @@ public class BadgesGrid extends Component {
 			super.update();
 
 			if (unlocked && Random.Float() < Game.elapsed * 0.1) {
-				BadgeBanner.highlight( icon, badge.image );
+				BadgeBanner.highlight( icon, badge.asset);
 			}
 		}
 

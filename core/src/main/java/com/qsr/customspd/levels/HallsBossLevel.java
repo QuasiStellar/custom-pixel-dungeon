@@ -29,6 +29,8 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.YogDzewa;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.effects.particles.FlameParticle;
@@ -90,7 +92,7 @@ public class HallsBossLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_HALLS;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
 	}
 
 	@Override
@@ -347,7 +349,7 @@ public class HallsBossLevel extends Level {
 	public static class CenterPieceVisuals extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 
 			tileW = 9;
 			tileH = 8;
@@ -386,7 +388,7 @@ public class HallsBossLevel extends Level {
 	public static class CenterPieceWalls extends CustomTilemap {
 
 		{
-			texture = Assets.Environment.HALLS_SP;
+			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
 
 			tileW = 9;
 			tileH = 9;

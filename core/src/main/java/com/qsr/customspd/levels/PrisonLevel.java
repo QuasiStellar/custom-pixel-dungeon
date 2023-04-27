@@ -24,6 +24,8 @@ package com.qsr.customspd.levels;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.mobs.npcs.Wandmaker;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.painters.PrisonPainter;
@@ -102,7 +104,7 @@ public class PrisonLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Assets.Environment.WATER_PRISON;
+		return Asset.getAssetFileHandle(GeneralAsset.WATER_PRISON);
 	}
 	
 	@Override
