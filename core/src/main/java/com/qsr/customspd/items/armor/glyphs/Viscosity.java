@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.armor.Armor.Glyph;
 import com.qsr.customspd.messages.Messages;
@@ -36,6 +37,8 @@ import com.qsr.customspd.sprites.ItemSprite.Glowing;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Viscosity extends Glyph {
 	
@@ -138,7 +141,7 @@ public class Viscosity extends Glyph {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.DEFERRED;
 		}
 

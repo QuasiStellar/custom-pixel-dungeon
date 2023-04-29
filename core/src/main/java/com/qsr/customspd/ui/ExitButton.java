@@ -22,16 +22,19 @@
 package com.qsr.customspd.ui;
 
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.TitleScene;
 import com.qsr.customspd.windows.WndKeyBindings;
 import com.watabou.input.GameAction;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
 
 public class ExitButton extends IconButton {
 
 	public ExitButton() {
-		super(Icons.EXIT.get());
+		super(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_EXIT)));
 
 		width = 20;
 		height = 20;

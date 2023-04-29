@@ -24,11 +24,14 @@ package com.qsr.customspd.items.weapon.curses;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class Wayward extends Weapon.Enchantment {
 
@@ -68,7 +71,7 @@ public class Wayward extends Weapon.Enchantment {
 		public static final float DURATION	= 10f;
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.WEAKNESS;
 		}
 

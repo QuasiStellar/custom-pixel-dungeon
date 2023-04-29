@@ -28,6 +28,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.hero.Belongings;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.SparkParticle;
 import com.qsr.customspd.items.Item;
@@ -41,7 +43,6 @@ import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.ItemSlot;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -258,7 +259,7 @@ public class AlchemyScene extends PixelScene {
 		align(energyIcon);
 		add(energyIcon);
 
-		energyAdd = new IconButton(Icons.get(Icons.PLUS)){
+		energyAdd = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PLUS))){
 			@Override
 			protected void onClick() {
 				WndEnergizeItem.openItemSelector();
@@ -653,7 +654,7 @@ public class AlchemyScene extends PixelScene {
 					combine(slot);
 				}
 			};
-			button.icon(Icons.get(Icons.ARROW));
+			button.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)));
 			add(button);
 
 			costText = PixelScene.renderTextBlock(6);

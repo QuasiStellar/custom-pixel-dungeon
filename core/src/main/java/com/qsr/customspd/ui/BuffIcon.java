@@ -23,8 +23,11 @@ package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.assets.Asset;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.TextureFilm;
+
+import kotlin.Pair;
 
 public class BuffIcon extends Image {
 
@@ -37,30 +40,17 @@ public class BuffIcon extends Image {
 	private final boolean large;
 
 	public BuffIcon(Buff buff, boolean large){
-		super( large ? Assets.Interfaces.BUFFS_LARGE : Assets.Interfaces.BUFFS_SMALL );
+		super( Asset.getAssetFileHandle(large ? buff.icon().getSecond() : buff.icon().getFirst()) );
 		this.large = large;
 		refresh(buff);
 	}
 
-	public BuffIcon(int icon, boolean large){
-		super( large ? Assets.Interfaces.BUFFS_LARGE : Assets.Interfaces.BUFFS_SMALL );
+	public BuffIcon(Pair<Asset, Asset> icon, boolean large){
+		super( Asset.getAssetFileHandle(large ? icon.getSecond() : icon.getFirst()) );
 		this.large = large;
-		refresh(icon);
 	}
 
 	public void refresh(Buff buff){
-		refresh(buff.icon());
 		buff.tintIcon(this);
 	}
-
-	public void refresh(int icon){
-		if (large){
-			if (largeFilm == null) largeFilm = new TextureFilm(texture, LRG_SIZE, LRG_SIZE);
-			frame(largeFilm.get(icon));
-		} else {
-			if (smallFilm == null ) smallFilm = new TextureFilm(texture, SML_SIZE, SML_SIZE);
-			frame(smallFilm.get(icon));
-		}
-	}
-
 }

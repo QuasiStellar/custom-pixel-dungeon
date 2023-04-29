@@ -22,10 +22,11 @@
 package com.qsr.customspd.scenes;
 
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.Window;
@@ -72,7 +73,7 @@ public class AboutScene extends PixelScene {
 
 		CreditsBlock shpx = new CreditsBlock(true, Window.SHPX_COLOR,
 				"Shattered Pixel Dungeon",
-				Icons.SHPX.get(),
+				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)),
 				"Developed by: _Evan Debenham_\nBased on Pixel Dungeon's open source",
 				"ShatteredPixel.com",
 				shpxLink);
@@ -85,7 +86,7 @@ public class AboutScene extends PixelScene {
 
 		CreditsBlock alex = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Hero Art & Design:",
-				Icons.ALEKS.get(),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ALEKS)),
 				"Aleksandar Komitov",
 				"alekskomitov.com",
 				"https://www.alekskomitov.com");
@@ -97,18 +98,22 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(alex);
 
+		Image celestiIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CELESTI));
+		celestiIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock charlie = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Sound Effects:",
-				Icons.CELESTI.get(),
+				celestiIcon,
 				"Celesti",
 				"s9menine.itch.io",
 				"https://s9menine.itch.io");
 		charlie.setRect(alex.right(), alex.top(), colWidth/2f, 0);
 		content.add(charlie);
 
+		Image kristjanIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_KRISTJAN));
+		kristjanIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock kristjan = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Music:",
-				Icons.KRISTJAN.get(),
+				kristjanIcon,
 				"Kristjan Haaristo",
 				"youtube.com/user/...",
 				"https://www.youtube.com/channel/UCL1e7SgzSWbD_DQxB_5YcLA");
@@ -120,7 +125,7 @@ public class AboutScene extends PixelScene {
 		final int WATA_COLOR = 0x55AAFF;
 		CreditsBlock wata = new CreditsBlock(true, WATA_COLOR,
 				"Pixel Dungeon",
-				Icons.WATA.get(),
+				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WATA)),
 				"Developed by: _Watabou_\nInspired by Brian Walker's Brogue",
 				"watabou.itch.io",
 				"https://watabou.itch.io/");
@@ -133,9 +138,11 @@ public class AboutScene extends PixelScene {
 
 		addLine(wata.top() - 4, content);
 
+		Image cubecodeIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CUBE_CODE));
+		cubecodeIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock cube = new CreditsBlock(false, WATA_COLOR,
 				"Music:",
-				Icons.CUBE_CODE.get(),
+				cubecodeIcon,
 				"Cube Code",
 				null,
 				null);
@@ -153,7 +160,7 @@ public class AboutScene extends PixelScene {
 		CreditsBlock gdx = new CreditsBlock(true,
 				GDX_COLOR,
 				"libGDX",
-				Icons.LIBGDX.get(),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)),
 				"ShatteredPD is powered by _libGDX_!",
 				"libgdx.com",
 				"https://libgdx.com/");
@@ -166,9 +173,11 @@ public class AboutScene extends PixelScene {
 
 		addLine(gdx.top() - 4, content);
 
+		Image arcnorIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARCNOR));
+		arcnorIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock arcnor = new CreditsBlock(false, GDX_COLOR,
 				"Pixel Dungeon GDX:",
-				Icons.ARCNOR.get(),
+				arcnorIcon,
 				"Edu García",
 				"twitter.com/arcnor",
 				"https://twitter.com/arcnor");
@@ -180,9 +189,11 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(arcnor);
 
+		Image purigroIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PURIGRO));
+		purigroIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock purigro = new CreditsBlock(false, GDX_COLOR,
 				"Shattered GDX Help:",
-				Icons.PURIGRO.get(),
+				purigroIcon,
 				"Kevin MacMartin",
 				"github.com/prurigro",
 				"https://github.com/prurigro/");

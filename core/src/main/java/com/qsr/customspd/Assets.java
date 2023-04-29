@@ -46,23 +46,8 @@ public class Assets {
 		public static final String MENU     = "interfaces/menu_pane.png";
 		public static final String MENU_BTN = "interfaces/menu_button.png";
 		public static final String TOOLBAR  = "interfaces/toolbar.png";
-		public static final String SHADOW   = "interfaces/shadow.png";
 		public static final String SURFACE  = "interfaces/surface.png";
-
-		public static final String LOADING_SEWERS   = "interfaces/loading_sewers.png";
-		public static final String LOADING_PRISON   = "interfaces/loading_prison.png";
-		public static final String LOADING_CAVES    = "interfaces/loading_caves.png";
-		public static final String LOADING_CITY     = "interfaces/loading_city.png";
-		public static final String LOADING_HALLS    = "interfaces/loading_halls.png";
-
-		public static final String BUFFS_SMALL      = "interfaces/buffs.png";
-		public static final String BUFFS_LARGE      = "interfaces/large_buffs.png";
-
-		public static final String TALENT_ICONS     = "interfaces/talent_icons.png";
 		public static final String TALENT_BUTTON    = "interfaces/talent_button.png";
-
-		public static final String HERO_ICONS       = "interfaces/hero_icons.png";
-
 		public static final String RADIAL_MENU      = "interfaces/radial_menu.png";
 	}
 

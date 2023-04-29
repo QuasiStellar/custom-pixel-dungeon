@@ -22,10 +22,13 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 //A magical version of barkskin, essentially
 public class ArcaneArmor extends Buff {
@@ -69,7 +72,7 @@ public class ArcaneArmor extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.ARMOR;
 	}
 	

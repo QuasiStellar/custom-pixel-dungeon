@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -35,6 +36,8 @@ import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Flail extends MeleeWeapon {
 
@@ -134,7 +137,7 @@ public class Flail extends MeleeWeapon {
 		public int spins = 0;
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.DUEL_SPIN;
 		}
 

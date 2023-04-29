@@ -29,6 +29,8 @@ import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.LostInventory;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.Waterskin;
 import com.qsr.customspd.messages.Messages;
@@ -150,7 +152,7 @@ public class QuickSlotButton extends Button {
 		slot.showExtraInfo( false );
 		add( slot );
 		
-		crossB = Icons.TARGET.get();
+		crossB = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET));
 		crossB.visible = false;
 		add( crossB );
 		

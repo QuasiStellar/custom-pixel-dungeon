@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
 import com.qsr.customspd.actors.mobs.*;
 import com.qsr.customspd.actors.mobs.npcs.Shopkeeper;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Amulet;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -36,6 +37,8 @@ import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 
 import java.util.HashMap;
+
+import kotlin.Pair;
 
 public class AscensionChallenge extends Buff {
 
@@ -276,7 +279,7 @@ public class AscensionChallenge extends Buff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.AMULET;
 	}
 

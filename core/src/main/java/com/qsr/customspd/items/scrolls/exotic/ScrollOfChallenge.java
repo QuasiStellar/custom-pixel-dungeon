@@ -25,6 +25,7 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ChallengeParticle;
@@ -41,6 +42,8 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Point;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class ScrollOfChallenge extends ExoticScroll {
 	
@@ -78,7 +81,7 @@ public class ScrollOfChallenge extends ExoticScroll {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.ARMOR;
 		}
 

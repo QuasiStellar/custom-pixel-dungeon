@@ -26,11 +26,13 @@ import com.qsr.customspd.Chrome;
 import com.qsr.customspd.GamesInProgress;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
-import com.qsr.customspd.ui.Icons;
+import com.qsr.customspd.ui.IconUtils;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.windows.WndGameInProgress;
@@ -176,19 +178,19 @@ public class StartScene extends PixelScene {
 					hero = new Image(info.heroClass.spritesheet(), 0, 15*info.armorTier, 12, 15);
 					add(hero);
 					
-					steps = new Image(Icons.get(Icons.STAIRS));
+					steps = new Image(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)));
 					add(steps);
 					depth = new BitmapText(PixelScene.pixelFont);
 					add(depth);
 					
-					classIcon = new Image(Icons.get(info.heroClass));
+					classIcon = new Image(IconUtils.get(info.heroClass));
 					add(classIcon);
 					level = new BitmapText(PixelScene.pixelFont);
 					add(level);
 				} else {
 					hero.copy(new Image(info.heroClass.spritesheet(), 0, 15*info.armorTier, 12, 15));
 					
-					classIcon.copy(Icons.get(info.heroClass));
+					classIcon.copy(IconUtils.get(info.heroClass));
 				}
 				
 				depth.text(Integer.toString(info.depth));

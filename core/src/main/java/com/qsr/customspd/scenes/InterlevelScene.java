@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.scenes;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.GamesInProgress;
@@ -30,6 +29,8 @@ import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.LostBackpack;
 import com.qsr.customspd.levels.Level;
@@ -40,7 +41,6 @@ import com.qsr.customspd.levels.rooms.special.SpecialRoom;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.services.updates.Updates;
 import com.qsr.customspd.ui.GameLog;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
@@ -55,25 +55,25 @@ import com.watabou.noosa.NoosaScript;
 import com.watabou.noosa.NoosaScriptNoLighting;
 import com.watabou.noosa.SkinnedBlock;
 import com.watabou.utils.DeviceCompat;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class InterlevelScene extends PixelScene {
-	
+
 	//slow fade on entering a new region
 	private static final float SLOW_FADE = 1f; //.33 in, 1.33 steady, .33 out, 2 seconds total
 	//norm fade when loading, falling, returning, or descending to a new floor
 	private static final float NORM_FADE = 0.67f; //.33 in, .67 steady, .33 out, 1.33 seconds total
 	//fast fade when ascending, or descending to a floor you've been on
 	private static final float FAST_FADE = 0.50f; //.33 in, .33 steady, .33 out, 1 second total
-	
+
 	private static float fadeTime;
-	
+
 	public enum Mode {
 		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL, RESET, NONE
 	}
+
 	public static Mode mode;
 
 	public static LevelTransition curTransition = null;
@@ -82,15 +82,16 @@ public class InterlevelScene extends PixelScene {
 	public static int returnPos;
 
 	public static boolean fallIntoPit;
-	
+
 	private enum Phase {
 		FADE_IN, STATIC, FADE_OUT
 	}
+
 	private Phase phase;
 	private float timeLeft;
-	
+
 	private RenderedTextBlock message;
-	
+
 	private static Thread thread;
 	private static Exception error = null;
 	private float waitingTime;
@@ -100,11 +101,11 @@ public class InterlevelScene extends PixelScene {
 	{
 		inGameScene = true;
 	}
-	
+
 	@Override
 	public void create() {
 		super.create();
-		
+
 		String loadingAsset;
 		int loadingDepth;
 		final float scrollSpeed;
@@ -128,7 +129,7 @@ public class InterlevelScene extends PixelScene {
 					if (Statistics.deepestFloor >= loadingDepth) {
 						fadeTime = FAST_FADE;
 					} else if (loadingDepth == 6 || loadingDepth == 11
-							|| loadingDepth == 16 || loadingDepth == 21) {
+						|| loadingDepth == 16 || loadingDepth == 21) {
 						fadeTime = SLOW_FADE;
 					}
 				}
@@ -157,34 +158,34 @@ public class InterlevelScene extends PixelScene {
 			lastRegion = region;
 		}
 
-		if      (lastRegion == 1)    loadingAsset = Assets.Interfaces.LOADING_SEWERS;
-		else if (lastRegion == 2)    loadingAsset = Assets.Interfaces.LOADING_PRISON;
-		else if (lastRegion == 3)    loadingAsset = Assets.Interfaces.LOADING_CAVES;
-		else if (lastRegion == 4)    loadingAsset = Assets.Interfaces.LOADING_CITY;
-		else if (lastRegion == 5)    loadingAsset = Assets.Interfaces.LOADING_HALLS;
-		else                         loadingAsset = Assets.Interfaces.SHADOW;
-		
+		if      (lastRegion == 1)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_SEWERS);
+        else if (lastRegion == 2)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_PRISON);
+		else if (lastRegion == 3)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_CAVES);
+		else if (lastRegion == 4)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_CITY);
+		else if (lastRegion == 5)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_HALLS);
+		else                         loadingAsset = Asset.getAssetFileHandle(GeneralAsset.SHADOW);
+
 		//slow down transition when displaying an install prompt
 		if (Updates.isInstallable()){
 			fadeTime += 0.5f; //adds 1 second total
-		//speed up transition when debugging
+			//speed up transition when debugging
 		} else if (DeviceCompat.isDebug()){
 			fadeTime = 0f;
 		}
-		
+
 		SkinnedBlock bg = new SkinnedBlock(Camera.main.width, Camera.main.height, loadingAsset ){
 			@Override
 			protected NoosaScript script() {
 				return NoosaScriptNoLighting.get();
 			}
-			
+
 			@Override
 			public void draw() {
 				Blending.disable();
 				super.draw();
 				Blending.enable();
 			}
-			
+
 			@Override
 			public void update() {
 				super.update();
@@ -194,7 +195,7 @@ public class InterlevelScene extends PixelScene {
 		bg.scale(4, 4);
 		bg.autoAdjust = true;
 		add(bg);
-		
+
 		Image im = new Image(TextureCache.createGradient(0xAA000000, 0xBB000000, 0xCC000000, 0xDD000000, 0xFF000000)){
 			@Override
 			public void update() {
@@ -211,11 +212,11 @@ public class InterlevelScene extends PixelScene {
 		add(im);
 
 		String text = Messages.get(Mode.class, mode.name());
-		
+
 		message = PixelScene.renderTextBlock( text, 9 );
 		message.setPos(
-				(Camera.main.width - message.width()) / 2,
-				(Camera.main.height - message.height()) / 2
+			(Camera.main.width - message.width()) / 2,
+			(Camera.main.height - message.height()) / 2
 		);
 		align(message);
 		add( message );
@@ -237,21 +238,21 @@ public class InterlevelScene extends PixelScene {
 					Updates.launchInstall();
 				}
 			};
-			install.icon(Icons.get(Icons.CHANGES));
+			install.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
 			install.textColor(Window.SHPX_COLOR);
 			install.setSize(install.reqWidth()+5, 20);
 			install.setPos((Camera.main.width - install.width())/2, (Camera.main.height - message.bottom())/3 + message.bottom());
 			add(install);
 		}
-		
+
 		phase = Phase.FADE_IN;
 		timeLeft = fadeTime;
-		
+
 		if (thread == null) {
 			thread = new Thread() {
 				@Override
 				public void run() {
-					
+
 					try {
 
 						if (Dungeon.hero != null){
@@ -282,13 +283,13 @@ public class InterlevelScene extends PixelScene {
 								reset();
 								break;
 						}
-						
+
 					} catch (Exception e) {
-						
+
 						error = e;
-						
+
 					}
-					
+
 					if (phase == Phase.STATIC && error == null) {
 						phase = Phase.FADE_OUT;
 						timeLeft = fadeTime;
@@ -299,72 +300,72 @@ public class InterlevelScene extends PixelScene {
 		}
 		waitingTime = 0f;
 	}
-	
+
 	@Override
 	public void update() {
 		super.update();
 
 		waitingTime += Game.elapsed;
-		
+
 		float p = timeLeft / fadeTime;
-		
+
 		switch (phase) {
-		
-		case FADE_IN:
-			message.alpha( 1 - p );
-			if ((timeLeft -= Game.elapsed) <= 0) {
-				if (!thread.isAlive() && error == null) {
-					phase = Phase.FADE_OUT;
-					timeLeft = fadeTime;
-				} else {
-					phase = Phase.STATIC;
+
+			case FADE_IN:
+				message.alpha( 1 - p );
+				if ((timeLeft -= Game.elapsed) <= 0) {
+					if (!thread.isAlive() && error == null) {
+						phase = Phase.FADE_OUT;
+						timeLeft = fadeTime;
+					} else {
+						phase = Phase.STATIC;
+					}
 				}
-			}
-			break;
-			
-		case FADE_OUT:
-			message.alpha( p );
-			
-			if ((timeLeft -= Game.elapsed) <= 0) {
-				Game.switchScene( GameScene.class );
-				thread = null;
-				error = null;
-			}
-			break;
-			
-		case STATIC:
-			if (error != null) {
-				String errorMsg;
-				if (error instanceof FileNotFoundException)     errorMsg = Messages.get(this, "file_not_found");
-				else if (error instanceof IOException)          errorMsg = Messages.get(this, "io_error");
-				else if (error.getMessage() != null &&
+				break;
+
+			case FADE_OUT:
+				message.alpha( p );
+
+				if ((timeLeft -= Game.elapsed) <= 0) {
+					Game.switchScene( GameScene.class );
+					thread = null;
+					error = null;
+				}
+				break;
+
+			case STATIC:
+				if (error != null) {
+					String errorMsg;
+					if (error instanceof FileNotFoundException)     errorMsg = Messages.get(this, "file_not_found");
+					else if (error instanceof IOException)          errorMsg = Messages.get(this, "io_error");
+					else if (error.getMessage() != null &&
 						error.getMessage().equals("old save")) errorMsg = Messages.get(this, "io_error");
 
-				else throw new RuntimeException("fatal error occured while moving between floors. " +
+					else throw new RuntimeException("fatal error occured while moving between floors. " +
 							"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth, error);
 
-				add( new WndError( errorMsg ) {
-					public void onBackPressed() {
-						super.onBackPressed();
-						Game.switchScene( StartScene.class );
+					add( new WndError( errorMsg ) {
+						public void onBackPressed() {
+							super.onBackPressed();
+							Game.switchScene( StartScene.class );
+						}
+					} );
+					thread = null;
+					error = null;
+				} else if (thread != null && (int)waitingTime == 10){
+					waitingTime = 11f;
+					String s = "";
+					for (StackTraceElement t : thread.getStackTrace()){
+						s += "\n";
+						s += t.toString();
 					}
-				} );
-				thread = null;
-				error = null;
-			} else if (thread != null && (int)waitingTime == 10){
-				waitingTime = 11f;
-				String s = "";
-				for (StackTraceElement t : thread.getStackTrace()){
-					s += "\n";
-					s += t.toString();
-				}
-				ShatteredPixelDungeon.reportException(
+					ShatteredPixelDungeon.reportException(
 						new RuntimeException("waited more than 10 seconds on levelgen. " +
-								"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth + " trace:" +
-								s)
-				);
-			}
-			break;
+							"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth + " trace:" +
+							s)
+					);
+				}
+				break;
 		}
 	}
 
@@ -400,9 +401,9 @@ public class InterlevelScene extends PixelScene {
 
 	//TODO atm falling always just increments depth by 1, do we eventually want to roll it into the transition system?
 	private void fall() throws IOException {
-		
+
 		Mob.holdAllies( Dungeon.level );
-		
+
 		Buff.affect( Dungeon.hero, Chasm.Falling.class );
 		Dungeon.saveAll();
 
@@ -415,9 +416,9 @@ public class InterlevelScene extends PixelScene {
 		}
 		Dungeon.switchLevel( level, level.fallCell( fallIntoPit ));
 	}
-	
+
 	private void ascend() throws IOException {
-		
+
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
@@ -429,9 +430,9 @@ public class InterlevelScene extends PixelScene {
 		curTransition = null;
 		Dungeon.switchLevel( level, destTransition.cell() );
 	}
-	
+
 	private void returnTo() throws IOException {
-		
+
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
@@ -440,9 +441,9 @@ public class InterlevelScene extends PixelScene {
 		Level level = Dungeon.loadLevel( GamesInProgress.curSlot );
 		Dungeon.switchLevel( level, returnPos );
 	}
-	
+
 	private void restore() throws IOException {
-		
+
 		Mob.clearHeldAllies();
 
 		GameLog.wipe();
@@ -456,9 +457,9 @@ public class InterlevelScene extends PixelScene {
 			Dungeon.switchLevel( level, Dungeon.hero.pos );
 		}
 	}
-	
+
 	private void resurrect() {
-		
+
 		Mob.holdAllies( Dungeon.level );
 
 		Level level;
@@ -490,10 +491,10 @@ public class InterlevelScene extends PixelScene {
 				Dungeon.hero.pos = level.randomRespawnCell(Dungeon.hero);
 				tries++;
 
-			//prevents spawning on traps or plants, prefers farther locations first
+				//prevents spawning on traps or plants, prefers farther locations first
 			} while (level.traps.get(Dungeon.hero.pos) != null
-					|| (level.plants.get(Dungeon.hero.pos) != null && tries < 500)
-					|| level.trueDistance(invPos, Dungeon.hero.pos) <= 30 - (tries/10));
+				|| (level.plants.get(Dungeon.hero.pos) != null && tries < 500)
+				|| level.trueDistance(invPos, Dungeon.hero.pos) <= 30 - (tries/10));
 
 			//directly trample grass
 			if (level.map[Dungeon.hero.pos] == Terrain.HIGH_GRASS || level.map[Dungeon.hero.pos] == Terrain.FURROWED_GRASS){
@@ -507,7 +508,7 @@ public class InterlevelScene extends PixelScene {
 	}
 
 	private void reset() throws IOException {
-		
+
 		Mob.holdAllies( Dungeon.level );
 
 		SpecialRoom.resetPitRoom(Dungeon.depth+1);
@@ -515,7 +516,7 @@ public class InterlevelScene extends PixelScene {
 		Level level = Dungeon.newLevel();
 		Dungeon.switchLevel( level, level.entrance() );
 	}
-	
+
 	@Override
 	protected void onBackPressed() {
 		//Do nothing

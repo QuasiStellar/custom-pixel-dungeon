@@ -23,9 +23,12 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class WellFed extends Buff {
 
@@ -61,7 +64,7 @@ public class WellFed extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.WELL_FED;
 	}
 

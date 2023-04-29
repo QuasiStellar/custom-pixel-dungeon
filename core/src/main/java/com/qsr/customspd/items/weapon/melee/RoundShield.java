@@ -27,9 +27,12 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class RoundShield extends MeleeWeapon {
 
@@ -81,7 +84,7 @@ public class RoundShield extends MeleeWeapon {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.DUEL_GUARD;
 		}
 

@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.DwarfKing;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.BrokenSeal;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
@@ -50,6 +51,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 
+import kotlin.Pair;
+
 public class Combo extends Buff implements ActionIndicator.Action {
 
 	{
@@ -61,7 +64,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	private float initialComboTime = 5f;
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.COMBO;
 	}
 	

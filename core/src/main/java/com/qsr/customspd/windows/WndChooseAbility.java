@@ -24,6 +24,8 @@ package com.qsr.customspd.windows;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.KingsCrown;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.messages.Messages;
@@ -32,10 +34,10 @@ import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 
 public class WndChooseAbility extends Window {
 
@@ -95,7 +97,7 @@ public class WndChooseAbility extends Window {
 			abilityButton.setRect(0, pos, WIDTH-20, abilityButton.reqHeight()+2);
 			add(abilityButton);
 
-			IconButton abilityInfo = new IconButton(Icons.get(Icons.INFO)){
+			IconButton abilityInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					GameScene.show(new WndInfoArmorAbility(Dungeon.hero.heroClass, ability));

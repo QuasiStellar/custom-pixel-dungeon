@@ -42,6 +42,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.GoldenMimic;
 import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.npcs.Sheep;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.MagicMissile;
@@ -65,11 +66,11 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.InterlevelScene;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.TargetHealthIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
@@ -384,7 +385,7 @@ public class CursedWand {
 						return cursedEffect(origin, user, targetPos);
 					} else {
 						GameScene.show(
-								new WndOptions(Icons.get(Icons.WARNING),
+								new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
 										"CURSED WAND ERROR",
 										"this application will now self-destruct",
 										"abort",

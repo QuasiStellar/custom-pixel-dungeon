@@ -23,6 +23,8 @@ package com.qsr.customspd.ui.changelist;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BadgeBanner;
 import com.qsr.customspd.items.Torch;
 import com.qsr.customspd.items.armor.curses.Bulk;
@@ -57,7 +59,6 @@ import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -83,7 +84,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released May 3rd, 2018\n" +
 				"_-_ 32 days after Shattered v0.6.4\n" +
 				"\n" +
@@ -136,7 +137,7 @@ public class v0_6_X_Changes {
 				"_-_ Swiftness reworked. Now grants movement speed when no enemies are near.\n\n" +
 				"_-_ Viscocity is now a common glyph, Stone is now uncommon."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ All bags now have 20 spaces. Previously only the default bag had 20, and the others had 12.\n\n" +
 				"_-_ Updated the sprites for runestones and throwing stones\n\n" +
 				"_-_ Loading screen transitions are now faster in many cases\n\n" +
@@ -159,7 +160,7 @@ public class v0_6_X_Changes {
 				"_-_ Ambitious imp spawning on top of traps\n" +
 				"_-_ Enemies spawning faster than intended in specific cases"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
@@ -210,7 +211,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released April 1st, 2018\n" +
 				"_-_ 46 days after Shattered v0.6.3\n" +
 				"\n" +
@@ -218,7 +219,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"I also made some important changes to challenges in v0.6.4, primarily to make stacked challenge games a bit easier. This made high-challenge games more feasible without extreme luck, which led to a big increase in challenge interest among highly skilled players."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.CHALLENGE_ON), "Challenges",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)), "Challenges",
 				"Challenges have received several major changes, with the goal of making them more fair and interesting.\n" +
 				"\n" +
 				"_-_ Challenges now have descriptions\n" +
@@ -231,7 +232,7 @@ public class v0_6_X_Changes {
 				"_-_ Into darkness now limits light more harshly, but provides torches\n" +
 				"_-_ Forbidden runes now removes 50% of upgrade scrolls, and no other scrolls"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.INFO), "Start game UI",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)), "Start game UI",
 				"The interface for starting and loading a game has been completely overhauled!\n" +
 				"\n" +
 				"_-_ Game now supports 4 save slots of any hero class, rather than 1 slot per class\n" +
@@ -261,7 +262,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"_-_ Every hero now starts the game with an extra container."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ It is now possible to back up game data using ADB backup on android 4.0+ and android auto-backup on android 6.0+. Runs in progress are not backed up to prevent cheating.\n" +
 				"\n" +
 				"_-_ Firebloom plants will no longer appear in garden rooms. Accidentally running into them is massively more harmful than any other plant.\n" +
@@ -289,7 +290,7 @@ public class v0_6_X_Changes {
 				"_-_ Rare cases where music wouldn't play\n" +
 				"_-_ Unstable enchant not being able to activate venom"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
@@ -354,7 +355,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released February 14th, 2018\n" +
 				"_-_ 113 days after Shattered v0.6.2\n" +
 				"\n" +
@@ -413,7 +414,7 @@ public class v0_6_X_Changes {
 				"_-_ Venom debuff is now corrosion debuff, functionality unchanged\n\n" +
 				"_-_ Battlemage now inflicts ooze with a staff of corrosion, instead of poison."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Performance improvements to the fog of war & mind vision.\n\n" +
 				"_-_ Improved the consistency of how ranged traps pick targets.\n\n" +
 				"_-_ Weapons and armor can now be found upgraded and cursed. Overall curse chance unchanged.\n\n" +
@@ -434,7 +435,7 @@ public class v0_6_X_Changes {
 				"_-_ Items in the alchemy window rarely being lost\n" +
 				"_-_ Various minor visual bugs"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"In English:\n" +
 				"_-_ Fixed inconsistent text when equipping cursed artifacts\n\n" +
 				"Updated Translations"));
@@ -503,7 +504,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 24th, 2017\n" +
 				"_-_ 70 days after Shattered v0.6.1\n" +
 				"\n" +
@@ -513,7 +514,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"Lastly, v0.6.2 (and v0.6.1) included some important AI changes that made character behaviour much more consistent when allies are concerned. This paved the way for ally additions in future updates."));
 		
-		changes.addButton( new ChangeButton( Icons.get(Icons.STAIRS), "Dungeon Secrets!",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Dungeon Secrets!",
 				"The secrets of the dungeon have been totally redesigned!\n\n" +
 				"_-_ Regular rooms can no longer be totally hidden\n\n" +
 				"_-_ 12 new secret rooms added, which are always hidden\n\n" +
@@ -586,7 +587,7 @@ public class v0_6_X_Changes {
 				"_-_ Improved enemy emote visuals, they now appear more frequently and there is now one for losing a target.\n\n" +
 				"_-_ Enemies now always lose their target after being teleported."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Buff icons can now be tinted, several buffs take advantage of this to better display their state.\n\n" +
 				"_-_ Wands that fire magical bolts now push on their detonation area, opening doors and trampling grass.\n\n" +
 				"_-_ Crystal chest rooms will now always have a different item type in each chest.\n\n" +
@@ -622,7 +623,7 @@ public class v0_6_X_Changes {
 				"_-_ Game music not correctly pausing on android 2.2/2.3\n" +
 				"_-_ Game failing to save in rare cases"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"In English:\n" +
 				"_-_ Improved some common game log entries\n" +
 				"_-_ Fixed a typo when enemies die out of view\n" +
@@ -690,7 +691,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 15th, 2017\n" +
 				"_-_ 72 days after Shattered v0.6.0\n" +
 				"\n" +
@@ -711,7 +712,7 @@ public class v0_6_X_Changes {
 				"_-_ Reduced the numbers of games needed for the 'games played' badges from 10/100/500/2000 to 10/50/250/1000\n\n" +
 				"_-_ Blank badges shown in the badges menu are now accurate to how many badges you have left to unlock."));
 		
-		changes.addButton( new ChangeButton( Icons.get(Icons.STAIRS), "Dungeon Changes",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Dungeon Changes",
 				"_-_ Added 5 new regional rooms\n" +
 				"_-_ Added two new uncommon room types\n" +
 				"_-_ Added a new type of tunnel room\n\n" +
@@ -786,7 +787,7 @@ public class v0_6_X_Changes {
 				"_-_ Sad Ghost being affected by corruption\n" +
 				"_-_ Switching places with the Sad Ghost over chasms causing the hero to fall"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Completely overhauled the changes scene (which you're currently reading!)\n" +
 				"_-_ Item and enemy spawn RNG is now more consistent. Should prevent things like finding 4 crabs on floor 3.\n" +
 				"_-_ The compass marker now points toward entrances after the amulet has been acquired.\n" +
@@ -799,7 +800,7 @@ public class v0_6_X_Changes {
 				"_-_ Increased landscape width of some windows\n" +
 				"_-_ Un-IDed artifacts no longer display charge"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Fixed in English:\n" +
 				"_-_ Missing capitalization in Prison Guard text\n" +
 				"_-_ Typo when trying a locked chest with no key\n" +
@@ -830,7 +831,7 @@ public class v0_6_X_Changes {
 				"_-_ Rose no longer recharges while ghost is summoned\n" +
 				"_-_ Rose takes 25% longer to fully charge" ));
 		
-		changes.addButton( new ChangeButton( Icons.get(Icons.BACKPACK), "Inventory",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK)), "Inventory",
 				"_-_ Inventory space increased from 19 slots to 20 slots.\n\n" +
 				"_-_ Gold indicator has been moved to the top-right of the inventory window to make room for the extra slot." ));
 		
@@ -859,7 +860,7 @@ public class v0_6_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released June 4th, 2017\n" +
 				"_-_ 116 days after Shattered v0.5.0\n" +
 				"\n" +
@@ -869,7 +870,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"I feel v0.6.0 also represents the start of another era in Shattered's development. While Shattered was still missing some big updates (most notably v0.8.0), after v0.6.0 Shattered started to resemble its current incarnation more than the original Pixel Dungeon."));
 		
-		changes.addButton( new ChangeButton( Icons.get(Icons.STAIRS), "Levelgen Overhaul!",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Levelgen Overhaul!",
 				"Level creation algorithm overhauled!\n\n" +
 				"_-_ Levels are now much less box-shaped\n" +
 				"_-_ Sewers are now smaller, caves+ are now larger\n" +
@@ -904,7 +905,7 @@ public class v0_6_X_Changes {
 				"_-_ self-damage no longer scales with max hp\n" +
 				"_-_ grants more charge at higher levels"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Visiting floor 21 before completing the imp quest no longer prevents his shop from spawning\n\n" +
 				"_-_ Floor 2 entry doors are now only hidden for new players\n\n" +
 				"_-_ Falling damage tweaked to be less random\n\n" +

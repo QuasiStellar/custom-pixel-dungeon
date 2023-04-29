@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CheckedCell;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.rings.RingOfEnergy;
@@ -49,6 +50,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class TalismanOfForesight extends Artifact {
 
@@ -345,7 +348,7 @@ public class TalismanOfForesight extends Artifact {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			if (warn)
 				return BuffIndicator.FORESIGHT;
 			else

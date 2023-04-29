@@ -22,6 +22,7 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
 import com.qsr.customspd.items.weapon.missiles.darts.Dart;
@@ -32,6 +33,8 @@ import com.watabou.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import kotlin.Pair;
 
 public class PinCushion extends Buff {
 
@@ -87,7 +90,7 @@ public class PinCushion extends Buff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.PINCUSHION;
 	}
 

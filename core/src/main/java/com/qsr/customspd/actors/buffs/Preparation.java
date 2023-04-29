@@ -48,6 +48,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import kotlin.Pair;
+
 public class Preparation extends Buff implements ActionIndicator.Action {
 	
 	{
@@ -161,7 +163,7 @@ public class Preparation extends Buff implements ActionIndicator.Action {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.PREPARATION;
 	}
 	

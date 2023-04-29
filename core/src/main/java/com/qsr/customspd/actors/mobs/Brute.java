@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.ShieldBuff;
 import com.qsr.customspd.actors.buffs.Terror;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.Gold;
 import com.qsr.customspd.levels.features.Chasm;
@@ -35,6 +36,8 @@ import com.qsr.customspd.sprites.BruteSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class Brute extends Mob {
 	
@@ -140,7 +143,7 @@ public class Brute extends Mob {
 		}
 		
 		@Override
-		public int icon () {
+		public Pair<Asset, Asset> icon () {
 			return BuffIndicator.FURY;
 		}
 		

@@ -21,8 +21,11 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
+
+import kotlin.Pair;
 
 public class Recharging extends FlavourBuff {
 
@@ -33,7 +36,7 @@ public class Recharging extends FlavourBuff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.RECHARGING;
 	}
 

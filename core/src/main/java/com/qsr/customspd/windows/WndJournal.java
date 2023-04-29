@@ -23,6 +23,8 @@ package com.qsr.customspd.windows;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.items.potions.Potion;
@@ -36,7 +38,6 @@ import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.QuickRecipe;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -116,7 +117,7 @@ public class WndJournal extends WndTabbed {
 						if (value) last_index = 1;
 					}
 				},
-				new IconTab( Icons.get(Icons.STAIRS) ) {
+				new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)) ) {
 					protected void select( boolean value ) {
 						super.select( value );
 						notesTab.active = notesTab.visible = value;
@@ -409,7 +410,7 @@ public class WndJournal extends WndTabbed {
 				list.addTitle(Messages.get(this, "keys"));
 
 				for(Notes.Record rec : keys){
-					ScrollingListPane.ListItem item = new ScrollingListPane.ListItem( Icons.get(Icons.STAIRS),
+					ScrollingListPane.ListItem item = new ScrollingListPane.ListItem( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)),
 							Integer.toString(rec.depth()),
 							Messages.titleCase(rec.desc()));
 					if (Dungeon.depth == rec.depth()) item.hardlight(TITLE_COLOR);
@@ -424,7 +425,7 @@ public class WndJournal extends WndTabbed {
 				list.addTitle(Messages.get(this, "landmarks"));
 
 				for (Notes.Record rec : landmarks) {
-					ScrollingListPane.ListItem item = new ScrollingListPane.ListItem( Icons.get(Icons.STAIRS),
+					ScrollingListPane.ListItem item = new ScrollingListPane.ListItem( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)),
 							Integer.toString(rec.depth()),
 							Messages.titleCase(rec.desc()));
 					if (Dungeon.depth == rec.depth()) item.hardlight(TITLE_COLOR);

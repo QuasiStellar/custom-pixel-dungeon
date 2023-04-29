@@ -22,8 +22,11 @@
 package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Chrome;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.PixelScene;
 import com.watabou.input.GameAction;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.NinePatch;
 import com.watabou.noosa.ui.Component;
 
@@ -51,7 +54,7 @@ public class Toast extends Component {
 		bg = Chrome.get( Chrome.Type.TOAST_TR );
 		add( bg );
 
-		close = new IconButton( Icons.get( Icons.CLOSE ) ) {
+		close = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CLOSE)) ) {
 			protected void onClick() {
 				onClose();
 			}

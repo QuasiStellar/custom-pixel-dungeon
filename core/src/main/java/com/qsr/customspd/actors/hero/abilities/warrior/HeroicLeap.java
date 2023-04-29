@@ -31,6 +31,7 @@ import com.qsr.customspd.actors.buffs.Vulnerable;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
 import com.qsr.customspd.mechanics.Ballistica;
@@ -130,7 +131,7 @@ public class HeroicLeap extends ArmorAbility {
 	public static class DoubleJumpTracker extends FlavourBuff{};
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.HEROIC_LEAP;
 	}
 

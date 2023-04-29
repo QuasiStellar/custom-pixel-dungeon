@@ -21,9 +21,10 @@
 
 package com.qsr.customspd.windows;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
@@ -100,7 +101,7 @@ public class WndOptions extends Window {
 				btn.setRect(0, pos, width, BUTTON_HEIGHT);
 			} else {
 				btn.setRect(0, pos, width - BUTTON_HEIGHT, BUTTON_HEIGHT);
-				IconButton info = new IconButton(Icons.get(Icons.INFO)){
+				IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						onInfo( index );

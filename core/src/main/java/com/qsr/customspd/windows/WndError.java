@@ -21,13 +21,15 @@
 
 package com.qsr.customspd.windows;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.ui.Icons;
+import com.watabou.noosa.Image;
 
 public class WndError extends WndTitledMessage {
 
 	public WndError( String message ) {
-		super( Icons.WARNING.get(), Messages.get(WndError.class, "title"), message );
+		super( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)), Messages.get(WndError.class, "title"), message );
 	}
 
 }

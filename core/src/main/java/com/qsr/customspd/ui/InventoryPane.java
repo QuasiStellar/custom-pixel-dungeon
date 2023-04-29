@@ -28,6 +28,8 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.LostInventory;
 import com.qsr.customspd.actors.hero.Belongings;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.bags.MagicalHolster;
@@ -162,13 +164,13 @@ public class InventoryPane extends Component {
 			add(btn);
 		}
 
-		gold = Icons.get(Icons.COIN_SML);
+		gold = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COIN_SML));
 		add(gold);
 		goldTxt = new BitmapText(PixelScene.pixelFont);
 		goldTxt.hardlight(Window.TITLE_COLOR);
 		add(goldTxt);
 
-		energy = Icons.get(Icons.ENERGY_SML);
+		energy = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENERGY_SML));
 		add(energy);
 		energyTxt = new BitmapText(PixelScene.pixelFont);
 		energyTxt.hardlight(0x44CCFF);
@@ -192,7 +194,7 @@ public class InventoryPane extends Component {
 			add(btn);
 		}
 
-		crossB = Icons.TARGET.get();
+		crossB = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET));
 		crossB.visible = false;
 		add( crossB );
 
@@ -472,15 +474,15 @@ public class InventoryPane extends Component {
 
 	private Image bagIcon(Bag bag ) {
 		if (bag instanceof VelvetPouch) {
-			return Icons.get( Icons.SEED_POUCH );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED_POUCH));
 		} else if (bag instanceof ScrollHolder) {
-			return Icons.get( Icons.SCROLL_HOLDER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SCROLL_HOLDER));
 		} else if (bag instanceof MagicalHolster) {
-			return Icons.get( Icons.WAND_HOLSTER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WAND_HOLSTER));
 		} else if (bag instanceof PotionBandolier) {
-			return Icons.get( Icons.POTION_BANDOLIER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_POTION_BANDOLIER));
 		} else {
-			return Icons.get( Icons.BACKPACK );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK));
 		}
 	}
 

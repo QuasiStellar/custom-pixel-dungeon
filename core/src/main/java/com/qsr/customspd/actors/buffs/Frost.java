@@ -25,6 +25,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Thief;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.food.FrozenCarpaccio;
 import com.qsr.customspd.items.food.MysteryMeat;
@@ -37,6 +38,8 @@ import com.watabou.noosa.Image;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class Frost extends FlavourBuff {
 
@@ -111,7 +114,7 @@ public class Frost extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.FROST;
 	}
 

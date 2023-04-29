@@ -24,6 +24,8 @@ package com.qsr.customspd.windows;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.TengusMask;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
@@ -31,10 +33,10 @@ import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 
 public class WndChooseSubclass extends Window {
 	
@@ -84,7 +86,7 @@ public class WndChooseSubclass extends Window {
 			btnCls.setRect( 0, pos, WIDTH-20, btnCls.reqHeight()+2);
 			add( btnCls );
 
-			IconButton clsInfo = new IconButton(Icons.get(Icons.INFO)){
+			IconButton clsInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					GameScene.show(new WndInfoSubclass(Dungeon.hero.heroClass, subCls));

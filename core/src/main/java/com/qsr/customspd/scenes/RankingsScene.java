@@ -26,6 +26,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.Rankings;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.HeroClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
@@ -33,7 +35,7 @@ import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
+import com.qsr.customspd.ui.IconUtils;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.windows.WndDailies;
@@ -145,7 +147,7 @@ public class RankingsScene extends PixelScene {
 		int left = 0;
 
 		if (Rankings.INSTANCE.latestDaily != null) {
-			IconButton btnDailies = new IconButton(Icons.CALENDAR.get()) {
+			IconButton btnDailies = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR))) {
 				@Override
 				protected void onClick() {
 					ShatteredPixelDungeon.scene().addToFront(new WndDailies());
@@ -238,7 +240,7 @@ public class RankingsScene extends PixelScene {
 				if (rec.depth != 0){
 					depth.text( Integer.toString(rec.depth) );
 					depth.measure();
-					steps.copy(Icons.STAIRS.get());
+					steps.copy(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)));
 
 					add(steps);
 					add(depth);
@@ -252,10 +254,10 @@ public class RankingsScene extends PixelScene {
 			}
 
 			if (rec.daily){
-				shield.copy( Icons.get(Icons.CALENDAR) );
+				shield.copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR)) );
 				shield.hardlight(0.5f, 1f, 2f);
 			} else if (!rec.customSeed.isEmpty()){
-				shield.copy( Icons.get(Icons.SEED) );
+				shield.copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED)) );
 				shield.hardlight(1f, 1.5f, 0.67f);
 			}
 
@@ -265,7 +267,7 @@ public class RankingsScene extends PixelScene {
 				add(level);
 			}
 			
-			classIcon.copy( Icons.get( rec.heroClass ) );
+			classIcon.copy( IconUtils.get( rec.heroClass ) );
 			if (rec.heroClass == HeroClass.ROGUE){
 				//cloak of shadows needs to be brightened a bit
 				classIcon.brightness(2f);

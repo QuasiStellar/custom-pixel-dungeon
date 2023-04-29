@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.SpiritBow;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
@@ -35,6 +36,8 @@ import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
 
@@ -82,7 +85,7 @@ public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.MARK;
 	}
 

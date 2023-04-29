@@ -28,13 +28,14 @@ import com.qsr.customspd.GamesInProgress;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.HeroClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
@@ -148,13 +149,13 @@ public class HeroSelectScene extends PixelScene {
 				Game.switchScene( InterlevelScene.class );
 			}
 		};
-		startBtn.icon(Icons.get(Icons.ENTER));
+		startBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
 		startBtn.setSize(80, 21);
 		startBtn.textColor(Window.TITLE_COLOR);
 		add(startBtn);
 		startBtn.visible = startBtn.active = false;
 
-		infoButton = new IconButton(Icons.get(Icons.INFO)){
+		infoButton = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 			@Override
 			protected void onClick() {
 				super.onClick();
@@ -185,7 +186,7 @@ public class HeroSelectScene extends PixelScene {
 		optionsPane.layout();
 		add(optionsPane);
 
-		btnOptions = new IconButton(Icons.get(Icons.PREFS)){
+		btnOptions = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS))){
 			@Override
 			protected void onClick() {
 				super.onClick();
@@ -279,7 +280,7 @@ public class HeroSelectScene extends PixelScene {
 			startBtn.setPos((leftArea - startBtn.width())/2f, title.top() + uiHeight - startBtn.height());
 			align(startBtn);
 
-			btnFade = new IconButton(Icons.COMPASS.get()){
+			btnFade = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COMPASS))){
 				@Override
 				protected void onClick() {
 					enable(false);
@@ -610,7 +611,7 @@ public class HeroSelectScene extends PixelScene {
 					}
 				};
 				seedButton.leftJustify = true;
-				seedButton.icon(Icons.get(Icons.SEED));
+				seedButton.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED)));
 				if (!SPDSettings.customSeed().isEmpty()) seedButton.icon().hardlight(1f, 1.5f, 0.67f);;
 				buttons.add(seedButton);
 				add(seedButton);
@@ -639,7 +640,7 @@ public class HeroSelectScene extends PixelScene {
 							}
 						}
 
-						Image icon = Icons.get(Icons.CALENDAR);
+						Image icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR));
 						if (diff <= 0)  icon.hardlight(0.5f, 1f, 2f);
 						else            icon.hardlight(1f, 0.5f, 2f);
 						ShatteredPixelDungeon.scene().addToFront(new WndOptions(
@@ -712,7 +713,7 @@ public class HeroSelectScene extends PixelScene {
 					}
 				};
 				dailyButton.leftJustify = true;
-				dailyButton.icon(Icons.get(Icons.CALENDAR));
+				dailyButton.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR)));
 				add(dailyButton);
 				buttons.add(dailyButton);
 
@@ -722,14 +723,14 @@ public class HeroSelectScene extends PixelScene {
 						ShatteredPixelDungeon.scene().addToFront(new WndChallenges(SPDSettings.challenges(), true) {
 							public void onBackPressed() {
 								super.onBackPressed();
-								icon(Icons.get(SPDSettings.challenges() > 0 ? Icons.CHALLENGE_ON : Icons.CHALLENGE_OFF));
+								icon(SPDSettings.challenges() > 0 ? new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)) : new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_OFF)));
 								updateOptionsColor();
 							}
 						} );
 					}
 				};
 				challengeButton.leftJustify = true;
-				challengeButton.icon(Icons.get(SPDSettings.challenges() > 0 ? Icons.CHALLENGE_ON : Icons.CHALLENGE_OFF));
+				challengeButton.icon(SPDSettings.challenges() > 0 ? new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)) : new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_OFF)));
 				add(challengeButton);
 				buttons.add(challengeButton);
 			}

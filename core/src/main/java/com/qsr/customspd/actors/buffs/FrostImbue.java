@@ -22,9 +22,12 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.particles.SnowParticle;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
+
+import kotlin.Pair;
 
 public class FrostImbue extends FlavourBuff {
 	
@@ -41,7 +44,7 @@ public class FrostImbue extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.IMBUE;
 	}
 

@@ -32,6 +32,8 @@ import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
@@ -40,7 +42,6 @@ import com.qsr.customspd.ui.BadgesGrid;
 import com.qsr.customspd.ui.BadgesList;
 import com.qsr.customspd.ui.CheckBox;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.ItemSlot;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -107,8 +108,13 @@ public class WndRanking extends WndTabbed {
 	
 	private void createControls() {
 		
-		Icons[] icons =
-			{Icons.RANKINGS, Icons.TALENT, Icons.BACKPACK_LRG, Icons.BADGES, Icons.CHALLENGE_ON};
+		Image[] icons = {
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK_LRG)),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BADGES)),
+			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON))
+		};
 		Group[] pages =
 			{new StatsTab(), new TalentsTab(), new ItemsTab(), new BadgesTab(), null};
 
@@ -135,8 +141,8 @@ public class WndRanking extends WndTabbed {
 		
 		private Group page;
 		
-		public RankingTab( Icons icon, Group page ) {
-			super( Icons.get(icon) );
+		public RankingTab( Image icon, Group page ) {
+			super( icon );
 			this.page = page;
 		}
 		
@@ -186,7 +192,7 @@ public class WndRanking extends WndTabbed {
 			NumberFormat num = NumberFormat.getInstance(Locale.US);
 			pos = statSlot( this, Messages.get(this, "score"), num.format( Statistics.totalScore ), pos );
 
-			IconButton scoreInfo = new IconButton(Icons.get(Icons.INFO)){
+			IconButton scoreInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					super.onClick();
@@ -235,7 +241,7 @@ public class WndRanking extends WndTabbed {
 
 			if (Dungeon.seed != -1 && !Dungeon.daily &&
 					(DeviceCompat.isDebug() || Badges.isUnlocked(Badges.Badge.VICTORY))){
-				final Image icon = Icons.get(Icons.SEED);
+				final Image icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED));
 				RedButton btnSeed = new RedButton(Messages.get(this, "copy_seed")){
 					@Override
 					protected void onClick() {
@@ -407,7 +413,7 @@ public class WndRanking extends WndTabbed {
 
 				add( cb );
 
-				IconButton info = new IconButton(Icons.get(Icons.INFO)){
+				IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						super.onClick();

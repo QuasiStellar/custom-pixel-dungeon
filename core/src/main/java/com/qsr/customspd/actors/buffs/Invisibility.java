@@ -26,11 +26,14 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.artifacts.CloakOfShadows;
 import com.qsr.customspd.items.artifacts.TimekeepersHourglass;
 import com.qsr.customspd.plants.Swiftthistle;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class Invisibility extends FlavourBuff {
 
@@ -65,7 +68,7 @@ public class Invisibility extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.INVISIBLE;
 	}
 

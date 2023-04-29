@@ -23,6 +23,7 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Badges;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Splash;
 import com.qsr.customspd.items.weapon.curses.Sacrificial;
 import com.qsr.customspd.levels.features.Chasm;
@@ -33,6 +34,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PointF;
 
 import static com.watabou.utils.Random.NormalFloat;
+
+import kotlin.Pair;
 
 public class Bleeding extends Buff {
 
@@ -79,7 +82,7 @@ public class Bleeding extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.BLEEDING;
 	}
 

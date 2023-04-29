@@ -24,6 +24,7 @@ package com.qsr.customspd.actors.hero.abilities;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
@@ -91,7 +92,7 @@ public abstract class ArmorAbility implements Bundlable {
 		return Messages.get(this, "desc") + "\n\n" + Messages.get(this, "cost", (int)baseChargeUse);
 	}
 
-	public int icon(){
+	public Asset icon(){
 		return HeroIcon.NONE;
 	}
 

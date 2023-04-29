@@ -25,8 +25,10 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.ui.Icons;
+import com.qsr.customspd.ui.IconUtils;
 import com.watabou.noosa.Image;
 
 import java.util.ArrayList;
@@ -95,30 +97,30 @@ public class News {
 
 	public static Image parseArticleIcon(NewsArticle article){
 
-		try {
-
-			//recognized formats are:
-			//"ICON: <name of enum constant in Icons.java>"
-			if (article.icon.startsWith("ICON: ")){
-				return Icons.get(Icons.valueOf(article.icon.replace("ICON: ", "")));
-			//"ITEM: <integer constant corresponding to values in ItemSpriteSheet.java>"
-			} else if (article.icon.startsWith("ITEM: ")){
-				return new ItemSprite(Integer.parseInt(article.icon.replace("ITEM: ", "")));
-			//"<asset filename>, <tx left>, <tx top>, <width>, <height>"
-			} else {
-				String[] split = article.icon.split(", ");
-				return new Image( split[0],
-						Integer.parseInt(split[1]),
-						Integer.parseInt(split[2]),
-						Integer.parseInt(split[3]),
-						Integer.parseInt(split[4]));
-			}
-
-		//if we run into any formatting errors (or icon is null), default to the news icon
-		} catch (Exception e){
-			if (article.icon != null) ShatteredPixelDungeon.reportException(e);
-			return Icons.get(Icons.NEWS);
-		}
+//		try {
+//
+//			//recognized formats are:
+//			//"ICON: <name of enum constant in Icons.java>"
+//			if (article.icon.startsWith("ICON: ")){
+//				return IconUtils.get(IconUtils.valueOf(article.icon.replace("ICON: ", "")));
+//			//"ITEM: <integer constant corresponding to values in ItemSpriteSheet.java>"
+//			} else if (article.icon.startsWith("ITEM: ")){
+//				return new ItemSprite(Integer.parseInt(article.icon.replace("ITEM: ", "")));
+//			//"<asset filename>, <tx left>, <tx top>, <width>, <height>"
+//			} else {
+//				String[] split = article.icon.split(", ");
+//				return new Image( split[0],
+//						Integer.parseInt(split[1]),
+//						Integer.parseInt(split[2]),
+//						Integer.parseInt(split[3]),
+//						Integer.parseInt(split[4]));
+//			}
+//
+//		//if we run into any formatting errors (or icon is null), default to the news icon
+//		} catch (Exception e){
+//			if (article.icon != null) ShatteredPixelDungeon.reportException(e);
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS));
+//		}
 	}
 
 	public static String parseArticleDate(NewsArticle article){

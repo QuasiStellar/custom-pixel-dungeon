@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.Preparation;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.rings.RingOfEnergy;
@@ -45,6 +46,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class CloakOfShadows extends Artifact {
 
@@ -272,7 +275,7 @@ public class CloakOfShadows extends Artifact {
 		int turnsToCost = 0;
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.INVISIBLE;
 		}
 

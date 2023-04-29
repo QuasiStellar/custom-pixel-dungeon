@@ -23,9 +23,12 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class LifeLink extends FlavourBuff {
 
@@ -64,7 +67,7 @@ public class LifeLink extends FlavourBuff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.HERB_HEALING;
 	}
 

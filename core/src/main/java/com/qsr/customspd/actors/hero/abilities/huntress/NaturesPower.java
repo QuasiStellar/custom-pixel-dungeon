@@ -29,11 +29,14 @@ import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.HeroIcon;
 import com.watabou.noosa.audio.Sample;
+
+import kotlin.Pair;
 
 public class NaturesPower extends ArmorAbility {
 
@@ -58,7 +61,7 @@ public class NaturesPower extends ArmorAbility {
 	}
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.NATURES_POWER;
 	}
 
@@ -85,7 +88,7 @@ public class NaturesPower extends ArmorAbility {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.NATURE_POWER;
 		}
 

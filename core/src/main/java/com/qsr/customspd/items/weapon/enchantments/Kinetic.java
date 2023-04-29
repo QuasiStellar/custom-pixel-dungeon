@@ -24,12 +24,15 @@ package com.qsr.customspd.items.weapon.enchantments;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Kinetic extends Weapon.Enchantment {
 	
@@ -77,7 +80,7 @@ public class Kinetic extends Weapon.Enchantment {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.WEAPON;
 		}
 		

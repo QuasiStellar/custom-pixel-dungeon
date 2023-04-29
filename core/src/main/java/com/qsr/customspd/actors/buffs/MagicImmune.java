@@ -23,9 +23,12 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.armor.glyphs.AntiMagic;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
+
+import kotlin.Pair;
 
 public class MagicImmune extends FlavourBuff {
 
@@ -69,7 +72,7 @@ public class MagicImmune extends FlavourBuff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.COMBO;
 	}
 	

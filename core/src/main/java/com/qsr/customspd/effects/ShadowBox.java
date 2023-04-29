@@ -21,24 +21,25 @@
 
 package com.qsr.customspd.effects;
 
-import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.noosa.NinePatch;
 
 public class ShadowBox extends NinePatch {
 
-	public static final float SIZE	= 16;
-	
+	public static final float SIZE = 16;
+
 	public ShadowBox() {
-		super( Assets.Interfaces.SHADOW, 1 );
+		super(Asset.getAssetFileHandle(GeneralAsset.SHADOW), 1 );
 
 		//If this is the first time the texture is generated, set the filtering
 		if (texture.id == -1)
 			texture.filter( SmartTexture.LINEAR, SmartTexture.LINEAR );
-		
+
 		scale.set( SIZE, SIZE );
 	}
-	
+
 	@Override
 	public void size(float width, float height) {
 		super.size( width / SIZE, height / SIZE );

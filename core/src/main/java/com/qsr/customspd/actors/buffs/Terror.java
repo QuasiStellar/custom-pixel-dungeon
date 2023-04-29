@@ -21,8 +21,11 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Terror extends FlavourBuff {
 
@@ -50,7 +53,7 @@ public class Terror extends FlavourBuff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.TERROR;
 	}
 

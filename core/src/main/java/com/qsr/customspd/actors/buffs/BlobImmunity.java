@@ -36,8 +36,11 @@ import com.qsr.customspd.actors.blobs.StormCloud;
 import com.qsr.customspd.actors.blobs.ToxicGas;
 import com.qsr.customspd.actors.blobs.Web;
 import com.qsr.customspd.actors.mobs.Tengu;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.levels.rooms.special.MagicalFireRoom;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class BlobImmunity extends FlavourBuff {
 	
@@ -48,7 +51,7 @@ public class BlobImmunity extends FlavourBuff {
 	public static final float DURATION	= 20f;
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.IMMUNITY;
 	}
 

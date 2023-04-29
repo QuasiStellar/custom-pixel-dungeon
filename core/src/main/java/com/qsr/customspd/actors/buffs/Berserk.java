@@ -25,6 +25,7 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.BrokenSeal.WarriorShield;
 import com.qsr.customspd.messages.Messages;
@@ -38,6 +39,8 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.GameMath;
+
+import kotlin.Pair;
 
 public class Berserk extends Buff implements ActionIndicator.Action {
 
@@ -258,7 +261,7 @@ public class Berserk extends Buff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.BERSERK;
 	}
 	

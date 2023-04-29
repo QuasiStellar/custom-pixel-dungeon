@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.GamesInProgress;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BadgeBanner;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.Speck;
@@ -32,7 +34,6 @@ import com.qsr.customspd.items.Amulet;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.watabou.noosa.Camera;
@@ -110,7 +111,7 @@ public class AmuletScene extends PixelScene {
 				btnStay.enable(false);
 			}
 		};
-		btnStay.icon(Icons.CLOSE.get());
+		btnStay.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CLOSE)));
 		btnStay.setSize( WIDTH, BTN_HEIGHT );
 		add( btnStay );
 		

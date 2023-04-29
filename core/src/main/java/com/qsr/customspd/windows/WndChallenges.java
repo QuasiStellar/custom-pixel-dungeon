@@ -24,13 +24,15 @@ package com.qsr.customspd.windows;
 import com.qsr.customspd.Challenges;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.CheckBox;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 
 import java.util.ArrayList;
 
@@ -78,7 +80,7 @@ public class WndChallenges extends Window {
 			add( cb );
 			boxes.add( cb );
 			
-			IconButton info = new IconButton(Icons.get(Icons.INFO)){
+			IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					super.onClick();

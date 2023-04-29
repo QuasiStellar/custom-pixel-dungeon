@@ -21,12 +21,14 @@
 
 package com.qsr.customspd.ui.changelist;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Ankh;
 import com.qsr.customspd.items.food.Blandfruit;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 
 import java.util.ArrayList;
 
@@ -48,7 +50,7 @@ public class v0_1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 15th, 2014\n" +
 				"_-_ 10 days after Shattered v0.1.0\n" +
 				"\n" +
@@ -89,7 +91,7 @@ public class v0_1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 5th, 2014\n" +
 				"_-_ 9 days after Pixel Dungeon source release\n" +
 				"_-_ 69 days after Pixel Dungeon v1.7.1\n" +

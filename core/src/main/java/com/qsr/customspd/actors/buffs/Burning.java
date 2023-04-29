@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.blobs.Blob;
 import com.qsr.customspd.actors.blobs.Fire;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Thief;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
@@ -47,6 +48,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class Burning extends Buff implements Hero.Doom {
 	
@@ -193,7 +196,7 @@ public class Burning extends Buff implements Hero.Doom {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.FIRE;
 	}
 

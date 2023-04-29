@@ -21,12 +21,15 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.enchantments.Blocking;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Barrier extends ShieldBuff {
 	
@@ -77,7 +80,7 @@ public class Barrier extends ShieldBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.ARMOR;
 	}
 	

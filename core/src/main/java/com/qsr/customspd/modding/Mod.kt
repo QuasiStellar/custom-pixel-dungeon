@@ -1,7 +1,8 @@
 package com.qsr.customspd.modding
 
 import com.badlogic.gdx.files.FileHandle
-import com.qsr.customspd.ui.Icons
+import com.qsr.customspd.assets.Asset.Companion.getAssetFileHandle
+import com.qsr.customspd.assets.GeneralAsset
 import com.watabou.noosa.Image
 import java.io.File
 
@@ -15,7 +16,7 @@ class Mod(
         get() = with(folder.child("mod_icon.png")) {
             if (exists())
                 Image("${File.separatorChar}${ModManager.STORAGE}${File.separatorChar}${folder.name()}${File.separatorChar}mod_icon.png") // I'm done with this shit
-            else Icons.get(Icons.TALENT)
+            else Image(getAssetFileHandle(GeneralAsset.ICON_TALENT))
         }
 
     fun enable() = ModManager.enableMod(info.name)

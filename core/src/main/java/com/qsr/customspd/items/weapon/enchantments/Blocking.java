@@ -25,6 +25,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Barrier;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.ShieldBuff;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
@@ -33,6 +34,8 @@ import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class Blocking extends Weapon.Enchantment {
 	
@@ -91,7 +94,7 @@ public class Blocking extends Weapon.Enchantment {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.ARMOR;
 		}
 		

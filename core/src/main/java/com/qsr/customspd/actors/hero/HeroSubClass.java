@@ -22,6 +22,7 @@
 package com.qsr.customspd.actors.hero;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
@@ -47,9 +48,9 @@ public enum HeroSubClass {
 	CHAMPION(HeroIcon.CHAMPION),
 	MONK(HeroIcon.MONK);
 
-	int icon;
+	final Asset icon;
 
-	HeroSubClass(int icon){
+	HeroSubClass(Asset icon){
 		this.icon = icon;
 	}
 	
@@ -78,7 +79,7 @@ public enum HeroSubClass {
 		}
 	}
 
-	public int icon(){
+	public Asset icon(){
 		return icon;
 	}
 

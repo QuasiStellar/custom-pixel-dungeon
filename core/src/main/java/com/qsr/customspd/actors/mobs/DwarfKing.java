@@ -35,6 +35,7 @@ import com.qsr.customspd.actors.buffs.Doom;
 import com.qsr.customspd.actors.buffs.LifeLink;
 import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.mobs.npcs.Sheep;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Beam;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Pushing;
@@ -69,6 +70,8 @@ import com.watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+
+import kotlin.Pair;
 
 public class DwarfKing extends Mob {
 
@@ -760,7 +763,7 @@ public class DwarfKing extends Mob {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.NONE;
 		}
 	}

@@ -43,6 +43,7 @@ import com.qsr.customspd.actors.buffs.WandEmpower;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
@@ -81,100 +82,102 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import kotlin.Pair;
+
 public enum Talent {
 
 	//Warrior T1
-	HEARTY_MEAL(0), VETERANS_INTUITION(1), TEST_SUBJECT(2), IRON_WILL(3),
+	HEARTY_MEAL(GeneralAsset.TALENT_ICON_HEARTY_MEAL), VETERANS_INTUITION(GeneralAsset.TALENT_ICON_VETERANS_INTUITION), TEST_SUBJECT(GeneralAsset.TALENT_ICON_TEST_SUBJECT), IRON_WILL(GeneralAsset.TALENT_ICON_IRON_WILL),
 	//Warrior T2
-	IRON_STOMACH(4), RESTORED_WILLPOWER(5), RUNIC_TRANSFERENCE(6), LETHAL_MOMENTUM(7), IMPROVISED_PROJECTILES(8),
+	IRON_STOMACH(GeneralAsset.TALENT_ICON_IRON_STOMACH), RESTORED_WILLPOWER(GeneralAsset.TALENT_ICON_RESTORED_WILLPOWER), RUNIC_TRANSFERENCE(GeneralAsset.TALENT_ICON_RUNIC_TRANSFERENCE), LETHAL_MOMENTUM(GeneralAsset.TALENT_ICON_LETHAL_MOMENTUM), IMPROVISED_PROJECTILES(GeneralAsset.TALENT_ICON_IMPROVISED_PROJECTILES),
 	//Warrior T3
-	HOLD_FAST(9, 3), STRONGMAN(10, 3),
+	HOLD_FAST(GeneralAsset.TALENT_ICON_HOLD_FAST, 3), STRONGMAN(GeneralAsset.TALENT_ICON_STRONGMAN, 3),
 	//Berserker T3
-	ENDLESS_RAGE(11, 3), DEATHLESS_FURY(12, 3), ENRAGED_CATALYST(13, 3),
+	ENDLESS_RAGE(GeneralAsset.TALENT_ICON_ENDLESS_RAGE, 3), DEATHLESS_FURY(GeneralAsset.TALENT_ICON_DEATHLESS_FURY, 3), ENRAGED_CATALYST(GeneralAsset.TALENT_ICON_ENRAGED_CATALYST, 3),
 	//Gladiator T3
-	CLEAVE(14, 3), LETHAL_DEFENSE(15, 3), ENHANCED_COMBO(16, 3),
+	CLEAVE(GeneralAsset.TALENT_ICON_CLEAVE, 3), LETHAL_DEFENSE(GeneralAsset.TALENT_ICON_LETHAL_DEFENSE, 3), ENHANCED_COMBO(GeneralAsset.TALENT_ICON_ENHANCED_COMBO, 3),
 	//Heroic Leap T4
-	BODY_SLAM(17, 4), IMPACT_WAVE(18, 4), DOUBLE_JUMP(19, 4),
+	BODY_SLAM(GeneralAsset.TALENT_ICON_BODY_SLAM, 4), IMPACT_WAVE(GeneralAsset.TALENT_ICON_IMPACT_WAVE, 4), DOUBLE_JUMP(GeneralAsset.TALENT_ICON_DOUBLE_JUMP, 4),
 	//Shockwave T4
-	EXPANDING_WAVE(20, 4), STRIKING_WAVE(21, 4), SHOCK_FORCE(22, 4),
+	EXPANDING_WAVE(GeneralAsset.TALENT_ICON_EXPANDING_WAVE, 4), STRIKING_WAVE(GeneralAsset.TALENT_ICON_STRIKING_WAVE, 4), SHOCK_FORCE(GeneralAsset.TALENT_ICON_SHOCK_FORCE, 4),
 	//Endure T4
-	SUSTAINED_RETRIBUTION(23, 4), SHRUG_IT_OFF(24, 4), EVEN_THE_ODDS(25, 4),
+	SUSTAINED_RETRIBUTION(GeneralAsset.TALENT_ICON_SUSTAINED_RETRIBUTION, 4), SHRUG_IT_OFF(GeneralAsset.TALENT_ICON_SHRUG_IT_OFF, 4), EVEN_THE_ODDS(GeneralAsset.TALENT_ICON_EVEN_THE_ODDS, 4),
 
 	//Mage T1
-	EMPOWERING_MEAL(32), SCHOLARS_INTUITION(33), TESTED_HYPOTHESIS(34), BACKUP_BARRIER(35),
+	EMPOWERING_MEAL(GeneralAsset.TALENT_ICON_EMPOWERING_MEAL), SCHOLARS_INTUITION(GeneralAsset.TALENT_ICON_SCHOLARS_INTUITION), TESTED_HYPOTHESIS(GeneralAsset.TALENT_ICON_TESTED_HYPOTHESIS), BACKUP_BARRIER(GeneralAsset.TALENT_ICON_BACKUP_BARRIER),
 	//Mage T2
-	ENERGIZING_MEAL(36), ENERGIZING_UPGRADE(37), WAND_PRESERVATION(38), ARCANE_VISION(39), SHIELD_BATTERY(40),
+	ENERGIZING_MEAL(GeneralAsset.TALENT_ICON_ENERGIZING_MEAL), ENERGIZING_UPGRADE(GeneralAsset.TALENT_ICON_ENERGIZING_UPGRADE), WAND_PRESERVATION(GeneralAsset.TALENT_ICON_WAND_PRESERVATION), ARCANE_VISION(GeneralAsset.TALENT_ICON_ARCANE_VISION), SHIELD_BATTERY(GeneralAsset.TALENT_ICON_SHIELD_BATTERY),
 	//Mage T3
-	EMPOWERING_SCROLLS(41, 3), ALLY_WARP(42, 3),
+	EMPOWERING_SCROLLS(GeneralAsset.TALENT_ICON_EMPOWERING_SCROLLS, 3), ALLY_WARP(GeneralAsset.TALENT_ICON_ALLY_WARP, 3),
 	//Battlemage T3
-	EMPOWERED_STRIKE(43, 3), MYSTICAL_CHARGE(44, 3), EXCESS_CHARGE(45, 3),
+	EMPOWERED_STRIKE(GeneralAsset.TALENT_ICON_EMPOWERED_STRIKE, 3), MYSTICAL_CHARGE(GeneralAsset.TALENT_ICON_MYSTICAL_CHARGE, 3), EXCESS_CHARGE(GeneralAsset.TALENT_ICON_EXCESS_CHARGE, 3),
 	//Warlock T3
-	SOUL_EATER(46, 3), SOUL_SIPHON(47, 3), NECROMANCERS_MINIONS(48, 3),
+	SOUL_EATER(GeneralAsset.TALENT_ICON_SOUL_EATER, 3), SOUL_SIPHON(GeneralAsset.TALENT_ICON_SOUL_SIPHON, 3), NECROMANCERS_MINIONS(GeneralAsset.TALENT_ICON_NECROMANCERS_MINIONS, 3),
 	//Elemental Blast T4
-	BLAST_RADIUS(49, 4), ELEMENTAL_POWER(50, 4), REACTIVE_BARRIER(51, 4),
+	BLAST_RADIUS(GeneralAsset.TALENT_ICON_BLAST_RADIUS, 4), ELEMENTAL_POWER(GeneralAsset.TALENT_ICON_ELEMENTAL_POWER, 4), REACTIVE_BARRIER(GeneralAsset.TALENT_ICON_REACTIVE_BARRIER, 4),
 	//Wild Magic T4
-	WILD_POWER(52, 4), FIRE_EVERYTHING(53, 4), CONSERVED_MAGIC(54, 4),
+	WILD_POWER(GeneralAsset.TALENT_ICON_WILD_POWER, 4), FIRE_EVERYTHING(GeneralAsset.TALENT_ICON_FIRE_EVERYTHING, 4), CONSERVED_MAGIC(GeneralAsset.TALENT_ICON_CONSERVED_MAGIC, 4),
 	//Warp Beacon T4
-	TELEFRAG(55, 4), REMOTE_BEACON(56, 4), LONGRANGE_WARP(57, 4),
+	TELEFRAG(GeneralAsset.TALENT_ICON_TELEFRAG, 4), REMOTE_BEACON(GeneralAsset.TALENT_ICON_REMOTE_BEACON, 4), LONGRANGE_WARP(GeneralAsset.TALENT_ICON_LONGRANGE_WARP, 4),
 
 	//Rogue T1
-	CACHED_RATIONS(64), THIEFS_INTUITION(65), SUCKER_PUNCH(66), PROTECTIVE_SHADOWS(67),
+	CACHED_RATIONS(GeneralAsset.TALENT_ICON_CACHED_RATIONS), THIEFS_INTUITION(GeneralAsset.TALENT_ICON_THIEFS_INTUITION), SUCKER_PUNCH(GeneralAsset.TALENT_ICON_SUCKER_PUNCH), PROTECTIVE_SHADOWS(GeneralAsset.TALENT_ICON_PROTECTIVE_SHADOWS),
 	//Rogue T2
-	MYSTICAL_MEAL(68), MYSTICAL_UPGRADE(69), WIDE_SEARCH(70), SILENT_STEPS(71), ROGUES_FORESIGHT(72),
+	MYSTICAL_MEAL(GeneralAsset.TALENT_ICON_MYSTICAL_MEAL), MYSTICAL_UPGRADE(GeneralAsset.TALENT_ICON_MYSTICAL_UPGRADE), WIDE_SEARCH(GeneralAsset.TALENT_ICON_WIDE_SEARCH), SILENT_STEPS(GeneralAsset.TALENT_ICON_SILENT_STEPS), ROGUES_FORESIGHT(GeneralAsset.TALENT_ICON_ROGUES_FORESIGHT),
 	//Rogue T3
-	ENHANCED_RINGS(73, 3), LIGHT_CLOAK(74, 3),
+	ENHANCED_RINGS(GeneralAsset.TALENT_ICON_ENHANCED_RINGS, 3), LIGHT_CLOAK(GeneralAsset.TALENT_ICON_LIGHT_CLOAK, 3),
 	//Assassin T3
-	ENHANCED_LETHALITY(75, 3), ASSASSINS_REACH(76, 3), BOUNTY_HUNTER(77, 3),
+	ENHANCED_LETHALITY(GeneralAsset.TALENT_ICON_ENHANCED_LETHALITY, 3), ASSASSINS_REACH(GeneralAsset.TALENT_ICON_ASSASSINS_REACH, 3), BOUNTY_HUNTER(GeneralAsset.TALENT_ICON_BOUNTY_HUNTER, 3),
 	//Freerunner T3
-	EVASIVE_ARMOR(78, 3), PROJECTILE_MOMENTUM(79, 3), SPEEDY_STEALTH(80, 3),
+	EVASIVE_ARMOR(GeneralAsset.TALENT_ICON_EVASIVE_ARMOR, 3), PROJECTILE_MOMENTUM(GeneralAsset.TALENT_ICON_PROJECTILE_MOMENTUM, 3), SPEEDY_STEALTH(GeneralAsset.TALENT_ICON_SPEEDY_STEALTH, 3),
 	//Smoke Bomb T4
-	HASTY_RETREAT(81, 4), BODY_REPLACEMENT(82, 4), SHADOW_STEP(83, 4),
+	HASTY_RETREAT(GeneralAsset.TALENT_ICON_HASTY_RETREAT, 4), BODY_REPLACEMENT(GeneralAsset.TALENT_ICON_BODY_REPLACEMENT, 4), SHADOW_STEP(GeneralAsset.TALENT_ICON_SHADOW_STEP, 4),
 	//Death Mark T4
-	FEAR_THE_REAPER(84, 4), DEATHLY_DURABILITY(85, 4), DOUBLE_MARK(86, 4),
+	FEAR_THE_REAPER(GeneralAsset.TALENT_ICON_FEAR_THE_REAPER, 4), DEATHLY_DURABILITY(GeneralAsset.TALENT_ICON_DEATHLY_DURABILITY, 4), DOUBLE_MARK(GeneralAsset.TALENT_ICON_DOUBLE_MARK, 4),
 	//Shadow Clone T4
-	SHADOW_BLADE(87, 4), CLONED_ARMOR(88, 4), PERFECT_COPY(89, 4),
+	SHADOW_BLADE(GeneralAsset.TALENT_ICON_SHADOW_BLADE, 4), CLONED_ARMOR(GeneralAsset.TALENT_ICON_CLONED_ARMOR, 4), PERFECT_COPY(GeneralAsset.TALENT_ICON_PERFECT_COPY, 4),
 
 	//Huntress T1
-	NATURES_BOUNTY(96), SURVIVALISTS_INTUITION(97), FOLLOWUP_STRIKE(98), NATURES_AID(99),
+	NATURES_BOUNTY(GeneralAsset.TALENT_ICON_NATURES_BOUNTY), SURVIVALISTS_INTUITION(GeneralAsset.TALENT_ICON_SURVIVALISTS_INTUITION), FOLLOWUP_STRIKE(GeneralAsset.TALENT_ICON_FOLLOWUP_STRIKE), NATURES_AID(GeneralAsset.TALENT_ICON_NATURES_AID),
 	//Huntress T2
-	INVIGORATING_MEAL(100), RESTORED_NATURE(101), REJUVENATING_STEPS(102), HEIGHTENED_SENSES(103), DURABLE_PROJECTILES(104),
+	INVIGORATING_MEAL(GeneralAsset.TALENT_ICON_INVIGORATING_MEAL), RESTORED_NATURE(GeneralAsset.TALENT_ICON_RESTORED_NATURE), REJUVENATING_STEPS(GeneralAsset.TALENT_ICON_REJUVENATING_STEPS), HEIGHTENED_SENSES(GeneralAsset.TALENT_ICON_HEIGHTENED_SENSES), DURABLE_PROJECTILES(GeneralAsset.TALENT_ICON_DURABLE_PROJECTILES),
 	//Huntress T3
-	POINT_BLANK(105, 3), SEER_SHOT(106, 3),
+	POINT_BLANK(GeneralAsset.TALENT_ICON_POINT_BLANK, 3), SEER_SHOT(GeneralAsset.TALENT_ICON_SEER_SHOT, 3),
 	//Sniper T3
-	FARSIGHT(107, 3), SHARED_ENCHANTMENT(108, 3), SHARED_UPGRADES(109, 3),
+	FARSIGHT(GeneralAsset.TALENT_ICON_FARSIGHT, 3), SHARED_ENCHANTMENT(GeneralAsset.TALENT_ICON_SHARED_ENCHANTMENT, 3), SHARED_UPGRADES(GeneralAsset.TALENT_ICON_SHARED_UPGRADES, 3),
 	//Warden T3
-	DURABLE_TIPS(110, 3), BARKSKIN(111, 3), SHIELDING_DEW(112, 3),
+	DURABLE_TIPS(GeneralAsset.TALENT_ICON_DURABLE_TIPS, 3), BARKSKIN(GeneralAsset.TALENT_ICON_BARKSKIN, 3), SHIELDING_DEW(GeneralAsset.TALENT_ICON_SHIELDING_DEW, 3),
 	//Spectral Blades T4
-	FAN_OF_BLADES(113, 4), PROJECTING_BLADES(114, 4), SPIRIT_BLADES(115, 4),
+	FAN_OF_BLADES(GeneralAsset.TALENT_ICON_FAN_OF_BLADES, 4), PROJECTING_BLADES(GeneralAsset.TALENT_ICON_PROJECTING_BLADES, 4), SPIRIT_BLADES(GeneralAsset.TALENT_ICON_SPIRIT_BLADES, 4),
 	//Natures Power T4
-	GROWING_POWER(116, 4), NATURES_WRATH(117, 4), WILD_MOMENTUM(118, 4),
+	GROWING_POWER(GeneralAsset.TALENT_ICON_GROWING_POWER, 4), NATURES_WRATH(GeneralAsset.TALENT_ICON_NATURES_WRATH, 4), WILD_MOMENTUM(GeneralAsset.TALENT_ICON_WILD_MOMENTUM, 4),
 	//Spirit Hawk T4
-	EAGLE_EYE(119, 4), GO_FOR_THE_EYES(120, 4), SWIFT_SPIRIT(121, 4),
+	EAGLE_EYE(GeneralAsset.TALENT_ICON_EAGLE_EYE, 4), GO_FOR_THE_EYES(GeneralAsset.TALENT_ICON_GO_FOR_THE_EYES, 4), SWIFT_SPIRIT(GeneralAsset.TALENT_ICON_SWIFT_SPIRIT, 4),
 
 	//Duelist T1
-	STRENGTHENING_MEAL(128), ADVENTURERS_INTUITION(129), PATIENT_STRIKE(130), AGGRESSIVE_BARRIER(131),
+	STRENGTHENING_MEAL(GeneralAsset.TALENT_ICON_STRENGTHENING_MEAL), ADVENTURERS_INTUITION(GeneralAsset.TALENT_ICON_ADVENTURERS_INTUITION), PATIENT_STRIKE(GeneralAsset.TALENT_ICON_PATIENT_STRIKE), AGGRESSIVE_BARRIER(GeneralAsset.TALENT_ICON_AGGRESSIVE_BARRIER),
 	//Duelist T2
-	FOCUSED_MEAL(132), RESTORED_AGILITY(133), WEAPON_RECHARGING(134), LETHAL_HASTE(135), SWIFT_EQUIP(136),
+	FOCUSED_MEAL(GeneralAsset.TALENT_ICON_FOCUSED_MEAL), RESTORED_AGILITY(GeneralAsset.TALENT_ICON_RESTORED_AGILITY), WEAPON_RECHARGING(GeneralAsset.TALENT_ICON_WEAPON_RECHARGING), LETHAL_HASTE(GeneralAsset.TALENT_ICON_LETHAL_HASTE), SWIFT_EQUIP(GeneralAsset.TALENT_ICON_SWIFT_EQUIP),
 	//Duelist T3
-	LIGHTWEIGHT_CHARGE(137, 3), DEADLY_FOLLOWUP(138, 3),
+	LIGHTWEIGHT_CHARGE(GeneralAsset.TALENT_ICON_LIGHTWEIGHT_CHARGE, 3), DEADLY_FOLLOWUP(GeneralAsset.TALENT_ICON_DEADLY_FOLLOWUP, 3),
 	//Champion T3
-	SECONDARY_CHARGE(139, 3), TWIN_UPGRADES(140, 3), COMBINED_LETHALITY(141, 3),
+	SECONDARY_CHARGE(GeneralAsset.TALENT_ICON_SECONDARY_CHARGE, 3), TWIN_UPGRADES(GeneralAsset.TALENT_ICON_TWIN_UPGRADES, 3), COMBINED_LETHALITY(GeneralAsset.TALENT_ICON_COMBINED_LETHALITY, 3),
 	//Monk T3
-	UNENCUMBERED_SPIRIT(142, 3), MONASTIC_VIGOR(143, 3), COMBINED_ENERGY(144, 3),
+	UNENCUMBERED_SPIRIT(GeneralAsset.TALENT_ICON_UNENCUMBERED_SPIRIT, 3), MONASTIC_VIGOR(GeneralAsset.TALENT_ICON_MONASTIC_VIGOR, 3), COMBINED_ENERGY(GeneralAsset.TALENT_ICON_COMBINED_ENERGY, 3),
 	//Challenge T4
-	CLOSE_THE_GAP(145, 4), INVIGORATING_VICTORY(146, 4), ELIMINATION_MATCH(147, 4),
+	CLOSE_THE_GAP(GeneralAsset.TALENT_ICON_CLOSE_THE_GAP, 4), INVIGORATING_VICTORY(GeneralAsset.TALENT_ICON_INVIGORATING_VICTORY, 4), ELIMINATION_MATCH(GeneralAsset.TALENT_ICON_ELIMINATION_MATCH, 4),
 	//Elemental Strike T4
-	ELEMENTAL_REACH(148, 4), STRIKING_FORCE(149, 4), DIRECTED_POWER(150, 4),
+	ELEMENTAL_REACH(GeneralAsset.TALENT_ICON_ELEMENTAL_REACH, 4), STRIKING_FORCE(GeneralAsset.TALENT_ICON_STRIKING_FORCE, 4), DIRECTED_POWER(GeneralAsset.TALENT_ICON_DIRECTED_POWER, 4),
 	//Duelist A3 T4
-	FEIGNED_RETREAT(151, 4), EXPOSE_WEAKNESS(152, 4), COUNTER_ABILITY(153, 4),
+	FEIGNED_RETREAT(GeneralAsset.TALENT_ICON_FEIGNED_RETREAT, 4), EXPOSE_WEAKNESS(GeneralAsset.TALENT_ICON_EXPOSE_WEAKNESS, 4), COUNTER_ABILITY(GeneralAsset.TALENT_ICON_COUNTER_ABILITY, 4),
 
 	//universal T4
-	HEROIC_ENERGY(26, 4), //See icon() and title() for special logic for this one
+	HEROIC_ENERGY(GeneralAsset.BLANK, 4),
 	//Ratmogrify T4
-	RATSISTANCE(215, 4), RATLOMACY(216, 4), RATFORCEMENTS(217, 4);
+	RATSISTANCE(GeneralAsset.TALENT_ICON_RATSISTANCE, 4), RATLOMACY(GeneralAsset.TALENT_ICON_RATLOMACY, 4), RATFORCEMENTS(GeneralAsset.TALENT_ICON_RATFORCEMENTS, 4);
 
 	public static class ImprovisedProjectileCooldown extends FlavourBuff{
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0.15f, 0.2f, 0.5f); }
 		public float iconFadePercent() { return Math.max(0, visualcooldown() / 50); }
 	};
@@ -221,26 +224,26 @@ public enum Talent {
 	}
 	public static class BountyHunterTracker extends FlavourBuff{};
 	public static class RejuvenatingStepsCooldown extends FlavourBuff{
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0f, 0.35f, 0.15f); }
 		public float iconFadePercent() { return GameMath.gate(0, visualcooldown() / (15 - 5*Dungeon.hero.pointsInTalent(REJUVENATING_STEPS)), 1); }
 	};
 	public static class RejuvenatingStepsFurrow extends CounterBuff{{revivePersists = true;}};
 	public static class SeerShotCooldown extends FlavourBuff{
-		public int icon() { return target.buff(RevealedArea.class) != null ? BuffIndicator.NONE : BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return target.buff(RevealedArea.class) != null ? BuffIndicator.NONE : BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0.7f, 0.4f, 0.7f); }
 		public float iconFadePercent() { return Math.max(0, visualcooldown() / 20); }
 	};
 	public static class SpiritBladesTracker extends FlavourBuff{};
 	public static class PatientStrikeTracker extends FlavourBuff{};
 	public static class AggressiveBarrierCooldown extends FlavourBuff{
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0.35f, 0f, 0.7f); }
 		public float iconFadePercent() { return Math.max(0, visualcooldown() / 50); }
 	};;
 	public static class RestoredAgilityTracker extends FlavourBuff{};
 	public static class LethalHasteCooldown extends FlavourBuff{
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0.35f, 0f, 0.7f); }
 		public float iconFadePercent() { return Math.max(0, visualcooldown() / 100); }
 	};
@@ -250,7 +253,7 @@ public enum Talent {
 			return secondUse && cooldown() > 24f;
 		}
 
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) {
 			if (hasSecondUse()) icon.hardlight(0.85f, 0f, 1.0f);
 			else                icon.hardlight(0.35f, 0f, 0.7f);
@@ -275,7 +278,7 @@ public enum Talent {
 	};
 	public static class CombinedLethalityTriggerTracker extends FlavourBuff{
 		{ type = buffType.POSITIVE; }
-		public int icon() { return BuffIndicator.CORRUPT; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.CORRUPT; }
 		public void tintIcon(Image icon) { icon.hardlight(0.6f, 0.15f, 0.6f); }
 	};
 	public static class CombinedEnergyAbilityTracker extends FlavourBuff{
@@ -284,41 +287,41 @@ public enum Talent {
 	}
 	public static class CounterAbilityTacker extends FlavourBuff{};
 
-	int icon;
+	Asset asset;
 	int maxPoints;
 
 	// tiers 1/2/3/4 start at levels 2/7/13/21
 	public static int[] tierLevelThresholds = new int[]{0, 2, 7, 13, 21, 31};
 
-	Talent( int icon ){
-		this(icon, 2);
+	Talent( Asset asset){
+		this(asset, 2);
 	}
 
-	Talent( int icon, int maxPoints ){
-		this.icon = icon;
+	Talent(Asset asset, int maxPoints ){
+		this.asset = asset;
 		this.maxPoints = maxPoints;
 	}
 
-	public int icon(){
+	public Asset icon(){
 		if (this == HEROIC_ENERGY){
 			if (Ratmogrify.useRatroicEnergy){
-				return 218;
+				return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_RAT;
 			}
 			HeroClass cls = Dungeon.hero != null ? Dungeon.hero.heroClass : GamesInProgress.selectedClass;
 			switch (cls){
 				case WARRIOR: default:
-					return 26;
+					return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_WARRIOR;
 				case MAGE:
-					return 58;
+					return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_MAGE;
 				case ROGUE:
-					return 90;
+					return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_ROGUE;
 				case HUNTRESS:
-					return 122;
+					return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_HUNTRESS;
 				case DUELIST:
-					return 154;
+					return GeneralAsset.TALENT_ICON_HEROIC_ENERGY_DUELIST;
 			}
 		} else {
-			return icon;
+			return asset;
 		}
 	}
 

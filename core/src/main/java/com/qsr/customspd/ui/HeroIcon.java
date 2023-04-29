@@ -24,62 +24,53 @@ package com.qsr.customspd.ui;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.TextureFilm;
 
 //icons for hero subclasses and abilities atm, maybe add classes?
 public class HeroIcon extends Image {
 
-	private static TextureFilm film;
-	private static final int SIZE = 16;
-
 	//transparent icon
-	public static final int NONE    = 31;
+	public static final Asset NONE    = GeneralAsset.BLANK;
 
 	//subclasses
-	public static final int BERSERKER   = 0;
-	public static final int GLADIATOR   = 1;
-	public static final int BATTLEMAGE  = 2;
-	public static final int WARLOCK     = 3;
-	public static final int ASSASSIN    = 4;
-	public static final int FREERUNNER  = 5;
-	public static final int SNIPER      = 6;
-	public static final int WARDEN      = 7;
-	public static final int CHAMPION    = 8;
-	public static final int MONK        = 9;
+	public static final Asset BERSERKER   = GeneralAsset.HERO_ICON_BERSERKER;
+	public static final Asset GLADIATOR   = GeneralAsset.HERO_ICON_GLADIATOR;
+	public static final Asset BATTLEMAGE  = GeneralAsset.HERO_ICON_BATTLEMAGE;
+	public static final Asset WARLOCK     = GeneralAsset.HERO_ICON_WARLOCK;
+	public static final Asset ASSASSIN    = GeneralAsset.HERO_ICON_ASSASSIN;
+	public static final Asset FREERUNNER  = GeneralAsset.HERO_ICON_FREERUNNER;
+	public static final Asset SNIPER      = GeneralAsset.HERO_ICON_SNIPER;
+	public static final Asset WARDEN      = GeneralAsset.HERO_ICON_WARDEN;
+	public static final Asset CHAMPION    = GeneralAsset.HERO_ICON_CHAMPION;
+	public static final Asset MONK        = GeneralAsset.HERO_ICON_MONK;
 
 	//abilities
-	public static final int HEROIC_LEAP     = 16;
-	public static final int SHOCKWAVE       = 17;
-	public static final int ENDURE          = 18;
-	public static final int ELEMENTAL_BLAST = 19;
-	public static final int WILD_MAGIC      = 20;
-	public static final int WARP_BEACON     = 21;
-	public static final int SMOKE_BOMB      = 22;
-	public static final int DEATH_MARK      = 23;
-	public static final int SHADOW_CLONE    = 24;
-	public static final int SPECTRAL_BLADES = 25;
-	public static final int NATURES_POWER   = 26;
-	public static final int SPIRIT_HAWK     = 27;
-	public static final int CHALLENGE       = 28;
-	public static final int ELEMENTAL_STRIKE= 29;
-	public static final int FEINT           = 30;
-	public static final int RATMOGRIFY      = 31;
+	public static final Asset HEROIC_LEAP     = GeneralAsset.HERO_ICON_HEROIC_LEAP;
+	public static final Asset SHOCKWAVE       = GeneralAsset.HERO_ICON_SHOCKWAVE;
+	public static final Asset ENDURE          = GeneralAsset.HERO_ICON_ENDURE;
+	public static final Asset ELEMENTAL_BLAST = GeneralAsset.HERO_ICON_ELEMENTAL_BLAST;
+	public static final Asset WILD_MAGIC      = GeneralAsset.HERO_ICON_WILD_MAGIC;
+	public static final Asset WARP_BEACON     = GeneralAsset.HERO_ICON_WARP_BEACON;
+	public static final Asset SMOKE_BOMB      = GeneralAsset.HERO_ICON_SMOKE_BOMB;
+	public static final Asset DEATH_MARK      = GeneralAsset.HERO_ICON_DEATH_MARK;
+	public static final Asset SHADOW_CLONE    = GeneralAsset.HERO_ICON_SHADOW_CLONE;
+	public static final Asset SPECTRAL_BLADES = GeneralAsset.HERO_ICON_SPECTRAL_BLADES;
+	public static final Asset NATURES_POWER   = GeneralAsset.HERO_ICON_NATURES_POWER;
+	public static final Asset SPIRIT_HAWK     = GeneralAsset.HERO_ICON_SPIRIT_HAWK;
+	public static final Asset CHALLENGE       = GeneralAsset.HERO_ICON_CHALLENGE;
+	public static final Asset ELEMENTAL_STRIKE= GeneralAsset.HERO_ICON_ELEMENTAL_STRIKE;
+	public static final Asset FEINT           = GeneralAsset.HERO_ICON_FEINT;
+	public static final Asset RATMOGRIFY      = GeneralAsset.HERO_ICON_RATMOGRIFY;
 
-	public HeroIcon(HeroSubClass subCls){
-		super( Assets.Interfaces.HERO_ICONS );
-		if (film == null){
-			film = new TextureFilm(texture, SIZE, SIZE);
-		}
-		frame(film.get(subCls.icon()));
+	public HeroIcon(HeroSubClass subCls) {
+		super( Asset.getAssetFileHandle(subCls.icon()) );
 	}
 
-	public HeroIcon(ArmorAbility abil){
-		super( Assets.Interfaces.HERO_ICONS );
-		if (film == null){
-			film = new TextureFilm(texture, SIZE, SIZE);
-		}
-		frame(film.get(abil.icon()));
+	public HeroIcon(ArmorAbility ability) {
+		super( Asset.getAssetFileHandle(ability.icon()) );
 	}
 
 }

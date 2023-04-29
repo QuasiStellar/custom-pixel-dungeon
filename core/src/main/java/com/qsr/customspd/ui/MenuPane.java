@@ -26,6 +26,8 @@ import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
 import com.qsr.customspd.SPDSettings;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
@@ -73,7 +75,7 @@ public class MenuPane extends Component {
 		bg = new Image(Assets.Interfaces.MENU);
 		add(bg);
 
-		depthIcon = Icons.get(Dungeon.level.feeling);
+		depthIcon = IconUtils.get(Dungeon.level.feeling);
 		add(depthIcon);
 
 		depthText = new BitmapText( Integer.toString( Dungeon.depth ), PixelScene.pixelFont);
@@ -106,7 +108,7 @@ public class MenuPane extends Component {
 		add(depthButton);
 
 		if (Challenges.activeChallenges() > 0){
-			challengeIcon = Icons.get(Icons.CHAL_COUNT);
+			challengeIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHAL_COUNT));
 			add(challengeIcon);
 
 			challengeText = new BitmapText( Integer.toString( Challenges.activeChallenges() ), PixelScene.pixelFont);

@@ -34,6 +34,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Dewdrop;
@@ -49,6 +50,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 
+import kotlin.Pair;
+
 public class Challenge extends ArmorAbility {
 
 	{
@@ -56,7 +59,7 @@ public class Challenge extends ArmorAbility {
 	}
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.CHALLENGE;
 	}
 
@@ -199,7 +202,7 @@ public class Challenge extends ArmorAbility {
 		private int takenDmg = 0;
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.CHALLENGE;
 		}
 

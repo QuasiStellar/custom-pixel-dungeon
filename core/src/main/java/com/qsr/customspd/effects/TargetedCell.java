@@ -21,8 +21,9 @@
 
 package com.qsr.customspd.effects;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
-import com.qsr.customspd.ui.Icons;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 
@@ -31,7 +32,7 @@ public class TargetedCell extends Image {
 	private float alpha;
 
 	public TargetedCell( int pos, int color ) {
-		super(Icons.get(Icons.TARGET));
+		super(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET)));
 		hardlight(color);
 
 		origin.set( width/2f );

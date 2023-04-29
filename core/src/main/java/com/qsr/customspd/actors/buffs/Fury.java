@@ -21,7 +21,10 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class Fury extends Buff {
 	
@@ -44,7 +47,7 @@ public class Fury extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.FURY;
 	}
 }

@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
@@ -38,6 +39,8 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class WandOfMagicMissile extends DamageWand {
 
@@ -130,7 +133,7 @@ public class WandOfMagicMissile extends DamageWand {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.UPGRADE;
 		}
 

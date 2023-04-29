@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
@@ -34,7 +36,6 @@ import com.qsr.customspd.services.updates.Updates;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.CheckBox;
 import com.qsr.customspd.ui.GameLog;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.OptionSlider;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -83,7 +84,7 @@ public class WndSettings extends WndTabbed {
 		height = display.height();
 		add( display );
 
-		add( new IconTab(Icons.get(Icons.DISPLAY)){
+		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -97,7 +98,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, ui.height());
 		add( ui );
 
-		add( new IconTab(Icons.get(Icons.PREFS)){
+		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -114,9 +115,9 @@ public class WndSettings extends WndTabbed {
 			add( input );
 			Image icon;
 			if (ControllerHandler.controllerActive || !DeviceCompat.hasHardKeyboard()){
-				icon = Icons.get(Icons.CONTROLLER);
+				icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CONTROLLER));
 			} else {
-				icon = Icons.get(Icons.KEYBOARD);
+				icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_KEYBOARD));
 			}
 			add(new IconTab(icon) {
 				@Override
@@ -133,7 +134,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, data.height());
 		add( data );
 
-		add( new IconTab(Icons.get(Icons.DATA)){
+		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DATA))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -147,7 +148,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, audio.height());
 		add( audio );
 
-		add( new IconTab(Icons.get(Icons.AUDIO)){
+		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -162,7 +163,7 @@ public class WndSettings extends WndTabbed {
 		add( langs );
 
 
-		IconTab langsTab = new IconTab(Icons.get(Icons.LANGS)){
+		IconTab langsTab = new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -259,7 +260,7 @@ public class WndSettings extends WndTabbed {
 						super.onClick();
 						if (checked()) {
 							checked(!checked());
-							ShatteredPixelDungeon.scene().add(new WndOptions(Icons.get(Icons.DISPLAY),
+							ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)),
 									Messages.get(DisplayTab.class, "saver"),
 									Messages.get(DisplayTab.class, "saver_desc"),
 									Messages.get(DisplayTab.class, "okay"),

@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.PrismaticImage;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
@@ -33,6 +34,8 @@ import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
+
+import kotlin.Pair;
 
 public class PrismaticGuard extends Buff {
 	
@@ -106,7 +109,7 @@ public class PrismaticGuard extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.ARMOR;
 	}
 	

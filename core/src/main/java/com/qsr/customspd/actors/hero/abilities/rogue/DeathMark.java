@@ -33,6 +33,7 @@ import com.qsr.customspd.actors.buffs.Terror;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -43,6 +44,8 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
+
+import kotlin.Pair;
 
 public class DeathMark extends ArmorAbility {
 
@@ -135,7 +138,7 @@ public class DeathMark extends ArmorAbility {
 	public static class DoubleMarkTracker extends FlavourBuff{};
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.DEATH_MARK;
 	}
 
@@ -156,7 +159,7 @@ public class DeathMark extends ArmorAbility {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.INVERT_MARK;
 		}
 

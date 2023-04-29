@@ -23,6 +23,7 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
@@ -31,6 +32,8 @@ import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class FireImbue extends Buff {
 	
@@ -86,7 +89,7 @@ public class FireImbue extends Buff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.IMBUE;
 	}
 

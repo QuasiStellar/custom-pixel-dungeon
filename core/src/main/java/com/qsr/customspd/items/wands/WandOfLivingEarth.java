@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
@@ -47,6 +48,8 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.ColorMath;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class WandOfLivingEarth extends DamageWand {
 	
@@ -253,7 +256,7 @@ public class WandOfLivingEarth extends DamageWand {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.ARMOR;
 		}
 

@@ -26,6 +26,8 @@ import com.qsr.customspd.GamesInProgress;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.scenes.InterlevelScene;
@@ -33,12 +35,12 @@ import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.scenes.StartScene;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.ui.ActionIndicator;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.utils.DungeonSeed;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
 
 import java.util.Locale;
 
@@ -79,7 +81,7 @@ public class WndGameInProgress extends Window {
 					Game.scene().add( new WndChallenges( info.challenges, false ) );
 				}
 			};
-			btnChallenges.icon(Icons.get(Icons.CHALLENGE_ON));
+			btnChallenges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)));
 			float btnW = btnChallenges.reqWidth() + 2;
 			btnChallenges.setRect( (WIDTH - btnW)/2, pos, btnW , 18 );
 			add( btnChallenges );
@@ -138,7 +140,7 @@ public class WndGameInProgress extends Window {
 			protected void onClick() {
 				super.onClick();
 				
-				ShatteredPixelDungeon.scene().add(new WndOptions(Icons.get(Icons.WARNING),
+				ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
 						Messages.get(WndGameInProgress.class, "erase_warn_title"),
 						Messages.get(WndGameInProgress.class, "erase_warn_body"),
 						Messages.get(WndGameInProgress.class, "erase_warn_yes"),
@@ -154,11 +156,11 @@ public class WndGameInProgress extends Window {
 			}
 		};
 
-		cont.icon(Icons.get(Icons.ENTER));
+		cont.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
 		cont.setRect(0, pos, WIDTH/2 -1, 20);
 		add(cont);
 
-		erase.icon(Icons.get(Icons.CLOSE));
+		erase.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CLOSE)));
 		erase.setRect(WIDTH/2 + 1, pos, WIDTH/2 - 1, 20);
 		add(erase);
 		

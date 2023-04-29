@@ -21,6 +21,8 @@
 
 package com.qsr.customspd.ui.changelist;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Stylus;
 import com.qsr.customspd.items.armor.PlateArmor;
 import com.qsr.customspd.items.weapon.melee.Glaive;
@@ -30,8 +32,8 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 
 import java.util.ArrayList;
 
@@ -54,7 +56,7 @@ public class v0_4_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 16th, 2016\n" +
 				"_-_ 37 days after Shattered v0.4.2\n" +
 				"\n" +
@@ -62,7 +64,7 @@ public class v0_4_X_Changes {
 				"\n" +
 				"While it doesn't affect the content of the game, I also massively improved how Shattered is built from its source code in v0.4.2 and v0.4.3. This makes Shattered easier to compile for people who want to work with its open source, and also results in a compiled game that's a bit smaller and more efficient."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), "Technical Improvements",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Technical Improvements",
 				"_-_ Added rankings and hall of heroes sync via Google Play Games, for the Google Play version of Shattered.\n\n" +
 				"_-_ Added Power Saver mode in settings\n" +
 				"_-_ Download size reduced by ~25%\n" +
@@ -85,7 +87,7 @@ public class v0_4_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released September 9th, 2016\n" +
 				"_-_ 46 days after Shattered v0.4.1\n" +
 				"\n" +
@@ -95,7 +97,7 @@ public class v0_4_X_Changes {
 						"\n" +
 						"Behind the scenes, the biggest changes were probably to various bits of game logic that assumed a constant map size of 32x32. After v0.4.2 many of these operations were made more efficient, and could work on variably sized maps, up to a new theoretical max of about 144x144."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), "Technical Improvements",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Technical Improvements",
 				"_-_ Many general performance improvements\n" +
 				"_-_ Game now uses 2 CPU cores, up from 1\n" +
 				"_-_ Reduced hitching on many devices\n" +
@@ -119,7 +121,7 @@ public class v0_4_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released July 25th, 2016\n" +
 				"_-_ 35 days after Shattered v0.4.0\n" +
 				"\n" +
@@ -173,7 +175,7 @@ public class v0_4_X_Changes {
 				"_-_ Extra reach weapons no longer penetrate\n" +
 				"_-_ Runic blade damage decreased"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Added a new journal button with key display\n" +
 				"_-_ Keys now exist in the journal, not inventory\n" +
 				"_-_ Improved donator menu button visuals\n" +
@@ -188,7 +190,7 @@ public class v0_4_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released June 20th, 2016\n" +
 				"_-_ 50 days after Shattered v0.3.5\n" +
 				"_-_ 391 days after Shattered v0.3.0\n" +
@@ -229,7 +231,7 @@ public class v0_4_X_Changes {
 				"_-_ Upgrades now weaken curses\n" +
 				"_-_ Remove curse scrolls now affect 1 item"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Class Balance:\n" +
 				"_-_ Huntress now starts with knuckleduster\n" +
 				"_-_ Assassin sneak bonus damage reduced\n" +

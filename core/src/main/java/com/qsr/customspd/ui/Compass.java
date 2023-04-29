@@ -22,6 +22,8 @@
 package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Image;
@@ -40,7 +42,7 @@ public class Compass extends Image {
 	public Compass( int cell ) {
 		
 		super();
-		copy( Icons.COMPASS.get() );
+		copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COMPASS)) );
 		origin.set( width / 2, RADIUS );
 		
 		this.cell = cell;

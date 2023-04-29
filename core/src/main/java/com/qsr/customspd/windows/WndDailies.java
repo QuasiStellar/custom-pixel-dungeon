@@ -23,14 +23,16 @@ package com.qsr.customspd.windows;
 
 import com.qsr.customspd.Rankings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.ColorBlock;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.ui.Component;
 
 import java.text.DateFormat;
@@ -57,14 +59,14 @@ public class WndDailies extends Window {
 
 		Component content = pane.content();
 
-		IconTitle title = new IconTitle(Icons.CALENDAR.get(), Messages.get(this, "title"));
+		IconTitle title = new IconTitle(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR)), Messages.get(this, "title"));
 		title.imIcon.hardlight(0.5f, 1f, 2f);
 		title.setRect(0, 0, WIDTH, 0);
 		title.setPos(0, 0);
 		content.add(title);
 
 		if (Rankings.INSTANCE.latestDailyReplay != null){
-			IconButton replayInfo = new IconButton(Icons.get(Icons.CALENDAR)){
+			IconButton replayInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR))){
 				@Override
 				protected void onClick() {
 					ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
@@ -118,7 +120,7 @@ public class WndDailies extends Window {
 			content.add(day);
 
 			if (first){
-				IconButton latestInfo = new IconButton(Icons.INFO.get()){
+				IconButton latestInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));

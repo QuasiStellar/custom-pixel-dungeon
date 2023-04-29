@@ -31,6 +31,8 @@ import com.qsr.customspd.actors.buffs.HoldFast;
 import com.qsr.customspd.actors.buffs.LostInventory;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.messages.Messages;
@@ -357,7 +359,7 @@ public class Toolbar extends Component {
 			@Override
 			protected void createChildren() {
 				super.createChildren();
-				arrow = Icons.get(Icons.COMPASS);
+				arrow = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COMPASS));
 				arrow.originToCenter();
 				arrow.visible = SPDSettings.interfaceSize() == 2;
 				arrow.tint(0x3D2E18, 1f);
@@ -811,7 +813,7 @@ public class Toolbar extends Component {
 
 		public void updateVisuals(){
 			if (icons[0] == null){
-				icons[0] = Icons.get(Icons.CHANGES);
+				icons[0] = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES));
 				icons[0].scale.set(PixelScene.align(0.45f));
 				add(icons[0]);
 			}

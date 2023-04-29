@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.levels.traps.Trap;
@@ -51,6 +52,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class TimekeepersHourglass extends Artifact {
 
@@ -411,7 +414,7 @@ public class TimekeepersHourglass extends Artifact {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.TIME;
 		}
 

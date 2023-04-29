@@ -28,12 +28,15 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.audio.Sample;
+
+import kotlin.Pair;
 
 public class StoneOfAggression extends Runestone {
 	
@@ -74,7 +77,7 @@ public class StoneOfAggression extends Runestone {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.TARGETED;
 		}
 

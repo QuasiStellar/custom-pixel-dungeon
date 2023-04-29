@@ -27,12 +27,13 @@ import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.TalentButton;
 import com.qsr.customspd.ui.TalentsPane;
@@ -96,7 +97,7 @@ public class WndHeroInfo extends WndTabbed {
 		talentInfo.setSize(WIDTH, MIN_HEIGHT);
 		finalHeight = (int)Math.max(finalHeight, talentInfo.height());
 
-		add( new IconTab( Icons.get(Icons.TALENT) ){
+		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)) ){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -183,7 +184,7 @@ public class WndHeroInfo extends WndTabbed {
 					break;
 				case ROGUE:
 					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK),
-							Icons.get(Icons.STAIRS),
+							new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)),
 							new ItemSprite(ItemSpriteSheet.DAGGER),
 							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
 					break;
@@ -290,7 +291,7 @@ public class WndHeroInfo extends WndTabbed {
 			for (int i = 0; i < subClasses.length; i++){
 				subClsDescs[i] = PixelScene.renderTextBlock(subClasses[i].shortDesc(), 6);
 				int finalI = i;
-				subClsInfos[i] = new IconButton( Icons.get(Icons.INFO) ){
+				subClsInfos[i] = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)) ){
 					@Override
 					protected void onClick() {
 						Game.scene().addToFront(new WndInfoSubclass(cls, subClasses[finalI]));
@@ -350,7 +351,7 @@ public class WndHeroInfo extends WndTabbed {
 			for (int i = 0; i < abilities.length; i++){
 				abilityDescs[i] = PixelScene.renderTextBlock(abilities[i].shortDesc(), 6);
 				int finalI = i;
-				abilityInfos[i] = new IconButton( Icons.get(Icons.INFO) ){
+				abilityInfos[i] = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)) ){
 					@Override
 					protected void onClick() {
 						Game.scene().addToFront(new WndInfoArmorAbility(cls, abilities[finalI]));

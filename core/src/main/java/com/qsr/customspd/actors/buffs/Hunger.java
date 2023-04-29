@@ -25,6 +25,7 @@ import com.qsr.customspd.Badges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.journal.Guidebook;
 import com.qsr.customspd.items.scrolls.exotic.ScrollOfChallenge;
 import com.qsr.customspd.journal.Document;
@@ -33,6 +34,8 @@ import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Hunger extends Buff implements Hero.Doom {
 
@@ -158,7 +161,7 @@ public class Hunger extends Buff implements Hero.Doom {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		if (level < HUNGRY) {
 			return BuffIndicator.NONE;
 		} else if (level < STARVING) {

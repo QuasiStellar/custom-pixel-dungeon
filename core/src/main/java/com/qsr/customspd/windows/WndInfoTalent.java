@@ -23,13 +23,15 @@ package com.qsr.customspd.windows;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.TalentIcon;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 import com.watabou.utils.Callback;
 
 public class WndInfoTalent extends Window {
@@ -70,7 +72,7 @@ public class WndInfoTalent extends Window {
 					buttonCallback.call();
 				}
 			};
-			button.icon(Icons.get(Icons.TALENT));
+			button.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)));
 			button.setRect(0, txtInfo.bottom() + 2*GAP, WIDTH, 18);
 			add(button);
 			resize( WIDTH, (int)button.bottom()+1 );

@@ -22,8 +22,11 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class MindVision extends FlavourBuff {
 
@@ -36,7 +39,7 @@ public class MindVision extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.MIND_VISION;
 	}
 

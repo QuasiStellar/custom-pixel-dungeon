@@ -24,6 +24,8 @@ package com.qsr.customspd.ui;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.windows.WndKeyBindings;
@@ -65,7 +67,7 @@ public class DangerIndicator extends Tag {
 		number = new BitmapText( PixelScene.pixelFont);
 		add( number );
 		
-		icon = Icons.SKULL.get();
+		icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SKULL));
 		add( icon );
 	}
 	

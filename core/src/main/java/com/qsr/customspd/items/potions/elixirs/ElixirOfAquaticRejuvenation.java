@@ -26,6 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.items.quest.GooBlob;
@@ -36,6 +37,8 @@ import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class ElixirOfAquaticRejuvenation extends Elixir {
 	
@@ -97,7 +100,7 @@ public class ElixirOfAquaticRejuvenation extends Elixir {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.HEALING;
 		}
 

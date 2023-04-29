@@ -22,7 +22,10 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
+
+import kotlin.Pair;
 
 public class Roots extends FlavourBuff {
 
@@ -50,7 +53,7 @@ public class Roots extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.ROOTS;
 	}
 

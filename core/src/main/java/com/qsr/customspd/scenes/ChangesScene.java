@@ -24,11 +24,12 @@ package com.qsr.customspd.scenes;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.StyledButton;
@@ -105,7 +106,7 @@ public class ChangesScene extends PixelScene {
 			rightPanel.y = title.bottom() + 5;
 			add(rightPanel);
 
-			changeTitle = new IconTitle(Icons.get(Icons.CHANGES), Messages.get(this, "right_title"));
+			changeTitle = new IconTitle(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)), Messages.get(this, "right_title"));
 			changeTitle.setPos(rightPanel.x + rightPanel.marginLeft(), rightPanel.y + rightPanel.marginTop());
 			changeTitle.setSize(pw, 20);
 			add(changeTitle);

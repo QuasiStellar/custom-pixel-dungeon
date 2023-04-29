@@ -23,13 +23,14 @@ package com.qsr.customspd.ui.changelist;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.HeroClass;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -48,17 +49,17 @@ public class v2_X_Changes {
 		changes.hardlight(0xCCCCCC);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Overview",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Overview",
 				"My current plan is for the next major update to be v2.1.0, which will mostly be focused on responding to any balance or general gameplay issues that appear as dust settles from the Duelist's release.\n\n" +
 				"I don't yet have a specific timeline for v2.1.0, but I think it's a safe bet that you'll hear from me about it sometime in late April or May. Please keep in mind that while I always try to keep to the ETAs I provide, they are just estimates. If you don't hear from me by the ETA, it means I'm still busy with the update!"));
 
 		changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.DUELIST, 6), "Hero Changes",
 				"The largest changes in v2.1.0 will be focused around the game's heroes, with a big emphasis on the Duelist. I'm generally happy with how she performed during the beta, but such a large addition to the game is definitely going to need some refinement over time. I may also make some smaller changes to the other heroes as well, depending on how things shake out. "));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.TALENT), "Side Content",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Side Content",
 				"v2.1.0 will also include some amount of side content, but it will probably be fairly small. I plan to add a couple new exotic enemies, and there might be room for one or two other little things as well."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), "Smaller Fixes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Smaller Fixes",
 				"There will also be more miscellaneous changes and bugfixes! Despite all of the fixes I've made in v2.0.0, my list of things to do has actually grown! I'd like to spend a bit of time keeping that list in check."));
 
 		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.PICKAXE), "Blacksmith Quest?",
@@ -76,7 +77,7 @@ public class v2_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released March 13th, 2023\n" +
 				"_-_ 160 days after Shattered v1.4.0\n" +
 				"_-_ 413 days after Shattered v1.0.0\n" +
@@ -110,7 +111,7 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.STAIRS), "Ascension Challenge",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Ascension Challenge",
 				"I'm making a few adjustments to the ascension challenge to slightly increase the difficulty of some regions, while also reducing the pressure to kill enemies a little bit:\n" +
 				"\n" +
 				"_-_ Enemies to kill per floor reduced to 2 from 2.5. Thresholds for all amulet debuff effects adjusted to compensate\n" +
@@ -125,7 +126,7 @@ public class v2_X_Changes {
 				"_- Gnoll & Snake_ stat boost up to 9x from 7x\n" +
 				"_- Rat_ stat boost up to 10x from 8x"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
 				"_Highlights:_\n" +
 				"_-_ The game now remembers if the player removes the waterskin from their quickslot right after starting a run\n" +
 				"_-_ The damage warning vfx now always interrupts the hero, regardless of any other factors\n" +
@@ -139,7 +140,7 @@ public class v2_X_Changes {
 				"_-_ Added a new Language: _Vietnamese!_ Currently only system font is supported for Vietnamese.\n" +
 				"_-_ Removed the following Languages due to low usage and lack of maintenance: Finnish, Galician, Basque, Esperanto."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 2",
 				"_iOS:_\n" +
 				"_-_ Improved gesture handling, should reduce/eliminate touch delays\n" +
 				"_-_ Removed unused audio files, reducing download size by about 15%\n" +
@@ -154,7 +155,7 @@ public class v2_X_Changes {
 				"_-_ Backup barrier now triggers before wand zaps fully resolve\n" +
 				"_-_ The chasm warning screen now also appears when levitation is about to end."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 3",
 				"_Levelgen:_\n" +
 				"_-_ Adjusted the layout of sacrifice rooms to provide some cover from ranged enemies\n" +
 				"_-_ Secret rooms now never affect the generation of items in other rooms\n" +

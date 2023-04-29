@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Spinner;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.artifacts.ChaliceOfBlood;
 import com.qsr.customspd.items.artifacts.CloakOfShadows;
 import com.qsr.customspd.items.rings.RingOfEnergy;
@@ -39,7 +41,6 @@ import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.sprites.SpawnerSprite;
 import com.qsr.customspd.sprites.SpinnerSprite;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.TalentIcon;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
@@ -64,7 +65,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released June 7th, 2021\n" +
 				"_-_ 101 days after Shattered v0.9.2\n" +
 				"\n" +
@@ -75,7 +76,7 @@ public class v0_9_X_Changes {
 				"After the defeating the fourth boss, the player now gets to choose between one of three abilities for each hero. Armor abilities also charge much faster, and can be further improved via tier four talents!\n\n" +
 				"Each armor ability has three talents, plus one charge-speed talent that's shared between them. These talents all take up to 4 points, and there are up to 10 points available in tier 4, for levels 21-30."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.CHALLENGE_ON), "New Challenge!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)), "New Challenge!",
 				"A new challenge has been added: _Badder Bosses!_\n\n" +
 				"This challenge is a followup to Hostile Champions in a lot of ways, making the dungeon's bosses much stronger, instead of the enemies. Early bosses like Goo are only a touch tougher, but lategame bosses are quite a lot more deadly!\n\n" +
 				"To go along with this challenge, I've also made a few targeted tweaks to regular boss mechanics:\n" +
@@ -89,7 +90,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.STAIRS), "Dungeon Changes",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Dungeon Changes",
 				"I'm making some slight tweaks to level sizes and layouts, to make the game overall a little shorter, and to put a bit more emphasis on the final region:\n\n" +
 				"_-_ Standard room count down by roughly 10/20/15/15/5%, for each region\n" +
 				"_-_ Connection room frequency down by ~25%\n\n" +
@@ -111,7 +112,7 @@ public class v0_9_X_Changes {
 				"_-_ Overhauled the hero info window, and added a button for it in the ingame hero menu.\n" +
 				"_-_ Overhauled the subclass selection interface, now much more informative."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Quickslotting a bag or long-pressing the inventory now shows a quick-use windows!\n" +
 				"_-_ Added quickslot actions for some items that were missing them\n" +
 				"_-_ Bags can now appear in the rankings\n\n" +
@@ -195,7 +196,7 @@ public class v0_9_X_Changes {
 				"_-_ Burning Fist now evaporates water 20% more often\n" +
 				"_-_ Bleed damage taken by Rotting Fist reduced by 10%" ));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Talent Buffs",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Talent Buffs",
 				"I'm making changes to a bunch of talents that were underperforming in v0.9.2:\n\n" +
 				"_- Strongman_ redesigned. Now grants 8/13/18% bonus str, rounded down.\n" +
 				"_- Berserking Stamina_ bonus shield increased to 25/50/75%, from 16/33/50%.\n" +
@@ -213,7 +214,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.NEGATIVE);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Talent Nerfs",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Talent Nerfs",
 				"I'm also scaling back some talents that were overperforming in v0.9.2:\n\n" +
 				"_- Improvised Projectiles_ cooldown up to 50 turns from 30.\n\n" +
 				"_- Backup Barrier_ shield down to 3/5 from 4/6.\n" +
@@ -231,13 +232,13 @@ public class v0_9_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released February 26th, 2021\n" +
 				"_-_ 78 days after Shattered v0.9.1\n" +
 				"\n" +
 				"Dev commentary will be added here in the next major update."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Tier Three Talents!",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Tier Three Talents!",
 				"_32 new talents have been added that span levels 13 to 20!_\n\n" +
 				"These talents are a bit different than the previous tiers. They require 3 points each, are balanced to encourage specialization, and vary based on class and subclass!\n\n" +
 				"There is one more tier of talents left to be implemented, currently slated for v0.9.3. This tier will span levels 21-30, and will interact with an existing mechanic..."));
@@ -269,7 +270,7 @@ public class v0_9_X_Changes {
 				"_- Warden:_ Barkskin and bonus durability on darts have both been moved to talents.\n\n" +
 				"_- Sniper:_ Bonus vision range has been moved to a talent."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Descriptions have been added for warden plant effects.\n" +
 				"_-_ Improvements have been made to wand descriptions. They now include descriptions of some hidden stats and battlemage effects.\n\n" +
 				"_-_ Renamed items no longer include their enchantment or glyph in their name.\n\n" +
@@ -344,7 +345,7 @@ public class v0_9_X_Changes {
 				"_- Succubi:_ Damage up to 25-30 from 22-30.\n" +
 				"_- Scorpios:_ HP up to 110 from 95, damage up to 30-40 from 26-36."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), "Hostile Champions",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)), "Hostile Champions",
 				"I've made another round of tweaks to the Hostile Champions challenge to make it more consistent and a bit harder overall:\n\n" +
 				"_-_ Champion spawn rate up to 1/8 from 1/10.\n" +
 				"_-_ Rather than having a 1/8 chance per enemy, the game now guarantees that every 8th enemy is a champion. This should make champion spawn rates much more consistent.\n" +
@@ -385,7 +386,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released December 11th, 2020\n" +
 				"_-_ 68 days after Shattered v0.9.0\n" +
 				"\n" +
@@ -395,12 +396,12 @@ public class v0_9_X_Changes {
 				"\n" +
 				"v0.9.1 also includes the first major changes to level generation since v0.6.2! While the same base algorithms are still used to lay levels out, v0.9.1 made overall level structures more chaotic and varied, which really helped individual layouts feel more unique."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Tier Two Talents!",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Tier Two Talents!",
 				"_A second tier of talents has been added, including twenty new talents spanning levels 7-12!_\n\n" +
 				"The second talent tier is similar to the first, but talent powers are much less focused on the early game. Expect effects that are useful all game long.\n\n" +
 				"Look forward to tier 3 of the talent system coming in v0.9.2, which will span levels 13-20."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.STAIRS), "Levelgen Improvements!",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Levelgen Improvements!",
 				"_The game's level generation system has received a number of improvements!:_\n\n" +
 				"_-_ A new region specific room has been added to each dungeon region, 5 in total.\n" +
 				"_-_ Three new level feelings have been added: large, secrets, and traps.\n" +
@@ -418,7 +419,7 @@ public class v0_9_X_Changes {
 				"_-_ Short-range mind vision is no longer an innate huntress power, it is now a talent.\n\n" +
 				"_-_ The Rogue no longer causes the game to spawn slightly more secret rooms. Instead secret room generation has been slightly increased for all heroes, and the Rogue has talents that help him find these secrets."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Tier One Talent Changes",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Tier One Talent Changes",
 				"Several _tier one talents_ have been changed based on feedback and gameplay data:\n\n" +
 				"_- Test Subject_ now triggers on identifying any item, but the healing it grants has been halved.\n\n" +
 				"_- Energizing Meal_ is now a T2 talent. In T1 it has been replaced by _Empowering Meal_, which grants bonus damage on wand zaps.\n" +
@@ -428,7 +429,7 @@ public class v0_9_X_Changes {
 				"_- Mending Shadow_ has been reworked. It is now _Protective Shadows_, which grants the Rogue shielding.\n\n" +
 				"_- Invigorating Meal_ is now a T2 talent. In T1 it has been replaced by _Nature's Bounty_, which allows the Huntress to find berries in grass."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Statue grid rooms now appear in the Dwarven City, rather than the Prison.\n" +
 				"_-_ Pillar rooms now appear in the Prison, rather than the Dwarven City.\n\n" +
 				"_-_ Improved blacksmith logic when upgraded item is also equipped\n" +
@@ -443,7 +444,7 @@ public class v0_9_X_Changes {
 				"_-_ Rogue's foresight can now also trigger when returning to a floor, if that floor was detected initially\n" +
 				"_-_ The Overgrowth curse can now trigger starflower effects"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Slightly adjusted the Huntress' splash art to improve details on her face.\n" +
 				"_-_ The Sad Ghost's reward UI has been improved.\n" +
 				"_-_ Small UI improvements to rankings window\n" +
@@ -540,7 +541,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 5th, 2020\n" +
 				"_-_ 61 days after Shattered v0.8.2\n" +
 				"_-_ 173 days after Shattered v0.8.0\n" +
@@ -551,17 +552,17 @@ public class v0_9_X_Changes {
 				"\n" +
 				"This update also included Shattered's first new challenge! The goal of hostile champions was to increase overall difficulty by adding new mechanics to the game, instead of removing them. This worked out very well, and led to a followup challenge addition just a couple of updates later."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.TALENT), "Hero Talents!",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Hero Talents!",
 				"_A new gameplay system has been added!_\n\n" +
 				"As you play the game and level up, you now unlock points to spend on hero talents. These talents have a range of effects, from stat adjustments to triggered effects to full on abilities!\n\n" +
 				"Talents are split into tiers, and to start only the first tier is available, which covers levels 1 to 6. More talents will be added soon!\n\n" +
 				"Previously I would have spent many more months on v0.9.0 and released the entire system in one update, but I'm changing up my strategy and splitting these big updates into smaller parts."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_ON), "Hostile Champions!",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)), "Hostile Champions!",
 				"A new challenge has been added: _Hostile Champions!_\n\n" +
 				"Unlike most other challenges, this one focuses on amping up the difficulty of the dungeon, rather than removing tools from the player. Give it a try if you've unlocked challenges, and you might find some particularly nasty enemies in the dungeon!"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.BADGES), "Badge Visuals",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BADGES)), "Badge Visuals",
 				"The badges screen now shows which badges are locked, rather than just using a generic 'locked badge' visual.\n\n" +
 				"Badges now have different border colors based on their difficulty (bronze, silver, gold, platinum, diamond), and are ordered based on these colors."));
 
@@ -576,13 +577,13 @@ public class v0_9_X_Changes {
 				"The _Mage_ no longer has an innate wand identification effect, this is replaced by his wand identification talent.\n\n" +
 				"The _Huntress'_ studded gloves have had their base damage reduced to 1-5 from 1-6, to compensate for her damage-dealing talent."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.CHALLENGE_OFF), "Existing Challenges",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_OFF)), "Existing Challenges",
 				"Some existing challenges have been tweaked to reduce the number of items that they remove from the game:\n\n" +
 				"_On Diet_ no longer restricts food, but instead causes all food to be 1/3 as effective at satiating hunger.\n\n" +
 				"_Faith Is My Armor_ no longer restricts the hero to cloth armor, but instead heavily reduces the blocking power of all armor above cloth.\n\n" +
 				"_Pharmacophobia_ no longer removes health potions, but instead makes them poisonous to the player."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Unidentified scrolls can now be used to make runestones! You won't know what stones you'll get until you brew the scroll, but the scroll will be retroactively identified.\n\n" +
 				"_-_ Reduced hero unlock requirements.\n\n" +
 				"_-_ Added HP numbers to the player's health bar.\n" +
@@ -591,7 +592,7 @@ public class v0_9_X_Changes {
 				"_-_ The reclaim trap spell can no longer be dropped when a trap is stored in it. This prevents an exploit.\n" +
 				"_-_ Items gained from secret mazes are now known to be uncursed."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"I'm making some adjustments to sewers loot to give players a bit more control of what gear they get, and to reduce the chance of spawning high tier gear that the player may never get to use:\n" +
 				"_-_ Chance for regular gear drops in the sewers to be T4/T5 reduced by 50%.\n" +
 				"_-_ Players can now see what type of weapon/armor the sad ghost has before selecting it.\n\n" +

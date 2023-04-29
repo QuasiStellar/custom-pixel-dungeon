@@ -23,6 +23,8 @@ package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.ArcaneResin;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
@@ -133,10 +135,10 @@ public class QuickRecipe extends Component {
 		}
 		
 		if (cost > 0) {
-			arrow = new arrow(Icons.get(Icons.ARROW), cost);
+			arrow = new arrow(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)), cost);
 			arrow.hardlightText(0x44CCFF);
 		} else {
-			arrow = new arrow(Icons.get(Icons.ARROW));
+			arrow = new arrow(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)));
 		}
 		if (hasInputs) {
 			arrow.icon.tint(1, 1, 0, 1);

@@ -26,6 +26,8 @@ import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
@@ -33,7 +35,6 @@ import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.IconButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.StatusPane;
@@ -78,7 +79,7 @@ public class WndHero extends WndTabbed {
 		buffs.setRect(0, 0, WIDTH, HEIGHT);
 		buffs.setupList();
 		
-		add( new IconTab( Icons.get(Icons.RANKINGS) ) {
+		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) {
@@ -90,7 +91,7 @@ public class WndHero extends WndTabbed {
 				stats.visible = stats.active = selected;
 			}
 		} );
-		add( new IconTab( Icons.get(Icons.TALENT) ) {
+		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 1;
@@ -98,7 +99,7 @@ public class WndHero extends WndTabbed {
 				talents.visible = talents.active = selected;
 			}
 		} );
-		add( new IconTab( Icons.get(Icons.BUFFS) ) {
+		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BUFFS)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 2;
@@ -151,7 +152,7 @@ public class WndHero extends WndTabbed {
 			title.setRect( 0, 0, WIDTH-16, 0 );
 			add(title);
 
-			IconButton infoButton = new IconButton(Icons.get(Icons.INFO)){
+			IconButton infoButton = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					super.onClick();

@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.armor.ClassArmor;
@@ -42,6 +43,8 @@ import com.qsr.customspd.ui.HeroIcon;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Endure extends ArmorAbility {
 
@@ -78,7 +81,7 @@ public class Endure extends ArmorAbility {
 		public int hitsLeft = 0;
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return enduring ? BuffIndicator.NONE : BuffIndicator.ARMOR;
 		}
 
@@ -176,7 +179,7 @@ public class Endure extends ArmorAbility {
 	};
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.ENDURE;
 	}
 

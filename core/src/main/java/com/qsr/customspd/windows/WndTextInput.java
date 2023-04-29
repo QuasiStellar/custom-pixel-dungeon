@@ -23,12 +23,14 @@ package com.qsr.customspd.windows;
 
 import com.badlogic.gdx.Gdx;
 import com.qsr.customspd.Chrome;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.PixelScene;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.watabou.input.PointerEvent;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.TextInput;
 
 public class WndTextInput extends Window {
@@ -126,7 +128,7 @@ public class WndTextInput extends Window {
 				textBox.copyToClipboard();
 			}
 		};
-		btnCopy.icon(Icons.COPY.get());
+		btnCopy.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COPY)));
 		add(btnCopy);
 
 		btnPaste = new RedButton(""){
@@ -149,7 +151,7 @@ public class WndTextInput extends Window {
 			}
 
 		};
-		btnPaste.icon(Icons.PASTE.get());
+		btnPaste.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PASTE)));
 		add(btnPaste);
 
 		btnCopy.setRect(textBoxWidth + 2*MARGIN, pos, BUTTON_HEIGHT, BUTTON_HEIGHT);

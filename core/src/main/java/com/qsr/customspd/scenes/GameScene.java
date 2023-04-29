@@ -87,7 +87,6 @@ import com.qsr.customspd.ui.Banner;
 import com.qsr.customspd.ui.BossHealthBar;
 import com.qsr.customspd.ui.CharHealthIndicator;
 import com.qsr.customspd.ui.GameLog;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.InventoryPane;
 import com.qsr.customspd.ui.LootIndicator;
 import com.qsr.customspd.ui.MenuPane;
@@ -1303,7 +1302,7 @@ public class GameScene extends PixelScene {
 				super.update();
 			}
 		};
-		restart.icon(Icons.get(Icons.ENTER));
+		restart.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
 		restart.alpha(0);
 		restart.camera = uiCamera;
 		float offset = Camera.main.centerOffset.y;
@@ -1326,7 +1325,7 @@ public class GameScene extends PixelScene {
 				super.update();
 			}
 		};
-		menu.icon(Icons.get(Icons.PREFS));
+		menu.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)));
 		menu.alpha(0);
 		menu.camera = uiCamera;
 		menu.setSize(Math.max(80, menu.reqWidth()), 20);
@@ -1437,7 +1436,7 @@ public class GameScene extends PixelScene {
 		} else {
 			String[] names = getObjectNames(objects).toArray(new String[0]);
 
-			GameScene.show(new WndOptions(Icons.get(Icons.INFO),
+			GameScene.show(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
 					Messages.get(GameScene.class, "choose_examine"),
 					Messages.get(GameScene.class, "multiple_examine"),
 					names){
@@ -1534,7 +1533,7 @@ public class GameScene extends PixelScene {
 				image = WndInfoCell.cellImage(cell);
 			} else if (objects.size() > 1){
 				title = Messages.get(GameScene.class, "multiple");
-				image = Icons.get(Icons.INFO);
+				image = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO));
 			} else if (objects.get(0) instanceof Hero) {
 				title = textLines.remove(0);
 				image = HeroSprite.avatar(((Hero) objects.get(0)).heroClass, ((Hero) objects.get(0)).tier());

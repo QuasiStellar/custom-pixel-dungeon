@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BadgeBanner;
 import com.qsr.customspd.items.artifacts.SandalsOfNature;
 import com.qsr.customspd.items.bombs.WoollyBomb;
@@ -44,7 +46,6 @@ import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.sprites.SpectralNecromancerSprite;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.TalentIcon;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
@@ -70,7 +71,7 @@ public class v1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 4th, 2022\n" +
 				"_-_ 90 days after Shattered v1.3.0\n" +
 				"\n" +
@@ -115,10 +116,10 @@ public class v1_X_Changes {
 				"Blocking has been slightly redesigned to provide a more visible benefit. Instead of always granting a little armor, the enchantment now has a chance to grant a larger shield.\n\n" +
 				"I don't expect that this will make the enchantment significantly stronger or weaker, but it should feel more impactful."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.DISPLAY_LAND), "Landscape Hero Select",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_LAND)), "Landscape Hero Select",
 				"Desktop and mobile landscape users will now see a new hero select screen that better makes use of screen real-estate."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
 				"_Highlights:_\n" +
 				"_-_ Daily runs can now be replayed for practice\n" +
 				"_-_ Updated translations and translator credits\n" +
@@ -137,7 +138,7 @@ public class v1_X_Changes {
 				"_-_ Rotberry plant now gives a small puff of toxic gas when trampled\n" +
 				"_-_ Plants now trigger after time freeze ends, just like traps"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 2",
 				"_Allies & Enemies:_\n" +
 				"_-_ Improved behavior of ally AI when told to hold a position\n" +
 				"_-_ Goo's pump up attack now always gives the hero at least 1 action to react\n" +
@@ -154,7 +155,7 @@ public class v1_X_Changes {
 				"_-_ Improved chains vfx, especially for prison guards\n" +
 				"_-_ Added lullaby vfx to the stone of deep sleep"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 3",
 				"_Rankings:_\n" +
 				"_-_ Clarified description for boss score in rankings\n" +
 				"_-_ Yog's laser now deducts score even if the hero dodges it\n" +
@@ -298,13 +299,13 @@ public class v1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released July 6th, 2022\n" +
 				"_-_ 105 days after Shattered v1.2.0\n\n" +
 				"Dev commentary will be added here in the future."));
 
 		Image ic;
-		ic = Icons.get(Icons.SEED);
+		ic = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED));
 		ic.hardlight(1f, 1.5f, 0.67f);
 		changes.addButton( new ChangeButton(ic, "Seeded Runs!",
 				"_It's now possible to enter a custom seed when starting a new game!_\n\n" +
@@ -312,7 +313,7 @@ public class v1_X_Changes {
 				"If you don't enter a custom seed, the game will use a random one to generate a random dungeon, just like it did prior to this update.\n\n" +
 				"Note that only players who have won at least once can enter custom seeds, and games with custom seeds are not eligible to appear in rankings."));
 
-		ic = Icons.get(Icons.CALENDAR);
+		ic = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR));
 		ic.hardlight(0.5f, 1f, 2f);
 		changes.addButton( new ChangeButton(ic, "Daily Runs!",
 				"_Every day there is a specific seeded run that's available to all players!_\n\n" +
@@ -328,7 +329,7 @@ public class v1_X_Changes {
 				"_A bunch of adjustments have been made to the ascension route to make it a proper challenge!_\n\n" +
 				"Enemies will get much stronger as you ascend, and it's impossible to teleport back up or flee and avoid all combat. Expect to have to work a little bit more for an ascension win!"));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.DISPLAY), "UI/UX Improvements!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)), "UI/UX Improvements!",
 				"_Several UI and UX Improvements have been made for desktop and mobile users_\n\n" +
 				"_-_ The settings menu has been adjusted with a few new and rearranged options.\n" +
 				"_-_ Added radial menus for controller users, and redid default controller bindings.\n" +
@@ -371,7 +372,7 @@ public class v1_X_Changes {
 				"Several buffs have been given icons when they didn't have any, or have had their icons adjusted to prevent icon duplication. This should improve buff clarity in a few cases, and ensure that two active buffs can never have the exact same icon (recolored icons are still present though).\n\n" +
 				"A few new overhead spell effects have been added as well."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
 				"_-_ Updated translations, translator credits, and added a new language: Dutch!\n" +
 				"_-_ Made the Huntress a bit easier to unlock again\n" +
 				"_-_ Dreamfoil has been renamed to Mageroyal, to better fit its lack of sleeping functionality since 1.2\n" +
@@ -386,7 +387,7 @@ public class v1_X_Changes {
 				"_-_ Blazing champions no longer explode if they are killed by chasms\n" +
 				"_-_ Red sentries no longer fire on players with lost inventories"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 2",
 				"_-_ Wards and Sentries are now immune to sleep, vertigo and fear\n" +
 				"_-_ Characters with guaranteed dodges (e.g. spirit hawk) can now evade Yog's laser beam\n" +
 				"_-_ Boss health bars have been expanded to show current health and active buffs/debuffs.\n" +
@@ -477,12 +478,12 @@ public class v1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released March 23rd, 2022\n" +
 				"_-_ 103 days after Shattered v1.1.0\n\n" +
 				"Dev commentary will be added here in the future."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.DISPLAY_LAND), "Desktop Enhancements and Steam Release!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_LAND)), "Desktop Enhancements and Steam Release!",
 				"_Shattered Pixel Dungeon has received a bunch of new features in preparation for its release on Steam!_\n\n" +
 				"These features include:\n" +
 				"_-_ A new main UI for larger displays, which places the inventory in the main game screen\n" +
@@ -508,7 +509,7 @@ public class v1_X_Changes {
 				"These new badges are all part of the existing series badges (e.g. defeat X enemies), and primarily exist around the gold badge level.\n\n" +
 				"The 'games played' badges have also been adjusted to unlock either on a large number of games played, or a smaller number of games won."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.AUDIO), "New Boss Music!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO)), "New Boss Music!",
 				"_Each of the game's five bosses now have their own music track!_\n\n" +
 				"Just as before, these tracks are all composed by Kristjan Harristo, check the about scene for more details on them.\n\n" +
 				"All of the boss tracks take cues from the region tracks, but add enough to be more than simple remixes."));
@@ -517,7 +518,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Reduced cases of multiple rooms that require a solution potion per floor\n" +
 				"_-_ Reduced the huntress unlock requirement\n" +
 				"_-_ Adjusted the secrets level feeling to be less harsh\n\n" +
@@ -664,7 +665,7 @@ public class v1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released December 10th, 2021\n" +
 				"_-_ 115 days after Shattered v1.0.0\n\n" +
 				"Dev commentary will be added here in the future."));
@@ -683,7 +684,7 @@ public class v1_X_Changes {
 				"_Alchemize_ has been totally redesigned. It now only requires an arcane catalyst, and is used to convert items into gold or alchemical energy on the go. I'm really hoping this spell helps with inventory management.\n\n" +
 				"Because of the redesign to alchemize, the merchant's beacon and magical porter are made mostly redundant and have been removed from the game. Shops now sell a few uses of alchemize instead."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.AUDIO), "more new music!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO)), "more new music!",
 				"_The game now has a music track for each of the five dungeon regions!_\n\n" +
 				"Just like the remastered tracks from v1.0.0, they are all composed by Kristjan Harristo, check the about scene for more details on them.\n\n" +
 				"Each of these tracks use a similar variable looping method to the sewers track, to try and reduce repetitiveness.\n\n" +
@@ -702,7 +703,7 @@ public class v1_X_Changes {
 				"_- Scroll of Confusion_ is now _Scroll of Challenge_, which attracts enemies but creates an arena where you take reduced damage.\n" +
 				"_- Scroll of Polymorph_ is now _Scroll of Metamorphosis_, which lets you swap out a talent to one from another class." ));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
 				"_-_ Item drops and special room spawns are now more consistent. Getting loads of the same item is now much less likely.\n" +
 				"_-_ Items present on boss floors are now preserved if the hero is revived from an unblessed ankh\n" +
 				"_-_ Teleport mechanics now work on boss levels\n" +
@@ -713,7 +714,7 @@ public class v1_X_Changes {
 				"_-_ Thrown weapons no longer stick to allies\n" +
 				"_-_ Liquid metal production from upgraded thrown weapons now caps at +3"));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 2",
 				"_-_ Updated game icons on Android and Desktop platforms\n" +
 				"_-_ Tabs in rankings and hero info windows now use icons, not text\n" +
 				"_-_ 'potions cooked' badge and stats are now 'items crafted'\n\n" +
@@ -842,7 +843,7 @@ public class v1_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 17th, 2021\n" +
 				"_-_ 71 days after Shattered v0.9.3\n" +
 				"_-_ 316 days after Shattered v0.9.0\n" +
@@ -851,12 +852,12 @@ public class v1_X_Changes {
 				"_That's right, the big v1.0.0!_ In this update Shattered switched to the industry standard _major.minor.patch_ version naming scheme. Prior to this update Shattered's updates were versioned with _0.major.minor[patch]_, where patch was a letter. Rather than jumping all the way from v0.9.3 to v10.0.0, I opted to reset Shattered back to v1.0.0 for this update.\n\n" +
 				"Expect more dev commentary here in the future."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.DISPLAY_PORT), "iOS Release!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)), "iOS Release!",
 				"_Shattered Pixel Dungeon is now available on the iOS App Store!_\n\n" +
 				"After years of requests, Shattered is finally available on Apple devices! The iOS version of the game will release in lockstep with the Android version moving forward, with some small variance due to different update approval processes.\n\n" +
 				"Note that the iOS version costs $5, but comes with some supporter features built-in. I have no plans to make any changes to the monetization of the Android version."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.AUDIO), "new music!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO)), "new music!",
 				"_The game's music tracks has been remastered!_\n\n" +
 				"The new music is composed by Kristjan Harristo, check the about scene for more details on them. Currently we have only replaced the existing tracks, but we are working on tracks for each of the dungeons regions as well!\n\n" +
 				"The new in-game track in particular is also an experiment in variable music looping. The track has an intro and a main segment and can play the main segment once or twice before looping back to the intro. This makes the track notably less repetative, and we intend to use similar techniques in other tracks."));
@@ -899,7 +900,7 @@ public class v1_X_Changes {
 				"_- Stone of Aggression_ duration against enemies up 5, now works on bosses, and always forces attacking.\n" +
 				"_- Stone of Affection_ is now stone of fear, it fears one target for 20 turns."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Various tech and stability improvements.\n" +
 				"_-_ Increased the minimum supported Android version to 4.0, from 2.3.\n" +
 				"_-_ Game versions that use github for update checking can now opt-in to beta updates within the game.\n\n" +

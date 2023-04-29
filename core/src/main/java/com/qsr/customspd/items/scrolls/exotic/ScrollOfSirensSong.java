@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.buffs.AllyBuff;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Charm;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
@@ -38,6 +39,8 @@ import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
+
+import kotlin.Pair;
 
 public class ScrollOfSirensSong extends ExoticScroll {
 	
@@ -127,7 +130,7 @@ public class ScrollOfSirensSong extends ExoticScroll {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.HEART;
 		}
 	}

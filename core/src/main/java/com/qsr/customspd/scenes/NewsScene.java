@@ -24,6 +24,8 @@ package com.qsr.customspd.scenes;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.services.news.News;
@@ -31,7 +33,6 @@ import com.qsr.customspd.services.news.NewsArticle;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
@@ -40,6 +41,7 @@ import com.qsr.customspd.windows.WndTitledMessage;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.NinePatch;
 import com.watabou.noosa.ui.Component;
 
@@ -153,7 +155,7 @@ public class NewsScene extends PixelScene {
 				ShatteredPixelDungeon.platform.openURI(link);
 			}
 		};
-		btnSite.icon(Icons.get(Icons.NEWS));
+		btnSite.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS)));
 		btnSite.textColor(Window.TITLE_COLOR);
 		btnSite.setRect(left, top, fullWidth, BTN_HEIGHT);
 		add(btnSite);

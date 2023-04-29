@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.MonkEnergy;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
@@ -37,6 +38,8 @@ import com.watabou.noosa.Image;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class RingOfForce extends Ring {
 
@@ -262,7 +265,7 @@ public class RingOfForce extends Ring {
 		}
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.DUEL_BRAWL;
 		}
 

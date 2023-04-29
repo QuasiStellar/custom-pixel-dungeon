@@ -21,7 +21,10 @@
 
 package com.qsr.customspd.ui;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.PixelScene;
+import com.watabou.noosa.Image;
 
 public class CheckBox extends RedButton {
 
@@ -30,7 +33,7 @@ public class CheckBox extends RedButton {
 	public CheckBox( String label ) {
 		super( label );
 		
-		icon( Icons.get( Icons.UNCHECKED ) );
+		icon( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_UNCHECKED)) );
 	}
 
 	@Override
@@ -56,7 +59,7 @@ public class CheckBox extends RedButton {
 	public void checked( boolean value ) {
 		if (checked != value) {
 			checked = value;
-			icon.copy( Icons.get( checked ? Icons.CHECKED : Icons.UNCHECKED ) );
+			icon.copy( checked ? new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHECKED)) : new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_UNCHECKED)) );
 		}
 	}
 	

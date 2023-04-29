@@ -24,12 +24,15 @@ package com.qsr.customspd.actors.buffs;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.artifacts.TimekeepersHourglass;
 import com.qsr.customspd.plants.Swiftthistle;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
+
+import kotlin.Pair;
 
 public class Levitation extends FlavourBuff {
 	
@@ -74,7 +77,7 @@ public class Levitation extends FlavourBuff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.LEVITATION;
 	}
 

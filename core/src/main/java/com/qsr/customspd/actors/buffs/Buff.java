@@ -23,12 +23,15 @@ package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Reflection;
 
 import java.util.HashSet;
+
+import kotlin.Pair;
 
 public class Buff extends Actor {
 	
@@ -89,7 +92,7 @@ public class Buff extends Actor {
 		return true;
 	}
 	
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.NONE;
 	}
 

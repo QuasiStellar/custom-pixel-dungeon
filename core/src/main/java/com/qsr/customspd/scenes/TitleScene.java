@@ -39,7 +39,6 @@ import com.qsr.customspd.services.updates.Updates;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.windows.WndMessage;
@@ -136,7 +135,7 @@ public class TitleScene extends PixelScene {
 				return super.onLongClick();
 			}
 		};
-		btnPlay.icon(Icons.get(Icons.ENTER));
+		btnPlay.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
 		add(btnPlay);
 
 		StyledButton btnMods = new ModsButton(GREY_TR, Messages.get(this, "mods"));
@@ -148,7 +147,7 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchNoFade( RankingsScene.class );
 			}
 		};
-		btnRankings.icon(Icons.get(Icons.RANKINGS));
+		btnRankings.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)));
 		add(btnRankings);
 		Dungeon.daily = Dungeon.dailyReplay = false;
 
@@ -158,15 +157,15 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchNoFade( BadgesScene.class );
 			}
 		};
-		btnBadges.icon(Icons.get(Icons.BADGES));
+		btnBadges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BADGES)));
 		add(btnBadges);
 
 		StyledButton btnNews = new NewsButton(GREY_TR, Messages.get(this, "news"));
-		btnNews.icon(Icons.get(Icons.NEWS));
+		btnNews.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS)));
 		add(btnNews);
 
 		StyledButton btnChanges = new ChangesButton(GREY_TR, Messages.get(this, "changes"));
-		btnChanges.icon(Icons.get(Icons.CHANGES));
+		btnChanges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
 		add(btnChanges);
 
 		StyledButton btnSettings = new SettingsButton(GREY_TR, Messages.get(this, "settings"));
@@ -178,7 +177,7 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchScene( AboutScene.class );
 			}
 		};
-		btnAbout.icon(Icons.get(Icons.SHPX));
+		btnAbout.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)));
 		add(btnAbout);
 		
 		final int BTN_HEIGHT = 20;
@@ -303,7 +302,7 @@ public class TitleScene extends PixelScene {
 				AvailableUpdateData update = Updates.updateData();
 
 				ShatteredPixelDungeon.scene().addToFront( new WndOptions(
-						Icons.get(Icons.CHANGES),
+					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)),
 						update.versionName == null ? Messages.get(this,"title") : Messages.get(this,"versioned_title", update.versionName),
 						update.desc == null ? Messages.get(this,"desc") : update.desc,
 						Messages.get(this,"update"),
@@ -341,10 +340,10 @@ public class TitleScene extends PixelScene {
 		public SettingsButton( Chrome.Type type, String label ){
 			super(type, label);
 			if (Messages.lang().status() == Languages.Status.UNFINISHED){
-				icon(Icons.get(Icons.LANGS));
+				icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)));
 				icon.hardlight(1.5f, 0, 0);
 			} else {
-				icon(Icons.get(Icons.PREFS));
+				icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)));
 			}
 		}
 
@@ -370,7 +369,7 @@ public class TitleScene extends PixelScene {
 
 		public ModsButton(Chrome.Type type, String label ){
 			super(type, label);
-			icon(Icons.get(Icons.TALENT));
+			icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)));
 		}
 
 		@Override

@@ -33,6 +33,7 @@ import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.RipperDemon;
 import com.qsr.customspd.actors.mobs.Wraith;
 import com.qsr.customspd.actors.mobs.YogDzewa;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.rings.RingOfForce;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
@@ -53,6 +54,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 
+import kotlin.Pair;
+
 public class MonkEnergy extends Buff implements ActionIndicator.Action {
 
 	{
@@ -64,7 +67,7 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 	public int cooldown;
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.MONK_ENERGY;
 	}
 
@@ -402,7 +405,7 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 				}
 
 				@Override
-				public int icon() {
+				public Pair<Asset, Asset> icon() {
 					return BuffIndicator.MIND_VISION;
 				}
 

@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Enchanting;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
@@ -38,11 +40,11 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
 import com.qsr.customspd.windows.WndTitledMessage;
+import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfEnchantment extends ExoticScroll {
@@ -195,7 +197,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 		@Override
 		protected void onInfo( int index ) {
 			GameScene.show(new WndTitledMessage(
-					Icons.get(Icons.INFO),
+					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
 					Messages.titleCase(enchantments[index].name()),
 					enchantments[index].desc()));
 		}
@@ -259,7 +261,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 		@Override
 		protected void onInfo( int index ) {
 			GameScene.show(new WndTitledMessage(
-					Icons.get(Icons.INFO),
+					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
 					Messages.titleCase(glyphs[index].name()),
 					glyphs[index].desc()));
 		}

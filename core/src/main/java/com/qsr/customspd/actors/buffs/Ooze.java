@@ -22,11 +22,14 @@
 package com.qsr.customspd.actors.buffs;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class Ooze extends Buff {
 
@@ -53,7 +56,7 @@ public class Ooze extends Buff {
 	}
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.OOZE;
 	}
 

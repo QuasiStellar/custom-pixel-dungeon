@@ -23,6 +23,8 @@ package com.qsr.customspd.ui.changelist;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BadgeBanner;
 import com.qsr.customspd.items.Honeypot;
 import com.qsr.customspd.items.artifacts.AlchemistsToolkit;
@@ -49,7 +51,6 @@ import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -75,7 +76,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 2nd, 2019\n" +
 				"_-_ 76 days after Shattered v0.7.4\n" +
 				"\n" +
@@ -99,7 +100,7 @@ public class v0_7_X_Changes {
 				"_-_ Damage reduced by 30%\n" +
 				"_-_ Accuracy reduced by 10%"));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.LIBGDX), "libGDX Text Rendering!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)), "libGDX Text Rendering!",
 				"The game's text renderer is now using libGDX freetype. This looks almost identical to the existing text but is slightly crisper, platform-independent, and much more efficient!\n\n" +
 				"Text rendering was the last bit of android-dependant code, so the game's core code modules (~98% of its code) are now being compiled as general code and not android-specific code!"));
 
@@ -117,7 +118,7 @@ public class v0_7_X_Changes {
 				"_-_ Albino rats now grant 2 exp, up from 1\n" +
 				"_-_ Albino rats now drop mystery meat"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The game camera now smoothly follows the hero while they are moving, instead of snapping to their location.\n\n" +
 				"_-_ Standardized word use when attacks miss to reduce confusion. Enemies now always 'block' or 'dodge'.\n\n" +
 				"_-_ Various improvements to wording on the supporter menu for Google Play users.\n\n" +
@@ -137,7 +138,7 @@ public class v0_7_X_Changes {
 				"_-_ Small amounts of stuttering when the hero moves\n" +
 				"_-_ Various rare crash bugs"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Added new Language: Japanese!\n\n" +
 				"Updated Translations and Translator Credits!"));
 		
@@ -191,7 +192,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released July 18th, 2019\n" +
 				"_-_ 56 days after Shattered v0.7.3\n" +
 				"\n" +
@@ -209,7 +210,7 @@ public class v0_7_X_Changes {
 				"This new wand has a lower damage output, but grants significant defensive power. The rocks the wand shoots at enemies reform around the hero and absorb damage. If enough rock is built, it will form up into a rock guardian which fights with the player.\n\n" +
 				"The Wand of Living Earth is lacking in offensive output, but does a great job of pulling focus and damage away from the player."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LIBGDX), "libGDX",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)), "libGDX",
 				"Large sections of Shattered's codebase is now using the multiplatform game library _libGDX._ Making the game's codebase less heavily tied to Android is a big step towards making the game available on other platforms!\n\n" +
 				"Keyboard input handling and text rendering are still coupled to Android however. I will convert these game systems to use libGDX in a later update.\n\n" +
 				"Note that Shattered will not immediately release on other platforms once libGDX conversion is complete, but it is a big step towards that."));
@@ -224,7 +225,7 @@ public class v0_7_X_Changes {
 				"_-_ Intelligent allies will follow the hero through stairs so long as they are near to them.\n\n" +
 				"Lastly, the hero can now swap places with any ally, even unintelligent ones."));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Overhauled main menu interface to allow for more expandability.\n" +
 				"_-_ Updated hero icons in rankings and saved game screens.\n\n" +
 				"_-_ Class armor abilities no longer affect allies\n" +
@@ -251,7 +252,7 @@ public class v0_7_X_Changes {
 				"_-_ Various rare bugs with heavy boomerangs\n" +
 				"_-_ Various minor text errors"));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
@@ -321,7 +322,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released May 23rd, 2019\n" +
 				"_-_ 66 days after Shattered v0.7.2\n" +
 				"\n" +
@@ -357,7 +358,7 @@ public class v0_7_X_Changes {
 				"Tipped darts have had their shop price reduced by 33%, and can now be cleaned if you don't wish to use the effect.\n\n" +
 				"The alchemy guide has been adjusted due to the removal of dart tipping from alchemy. It now has 9 pages (down from 10), and the order of pages have been adjusted to put some simpler recipes earlier."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Shattered honeypots are now stackable, and can be sold for a small amount of gold.\n\n" +
 				"_-_ The changes list has been split into three separate groups, so that the game's entire change history isn't loaded all at once.\n\n" +
 				"_-_ Tengu now throws his shurikens one at a time, just like other ranged enemies. The speed of the shurikens has been increased to compensate, so that the player doesn't need to keep waiting while Tengu's attacks are in flight.\n\n" +
@@ -380,7 +381,7 @@ public class v0_7_X_Changes {
 				"_-_ Various minor visual bugs\n" +
 				"_-_ Various rare crash bugs"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
@@ -453,7 +454,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Mar 18th, 2019\n" +
 				"_-_ 90 days after Shattered v0.7.1\n" +
 				"\n" +
@@ -497,7 +498,7 @@ public class v0_7_X_Changes {
 				"_-_ Elixir of Vitality\n\n" +
 				"These items offered no unique gameplay and existed purely to give a few cheap recipes. Thanks to catalysts filling that role, they no longer have a reason to exist. FrostFire Brew in particular may return in some form."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The Identification system has been adjusted to require EXP gain in addition to item uses. " +
 				"This change prevents exploits where an item could be used in unintended ways to rapidly ID it. " +
 				"Items should ID at about the same rate if exp is gained while using them.\n\n" +
@@ -528,11 +529,11 @@ public class v0_7_X_Changes {
 				"_-_ Recycle not giving an item if inventory is full\n" +
 				"_-_ Rare cases where the game wouldn't save during alchemy"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations\n\n" +
 				"Updated Translator Credits"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Major internal improvements to service integrations for Google Play version of the game:\n" +
 				"_-_ 'Share Gameplay Data' now uses Google Firebase Analytics instead of older Google Analytics. Data collected is unchanged.\n" +
 				"_-_ Many internal improvements to Google Play Games sync and Google Payment integration.\n" +
@@ -611,7 +612,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Dec 18th, 2018\n" +
 				"_-_ 61 days after Shattered v0.7.0\n" +
 				"\n" +
@@ -651,7 +652,7 @@ public class v0_7_X_Changes {
 				"All heroes except the warrior now need to be unlocked via new badges. The requirements are quite simple, with the goal of giving new players some early goals. Players who have already unlocked characters will not need to re-unlock them.\n\n" +
 				"To help accelerate item identification for alchemy, all heroes now start with 3 identified items: The scroll of identify, a potion, and another scroll."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Added a partial turn indicator to the game interface, which occupies the same spot as the busy icon. This should make it much easier to plan actions that take more or less than 1 turn.\n\n" +
 				"Rings now have better descriptions for their stats! All rings now show exactly how they affect you in a similar way to how other equipment gives direct stats.\n\n" +
 				"Precise descriptions have been added for weapons which block damage.\n\n" +
@@ -677,7 +678,7 @@ public class v0_7_X_Changes {
 				"_-_ various specific errors when actions took more than 1 turn\n" +
 				"_-_ various freeze bugs caused by Tengu"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated translations\n\n" +
 				"Updated translator credits"));
 		
@@ -745,7 +746,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Oct 18th, 2018\n" +
 				"_-_ 168 days after Shattered v0.6.5\n" +
 				"_-_ 501 days after Shattered v0.6.0\n" +
@@ -828,7 +829,7 @@ public class v0_7_X_Changes {
 				"_-_ Using the exotic variant of a scroll costs 2 charges instead of 1.\n\n" +
 				"_-_ Charge speed at low levels increased. Max charges increased to 8 from 6."));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Potions which should be thrown can now be thrown from the quickslot, if they are IDed.\n" +
 				"_-_ Thrown items and wand zaps now go through tall grass.\n" +
 				"_-_ Expanded what items bags can carry. Most alchemy produce can fit in a bag, magical holster now holds bombs.\n\n" +
@@ -877,7 +878,7 @@ public class v0_7_X_Changes {
 				"_-_ Magical sleep rarely cancelling paralysis\n" +
 				"_-_ Exploits where bone piles could be used to check if an item was cursed"));
 		
-		changes.addButton( new ChangeButton(Icons.get(Icons.LANGS), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations\n\nUpdated translator credits\n\nAdded new language: Basque!"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);

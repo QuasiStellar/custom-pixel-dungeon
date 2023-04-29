@@ -22,13 +22,15 @@
 package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Image;
 
 public class BusyIndicator extends Image {
 	
 	public BusyIndicator() {
 		super();
-		copy( Icons.BUSY.get() );
+		copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BUSY)) );
 		
 		origin.set( width / 2, height / 2 );
 		angularSpeed = 720;

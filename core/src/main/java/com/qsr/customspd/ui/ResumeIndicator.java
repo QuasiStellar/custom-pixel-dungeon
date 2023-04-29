@@ -23,6 +23,8 @@ package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.windows.WndKeyBindings;
@@ -51,7 +53,7 @@ public class ResumeIndicator extends Tag {
 	protected void createChildren() {
 		super.createChildren();
 
-		icon = Icons.get( Icons.ARROW);
+		icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW));
 		add( icon );
 	}
 

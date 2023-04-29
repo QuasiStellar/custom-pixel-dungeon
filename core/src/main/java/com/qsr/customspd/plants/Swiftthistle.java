@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.buffs.Haste;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.CharSprite;
@@ -38,6 +39,8 @@ import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Bundle;
 
 import java.util.ArrayList;
+
+import kotlin.Pair;
 
 public class Swiftthistle extends Plant {
 	
@@ -77,7 +80,7 @@ public class Swiftthistle extends Plant {
 		ArrayList<Integer> presses = new ArrayList<>();
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.TIME;
 		}
 

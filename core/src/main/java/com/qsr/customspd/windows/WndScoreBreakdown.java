@@ -21,15 +21,15 @@
 
 package com.qsr.customspd.windows;
 
-import com.qsr.customspd.Dungeon;
-import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Group;
+import com.watabou.noosa.Image;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -42,7 +42,7 @@ public class WndScoreBreakdown extends Window {
 
 	public WndScoreBreakdown(){
 
-		IconTitle title = new IconTitle( Icons.get(Icons.INFO), Messages.get(this, "title"));
+		IconTitle title = new IconTitle( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)), Messages.get(this, "title"));
 		title.setRect(0, 0, WIDTH, 16);
 		add(title);
 

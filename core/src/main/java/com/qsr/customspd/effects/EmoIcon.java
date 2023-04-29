@@ -21,9 +21,10 @@
 
 package com.qsr.customspd.effects;
 
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.ui.Icons;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Random;
@@ -72,7 +73,7 @@ public class EmoIcon extends Image {
 			
 			super( owner );
 			
-			copy( Icons.get( Icons.SLEEP ) );
+			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SLEEP)) );
 			
 			maxSize = 1.2f;
 			timeScale = 0.5f;
@@ -91,7 +92,7 @@ public class EmoIcon extends Image {
 			
 			super( owner );
 			
-			copy( Icons.get( Icons.ALERT ) );
+			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ALERT)) );
 			
 			maxSize = 1.3f;
 			timeScale = 2;
@@ -109,7 +110,7 @@ public class EmoIcon extends Image {
 		public Lost( CharSprite owner ){
 			super( owner );
 			
-			copy( Icons.get( Icons.LOST ) );
+			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LOST)) );
 			
 			maxSize = 1.25f;
 			timeScale = 1;

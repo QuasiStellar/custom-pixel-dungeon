@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.buffs.Barkskin;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.EarthParticle;
 import com.qsr.customspd.messages.Messages;
@@ -34,6 +35,8 @@ import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Camera;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Earthroot extends Plant {
 	
@@ -119,7 +122,7 @@ public class Earthroot extends Plant {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.ARMOR;
 		}
 

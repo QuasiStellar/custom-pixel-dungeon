@@ -25,6 +25,7 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.npcs.Imp;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.food.Food;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.MonkSprite;
@@ -33,6 +34,8 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class Monk extends Mob {
 	
@@ -148,7 +151,7 @@ public class Monk extends Mob {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.MIND_VISION;
 		}
 

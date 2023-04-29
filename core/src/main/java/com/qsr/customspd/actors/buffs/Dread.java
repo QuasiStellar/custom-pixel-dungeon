@@ -24,10 +24,13 @@ package com.qsr.customspd.actors.buffs;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
+
+import kotlin.Pair;
 
 public class Dread extends Buff {
 
@@ -96,7 +99,7 @@ public class Dread extends Buff {
 	}
 
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.TERROR;
 	}
 

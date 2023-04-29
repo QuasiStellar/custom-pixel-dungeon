@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.Burning;
 import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.rings.RingOfAccuracy;
 import com.qsr.customspd.items.rings.RingOfEvasion;
 import com.qsr.customspd.messages.Messages;
@@ -41,6 +42,8 @@ import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import kotlin.Pair;
 
 public class MirrorImage extends NPC {
 	
@@ -207,7 +210,7 @@ public class MirrorImage extends NPC {
 		}
 		
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			return BuffIndicator.NONE;
 		}
 	}

@@ -40,6 +40,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Item;
@@ -146,7 +147,7 @@ public class SmokeBomb extends ArmorAbility {
 	}
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.SMOKE_BOMB;
 	}
 

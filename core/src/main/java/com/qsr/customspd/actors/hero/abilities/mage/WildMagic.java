@@ -30,6 +30,7 @@ import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.items.wands.CursedWand;
@@ -218,7 +219,7 @@ public class WildMagic extends ArmorAbility {
 	}
 
 	@Override
-	public int icon() {
+	public Asset icon() {
 		return HeroIcon.WILD_MAGIC;
 	}
 

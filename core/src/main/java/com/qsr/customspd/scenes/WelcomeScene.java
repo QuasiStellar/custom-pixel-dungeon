@@ -38,7 +38,6 @@ import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.ui.Archs;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.windows.WndError;
@@ -70,7 +69,7 @@ public class WelcomeScene extends PixelScene {
 		final int previousVersion = SPDSettings.version();
 
 		if (!triedCleaningTemp && FileUtils.cleanTempFiles()){
-			add(new WndHardNotification(Icons.get(Icons.WARNING),
+			add(new WndHardNotification(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
 					Messages.get(WndError.class, "title"),
 					Messages.get(this, "save_warning"),
 					Messages.get(this, "continue"),
@@ -184,12 +183,12 @@ public class WelcomeScene extends PixelScene {
 			add(okay);
 
 			changes.setRect(okay.right()+2, buttonY, (title.width()/2)-2, 20);
-			changes.icon(Icons.get(Icons.CHANGES));
+			changes.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
 			add(changes);
 		} else {
 			okay.text(Messages.get(TitleScene.class, "enter"));
 			okay.setRect(title.x, buttonY, title.width(), 20);
-			okay.icon(Icons.get(Icons.ENTER));
+			okay.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
 			add(okay);
 		}
 
@@ -221,7 +220,7 @@ public class WelcomeScene extends PixelScene {
 		add(text);
 
 		if (SPDSettings.intro() && ControllerHandler.isControllerConnected()){
-			addToFront(new WndHardNotification(Icons.CONTROLLER.get(),
+			addToFront(new WndHardNotification(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CONTROLLER)),
 					Messages.get(WelcomeScene.class, "controller_title"),
 					Messages.get(WelcomeScene.class, "controller_body"),
 					Messages.get(WelcomeScene.class, "controller_okay"),

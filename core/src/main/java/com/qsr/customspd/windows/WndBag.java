@@ -25,6 +25,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.bags.MagicalHolster;
@@ -36,7 +38,6 @@ import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
 import com.qsr.customspd.sprites.ItemSpriteSheet;
-import com.qsr.customspd.ui.Icons;
 import com.qsr.customspd.ui.InventorySlot;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -187,7 +188,7 @@ public class WndBag extends WndTabbed {
 			titleWidth = amt.x;
 		} else {
 
-			Image gold = Icons.get(Icons.COIN_SML);
+			Image gold = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COIN_SML));
 			gold.x = width - gold.width() - 0.5f;
 			gold.y = 0;
 			PixelScene.align(gold);
@@ -203,7 +204,7 @@ public class WndBag extends WndTabbed {
 
 			titleWidth = amt.x;
 
-			Image energy = Icons.get(Icons.ENERGY_SML);
+			Image energy = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENERGY_SML));
 			energy.x = width - energy.width();
 			energy.y = gold.height();
 			PixelScene.align(energy);
@@ -396,15 +397,15 @@ public class WndBag extends WndTabbed {
 	
 	private Image icon( Bag bag ) {
 		if (bag instanceof VelvetPouch) {
-			return Icons.get( Icons.SEED_POUCH );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED_POUCH));
 		} else if (bag instanceof ScrollHolder) {
-			return Icons.get( Icons.SCROLL_HOLDER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SCROLL_HOLDER));
 		} else if (bag instanceof MagicalHolster) {
-			return Icons.get( Icons.WAND_HOLSTER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WAND_HOLSTER));
 		} else if (bag instanceof PotionBandolier) {
-			return Icons.get( Icons.POTION_BANDOLIER );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_POTION_BANDOLIER));
 		} else {
-			return Icons.get( Icons.BACKPACK );
+			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK));
 		}
 	}
 	

@@ -21,8 +21,11 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
+
+import kotlin.Pair;
 
 public class Haste extends FlavourBuff {
 	
@@ -33,7 +36,7 @@ public class Haste extends FlavourBuff {
 	public static final float DURATION	= 20f;
 	
 	@Override
-	public int icon() {
+	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.HASTE;
 	}
 
