@@ -31,12 +31,6 @@ import kotlin.Pair;
 
 public class BuffIcon extends Image {
 
-	private static TextureFilm smallFilm;
-	private static final int SML_SIZE = 7;
-
-	private static TextureFilm largeFilm;
-	private static final int LRG_SIZE = 16;
-
 	private final boolean large;
 
 	public BuffIcon(Buff buff, boolean large){
@@ -51,6 +45,11 @@ public class BuffIcon extends Image {
 	}
 
 	public void refresh(Buff buff){
+		refresh(buff.icon());
 		buff.tintIcon(this);
+	}
+
+	public void refresh(Pair<Asset, Asset> icon){
+		texture(Asset.getAssetFileHandle(large ? icon.getSecond() : icon.getFirst()));
 	}
 }

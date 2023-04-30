@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.scrolls.exotic.ScrollOfMetamorphosis;
 import com.qsr.customspd.messages.Messages;
@@ -70,7 +72,23 @@ public class TalentButton extends Button {
 		this.pointsInTalent = points;
 		this.mode = mode;
 
-		bg.frame(20*(talent.maxPoints()-1), 0, WIDTH, HEIGHT);
+		Asset asset = null;
+		switch (talent.maxPoints()) {
+			case 1:
+				asset = GeneralAsset.TALENT_1;
+				break;
+			case 2:
+				asset = GeneralAsset.TALENT_2;
+				break;
+			case 3:
+				asset = GeneralAsset.TALENT_3;
+				break;
+			case 4:
+				asset = GeneralAsset.TALENT_4;
+				break;
+		}
+
+		bg.texture(Asset.getAssetFileHandle(asset));
 
 		icon = new TalentIcon( talent );
 		add(icon);
@@ -83,7 +101,7 @@ public class TalentButton extends Button {
 		fill = new ColorBlock(0, 4, 0xFFFFFF44);
 		add(fill);
 
-		bg = new Image(Assets.Interfaces.TALENT_BUTTON);
+		bg = new Image();
 		add(bg);
 	}
 

@@ -72,7 +72,7 @@ public class MenuPane extends Component {
 	protected void createChildren() {
 		super.createChildren();
 
-		bg = new Image(Assets.Interfaces.MENU);
+		bg = new Image(Asset.getAssetFileHandle(GeneralAsset.MENU_PANE));
 		add(bg);
 
 		depthIcon = IconUtils.get(Dungeon.level.feeling);
@@ -233,10 +233,10 @@ public class MenuPane extends Component {
 		protected void createChildren() {
 			super.createChildren();
 
-			bg = new Image( Assets.Interfaces.MENU_BTN, 2, 2, 13, 11 );
+			bg = new Image(Asset.getAssetFileHandle(GeneralAsset.JOURNAL_BUTTON));
 			add( bg );
 
-			journalIcon = new Image( Assets.Interfaces.MENU_BTN, 31, 0, 11, 7);
+			journalIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.JOURNAL_ICON));
 			add( journalIcon );
 
 			keyIcon = new KeyDisplay();
@@ -355,7 +355,7 @@ public class MenuPane extends Component {
 		protected void createChildren() {
 			super.createChildren();
 
-			image = new Image( Assets.Interfaces.MENU_BTN, 17, 2, 12, 11 );
+			image = new Image(Asset.getAssetFileHandle(GeneralAsset.MENU_BUTTON));
 			add( image );
 		}
 

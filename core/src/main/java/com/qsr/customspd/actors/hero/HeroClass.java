@@ -43,6 +43,8 @@ import com.qsr.customspd.actors.hero.abilities.rogue.SmokeBomb;
 import com.qsr.customspd.actors.hero.abilities.warrior.HeroicLeap;
 import com.qsr.customspd.actors.hero.abilities.warrior.Shockwave;
 import com.qsr.customspd.actors.hero.abilities.warrior.Endure;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.BrokenSeal;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.Waterskin;
@@ -277,15 +279,15 @@ public enum HeroClass {
 	public String splashArt(){
 		switch (this) {
 			case WARRIOR: default:
-				return Assets.Splashes.WARRIOR;
+				return Asset.getAssetFileHandle(GeneralAsset.WARRIOR_SPLASH);
 			case MAGE:
-				return Assets.Splashes.MAGE;
+				return Asset.getAssetFileHandle(GeneralAsset.MAGE_SPLASH);
 			case ROGUE:
-				return Assets.Splashes.ROGUE;
+				return Asset.getAssetFileHandle(GeneralAsset.ROGUE_SPLASH);
 			case HUNTRESS:
-				return Assets.Splashes.HUNTRESS;
+				return Asset.getAssetFileHandle(GeneralAsset.HUNTRESS_SPLASH);
 			case DUELIST:
-				return Assets.Splashes.DUELIST;
+				return Asset.getAssetFileHandle(GeneralAsset.DUELIST_SPLASH);
 		}
 	}
 	

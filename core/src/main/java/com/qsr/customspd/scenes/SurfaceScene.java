@@ -26,6 +26,8 @@ import com.qsr.customspd.Badges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.artifacts.DriedRose;
 import com.qsr.customspd.items.wands.WandOfLivingEarth;
 import com.qsr.customspd.items.wands.WandOfWarding;
@@ -62,9 +64,6 @@ import java.nio.FloatBuffer;
 import java.util.Calendar;
 
 public class SurfaceScene extends PixelScene {
-
-	private static final int FRAME_WIDTH    = 88;
-	private static final int FRAME_HEIGHT    = 125;
 
 	private static final int FRAME_MARGIN_TOP    = 9;
 	private static final int FRAME_MARGIN_X        = 4;
@@ -231,9 +230,8 @@ public class SurfaceScene extends PixelScene {
 			window.add( patch );
 		}
 		
-		Image frame = new Image( Assets.Interfaces.SURFACE );
+		Image frame = new Image(Asset.getAssetFileHandle(GeneralAsset.SURFACE_FRAME));
 
-		frame.frame( 0, 0, FRAME_WIDTH, FRAME_HEIGHT );
 		frame.x = vx - FRAME_MARGIN_X;
 		frame.y = vy - FRAME_MARGIN_TOP;
 		add( frame );
@@ -354,24 +352,28 @@ public class SurfaceScene extends PixelScene {
 		private static int lastIndex = -1;
 		
 		public Cloud( float y, boolean dayTime ) {
-			super( Assets.Interfaces.SURFACE );
+			super();
+
+			Asset asset = null;
 			
 			int index;
 			do {
 				index = Random.Int( 3 );
 			} while (index == lastIndex);
-			
+
 			switch (index) {
-			case 0:
-				frame( 88, 0, 49, 20 );
-				break;
-			case 1:
-				frame( 88, 20, 49, 22 );
-				break;
-			case 2:
-				frame( 88, 42, 50, 18 );
-				break;
+				case 0:
+					asset = GeneralAsset.CLOUD_1;
+					break;
+				case 1:
+					asset = GeneralAsset.CLOUD_2;
+					break;
+				case 2:
+					asset = GeneralAsset.CLOUD_3;
+					break;
 			}
+
+			texture(asset);
 			
 			lastIndex = index;
 			
@@ -439,10 +441,26 @@ public class SurfaceScene extends PixelScene {
 		private boolean forward;
 		
 		public GrassPatch( float tx, float ty, boolean forward ) {
-			
-			super( Assets.Interfaces.SURFACE );
-			
-			frame( 88 + Random.Int( 4 ) * WIDTH, 60, WIDTH, HEIGHT );
+
+			super();
+
+			Asset asset = null;
+			switch (Random.Int( 4 )) {
+				case 0:
+					asset = GeneralAsset.GRASS_1;
+					break;
+				case 1:
+					asset = GeneralAsset.GRASS_2;
+					break;
+				case 2:
+					asset = GeneralAsset.GRASS_3;
+					break;
+				case 3:
+					asset = GeneralAsset.GRASS_4;
+					break;
+			}
+
+			texture(asset);
 			
 			this.tx = tx;
 			this.ty = ty;

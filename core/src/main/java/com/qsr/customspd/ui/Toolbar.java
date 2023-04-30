@@ -47,6 +47,7 @@ import com.qsr.customspd.windows.WndKeyBindings;
 import com.qsr.customspd.windows.WndMessage;
 import com.qsr.customspd.windows.WndQuickBag;
 import com.qsr.customspd.windows.WndUseItem;
+import com.watabou.gltextures.SmartTexture;
 import com.watabou.input.ControllerHandler;
 import com.watabou.input.GameAction;
 import com.watabou.input.KeyBindings;
@@ -60,6 +61,7 @@ import com.watabou.utils.Point;
 import com.watabou.utils.PointF;
 
 import java.util.ArrayList;
+import static com.watabou.gltextures.TextureCache.getBitmap;
 
 public class Toolbar extends Component {
 
@@ -99,11 +101,11 @@ public class Toolbar extends Component {
 	@Override
 	protected void createChildren() {
 
-		add(btnSwap = new SlotSwapTool(128, 0, 21, 23));
+		add(btnSwap = new SlotSwapTool(GeneralAsset.SLOT_SWAP));
 
 		btnQuick = new QuickslotTool[QuickSlot.SIZE];
 		for (int i = 0; i < btnQuick.length; i++){
-			add( btnQuick[i] = new QuickslotTool(64, 0, 22, 24, i) );
+			add( btnQuick[i] = new QuickslotTool(GeneralAsset.QUICKSLOT, i) );
 		}
 
 		//hidden button for quickslot selector keybind
@@ -198,7 +200,7 @@ public class Toolbar extends Component {
 			}
 		});
 		
-		add(btnWait = new Tool(24, 0, 20, 26) {
+		add(btnWait = new Tool(GeneralAsset.WAIT) {
 			@Override
 			protected void onClick() {
 				if (Dungeon.hero.ready && !GameScene.cancel()) {
@@ -286,7 +288,7 @@ public class Toolbar extends Component {
 			}
 		});
 		
-		add(btnSearch = new Tool(44, 0, 20, 26) {
+		add(btnSearch = new Tool(GeneralAsset.SEARCH) {
 			@Override
 			protected void onClick() {
 				if (Dungeon.hero.ready) {
@@ -317,7 +319,7 @@ public class Toolbar extends Component {
 			}
 		});
 		
-		add(btnInventory = new Tool(0, 0, 24, 26) {
+		add(btnInventory = new Tool(GeneralAsset.INVENTORY) {
 			private CurrencyIndicator ind;
 
 			private Image arrow;
@@ -509,16 +511,22 @@ public class Toolbar extends Component {
 
 			right = btnSearch.left();
 			for(int i = endingSlot; i >= startingSlot; i--) {
+				String asset;
 				if (i == endingSlot){
 					btnQuick[i].border(0, 2);
-					btnQuick[i].frame(106, 0, 19, 24);
+					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_LAST);
+					btnQuick[i].base.texture(asset);
 				} else if (i == 0){
 					btnQuick[i].border(2, 1);
-					btnQuick[i].frame(86, 0, 20, 24);
+					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_FIRST);
+					btnQuick[i].base.texture(asset);
 				} else {
 					btnQuick[i].border(0, 1);
-					btnQuick[i].frame(88, 0, 18, 24);
+					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_MIDDLE);
+					btnQuick[i].base.texture(asset);
 				}
+				SmartTexture texture = new SmartTexture( getBitmap( asset ) );
+				btnQuick[i].format(texture.width, texture.height);
 				btnQuick[i].setPos(right-btnQuick[i].width(), y+2);
 				right = btnQuick[i].left();
 			}
@@ -529,18 +537,24 @@ public class Toolbar extends Component {
 		}
 
 		for(int i = startingSlot; i <= endingSlot; i++) {
+			String asset;
 			if (i == startingSlot && !SPDSettings.flipToolbar() ||
 				i == endingSlot && SPDSettings.flipToolbar()){
 				btnQuick[i].border(0, 2);
-				btnQuick[i].frame(106, 0, 19, 24);
+				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_LAST);
+				btnQuick[i].base.texture(asset);
 			} else if (i == startingSlot && SPDSettings.flipToolbar() ||
 					i == endingSlot && !SPDSettings.flipToolbar()){
 				btnQuick[i].border(2, 1);
-				btnQuick[i].frame(86, 0, 20, 24);
+				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_FIRST);
+				btnQuick[i].base.texture(asset);
 			} else {
 				btnQuick[i].border(0, 1);
-				btnQuick[i].frame(88, 0, 18, 24);
+				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_MIDDLE);
+				btnQuick[i].base.texture(asset);
 			}
+			SmartTexture texture = new SmartTexture( getBitmap( asset ) );
+			btnQuick[i].format(texture.width, texture.height);
 		}
 
 		float shift = 0;
@@ -682,18 +696,19 @@ public class Toolbar extends Component {
 		
 		private static final int BGCOLOR = 0x7B8073;
 		
-		private Image base;
+		Image base;
 		
-		public Tool( int x, int y, int width, int height ) {
+		public Tool(Asset asset) {
 			super();
 
 			hotArea.blockLevel = PointerArea.ALWAYS_BLOCK;
-			frame(x, y, width, height);
+			base = new Image(Asset.getAssetFileHandle(asset));
+			SmartTexture texture = new SmartTexture(getBitmap(Asset.getAssetFileHandle(asset)));
+			format(texture.width, texture.height);
+			add( base );
 		}
 
-		public void frame( int x, int y, int width, int height) {
-			base.frame( x, y, width, height );
-
+		public void format(int width, int height) {
 			this.width = width;
 			this.height = height;
 		}
@@ -701,9 +716,8 @@ public class Toolbar extends Component {
 		@Override
 		protected void createChildren() {
 			super.createChildren();
-			
-			base = new Image( Assets.Interfaces.TOOLBAR );
-			add( base );
+
+
 		}
 		
 		@Override
@@ -750,8 +764,8 @@ public class Toolbar extends Component {
 		private int borderLeft = 2;
 		private int borderRight = 2;
 		
-		public QuickslotTool( int x, int y, int width, int height, int slotNum ) {
-			super( x, y, width, height );
+		public QuickslotTool(Asset asset, int slotNum ) {
+			super(asset);
 
 			slot = new QuickSlotButton( slotNum );
 			add( slot );
@@ -791,8 +805,8 @@ public class Toolbar extends Component {
 		private Image[] icons = new Image[4];
 		private Item[] items = new Item[4];
 
-		public SlotSwapTool(int x, int y, int width, int height) {
-			super(x, y, width, height);
+		public SlotSwapTool(Asset asset) {
+			super(asset);
 			SWAP_INSTANCE = this;
 			updateVisuals();
 		}

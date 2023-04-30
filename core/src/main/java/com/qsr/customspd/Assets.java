@@ -41,16 +41,6 @@ public class Assets {
 		public static final String PIXELFONT= "fonts/pixel_font.png";
 	}
 
-	public static class Interfaces {
-		public static final String ICONS    = "interfaces/icons.png";
-		public static final String MENU     = "interfaces/menu_pane.png";
-		public static final String MENU_BTN = "interfaces/menu_button.png";
-		public static final String TOOLBAR  = "interfaces/toolbar.png";
-		public static final String SURFACE  = "interfaces/surface.png";
-		public static final String TALENT_BUTTON    = "interfaces/talent_button.png";
-		public static final String RADIAL_MENU      = "interfaces/radial_menu.png";
-	}
-
 	//these points to resource bundles, not raw asset files
 	public static class Messages {
 		public static final String ACTORS   = "messages/actors/actors";
@@ -173,14 +163,6 @@ public class Assets {
 				TELEPORT, CHARMS, MASTERY, PUFF, ROCKS, BURNING, FALLING, GHOST, SECRET, BONES,
 				BEE, DEGRADE, MIMIC, DEBUFF, CHARGEUP, GAS, CHAINS, SCAN, SHEEP
 		};
-	}
-
-	public static class Splashes {
-		public static final String WARRIOR  = "splashes/warrior.jpg";
-		public static final String MAGE     = "splashes/mage.jpg";
-		public static final String ROGUE    = "splashes/rogue.jpg";
-		public static final String HUNTRESS = "splashes/huntress.jpg";
-		public static final String DUELIST  = "splashes/duelist.jpg";
 	}
 
 	public static class Sprites {

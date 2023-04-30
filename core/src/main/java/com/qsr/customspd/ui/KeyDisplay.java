@@ -23,6 +23,8 @@ package com.qsr.customspd.ui;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.keys.CrystalKey;
 import com.qsr.customspd.items.keys.GoldenKey;
 import com.qsr.customspd.items.keys.IronKey;
@@ -47,7 +49,7 @@ public class KeyDisplay extends Visual {
 	private FloatBuffer quads;
 	private Vertexbuffer buffer;
 	
-	private SmartTexture tx = TextureCache.get(Assets.Interfaces.MENU_BTN);
+	private SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle(GeneralAsset.KEYS));
 	
 	private boolean dirty = true;
 	private int[] keys;
@@ -172,8 +174,8 @@ public class KeyDisplay extends Visual {
 			}
 			
 			//texture coordinates
-			RectF r = tx.uvRect(43 + 3*keyIdx, shortKeys ? 8 : 0,
-					46 + 3*keyIdx, shortKeys ? 12 : 7);
+			RectF r = tx.uvRect(3*keyIdx, shortKeys ? 8 : 0,
+					3 + 3*keyIdx, shortKeys ? 12 : 7);
 			
 			vertices[2] = r.left;
 			vertices[3] = r.top;
