@@ -36,6 +36,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.mobs.npcs.DirectableAlly;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ShaftParticle;
 import com.qsr.customspd.items.armor.ClassArmor;
@@ -283,7 +284,7 @@ public class SpiritHawk extends ArmorAbility {
 		public HawkSprite() {
 			super();
 
-			texture( Assets.Sprites.SPIRIT_HAWK );
+			texture( Asset.getAssetFileHandle(GeneralAsset.SPIRIT_HAWK) );
 
 			TextureFilm frames = new TextureFilm( texture, 15, 15 );
 

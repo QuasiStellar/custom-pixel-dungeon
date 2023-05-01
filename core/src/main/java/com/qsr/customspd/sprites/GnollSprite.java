@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class GnollSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class GnollSprite extends MobSprite {
 	public GnollSprite() {
 		super();
 		
-		texture( Assets.Sprites.GNOLL );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GNOLL) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		

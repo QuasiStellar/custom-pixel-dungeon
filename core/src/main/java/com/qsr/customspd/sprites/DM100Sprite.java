@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.DM100;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Lightning;
 import com.qsr.customspd.effects.Speck;
 import com.watabou.noosa.TextureFilm;
@@ -36,7 +38,7 @@ public class DM100Sprite extends MobSprite {
 	public DM100Sprite () {
 		super();
 		
-		texture( Assets.Sprites.DM100 );
+		texture( Asset.getAssetFileHandle(GeneralAsset.DM100) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 14 );
 		

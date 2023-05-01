@@ -23,6 +23,7 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.scenes.GameScene;
@@ -34,7 +35,7 @@ public class TenguSprite extends MobSprite {
 	public TenguSprite() {
 		super();
 		
-		texture( Assets.Sprites.TENGU );
+		texture( Asset.getAssetFileHandle(GeneralAsset.TENGU) );
 		
 		TextureFilm frames = new TextureFilm( texture, 14, 16 );
 		

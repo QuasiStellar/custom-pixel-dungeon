@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
 import com.watabou.noosa.TextureFilm;
 
@@ -33,7 +35,7 @@ public class YogSprite extends MobSprite {
 
 		perspectiveRaise = 5 / 16f;
 
-		texture( Assets.Sprites.YOG );
+		texture( Asset.getAssetFileHandle(GeneralAsset.YOG) );
 		
 		TextureFilm frames = new TextureFilm( texture, 20, 19 );
 		

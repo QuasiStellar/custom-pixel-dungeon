@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class BruteSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class BruteSprite extends MobSprite {
 	public BruteSprite() {
 		super();
 		
-		texture( Assets.Sprites.BRUTE );
+		texture( Asset.getAssetFileHandle(GeneralAsset.BRUTE) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 16 );
 		

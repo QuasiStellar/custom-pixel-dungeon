@@ -90,7 +90,7 @@ public class v1_X_Changes {
 				"Rather than just using the effect of earthroot, the footwear of nature now use the effect of the seed most recently fed to them! These effects can be triggered on nearby enemies instead of just on you, opening up a bunch of tactical potential for this artifact.\n\n" +
 				"For balance, the amount of extra seeds/dew the footwear gives has been reduced, and 1 additional seed is needed for each upgrade level."));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.WARRIOR, 0, 90, 12, 15), HeroSubClass.BERSERKER.title(),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 90, 12, 15), HeroSubClass.BERSERKER.title(),
 				"_The Berserker's berserk ability is now manually activated, but has a much lower cooldown._\n\n" +
 				"I'm doing this to try and make the subclass a bit more engaging, players can now trigger berserk at any point when they have 100% or more rage. Berserking still gives a big bonus shield, letting the Berserker survive normally fatal encounters. The lower the Berserker's health, the more shielding he gets.\n\n" +
 				"The Berserker's talents have been adjusted as well:\n" +
@@ -174,7 +174,7 @@ public class v1_X_Changes {
 				"_-_ The controller pointer can now pan the game camera\n" +
 				"_-_ Heroes can now be renamed individually"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
 				"Fixed the following bugs:\n\n" +
 				"_Highlights:_\n" +
 				"_-_ Victory and Champion badges not being awarded in some cases\n" +
@@ -191,7 +191,7 @@ public class v1_X_Changes {
 				"_-_ Giant necromancers summoning skeletons into doorways\n" +
 				"_-_ Goo Immediately using its pump up attack if a previous pump up was interrupted by sleep"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
 				"_Items pt.1:_\n" +
 				"_-_ Honeypots not reacting correctly to being teleported\n" +
 				"_-_ Rare cases where lost inventory and items on stairs could softlock the game\n" +
@@ -208,7 +208,7 @@ public class v1_X_Changes {
 				"_-_ Cases where explosive curse would create explosions at the wrong location\n" +
 				"_-_ Additional cases where magical spellbook could generate scrolls of lullaby"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
 				"_Items pt.2:_\n" +
 				"_-_ Heavy boomerangs getting an accuracy penalty when returning\n" +
 				"_-_ Rare consistency errors in potion of might buff description\n" +
@@ -224,7 +224,7 @@ public class v1_X_Changes {
 				"_-_ Some thrown weapons triggering traps as Tengu jumps\n" +
 				"_-_ Magic resistance not applying to some cursed wand effects"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 4",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 4",
 				"_Effects:_\n" +
 				"_-_ Invisibility effects not working when applied to enemies\n" +
 				"_-_ Rare cases where giant enemies couldn't attack\n" +
@@ -241,7 +241,7 @@ public class v1_X_Changes {
 				"_-_ Exploits during ascension challenge that let players still use shops\n" +
 				"_-_ Elastic and battlemage blast wave ability conflicting with each other"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 5",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 5",
 				"_Misc:_\n" +
 				"_-_ Dailies using seeds that are also user-enterable\n" +
 				"_-_ Confusing text when a weapon or armor is partly uncursed\n" +
@@ -393,7 +393,7 @@ public class v1_X_Changes {
 				"_-_ Boss health bars have been expanded to show current health and active buffs/debuffs.\n" +
 				"_-_ The Changes scene has been expanded on large enough displays. This is the first of several UI expansions I'd like to make over time."));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed\n" +
 				"_-_ Various minor textual and visual bugs\n" +
 				"_-_ Final boss's summons being slightly weaker than intended when badder bosses is enabled\n" +
@@ -532,7 +532,7 @@ public class v1_X_Changes {
 				"_-_ Added a new language: Galician!\n" +
 				"_-_ Removed the Catalan translation as it was below 70% complete"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
 				"Fixed:\n" +
 				"_-_ Various rare cases of save corruption on Android\n" +
 				"_-_ Various minor textual and visual errors\n\n" +
@@ -548,7 +548,7 @@ public class v1_X_Changes {
 				"_-_ Character mind vision persisting after a character dies\n" +
 				"_-_ Dwarf King not being targeted by wands or thrown weapons while on his throne"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
 				"Fixed:\n" +
 				"_-_ Pharmacophobia challenge incorrectly blocking some alchemy recipes\n" +
 				"_-_ Unidentified wands being usable in alchemy\n" +
@@ -561,7 +561,7 @@ public class v1_X_Changes {
 				"_-_ Fog of War not properly updating when warp beacon is used\n" +
 				"_-_ Very rare cases where dried rose becomes unusable"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
 				"Fixed:\n" +
 				"_-_ Rare cases where lullaby scrolls were generated by the Unstable Spellbook\n" +
 				"_-_ Ring of might health boost not being affected by lost inventory debuff\n" +
@@ -728,7 +728,7 @@ public class v1_X_Changes {
 
 				"_-_ Updated translations and translator credits"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
 				"Fixed:\n" +
 				"_-_ Various minor/rare visual and textual errors\n" +
 				"_-_ Cases where pausing/resuming the game at precise moments would cancel animations or attacks\n" +
@@ -747,7 +747,7 @@ public class v1_X_Changes {
 				"_-_ Vertigo and teleportation effects rarely interfering\n" +
 				"_-_ Layout issues in the hero info window with long buff names"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
 				"Fixed:\n" +
 				"_-_ Cursed wands being usable to create arcane resin\n" +
 				"_-_ Unblessed ankh revival rarely causing crashes or placing the player on hazards\n" +
@@ -765,7 +765,7 @@ public class v1_X_Changes {
 				"_-_ Fog of War errors in Tengu's arena\n" +
 				"_-_ Rare errors with sheep spawning items and traps"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
 				"Fixed:\n" +
 				"_-_ Various rare crash bugs\n" +
 				"_-_ Various minor textual and visual errors\n" +
@@ -801,7 +801,7 @@ public class v1_X_Changes {
 				"I'm giving a mild buff to the _Dried Rose_ to fix an odd inconsistency where it was better to kill the ghost off than let them heal:\n" +
 				"_-_ Ghost HP regen doubled, to match the roses recharge speed (500 turns to full HP)"));
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.WARRIOR, 0, 90, 12, 15), HeroSubClass.BERSERKER.title(),
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 90, 12, 15), HeroSubClass.BERSERKER.title(),
 				"The berserker is getting a small QOL buff to make it easier to hold onto rage in combat:\n\n" +
 				"_-_ Rage now starts expiring after not taking damage for 2 turns, instead of immediately."));
 
@@ -821,7 +821,7 @@ public class v1_X_Changes {
 				"The reduction to the Mage's starting melee damage in v1.0.0 had a good effect on his early game winrate, but it's still notably higher than other heroes. So, I'm nudging his early melee power down one more time:\n\n" +
 				"_- Mage's Staff_ base damage reduced to 1-6 from 1-7."));
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.ROGUE, 0, 90, 12, 15), HeroSubClass.ASSASSIN.title(),
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ROGUE), 0, 90, 12, 15), HeroSubClass.ASSASSIN.title(),
 				"The Assassin is doing very well right now, especially after the power boost he can receive from smoke bomb or death mark. I'm scaling back his core power a little to try and reign him in a bit:\n\n" +
 				"_-_ Preparation bonus damage at power level 1/2/3/4 reduced to 10/20/35/50%, from 15/30/45/60%"));
 
@@ -916,7 +916,7 @@ public class v1_X_Changes {
 				"_-_ Becoming magic immune now also cleanses existing magical buffs and debuffs.\n" +
 				"_-_ Traps that spawn visible or that never deactivate can no longer appear in enclosed spaces"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash bugs\n" +
 				"_-_ Various minor visual and text errors\n" +
@@ -938,7 +938,7 @@ public class v1_X_Changes {
 				"_-_ rare incorrect interactions between swiftthistle and golden lotus\n" +
 				"_-_ Rings not being renamable if they weren't IDed"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ statues not becoming aggressive when debuffed\n" +
 				"_-_ swapping places with allies reducing momentum\n" +

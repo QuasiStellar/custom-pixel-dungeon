@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.TextureFilm;
@@ -32,7 +34,7 @@ public class SpawnerSprite extends MobSprite {
 	public SpawnerSprite() {
 		super();
 
-		texture( Assets.Sprites.SPAWNER );
+		texture( Asset.getAssetFileHandle(GeneralAsset.SPAWNER) );
 
 		perspectiveRaise = 8 / 16f;
 		shadowOffset = 1.25f;

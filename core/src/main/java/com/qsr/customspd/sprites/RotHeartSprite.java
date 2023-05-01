@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
@@ -37,7 +39,7 @@ public class RotHeartSprite extends MobSprite {
 
 		perspectiveRaise = 0.2f;
 
-		texture( Assets.Sprites.ROT_HEART );
+		texture( Asset.getAssetFileHandle(GeneralAsset.ROT_HEART) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 

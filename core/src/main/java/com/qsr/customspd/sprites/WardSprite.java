@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Beam;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.wands.WandOfWarding;
@@ -38,7 +40,7 @@ public class WardSprite extends MobSprite {
 	public WardSprite(){
 		super();
 
-		texture(Assets.Sprites.WARDS);
+		texture(Asset.getAssetFileHandle(GeneralAsset.WARDS));
 
 		tierIdles[1] = new Animation( 1, true );
 		tierIdles[1].frames(texture.uvRect(0, 0, 9, 10));

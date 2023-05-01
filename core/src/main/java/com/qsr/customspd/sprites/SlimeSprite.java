@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class SlimeSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class SlimeSprite extends MobSprite {
 	public SlimeSprite() {
 		super();
 		
-		texture( Assets.Sprites.SLIME );
+		texture( Asset.getAssetFileHandle(GeneralAsset.SLIME) );
 		
 		TextureFilm frames = new TextureFilm( texture, 14, 12 );
 		

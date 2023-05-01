@@ -71,7 +71,7 @@ public class AmuletScene extends PixelScene {
 			add( text );
 		}
 		
-		amulet = new Image( Assets.Sprites.AMULET );
+		amulet = new Image( Asset.getAssetFileHandle(GeneralAsset.AMULET) );
 		add( amulet );
 
 		btnExit = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "exit") ) {

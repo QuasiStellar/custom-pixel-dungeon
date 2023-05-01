@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Necromancer;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.watabou.noosa.TextureFilm;
@@ -39,7 +41,7 @@ public class SpectralNecromancerSprite extends MobSprite {
 	public SpectralNecromancerSprite(){
 		super();
 
-		texture( Assets.Sprites.NECRO );
+		texture( Asset.getAssetFileHandle(GeneralAsset.NECRO) );
 		TextureFilm film = new TextureFilm( texture, 16, 16 );
 
 		int c = 16;

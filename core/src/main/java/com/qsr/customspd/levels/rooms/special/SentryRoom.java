@@ -31,6 +31,8 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.LostInventory;
 import com.qsr.customspd.actors.mobs.Eye;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Beam;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.Generator;
@@ -344,7 +346,7 @@ public class SentryRoom extends SpecialRoom {
 		private Emitter chargeParticles;
 
 		public SentrySprite(){
-			texture( Assets.Sprites.RED_SENTRY );
+			texture( Asset.getAssetFileHandle(GeneralAsset.RED_SENTRY) );
 
 			idle = new Animation(1, true);
 			idle.frames(texture.uvRect(0, 0, 8, 15));

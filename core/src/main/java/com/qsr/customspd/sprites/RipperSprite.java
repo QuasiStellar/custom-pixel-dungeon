@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
@@ -37,7 +39,7 @@ public class RipperSprite extends MobSprite {
 	public RipperSprite() {
 		super();
 
-		texture( Assets.Sprites.RIPPER );
+		texture( Asset.getAssetFileHandle(GeneralAsset.RIPPER) );
 
 		TextureFilm frames = new TextureFilm( texture, 15, 14 );
 

@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.YogFist;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Beam;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.Speck;
@@ -55,7 +57,7 @@ public abstract class FistSprite extends MobSprite {
 
 		int c = texOffset();
 
-		texture( Assets.Sprites.FISTS );
+		texture( Asset.getAssetFileHandle(GeneralAsset.FISTS) );
 
 		TextureFilm frames = new TextureFilm( texture, 24, 17 );
 

@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.npcs.Imp;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.watabou.noosa.TextureFilm;
 
@@ -32,7 +34,7 @@ public class ImpSprite extends MobSprite {
 	public ImpSprite() {
 		super();
 		
-		texture( Assets.Sprites.IMP );
+		texture( Asset.getAssetFileHandle(GeneralAsset.IMP) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 14 );
 		

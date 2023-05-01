@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.weapon.missiles.darts.ParalyticDart;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
@@ -35,7 +37,7 @@ public class GnollTricksterSprite extends MobSprite {
 	public GnollTricksterSprite() {
 		super();
 
-		texture( Assets.Sprites.GNOLL );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GNOLL) );
 
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 

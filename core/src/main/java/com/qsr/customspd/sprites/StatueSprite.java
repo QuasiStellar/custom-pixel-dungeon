@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.GameMath;
 
@@ -30,7 +32,7 @@ public class StatueSprite extends MobSprite {
 	public StatueSprite() {
 		super();
 		
-		texture( Assets.Sprites.STATUE );
+		texture( Asset.getAssetFileHandle(GeneralAsset.STATUE) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		

@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.ShieldHalo;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.watabou.noosa.TextureFilm;
@@ -35,7 +37,7 @@ public class WandmakerSprite extends MobSprite {
 	public WandmakerSprite() {
 		super();
 		
-		texture( Assets.Sprites.MAKER );
+		texture( Asset.getAssetFileHandle(GeneralAsset.MAKER) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 14 );
 		

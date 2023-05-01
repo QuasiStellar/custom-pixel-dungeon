@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 import java.util.Calendar;
@@ -53,7 +55,7 @@ public class RatKingSprite extends MobSprite {
 			if (parent != null) aura(0xFFFF00);
 		}
 
-		texture( Assets.Sprites.RATKING );
+		texture( Asset.getAssetFileHandle(GeneralAsset.RATKING) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 17 );
 

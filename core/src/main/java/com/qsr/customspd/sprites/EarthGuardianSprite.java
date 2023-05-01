@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class EarthGuardianSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class EarthGuardianSprite extends MobSprite {
 	public EarthGuardianSprite() {
 		super();
 
-		texture( Assets.Sprites.GUARDIAN );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GUARDIAN) );
 
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 

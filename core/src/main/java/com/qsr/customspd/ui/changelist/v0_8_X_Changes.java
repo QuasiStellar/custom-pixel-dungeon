@@ -161,7 +161,7 @@ public class v0_8_X_Changes {
 				"_-_ Added a new language: Ukranian!\n" +
 				"_-_ Updated translations and translator credits"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash/freeze errors\n" +
 				"_-_ Various audiovisual errors\n" +
@@ -181,7 +181,7 @@ public class v0_8_X_Changes {
 				"_-_ Tengu placing traps over plants\n" +
 				"_-_ Items not being IDed in rankings in rare cases"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Sniper shot incorrectly capping at 2.5x damage instead of 3x\n" +
 				"_-_ Golden Lotus having twice at much HP as intended\n" +
@@ -336,7 +336,7 @@ public class v0_8_X_Changes {
 				"_-_ Equipment drops are now slightly rarer, but are also higher in quality on average. In particular enemy equipment drops can now be above +0.\n" +
 				"_-_ Item drops have been added to DM-200s, Ghouls, and Golems."));
 
-		changes.addButton( new ChangeButton(new Image(Assets.Sprites.TENGU, 0, 0, 14, 16), "Boss Changes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.TENGU), 0, 0, 14, 16), "Boss Changes",
 				"I'm making some design and balance changes to bosses based on analytics data and feedback:\n\n" +
 				"_Tengu_'s second phase has been removed due to its overall negative reception. In exchange, the traps in Tengu's first phase are now more maze-like. Tengu now also receives an accuracy penalty when attacking at melee range.\n\n" +
 				"_DM-300_'s boss fight now starts after the player explores its arena, the supercharge sparks now move more quickly, and several dialogue lines have been tweaked. This will hopefully make it easier for the player to understand what to do when DM-300 becomes supercharged.\n\n" +
@@ -363,7 +363,7 @@ public class v0_8_X_Changes {
 				"_-_ Cell checking visual effects have been improved.\n\n" +
 				"_-_ Updated translations."));
 
-		changes.addButton( new ChangeButton(new Image( Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image( Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various visual/textual errors\n" +
 				"_-_ Various rare crash bugs\n" +
@@ -396,7 +396,7 @@ public class v0_8_X_Changes {
 				"The _Lucky_ Enchantment is also being buffed:\n" +
 				"_-_ Lucky now gives low and medium value drops from ring of wealth's special reward pool."));
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.ROGUE, 0, 90, 12, 15), "Assassin and Sniper",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ROGUE), 0, 90, 12, 15), "Assassin and Sniper",
 				"The _Assassin_ is having a little trouble now that more enemies have tools to counter raw damage, so he's getting a boost:\n" +
 				"_-_ Preparation now gives a +15% damage bonus at 1/3/6/11 turns, up from a +10% damage bonus at 1/3/6/11/16 turns.\n" +
 				"_-_ Preparation now executes low health enemies, rather than dealing more damage.\n" +
@@ -646,7 +646,7 @@ public class v0_8_X_Changes {
 				"\n" +
 				"_-_ Updated translations and translator credits"));
 
-		changes.addButton( new ChangeButton(new Image( Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image( Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Rare freeze bugs when enemies make ranged attacks\n" +
 				"_-_ Loading screens very rarely freezing\n" +
@@ -663,7 +663,7 @@ public class v0_8_X_Changes {
 				"_-_ Wand of prismatic light rarely revealing areas it shouldn't\n" +
 				"_-_ Upgraded wands not spawning fully charged"));
 
-		changes.addButton( new ChangeButton(new Image( Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image( Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Invisibility not applying if the hero is also shadowmelded\n" +
 				"_-_ Landscape/portrait modes working incorrectly in rare cases\n" +

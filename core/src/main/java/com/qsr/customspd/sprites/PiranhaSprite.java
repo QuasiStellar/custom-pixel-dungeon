@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.TextureFilm;
 
@@ -34,7 +36,7 @@ public class PiranhaSprite extends MobSprite {
 		renderShadow = false;
 		perspectiveRaise = 0.2f;
 		
-		texture( Assets.Sprites.PIRANHA );
+		texture( Asset.getAssetFileHandle(GeneralAsset.PIRANHA) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 16 );
 		

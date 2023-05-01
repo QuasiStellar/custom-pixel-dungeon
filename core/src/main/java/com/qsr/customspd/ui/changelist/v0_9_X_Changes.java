@@ -132,7 +132,7 @@ public class v0_9_X_Changes {
 				"_-_ Improved icons for several existing talents.\n" +
 				"_-_ Added little icons to the titles of various windows."));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash issues\n" +
 				"_-_ Various minor VFX/SFX/text issues\n" +
@@ -152,7 +152,7 @@ public class v0_9_X_Changes {
 				"_-_ Ghost hero not saying anything when the hero dies\n" +
 				"_-_ Various rare AI bugs with Ghost hero"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Incendiary darts being instantly used up when used on terrain\n" +
 				"_-_ Wands of regrowth and fireblast using more than 3 charges in rare cases\n" +
@@ -166,7 +166,7 @@ public class v0_9_X_Changes {
 				"_-_ Items with boosted levels being remove-cursable\n" +
 				"_-_ Magical infusion not clearing the degrade debuff"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Giant swarms duplicating in enclosed spaces\n" +
 				"_-_ Giant champions being able to attack through other characters\n" +
@@ -243,14 +243,14 @@ public class v0_9_X_Changes {
 				"These talents are a bit different than the previous tiers. They require 3 points each, are balanced to encourage specialization, and vary based on class and subclass!\n\n" +
 				"There is one more tier of talents left to be implemented, currently slated for v0.9.3. This tier will span levels 21-30, and will interact with an existing mechanic..."));
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.WARRIOR, 0, 90, 12, 15), HeroSubClass.GLADIATOR.title(),
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 90, 12, 15), HeroSubClass.GLADIATOR.title(),
 				"I've made a variety of changes to _the Gladiator_ to make combo moves more interesting, flexible, and easier to build to:\n\n" +
 				"_-_ Combo is no longer reset on 2 misses, but misses also no longer reset combo time.\n" +
 				"_-_ Combo time increased to 5 turns from 4.\n" +
 				"_-_ Combo moves can now be selected, instead of only the strongest one being available.\n" +
 				"_-_ Combo moves have been redesigned around new flexibility and easier combo building."));
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.ROGUE, 0, 90, 12, 15), HeroSubClass.FREERUNNER.title(),
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ROGUE), 0, 90, 12, 15), HeroSubClass.FREERUNNER.title(),
 				"I've redesigned _the Freerunner_'s main benefit to make it require more thought and give more visible power:\n\n" +
 				"_-_ Freerunner still builds momentum by moving, but this does nothing on its own.\n" +
 				"_-_ Freerunner can now activate momentum to start freerunning.\n" +
@@ -286,7 +286,7 @@ public class v0_9_X_Changes {
 				"_-_ Reduced the intensity of white flash effects, should help photosensitive users\n" +
 				"_-_ The hero now hovers while idling if they are levitating, instead of appearing to stand"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ various rare crash bugs\n" +
 				"_-_ various rare errors with levelgen\n" +
@@ -308,7 +308,7 @@ public class v0_9_X_Changes {
 				"_-_ kinetic enchantment ignoring enemy shields\n" +
 				"_-_ regrowth bombs placing plants in incorrect locations"));
 
-			changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+			changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ combo moves not cancelling invisibility or time freeze\n" +
 				"_-_ cases where Assassin couldn't blink to places he should be able to blink to.\n" +
@@ -329,7 +329,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.TENGU, 0, 0, 14, 16), "Midgame Enemies",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.TENGU), 0, 0, 14, 16), "Midgame Enemies",
 				"I have given some milder buffs out to enemies in the prison and caves, to help compensate for talents making the hero more powerful. These buffs are targeted at helping out the least lethal enemies, rather than making strong enemies even more oppressive:\n\n" +
 				"_- Necromancers:_ Max HP up to 40 from 35, evasion up to 14 from 13.\n" +
 				"_- Tengu:_ Max HP up to 200 from 160, ranged accuracy up to 20 from 18, melee accuracy down to 10 from 12.\n\n" +
@@ -413,7 +413,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.HUNTRESS, 0, 15, 12, 15), "Huntress and Rogue Adjustments",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.HUNTRESS), 0, 15, 12, 15), "Huntress and Rogue Adjustments",
 				"The _Huntress and Rogue_ have both received some adjustments to their innate powers:\n\n" +
 				"_-_ Bonus thrown weapon durability is no longer an innate huntress power, it is now a talent.\n" +
 				"_-_ Short-range mind vision is no longer an innate huntress power, it is now a talent.\n\n" +
@@ -453,7 +453,7 @@ public class v0_9_X_Changes {
 				"_-_ Added some VFX to scroll of transmutation\n\n" +
 				"_-_ Updated translations and translator credits"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various minor audiovisual errors\n" +
 				"_-_ Various rare crash and freeze bugs\n" +
@@ -471,7 +471,7 @@ public class v0_9_X_Changes {
 				"_-_ Large characters entering tunnels when vertigoed\n" +
 				"_-_ Rare AI issues when paths are blocked"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various minor errors relating to time freeze\n" +
 				"_-_ Assassin blink ignoring hero being rooted\n" +
@@ -494,7 +494,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton( new Image(Assets.Sprites.MAGE, 0, 90, 12, 15), HeroSubClass.BATTLEMAGE.title(),
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.MAGE), 0, 90, 12, 15), HeroSubClass.BATTLEMAGE.title(),
 				"I'm making a variety of adjustments to the _Battlemage_ to make him a more compelling choice vs. the Warlock, and to improve some wands that don't work as well for him as the Warlock:\n\n" +
 				"_-_ Staff charge granted on-hit increased to 0.5 from 0.33\n\n" +
 				"_- Staff of Magic Missile_ on-hit now gives all wands 0.5 charge, up from 0.33\n\n" +
@@ -570,7 +570,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.WARRIOR, 0, 15, 12, 15), "Hero balance adjustments",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Hero balance adjustments",
 				"The _Warrior, Mage, and Huntress_ are getting some balance tweaks to offset their new talents:\n\n" +
 				"The _Warrior and Mage_ no longer have innate on-eat effects, these are replaced by their food-based talents.\n\n" +
 				"The _Warrior's_ base max shielding has been reduced from 2 to 1, to compensate for his shielding talent.\n\n" +
@@ -601,7 +601,7 @@ public class v0_9_X_Changes {
 				"_-_ Long pressing item slots in the alchemy screen now shows the item's description.\n\n" +
 				"_-_ Updated translations and translator credits."));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various visual errors\n" +
 				"_-_ Various rare crash bugs\n" +
@@ -623,7 +623,7 @@ public class v0_9_X_Changes {
 				"_-_ Hero unable to cleanse fire with chill when immune to it, and vice-versa\n" +
 				"_-_ DM-201's attacking while stunned"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed (existed prior to v0.9.0):\n" +
 				"_-_ Tengu's abilities being reset by saving/loading\n" +
 				"_-_ Various cases where game win badges would not appear\n" +

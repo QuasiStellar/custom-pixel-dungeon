@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class AlbinoSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class AlbinoSprite extends MobSprite {
 	public AlbinoSprite() {
 		super();
 		
-		texture( Assets.Sprites.RAT );
+		texture( Asset.getAssetFileHandle(GeneralAsset.RAT) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 15 );
 		

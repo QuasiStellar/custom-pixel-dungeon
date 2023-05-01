@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ShaftParticle;
 import com.watabou.glwrap.Blending;
@@ -32,7 +34,7 @@ public class GhostSprite extends MobSprite {
 	public GhostSprite() {
 		super();
 		
-		texture( Assets.Sprites.GHOST );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GHOST) );
 		
 		TextureFilm frames = new TextureFilm( texture, 14, 15 );
 		

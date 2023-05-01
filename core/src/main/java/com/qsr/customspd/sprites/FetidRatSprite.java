@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.Emitter;
@@ -34,7 +36,7 @@ public class FetidRatSprite extends MobSprite {
 	public FetidRatSprite() {
 		super();
 
-		texture( Assets.Sprites.RAT );
+		texture( Asset.getAssetFileHandle(GeneralAsset.RAT) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 15 );
 

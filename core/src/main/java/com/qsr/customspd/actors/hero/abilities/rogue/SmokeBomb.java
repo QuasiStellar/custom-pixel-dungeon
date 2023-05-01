@@ -41,6 +41,7 @@ import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.NPC;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Item;
@@ -195,7 +196,7 @@ public class SmokeBomb extends ArmorAbility {
 		public NinjaLogSprite(){
 			super();
 
-			texture( Assets.Sprites.NINJA_LOG );
+			texture( Asset.getAssetFileHandle(GeneralAsset.NINJA_LOG) );
 
 			TextureFilm frames = new TextureFilm( texture, 11, 12 );
 

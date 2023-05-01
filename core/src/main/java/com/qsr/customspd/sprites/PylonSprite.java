@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Pylon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.BlastParticle;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
@@ -38,7 +40,7 @@ public class PylonSprite extends MobSprite {
 		perspectiveRaise = 5/16f; //1 pixel less
 		renderShadow = false;
 
-		texture( Assets.Sprites.PYLON );
+		texture( Asset.getAssetFileHandle(GeneralAsset.PYLON) );
 
 		TextureFilm frames = new TextureFilm( texture, 10, 20 );
 

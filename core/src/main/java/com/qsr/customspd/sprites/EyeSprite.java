@@ -25,6 +25,8 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Eye;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Beam;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.tiles.DungeonTilemap;
@@ -42,7 +44,7 @@ public class EyeSprite extends MobSprite {
 	public EyeSprite() {
 		super();
 		
-		texture( Assets.Sprites.EYE );
+		texture( Asset.getAssetFileHandle(GeneralAsset.EYE) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 18 );
 		

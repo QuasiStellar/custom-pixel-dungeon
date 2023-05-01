@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.DM300;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.particles.BlastParticle;
 import com.qsr.customspd.effects.particles.SparkParticle;
@@ -43,7 +45,7 @@ public class DM300Sprite extends MobSprite {
 	public DM300Sprite() {
 		super();
 		
-		texture( Assets.Sprites.DM300 );
+		texture( Asset.getAssetFileHandle(GeneralAsset.DM300) );
 		
 		updateChargeState(false);
 	}

@@ -172,7 +172,7 @@ public class v2_X_Changes {
 				"_-_ Healing no longer interrupts resting when HP is already full\n" +
 				"_-_ Updated various code libraries\n"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
 				"Fixed the following bugs:\n" +
 				"_Highlights:_\n" +
 				"_-_ Various rare crash and freeze errors\n" +
@@ -194,7 +194,7 @@ public class v2_X_Changes {
 				"_-_ Rare cases of earthroot armor and hold fast working after movement\n" +
 				"_-_ Volley ability not triggering lethal momentum"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 2",
 				"_Items:_\n" +
 				"_-_ One upgrade being lost when transferring class armor with a warrior's seal attached\n" +
 				"_-_ Leftover darts being lost in rare cases when tipped darts have bonus durability\n" +
@@ -213,7 +213,7 @@ public class v2_X_Changes {
 				"_-_ Blacksmith failing to take his pickaxe back in rare cases\n" +
 				"_-_ Various rare errors with blacksmith reforging and resin boosted wands"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 3",
 				"_Allies & Enemies:_\n" +
 				"_-_ Rare cases of hero stacking onto enemies when trying to swap positions with an ally\n" +
 				"_-_ Directable allies being easily distracted if attacked after being told to move\n" +
@@ -235,7 +235,7 @@ public class v2_X_Changes {
 				"_-_ Very rare pathfinding bugs with flying enemies\n" +
 				"_-_ Mirror and Prismatic images benefiting from more accuracy or evasion effects than intended"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 4",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 4",
 				"_UI/VFX:_\n" +
 				"_-_ Various minor audiovisual errors\n" +
 				"_-_ Various minor textual errors\n" +

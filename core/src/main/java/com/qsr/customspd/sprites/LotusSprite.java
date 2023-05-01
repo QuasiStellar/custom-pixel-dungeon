@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.items.wands.WandOfRegrowth;
@@ -42,7 +44,7 @@ public class LotusSprite extends MobSprite {
 
 		perspectiveRaise = 0f;
 
-		texture( Assets.Sprites.LOTUS );
+		texture( Asset.getAssetFileHandle(GeneralAsset.LOTUS) );
 
 		TextureFilm frames = new TextureFilm( texture, 19, 16 );
 

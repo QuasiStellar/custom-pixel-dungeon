@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Random;
 
@@ -32,7 +34,7 @@ public class SeniorSprite extends MobSprite {
 	public SeniorSprite() {
 		super();
 		
-		texture( Assets.Sprites.MONK );
+		texture( Asset.getAssetFileHandle(GeneralAsset.MONK) );
 		
 		TextureFilm frames = new TextureFilm( texture, 15, 14 );
 		

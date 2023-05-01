@@ -22,6 +22,8 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class BatSprite extends MobSprite {
@@ -29,7 +31,7 @@ public class BatSprite extends MobSprite {
 	public BatSprite() {
 		super();
 		
-		texture( Assets.Sprites.BAT );
+		texture( Asset.getAssetFileHandle(GeneralAsset.BAT) );
 		
 		TextureFilm frames = new TextureFilm( texture, 15, 15 );
 		

@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Golem;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.watabou.noosa.TextureFilm;
@@ -38,7 +40,7 @@ public class GolemSprite extends MobSprite {
 	public GolemSprite() {
 		super();
 		
-		texture( Assets.Sprites.GOLEM );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GOLEM) );
 		
 		TextureFilm frames = new TextureFilm( texture, 17, 19 );
 		

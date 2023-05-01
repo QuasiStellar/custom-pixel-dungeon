@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
 
@@ -32,7 +34,7 @@ public class NewbornElementalSprite extends MobSprite{
 	public NewbornElementalSprite() {
 		super();
 
-		texture( Assets.Sprites.ELEMENTAL );
+		texture( Asset.getAssetFileHandle(GeneralAsset.ELEMENTAL) );
 
 		int ofs = 21;
 

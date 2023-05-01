@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.mobs.Warlock;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
@@ -33,7 +35,7 @@ public class WarlockSprite extends MobSprite {
 	public WarlockSprite() {
 		super();
 		
-		texture( Assets.Sprites.WARLOCK );
+		texture( Asset.getAssetFileHandle(GeneralAsset.WARLOCK) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		

@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.mechanics.Ballistica;
@@ -48,7 +50,7 @@ public class GooSprite extends MobSprite {
 	public GooSprite() {
 		super();
 		
-		texture( Assets.Sprites.GOO );
+		texture( Asset.getAssetFileHandle(GeneralAsset.GOO) );
 		
 		TextureFilm frames = new TextureFilm( texture, 20, 14 );
 		

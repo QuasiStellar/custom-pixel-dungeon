@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
 
 public class MimicSprite extends MobSprite {
@@ -45,7 +47,7 @@ public class MimicSprite extends MobSprite {
 
 		int c = texOffset();
 
-		texture( Assets.Sprites.MIMIC );
+		texture( Asset.getAssetFileHandle(GeneralAsset.MIMIC) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 

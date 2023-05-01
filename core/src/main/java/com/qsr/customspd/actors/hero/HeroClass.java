@@ -264,15 +264,15 @@ public enum HeroClass {
 	public String spritesheet() {
 		switch (this) {
 			case WARRIOR: default:
-				return Assets.Sprites.WARRIOR;
+				return Asset.getAssetFileHandle(GeneralAsset.WARRIOR);
 			case MAGE:
-				return Assets.Sprites.MAGE;
+				return Asset.getAssetFileHandle(GeneralAsset.MAGE);
 			case ROGUE:
-				return Assets.Sprites.ROGUE;
+				return Asset.getAssetFileHandle(GeneralAsset.ROGUE);
 			case HUNTRESS:
-				return Assets.Sprites.HUNTRESS;
+				return Asset.getAssetFileHandle(GeneralAsset.HUNTRESS);
 			case DUELIST:
-				return Assets.Sprites.DUELIST;
+				return Asset.getAssetFileHandle(GeneralAsset.DUELIST);
 		}
 	}
 

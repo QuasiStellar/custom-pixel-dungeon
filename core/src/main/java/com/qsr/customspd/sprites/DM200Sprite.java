@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.mobs.DM200;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
@@ -36,7 +38,7 @@ public class DM200Sprite extends MobSprite {
 	public DM200Sprite () {
 		super();
 
-		texture( Assets.Sprites.DM200 );
+		texture( Asset.getAssetFileHandle(GeneralAsset.DM200) );
 
 		TextureFilm frames = new TextureFilm( texture, 21, 18 );
 

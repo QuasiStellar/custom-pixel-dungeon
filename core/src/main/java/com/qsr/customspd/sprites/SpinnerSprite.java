@@ -24,6 +24,8 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Spinner;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
@@ -37,7 +39,7 @@ public class SpinnerSprite extends MobSprite {
 
 		perspectiveRaise = 0f;
 
-		texture( Assets.Sprites.SPINNER );
+		texture( Asset.getAssetFileHandle(GeneralAsset.SPINNER) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 		

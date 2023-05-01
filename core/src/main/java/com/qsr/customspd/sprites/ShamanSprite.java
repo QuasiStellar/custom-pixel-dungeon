@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.mobs.Shaman;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
@@ -39,7 +41,7 @@ public abstract class ShamanSprite extends MobSprite {
 		
 		int c = texOffset();
 		
-		texture( Assets.Sprites.SHAMAN );
+		texture( Asset.getAssetFileHandle(GeneralAsset.SHAMAN) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		
