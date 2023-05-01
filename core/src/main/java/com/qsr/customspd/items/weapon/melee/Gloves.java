@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.melee;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Gloves extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GLOVES;
+		image = GeneralAsset.GLOVES;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.3f;
 

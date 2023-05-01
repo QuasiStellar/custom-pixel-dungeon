@@ -21,12 +21,13 @@
 
 package com.qsr.customspd.items.armor;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ScaleArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_SCALE;
+		image = GeneralAsset.ARMOR_SCALE;
 	}
 	
 	public ScaleArmor() {

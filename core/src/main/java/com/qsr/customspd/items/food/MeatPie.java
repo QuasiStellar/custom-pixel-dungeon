@@ -26,14 +26,14 @@ import com.qsr.customspd.actors.buffs.Hunger;
 import com.qsr.customspd.actors.buffs.WellFed;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 import java.util.ArrayList;
 
 public class MeatPie extends Food {
 	
 	{
-		image = ItemSpriteSheet.MEAT_PIE;
+		image = GeneralAsset.MEAT_PIE;
 		energy = Hunger.STARVING*2f;
 	}
 	

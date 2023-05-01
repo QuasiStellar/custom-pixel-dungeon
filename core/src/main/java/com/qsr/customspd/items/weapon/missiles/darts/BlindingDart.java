@@ -24,13 +24,13 @@ package com.qsr.customspd.items.weapon.missiles.darts;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Blindness;
 import com.qsr.customspd.actors.buffs.Buff;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 
 public class BlindingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.BLINDING_DART;
+		image = GeneralAsset.BLINDING_DART;
 	}
 	
 	@Override

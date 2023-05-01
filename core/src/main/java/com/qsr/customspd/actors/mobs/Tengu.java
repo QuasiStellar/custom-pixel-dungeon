@@ -40,6 +40,7 @@ import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.buffs.Terror;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.BlobEmitter;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.FloatingText;
@@ -61,7 +62,7 @@ import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.MissileSprite;
 import com.qsr.customspd.sprites.TenguSprite;
 import com.qsr.customspd.tiles.DungeonTilemap;
@@ -693,7 +694,7 @@ public class Tengu extends Mob {
 				dropsDownHeap = true;
 				unique = true;
 				
-				image = ItemSpriteSheet.TENGU_BOMB;
+				image = GeneralAsset.TENGU_BOMB;
 			}
 			
 			@Override
@@ -1076,7 +1077,7 @@ public class Tengu extends Mob {
 				dropsDownHeap = true;
 				unique = true;
 				
-				image = ItemSpriteSheet.TENGU_SHOCKER;
+				image = GeneralAsset.TENGU_SHOCKER;
 			}
 			
 			@Override

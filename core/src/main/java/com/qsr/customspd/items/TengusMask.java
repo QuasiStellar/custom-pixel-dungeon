@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndChooseSubclass;
 import com.watabou.noosa.audio.Sample;
@@ -44,7 +44,7 @@ public class TengusMask extends Item {
 	
 	{
 		stackable = false;
-		image = ItemSpriteSheet.MASK;
+		image = GeneralAsset.MASK;
 
 		defaultAction = AC_WEAR;
 

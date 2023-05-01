@@ -33,6 +33,7 @@ import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CheckedCell;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.rings.RingOfEnergy;
@@ -43,7 +44,7 @@ import com.qsr.customspd.mechanics.ConeAOE;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -56,7 +57,7 @@ import kotlin.Pair;
 public class TalismanOfForesight extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_TALISMAN;
+		image = GeneralAsset.ARTIFACT_TALISMAN;
 
 		exp = 0;
 		levelCap = 10;

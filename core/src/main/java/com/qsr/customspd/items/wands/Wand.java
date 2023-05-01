@@ -39,6 +39,7 @@ import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.mage.WildMagic;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.artifacts.TalismanOfForesight;
@@ -52,7 +53,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -534,7 +535,7 @@ public abstract class Wand extends Item {
 	public static class PlaceHolder extends Wand {
 
 		{
-			image = ItemSpriteSheet.WAND_HOLDER;
+			image = GeneralAsset.WAND_HOLDER;
 		}
 
 		@Override

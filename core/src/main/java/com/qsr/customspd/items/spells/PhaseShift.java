@@ -28,16 +28,17 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Paralysis;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 
 public class PhaseShift extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.PHASE_SHIFT;
+		image = GeneralAsset.PHASE_SHIFT;
 
 		usesTargeting = true;
 	}

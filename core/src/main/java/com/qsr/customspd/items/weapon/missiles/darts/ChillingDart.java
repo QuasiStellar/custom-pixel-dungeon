@@ -25,12 +25,12 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Chill;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ChillingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.CHILLING_DART;
+		image = GeneralAsset.CHILLING_DART;
 	}
 	
 	@Override

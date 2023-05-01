@@ -34,7 +34,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.levels.RegularLevel;
 import com.qsr.customspd.levels.rooms.standard.RitualSiteRoom;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Bundle;
@@ -50,7 +50,7 @@ public class CeremonialCandle extends Item {
 	public static int ritualPos;
 
 	{
-		image = ItemSpriteSheet.CANDLE;
+		image = GeneralAsset.CANDLE;
 
 		defaultAction = AC_THROW;
 

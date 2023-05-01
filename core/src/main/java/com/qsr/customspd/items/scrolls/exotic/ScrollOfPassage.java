@@ -22,18 +22,18 @@
 package com.qsr.customspd.items.scrolls.exotic;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.InterlevelScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.Game;
 
 public class ScrollOfPassage extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_PASSAGE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_PASSAGE;
 	}
 	
 	@Override

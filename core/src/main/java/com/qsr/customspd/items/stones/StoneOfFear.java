@@ -28,14 +28,14 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Terror;
 import com.qsr.customspd.effects.Flare;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.audio.Sample;
 
 public class StoneOfFear extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_FEAR;
+		image = GeneralAsset.STONE_FEAR;
 	}
 	
 	@Override

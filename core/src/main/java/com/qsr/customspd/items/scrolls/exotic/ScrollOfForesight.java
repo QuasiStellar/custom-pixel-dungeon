@@ -24,13 +24,13 @@ package com.qsr.customspd.items.scrolls.exotic;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Foresight;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfForesight extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_FORESIGHT;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_FORESIGHT;
 	}
 	
 	@Override

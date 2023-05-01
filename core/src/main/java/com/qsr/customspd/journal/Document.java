@@ -26,7 +26,6 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.scrolls.ScrollOfIdentify;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.DeviceCompat;
@@ -36,17 +35,17 @@ import java.util.LinkedHashMap;
 
 public enum Document {
 	
-	ADVENTURERS_GUIDE(new ItemSprite(ItemSpriteSheet.GUIDE_PAGE), false),
-	ALCHEMY_GUIDE(new ItemSprite(ItemSpriteSheet.ALCH_PAGE), false),
+	ADVENTURERS_GUIDE(GeneralAsset.GUIDE_PAGE, false),
+	ALCHEMY_GUIDE(GeneralAsset.ALCH_PAGE, false),
 
-	INTROS(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), true),
-	SEWERS_GUARD(new ItemSprite(ItemSpriteSheet.SEWER_PAGE), true),
-	PRISON_WARDEN(new ItemSprite(ItemSpriteSheet.PRISON_PAGE), true),
-	CAVES_EXPLORER(new ItemSprite(ItemSpriteSheet.CAVES_PAGE), true),
-	CITY_WARLOCK(new ItemSprite(ItemSpriteSheet.CITY_PAGE), true),
-	HALLS_KING(new ItemSprite(ItemSpriteSheet.HALLS_PAGE), true);
+	INTROS(GeneralAsset.ICON_STAIRS, true),
+	SEWERS_GUARD(GeneralAsset.SEWER_PAGE, true),
+	PRISON_WARDEN(GeneralAsset.PRISON_PAGE, true),
+	CAVES_EXPLORER(GeneralAsset.CAVES_PAGE, true),
+	CITY_WARLOCK(GeneralAsset.CITY_PAGE, true),
+	HALLS_KING(GeneralAsset.HALLS_PAGE, true);
 	
-	Document( Image icon, boolean lore ){
+	Document( Asset icon, boolean lore ){
 		this.icon = icon;
 		loreDocument = lore;
 	}
@@ -144,43 +143,43 @@ public enum Document {
 		return -1;
 	}
 
-	private final Image icon;
+	private final Asset icon;
 	public Image pageSprite(){
 		return pageSprite("");
 	}
 
 	public Image pageSprite(String page){
 		if (page.isEmpty() || !isPageFound(page) || this != ADVENTURERS_GUIDE){
-			return icon;
+			return new Image(Asset.getAssetFileHandle(icon));
 		} else {
 			//special per-page visuals for guidebook
 			switch (page){
 				case Document.GUIDE_INTRO: default:
-					return new ItemSprite(ItemSpriteSheet.MASTERY);
+					return new ItemSprite(GeneralAsset.MASTERY);
 				case "Examining":
 					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_MAGNIFY));
 				case "Surprise_Attacks":
-					return new ItemSprite( ItemSpriteSheet.ASSASSINS_BLADE );
+					return new ItemSprite( GeneralAsset.ASSASSINS_BLADE );
 				case "Identifying":
 					return new ItemSprite( new ScrollOfIdentify() );
 				case "Food":
-					return new ItemSprite( ItemSpriteSheet.PASTY );
+					return new ItemSprite( GeneralAsset.PASTY );
 				case "Dieing":
-					return new ItemSprite( ItemSpriteSheet.TOMB );
+					return new ItemSprite( GeneralAsset.TOMB );
 				case Document.GUIDE_SEARCHING:
 					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_MAGNIFY));
 				case "Strength":
-					return new ItemSprite( ItemSpriteSheet.GREATAXE );
+					return new ItemSprite( GeneralAsset.GREATAXE );
 				case "Upgrades":
-					return new ItemSprite( ItemSpriteSheet.RING_EMERALD );
+					return new ItemSprite( GeneralAsset.RING_EMERALD );
 				case "Looting":
-					return new ItemSprite( ItemSpriteSheet.CRYSTAL_KEY );
+					return new ItemSprite( GeneralAsset.CRYSTAL_KEY );
 				case "Levelling":
 					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT));
 				case "Positioning":
-					return new ItemSprite( ItemSpriteSheet.SPIRIT_BOW );
+					return new ItemSprite( GeneralAsset.SPIRIT_BOW );
 				case "Magic":
-					return new ItemSprite( ItemSpriteSheet.WAND_FIREBOLT );
+					return new ItemSprite( GeneralAsset.WAND_FIREBOLT );
 			}
 		}
 	}

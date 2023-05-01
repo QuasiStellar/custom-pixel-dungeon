@@ -31,7 +31,7 @@ import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Lightning;
 import com.qsr.customspd.effects.particles.SparkParticle;
 import com.qsr.customspd.mechanics.Ballistica;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 public class ShockBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.SHOCK_BOMB;
+		image = GeneralAsset.SHOCK_BOMB;
 	}
 	
 	@Override

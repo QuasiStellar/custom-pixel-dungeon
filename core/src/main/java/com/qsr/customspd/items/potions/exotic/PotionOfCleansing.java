@@ -32,8 +32,8 @@ import com.qsr.customspd.actors.buffs.Hunger;
 import com.qsr.customspd.actors.buffs.LostInventory;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
@@ -43,7 +43,7 @@ import kotlin.Pair;
 public class PotionOfCleansing extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_CLEANSE;
+		icon = GeneralAsset.ITEM_ICON_POTION_CLEANSE;
 	}
 	
 	@Override

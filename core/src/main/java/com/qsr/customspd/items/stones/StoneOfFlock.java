@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.mobs.npcs.Sheep;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -38,7 +38,7 @@ import java.util.ArrayList;
 public class StoneOfFlock extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_FLOCK;
+		image = GeneralAsset.STONE_FLOCK;
 
 		//the sheep will press the cell instead
 		pressesCell = false;

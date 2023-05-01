@@ -21,12 +21,13 @@
 
 package com.qsr.customspd.items.armor;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class LeatherArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_LEATHER;
+		image = GeneralAsset.ARMOR_LEATHER;
 	}
 	
 	public LeatherArmor() {

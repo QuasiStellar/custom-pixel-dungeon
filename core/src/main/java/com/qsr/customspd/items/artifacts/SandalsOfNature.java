@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.items.Item;
@@ -51,7 +52,7 @@ import com.qsr.customspd.plants.Swiftthistle;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
@@ -68,7 +69,7 @@ import java.util.HashMap;
 public class SandalsOfNature extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_SANDALS;
+		image = GeneralAsset.ARTIFACT_SANDALS;
 
 		levelCap = 3;
 
@@ -209,10 +210,10 @@ public class SandalsOfNature extends Artifact {
 
 	@Override
 	public Item upgrade() {
-		if (level() < 0)        image = ItemSpriteSheet.ARTIFACT_SANDALS;
-		else if (level() == 0)  image = ItemSpriteSheet.ARTIFACT_SHOES;
-		else if (level() == 1)  image = ItemSpriteSheet.ARTIFACT_BOOTS;
-		else if (level() >= 2)  image = ItemSpriteSheet.ARTIFACT_GREAVES;
+		if (level() < 0)        image = GeneralAsset.ARTIFACT_SANDALS;
+		else if (level() == 0)  image = GeneralAsset.ARTIFACT_SHOES;
+		else if (level() == 1)  image = GeneralAsset.ARTIFACT_BOOTS;
+		else if (level() >= 2)  image = GeneralAsset.ARTIFACT_GREAVES;
 		return super.upgrade();
 	}
 
@@ -240,9 +241,9 @@ public class SandalsOfNature extends Artifact {
 		}
 		curSeedEffect = bundle.getClass(CUR_SEED_EFFECT);
 
-		if (level() == 1)  image = ItemSpriteSheet.ARTIFACT_SHOES;
-		else if (level() == 2)  image = ItemSpriteSheet.ARTIFACT_BOOTS;
-		else if (level() >= 3)  image = ItemSpriteSheet.ARTIFACT_GREAVES;
+		if (level() == 1)  image = GeneralAsset.ARTIFACT_SHOES;
+		else if (level() == 2)  image = GeneralAsset.ARTIFACT_BOOTS;
+		else if (level() >= 3)  image = GeneralAsset.ARTIFACT_GREAVES;
 	}
 
 	public class Naturalism extends ArtifactBuff{

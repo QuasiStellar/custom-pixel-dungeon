@@ -21,12 +21,13 @@
 
 package com.qsr.customspd.items.armor;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ClothArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_CLOTH;
+		image = GeneralAsset.ARMOR_CLOTH;
 
 		bones = false; //Finding them in bones would be semi-frequent and disappointing.
 	}

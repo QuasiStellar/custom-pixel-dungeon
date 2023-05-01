@@ -21,8 +21,9 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
@@ -33,7 +34,6 @@ import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Rect;
@@ -67,27 +67,27 @@ public class ItemSlot extends Button {
 
 	// Special "virtual items"
 	public static final Item CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.CHEST; }
+		public Asset image() { return GeneralAsset.CHEST; }
 		public String name() { return Messages.get(Heap.class, "chest"); }
 	};
 	public static final Item LOCKED_CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.LOCKED_CHEST; }
+		public Asset image() { return GeneralAsset.LOCKED_CHEST; }
 		public String name() { return Messages.get(Heap.class, "locked_chest"); }
 	};
 	public static final Item CRYSTAL_CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.CRYSTAL_CHEST; }
+		public Asset image() { return GeneralAsset.CRYSTAL_CHEST; }
 		public String name() { return Messages.get(Heap.class, "crystal_chest"); }
 	};
 	public static final Item TOMB = new Item() {
-		public int image() { return ItemSpriteSheet.TOMB; }
+		public Asset image() { return GeneralAsset.TOMB; }
 		public String name() { return Messages.get(Heap.class, "tomb"); }
 	};
 	public static final Item SKELETON = new Item() {
-		public int image() { return ItemSpriteSheet.BONES; }
+		public Asset image() { return GeneralAsset.BONES; }
 		public String name() { return Messages.get(Heap.class, "skeleton"); }
 	};
 	public static final Item REMAINS = new Item() {
-		public int image() { return ItemSpriteSheet.REMAINS; }
+		public Asset image() { return GeneralAsset.REMAINS; }
 		public String name() { return Messages.get(Heap.class, "remains"); }
 	};
 	
@@ -153,8 +153,8 @@ public class ItemSlot extends Button {
 		}
 
 		if (itemIcon != null){
-			itemIcon.x = x + width - (ItemSpriteSheet.Icons.SIZE + itemIcon.width())/2f - margin.right;
-			itemIcon.y = y + (ItemSpriteSheet.Icons.SIZE - itemIcon.height)/2f + margin.top;
+			itemIcon.x = x + width - (8 + itemIcon.width())/2f - margin.right;
+			itemIcon.y = y + (8 - itemIcon.height)/2f + margin.top;
 			PixelScene.align(itemIcon);
 		}
 		
@@ -179,7 +179,7 @@ public class ItemSlot extends Button {
 		item(null);
 		enable(true);
 		sprite.visible(true);
-		sprite.view(ItemSpriteSheet.SOMETHING, null);
+		sprite.view(GeneralAsset.SOMETHING, null);
 		layout();
 	}
 	
@@ -236,11 +236,10 @@ public class ItemSlot extends Button {
 			status.resetColor();
 		}
 
-		if (item.icon != -1 && (item.isIdentified() || (item instanceof Ring && ((Ring) item).isKnown()))){
+		if (item.icon != GeneralAsset.SOMETHING && (item.isIdentified() || (item instanceof Ring && ((Ring) item).isKnown()))){
 			extra.text( null );
 
-			itemIcon = new Image(Assets.Sprites.ITEM_ICONS);
-			itemIcon.frame(ItemSpriteSheet.Icons.film.get(item.icon));
+			itemIcon = new Image(Asset.getAssetFileHandle(item.icon));
 			add(itemIcon);
 
 		} else if (item instanceof Weapon || item instanceof Armor) {

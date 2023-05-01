@@ -39,7 +39,7 @@ import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -51,7 +51,7 @@ import com.watabou.utils.Random;
 public class WandOfTransfusion extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_TRANSFUSION;
+		image = GeneralAsset.WAND_TRANSFUSION;
 
 		collisionProperties = Ballistica.PROJECTILE;
 	}

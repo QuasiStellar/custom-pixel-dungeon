@@ -27,7 +27,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.GameLog;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -35,7 +35,7 @@ import com.watabou.noosa.audio.Sample;
 public class Guidebook extends Item {
 
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = GeneralAsset.MASTERY;
 	}
 
 	@Override

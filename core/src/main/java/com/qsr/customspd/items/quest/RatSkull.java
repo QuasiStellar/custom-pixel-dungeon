@@ -21,15 +21,16 @@
 
 package com.qsr.customspd.items.quest;
 
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 //this one's still hanging around to support quests from old saves
 //I may reuse it at some point.
 public class RatSkull extends Item {
 	
 	{
-		image = ItemSpriteSheet.SKULL;
+		image = GeneralAsset.SKULL;
 		
 		unique = true;
 	}

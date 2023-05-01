@@ -39,7 +39,6 @@ import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
@@ -50,7 +49,7 @@ import com.watabou.noosa.audio.Sample;
 public class ScrollOfEnchantment extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_ENCHANT;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_ENCHANT;
 
 		unique = true;
 	}

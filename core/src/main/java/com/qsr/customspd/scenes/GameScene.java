@@ -408,7 +408,7 @@ public class GameScene extends PixelScene {
 			case RESURRECT:
 				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 				ScrollOfTeleportation.appearVFX( Dungeon.hero );
-				SpellSprite.show(Dungeon.hero, GeneralAsset.ANKH);
+				SpellSprite.show(Dungeon.hero, GeneralAsset.ANKH_ICON);
 				new Flare( 5, 16 ).color( 0xFFFF00, true ).show( hero, 4f ) ;
 				break;
 			case RETURN:

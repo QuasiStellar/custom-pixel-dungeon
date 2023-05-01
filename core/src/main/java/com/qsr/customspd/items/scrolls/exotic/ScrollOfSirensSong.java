@@ -30,12 +30,12 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Charm;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -45,7 +45,7 @@ import kotlin.Pair;
 public class ScrollOfSirensSong extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_SIREN;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_SIREN;
 	}
 	
 	@Override

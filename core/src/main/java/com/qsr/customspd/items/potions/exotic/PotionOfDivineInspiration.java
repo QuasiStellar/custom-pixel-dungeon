@@ -25,11 +25,11 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.StatusPane;
 import com.qsr.customspd.ui.TalentsPane;
 import com.qsr.customspd.utils.GLog;
@@ -41,7 +41,7 @@ import com.watabou.utils.Bundle;
 public class PotionOfDivineInspiration extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_DIVINE;
+		icon = GeneralAsset.ITEM_ICON_POTION_DIVINE;
 	}
 
 	@Override

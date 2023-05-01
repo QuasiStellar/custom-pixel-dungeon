@@ -26,6 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.items.scrolls.exotic.ScrollOfPassage;
@@ -34,7 +35,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.InterlevelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.Game;
@@ -48,7 +49,7 @@ import java.util.ArrayList;
 public class BeaconOfReturning extends Spell {
 	
 	{
-		image = ItemSpriteSheet.RETURN_BEACON;
+		image = GeneralAsset.RETURN_BEACON;
 	}
 	
 	public int returnDepth	= -1;

@@ -34,7 +34,7 @@ import com.qsr.customspd.items.weapon.missiles.darts.Dart;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
@@ -46,7 +46,7 @@ import java.util.ArrayList;
 public class LiquidMetal extends Item {
 
 	{
-		image = ItemSpriteSheet.LIQUID_METAL;
+		image = GeneralAsset.LIQUID_METAL;
 
 		stackable = true;
 

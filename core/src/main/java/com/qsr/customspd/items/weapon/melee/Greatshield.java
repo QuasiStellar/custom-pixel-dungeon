@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.melee;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Greatshield extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GREATSHIELD;
+		image = GeneralAsset.GREATSHIELD;
 
 		tier = 5;
 	}

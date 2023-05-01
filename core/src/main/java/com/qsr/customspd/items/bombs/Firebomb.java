@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.blobs.Fire;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -36,7 +36,7 @@ import com.watabou.utils.PathFinder;
 public class Firebomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.FIRE_BOMB;
+		image = GeneralAsset.FIRE_BOMB;
 	}
 	
 	@Override

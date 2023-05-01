@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -37,7 +37,7 @@ import com.watabou.utils.Callback;
 public class Greataxe extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GREATAXE;
+		image = GeneralAsset.GREATAXE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 

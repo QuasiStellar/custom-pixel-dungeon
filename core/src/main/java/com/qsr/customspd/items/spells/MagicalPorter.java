@@ -23,10 +23,11 @@ package com.qsr.customspd.items.spells;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.MerchantsBeacon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import java.util.ArrayList;
 public class MagicalPorter extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.MAGIC_PORTER;
+		image = GeneralAsset.MAGIC_PORTER;
 	}
 
 	@Override

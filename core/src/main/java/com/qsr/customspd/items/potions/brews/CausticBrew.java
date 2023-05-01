@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.buffs.Ooze;
 import com.qsr.customspd.effects.Splash;
 import com.qsr.customspd.items.potions.PotionOfToxicGas;
 import com.qsr.customspd.items.quest.GooBlob;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -38,7 +38,7 @@ import com.watabou.utils.PathFinder;
 public class CausticBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_CAUSTIC;
+		image = GeneralAsset.BREW_CAUSTIC;
 	}
 	
 	@Override

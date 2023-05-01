@@ -28,6 +28,7 @@ import com.qsr.customspd.actors.buffs.Degrade;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.items.Item;
@@ -36,13 +37,12 @@ import com.qsr.customspd.items.rings.Ring;
 import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
 public class ScrollOfUpgrade extends InventoryScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_UPGRADE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_UPGRADE;
 		preferredBag = Belongings.Backpack.class;
 
 		unique = true;

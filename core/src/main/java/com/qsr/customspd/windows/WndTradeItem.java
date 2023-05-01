@@ -32,7 +32,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.artifacts.MasterThievesArmband;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.RedButton;
 
 public class WndTradeItem extends WndInfoItem {
@@ -65,7 +65,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSell.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnSell.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSell.icon(new ItemSprite(GeneralAsset.GOLD));
 			add( btnSell );
 
 			pos = btnSell.bottom();
@@ -81,7 +81,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSell1.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnSell1.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSell1.icon(new ItemSprite(GeneralAsset.GOLD));
 			add( btnSell1 );
 			RedButton btnSellAll = new RedButton( Messages.get(this, "sell_all", priceAll ) ) {
 				@Override
@@ -91,7 +91,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSellAll.setRect( 0, btnSell1.bottom() + 1, width, BTN_HEIGHT );
-			btnSellAll.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSellAll.icon(new ItemSprite(GeneralAsset.GOLD));
 			add( btnSellAll );
 
 			pos = btnSellAll.bottom();
@@ -122,7 +122,7 @@ public class WndTradeItem extends WndInfoItem {
 			}
 		};
 		btnBuy.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-		btnBuy.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+		btnBuy.icon(new ItemSprite(GeneralAsset.GOLD));
 		btnBuy.enable( price <= Dungeon.gold );
 		add( btnBuy );
 
@@ -156,7 +156,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSteal.setRect(0, pos + 1, width, BTN_HEIGHT);
-			btnSteal.icon(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND));
+			btnSteal.icon(new ItemSprite(GeneralAsset.ARTIFACT_ARMBAND));
 			add(btnSteal);
 
 			pos = btnSteal.bottom();

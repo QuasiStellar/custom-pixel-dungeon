@@ -40,7 +40,7 @@ import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
 import com.qsr.customspd.ui.ItemSlot;
@@ -208,7 +208,7 @@ public class AlchemyScene extends PixelScene {
 		btnExit.setPos( Camera.main.width - btnExit.width(), 0 );
 		add( btnExit );
 		
-		IconButton btnGuide = new IconButton( new ItemSprite(ItemSpriteSheet.ALCH_PAGE, null)){
+		IconButton btnGuide = new IconButton( new ItemSprite(GeneralAsset.ALCH_PAGE, null)){
 			@Override
 			protected void onClick() {
 				super.onClick();
@@ -253,7 +253,7 @@ public class AlchemyScene extends PixelScene {
 		energyLeft.hardlight(0x44CCFF);
 		add(energyLeft);
 
-		energyIcon = new ItemSprite( toolkit != null ? ItemSpriteSheet.ARTIFACT_TOOLKIT : ItemSpriteSheet.ENERGY);
+		energyIcon = new ItemSprite( toolkit != null ? GeneralAsset.ARTIFACT_TOOLKIT : GeneralAsset.ENERGY);
 		energyIcon.x = energyLeft.left() - energyIcon.width();
 		energyIcon.y = energyLeft.top() - (energyIcon.height() - energyLeft.height())/2;
 		align(energyIcon);
@@ -623,7 +623,7 @@ public class AlchemyScene extends PixelScene {
 		public void item( Item item ) {
 			if (item == null){
 				this.item = null;
-				slot.item(new WndBag.Placeholder(ItemSpriteSheet.SOMETHING));
+				slot.item(new WndBag.Placeholder(GeneralAsset.SOMETHING));
 			} else {
 				slot.item(this.item = item);
 			}

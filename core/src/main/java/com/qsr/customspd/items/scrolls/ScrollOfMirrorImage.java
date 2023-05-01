@@ -26,9 +26,9 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.npcs.MirrorImage;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class ScrollOfMirrorImage extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_MIRRORIMG;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_MIRRORIMG;
 	}
 
 	private static final int NIMAGES	= 2;

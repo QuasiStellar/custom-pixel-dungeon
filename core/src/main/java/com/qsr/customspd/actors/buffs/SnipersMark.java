@@ -27,10 +27,11 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.weapon.SpiritBow;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.QuickSlotButton;
@@ -117,7 +118,7 @@ public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
 
 	@Override
 	public Image actionIcon() {
-		return new ItemSprite(ItemSpriteSheet.SPIRIT_BOW, null);
+		return new ItemSprite(GeneralAsset.SPIRIT_BOW, null);
 	}
 	
 	@Override

@@ -34,7 +34,7 @@ import com.qsr.customspd.effects.particles.PurpleParticle;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 public class WandOfDisintegration extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_DISINTEGRATION;
+		image = GeneralAsset.WAND_DISINTEGRATION;
 
 		collisionProperties = Ballistica.WONT_STOP;
 	}

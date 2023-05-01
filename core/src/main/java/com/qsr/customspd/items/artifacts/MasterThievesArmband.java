@@ -36,13 +36,14 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.Shopkeeper;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Surprise;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -54,7 +55,7 @@ import java.util.ArrayList;
 public class MasterThievesArmband extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ARMBAND;
+		image = GeneralAsset.ARTIFACT_ARMBAND;
 
 		levelCap = 10;
 

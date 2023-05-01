@@ -21,12 +21,12 @@
 
 package com.qsr.customspd.items.keys;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class IronKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.IRON_KEY;
+		image = GeneralAsset.IRON_KEY;
 	}
 
 	public IronKey() {

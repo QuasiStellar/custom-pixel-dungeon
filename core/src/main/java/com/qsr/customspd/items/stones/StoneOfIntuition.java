@@ -21,8 +21,8 @@
 
 package com.qsr.customspd.items.stones;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Identification;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.potions.Potion;
@@ -34,7 +34,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.IconButton;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 public class StoneOfIntuition extends InventoryStone {
 	
 	{
-		image = ItemSpriteSheet.STONE_INTUITION;
+		image = GeneralAsset.STONE_INTUITION;
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class StoneOfIntuition extends InventoryStone {
 		public WndGuess(final Item item){
 			
 			IconTitle titlebar = new IconTitle();
-			titlebar.icon( new ItemSprite(ItemSpriteSheet.STONE_INTUITION, null) );
+			titlebar.icon( new ItemSprite(GeneralAsset.STONE_INTUITION, null) );
 			titlebar.label( Messages.titleCase(Messages.get(StoneOfIntuition.class, "name")) );
 			titlebar.setRect( 0, 0, WIDTH, 0 );
 			add( titlebar );
@@ -184,8 +184,7 @@ public class StoneOfIntuition extends InventoryStone {
 						super.onClick();
 					}
 				};
-				Image im = new Image(Assets.Sprites.ITEM_ICONS);
-				im.frame(ItemSpriteSheet.Icons.film.get(Reflection.newInstance(i).icon));
+				Image im = new Image(Asset.getAssetFileHandle(Reflection.newInstance(i).icon));
 				im.scale.set(2f);
 				btn.icon(im);
 				btn.setRect(left + placed*BTN_SIZE, top, BTN_SIZE, BTN_SIZE);

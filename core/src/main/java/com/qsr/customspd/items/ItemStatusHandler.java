@@ -21,6 +21,7 @@
 
 package com.qsr.customspd.items;
 
+import com.qsr.customspd.assets.Asset;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -36,10 +37,10 @@ public class ItemStatusHandler<T extends Item> {
 
 	private Class<? extends T>[] items;
 	private LinkedHashMap<Class<? extends T>, String> itemLabels;
-	private LinkedHashMap<String, Integer> labelImages;
+	private LinkedHashMap<String, Asset> labelImages;
 	private LinkedHashSet<Class<? extends T>> known;
 
-	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Integer> labelImages ) {
+	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Asset> labelImages ) {
 
 		this.items = items;
 
@@ -61,7 +62,7 @@ public class ItemStatusHandler<T extends Item> {
 		}
 	}
 
-	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Integer> labelImages, Bundle bundle ) {
+	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Asset> labelImages, Bundle bundle ) {
 
 		this.items = items;
 
@@ -173,11 +174,11 @@ public class ItemStatusHandler<T extends Item> {
 		return false;
 	}
 	
-	public int image( T item ) {
+	public Asset image(T item ) {
 		return labelImages.get(label(item));
 	}
 	
-	public int image( Class<?extends T> itemCls ) {
+	public Asset image( Class<?extends T> itemCls ) {
 		return labelImages.get(label(itemCls));
 	}
 	

@@ -36,6 +36,7 @@ import com.qsr.customspd.actors.mobs.Crab;
 import com.qsr.customspd.actors.mobs.Scorpio;
 import com.qsr.customspd.actors.mobs.Spinner;
 import com.qsr.customspd.actors.mobs.Swarm;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
@@ -44,7 +45,7 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite.Glowing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -63,7 +64,7 @@ public class Pickaxe extends MeleeWeapon {
 	private static final Glowing BLOODY = new Glowing( 0x550000 );
 	
 	{
-		image = ItemSpriteSheet.PICKAXE;
+		image = GeneralAsset.PICKAXE;
 
 		levelKnown = true;
 		

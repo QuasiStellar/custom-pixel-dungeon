@@ -25,12 +25,12 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Cripple;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Bolas extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.BOLAS;
+		image = GeneralAsset.BOLAS;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 		

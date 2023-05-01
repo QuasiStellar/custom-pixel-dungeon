@@ -40,7 +40,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndUseItem;
 import com.watabou.gltextures.TextureCache;
@@ -304,11 +304,11 @@ public class InventoryPane extends Component {
 			lastBag = stuff.backpack;
 		}
 
-		equipped.get(0).item(stuff.weapon == null ? new WndBag.Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) : stuff.weapon);
-		equipped.get(1).item(stuff.armor == null ? new WndBag.Placeholder( ItemSpriteSheet.ARMOR_HOLDER ) : stuff.armor);
-		equipped.get(2).item(stuff.artifact == null ? new WndBag.Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) : stuff.artifact);
-		equipped.get(3).item(stuff.misc == null ? new WndBag.Placeholder( ItemSpriteSheet.SOMETHING ) : stuff.misc);
-		equipped.get(4).item(stuff.ring == null ? new WndBag.Placeholder( ItemSpriteSheet.RING_HOLDER ) : stuff.ring);
+		equipped.get(0).item(stuff.weapon == null ? new WndBag.Placeholder( GeneralAsset.WEAPON_HOLDER ) : stuff.weapon);
+		equipped.get(1).item(stuff.armor == null ? new WndBag.Placeholder( GeneralAsset.ARMOR_HOLDER ) : stuff.armor);
+		equipped.get(2).item(stuff.artifact == null ? new WndBag.Placeholder( GeneralAsset.ARTIFACT_HOLDER ) : stuff.artifact);
+		equipped.get(3).item(stuff.misc == null ? new WndBag.Placeholder( GeneralAsset.SOMETHING ) : stuff.misc);
+		equipped.get(4).item(stuff.ring == null ? new WndBag.Placeholder( GeneralAsset.RING_HOLDER ) : stuff.ring);
 
 		ArrayList<Item> items = (ArrayList<Item>) lastBag.items.clone();
 

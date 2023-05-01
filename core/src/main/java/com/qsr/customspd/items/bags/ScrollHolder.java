@@ -26,12 +26,12 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.scrolls.Scroll;
 import com.qsr.customspd.items.spells.BeaconOfReturning;
 import com.qsr.customspd.items.spells.Spell;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ScrollHolder extends Bag {
 
 	{
-		image = ItemSpriteSheet.HOLDER;
+		image = GeneralAsset.HOLDER;
 	}
 
 	@Override

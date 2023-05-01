@@ -22,6 +22,7 @@
 package com.qsr.customspd.items.scrolls.exotic;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Identification;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.potions.Potion;
@@ -31,7 +32,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.utils.GLog;
@@ -46,7 +46,7 @@ import java.util.HashSet;
 public class ScrollOfDivination extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_DIVINATE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_DIVINATE;
 	}
 	
 	@Override

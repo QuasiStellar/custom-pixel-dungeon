@@ -26,6 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.LostInventory;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.windows.WndQuickBag;
@@ -40,8 +41,8 @@ public class Bag extends Item implements Iterable<Item> {
 	public static final String AC_OPEN	= "OPEN";
 	
 	{
-		image = 11;
-		
+		image = GeneralAsset.SOMETHING;
+
 		defaultAction = AC_OPEN;
 
 		unique = true;

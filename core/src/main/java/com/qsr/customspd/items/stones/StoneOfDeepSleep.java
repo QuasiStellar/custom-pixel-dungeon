@@ -28,13 +28,13 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.MagicalSleep;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.effects.Speck;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class StoneOfDeepSleep extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_SLEEP;
+		image = GeneralAsset.STONE_SLEEP;
 	}
 	
 	@Override

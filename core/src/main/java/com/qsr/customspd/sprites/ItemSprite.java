@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Gold;
@@ -75,26 +77,25 @@ public class ItemSprite extends MovieClip {
 	protected float shadowOffset    = 0.5f;
 	
 	public ItemSprite() {
-		this( ItemSpriteSheet.SOMETHING, null );
+		this( GeneralAsset.SOMETHING, null );
 	}
 	
 	public ItemSprite( Heap heap ){
-		super(Assets.Sprites.ITEMS);
+		super();
 		view( heap );
 	}
 	
 	public ItemSprite( Item item ) {
-		super(Assets.Sprites.ITEMS);
+		super();
 		view( item );
 	}
 	
-	public ItemSprite( int image ){
+	public ItemSprite( Asset image ){
 		this( image, null );
 	}
 	
-	public ItemSprite( int image, Glowing glowing ) {
-		super( Assets.Sprites.ITEMS );
-		
+	public ItemSprite( Asset image, Glowing glowing ) {
+		super();
 		view(image, glowing);
 	}
 	
@@ -199,45 +200,35 @@ public class ItemSprite extends MovieClip {
 	
 	public ItemSprite view( Heap heap ){
 		if (heap.size() <= 0 || heap.items == null){
-			return view( 0, null );
+			return view( GeneralAsset.SOMETHING, null );
 		}
 		
 		switch (heap.type) {
 			case HEAP: case FOR_SALE:
 				return view( heap.peek() );
 			case CHEST:
-				return view( ItemSpriteSheet.CHEST, null );
+				return view( GeneralAsset.CHEST, null );
 			case LOCKED_CHEST:
-				return view( ItemSpriteSheet.LOCKED_CHEST, null );
+				return view( GeneralAsset.LOCKED_CHEST, null );
 			case CRYSTAL_CHEST:
-				return view( ItemSpriteSheet.CRYSTAL_CHEST, null );
+				return view( GeneralAsset.CRYSTAL_CHEST, null );
 			case TOMB:
-				return view( ItemSpriteSheet.TOMB, null );
+				return view( GeneralAsset.TOMB, null );
 			case SKELETON:
-				return view( ItemSpriteSheet.BONES, null );
+				return view( GeneralAsset.BONES, null );
 			case REMAINS:
-				return view( ItemSpriteSheet.REMAINS, null );
+				return view( GeneralAsset.REMAINS, null );
 			default:
-				return view( 0, null );
+				return view( GeneralAsset.SOMETHING, null );
 		}
 	}
 	
-	public ItemSprite view( int image, Glowing glowing ) {
+	public ItemSprite view( Asset image, Glowing glowing ) {
 		if (this.emitter != null) this.emitter.killAndErase();
 		emitter = null;
-		frame( image );
+		texture( Asset.getAssetFileHandle(image) );
 		glow( glowing );
 		return this;
-	}
-
-	public void frame( int image ){
-		frame( ItemSpriteSheet.film.get( image ));
-
-		float height = ItemSpriteSheet.film.height( image );
-		//adds extra raise to very short items, so they are visible
-		if (height < 8f){
-			perspectiveRaise =  (5 + 8 - height) / 16f;
-		}
 	}
 	
 	public synchronized void glow( Glowing glowing ){
@@ -368,12 +359,9 @@ public class ItemSprite extends MovieClip {
 		}
 	}
 
-	public static int pick( int index, int x, int y ) {
-		SmartTexture tx = TextureCache.get( Assets.Sprites.ITEMS );
-		int rows = tx.width / SIZE;
-		int row = index / rows;
-		int col = index % rows;
-		return tx.getPixel( col * SIZE + x, row * SIZE + y );
+	public static int pick( Asset asset, int x, int y ) {
+		SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle( asset ));
+		return tx.getPixel( x, y );
 	}
 	
 	public static class Glowing {

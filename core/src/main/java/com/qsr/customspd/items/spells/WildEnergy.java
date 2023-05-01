@@ -34,14 +34,14 @@ import com.qsr.customspd.items.scrolls.exotic.ScrollOfMysticalEnergy;
 import com.qsr.customspd.items.wands.CursedWand;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 
 public class WildEnergy extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.WILD_ENERGY;
+		image = GeneralAsset.WILD_ENERGY;
 		usesTargeting = true;
 	}
 	

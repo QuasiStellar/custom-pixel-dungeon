@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 
 public class Mageroyal extends Plant {
@@ -56,7 +56,7 @@ public class Mageroyal extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_MAGEROYAL;
+			image = GeneralAsset.SEED_MAGEROYAL;
 
 			plantClass = Mageroyal.class;
 		}

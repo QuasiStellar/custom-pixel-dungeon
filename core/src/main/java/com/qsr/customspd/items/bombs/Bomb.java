@@ -49,7 +49,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -64,7 +64,7 @@ import java.util.LinkedHashMap;
 public class Bomb extends Item {
 	
 	{
-		image = ItemSpriteSheet.BOMB;
+		image = GeneralAsset.BOMB;
 
 		defaultAction = AC_LIGHTTHROW;
 		usesTargeting = true;
@@ -319,7 +319,7 @@ public class Bomb extends Item {
 	public static class DoubleBomb extends Bomb{
 
 		{
-			image = ItemSpriteSheet.DBL_BOMB;
+			image = GeneralAsset.DBL_BOMB;
 			stackable = false;
 		}
 

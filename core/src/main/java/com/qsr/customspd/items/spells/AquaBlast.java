@@ -22,15 +22,16 @@
 package com.qsr.customspd.items.spells;
 
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.potions.exotic.PotionOfStormClouds;
 import com.qsr.customspd.levels.traps.GeyserTrap;
 import com.qsr.customspd.mechanics.Ballistica;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class AquaBlast extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.AQUA_BLAST;
+		image = GeneralAsset.AQUA_BLAST;
 		usesTargeting = true;
 	}
 	

@@ -25,13 +25,13 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Random;
 
 public class Dirk extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.DIRK;
+		image = GeneralAsset.DIRK;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1f;
 

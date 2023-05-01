@@ -29,7 +29,7 @@ import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 
 import kotlin.Pair;
@@ -37,7 +37,7 @@ import kotlin.Pair;
 public class RoundShield extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.ROUND_SHIELD;
+		image = GeneralAsset.ROUND_SHIELD;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 

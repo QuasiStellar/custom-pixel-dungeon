@@ -33,6 +33,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.levels.traps.Trap;
@@ -41,7 +42,7 @@ import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
@@ -58,7 +59,7 @@ import kotlin.Pair;
 public class TimekeepersHourglass extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_HOURGLASS;
+		image = GeneralAsset.ARTIFACT_HOURGLASS;
 
 		levelCap = 5;
 
@@ -463,7 +464,7 @@ public class TimekeepersHourglass extends Artifact {
 	public static class sandBag extends Item {
 
 		{
-			image = ItemSpriteSheet.SANDBAG;
+			image = GeneralAsset.SANDBAG;
 		}
 
 		@Override

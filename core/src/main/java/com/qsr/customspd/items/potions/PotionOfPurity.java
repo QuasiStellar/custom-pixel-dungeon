@@ -32,7 +32,6 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -47,7 +46,7 @@ public class PotionOfPurity extends Potion {
 	private static ArrayList<Class> affectedBlobs;
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_PURITY;
+		icon = GeneralAsset.ITEM_ICON_POTION_PURITY;
 		
 		affectedBlobs = new ArrayList<>(new BlobImmunity().immunities());
 	}

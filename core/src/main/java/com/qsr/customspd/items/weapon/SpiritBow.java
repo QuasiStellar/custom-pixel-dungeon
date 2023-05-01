@@ -43,7 +43,7 @@ import com.qsr.customspd.plants.Sorrowmoss;
 import com.qsr.customspd.plants.Stormvine;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.MissileSprite;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.watabou.noosa.audio.Sample;
@@ -59,7 +59,7 @@ public class SpiritBow extends Weapon {
 	public static final String AC_SHOOT		= "SHOOT";
 	
 	{
-		image = ItemSpriteSheet.SPIRIT_BOW;
+		image = GeneralAsset.SPIRIT_BOW;
 		
 		defaultAction = AC_SHOOT;
 		usesTargeting = true;
@@ -289,7 +289,7 @@ public class SpiritBow extends Weapon {
 	public class SpiritArrow extends MissileWeapon {
 		
 		{
-			image = ItemSpriteSheet.SPIRIT_ARROW;
+			image = GeneralAsset.SPIRIT_ARROW;
 
 			hitSound = Assets.Sounds.HIT_ARROW;
 		}

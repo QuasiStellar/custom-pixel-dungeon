@@ -32,7 +32,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Firebloom extends Plant {
 	
@@ -57,7 +57,7 @@ public class Firebloom extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_FIREBLOOM;
+			image = GeneralAsset.SEED_FIREBLOOM;
 
 			plantClass = Firebloom.class;
 		}

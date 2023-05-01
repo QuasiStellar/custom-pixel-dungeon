@@ -29,14 +29,14 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Random;
 
 public class FrozenCarpaccio extends Food {
 
 	{
-		image = ItemSpriteSheet.CARPACCIO;
+		image = GeneralAsset.CARPACCIO;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

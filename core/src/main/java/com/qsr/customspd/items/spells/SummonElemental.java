@@ -45,7 +45,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
@@ -61,7 +61,7 @@ public class SummonElemental extends Spell {
 	public static final String AC_IMBUE = "IMBUE";
 
 	{
-		image = ItemSpriteSheet.SUMMON_ELE;
+		image = GeneralAsset.SUMMON_ELE;
 	}
 
 	private Class<? extends Elemental> summonClass = Elemental.AllyNewBornElemental.class;

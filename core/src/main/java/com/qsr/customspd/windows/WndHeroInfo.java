@@ -32,7 +32,7 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.IconButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.TalentButton;
@@ -61,19 +61,19 @@ public class WndHeroInfo extends WndTabbed {
 		Image tabIcon;
 		switch (cl){
 			case WARRIOR: default:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SEAL, null);
+				tabIcon = new ItemSprite(GeneralAsset.SEAL, null);
 				break;
 			case MAGE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.MAGES_STAFF, null);
+				tabIcon = new ItemSprite(GeneralAsset.MAGES_STAFF, null);
 				break;
 			case ROGUE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK, null);
+				tabIcon = new ItemSprite(GeneralAsset.ARTIFACT_CLOAK, null);
 				break;
 			case HUNTRESS:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SPIRIT_BOW, null);
+				tabIcon = new ItemSprite(GeneralAsset.SPIRIT_BOW, null);
 				break;
 			case DUELIST:
-				tabIcon = new ItemSprite(ItemSpriteSheet.RAPIER, null);
+				tabIcon = new ItemSprite(GeneralAsset.RAPIER, null);
 				break;
 		}
 
@@ -111,7 +111,7 @@ public class WndHeroInfo extends WndTabbed {
 			subclassInfo.setSize(WIDTH, MIN_HEIGHT);
 			finalHeight = (int)Math.max(finalHeight, subclassInfo.height());
 
-			add(new IconTab(new ItemSprite(ItemSpriteSheet.MASK, null)) {
+			add(new IconTab(new ItemSprite(GeneralAsset.MASK, null)) {
 				@Override
 				protected void select(boolean value) {
 					super.select(value);
@@ -126,7 +126,7 @@ public class WndHeroInfo extends WndTabbed {
 			abilityInfo.setSize(WIDTH, MIN_HEIGHT);
 			finalHeight = (int)Math.max(finalHeight, abilityInfo.height());
 
-			add(new IconTab(new ItemSprite(ItemSpriteSheet.CROWN, null)) {
+			add(new IconTab(new ItemSprite(GeneralAsset.CROWN, null)) {
 				@Override
 				protected void select(boolean value) {
 					super.select(value);
@@ -173,32 +173,32 @@ public class WndHeroInfo extends WndTabbed {
 
 			switch (cls){
 				case WARRIOR: default:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SEAL),
-							new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(GeneralAsset.SEAL),
+							new ItemSprite(GeneralAsset.WORN_SHORTSWORD),
+							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
 				case MAGE:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.MAGES_STAFF),
-							new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(GeneralAsset.MAGES_STAFF),
+							new ItemSprite(GeneralAsset.WAND_MAGIC_MISSILE),
+							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
 				case ROGUE:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK),
+					icons = new Image[]{ new ItemSprite(GeneralAsset.ARTIFACT_CLOAK),
 							new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)),
-							new ItemSprite(ItemSpriteSheet.DAGGER),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+							new ItemSprite(GeneralAsset.DAGGER),
+							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
 				case HUNTRESS:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SPIRIT_BOW),
+					icons = new Image[]{ new ItemSprite(GeneralAsset.SPIRIT_BOW),
 							new Image(Assets.Environment.TILES_SEWERS, 112, 96, 16, 16),
-							new ItemSprite(ItemSpriteSheet.GLOVES),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+							new ItemSprite(GeneralAsset.GLOVES),
+							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
 				case DUELIST:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.RAPIER),
-							new ItemSprite(ItemSpriteSheet.WAR_HAMMER),
-							new ItemSprite(ItemSpriteSheet.THROWING_SPIKE),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(GeneralAsset.RAPIER),
+							new ItemSprite(GeneralAsset.WAR_HAMMER),
+							new ItemSprite(GeneralAsset.THROWING_SPIKE),
+							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
 			}
 			for (Image im : icons) {

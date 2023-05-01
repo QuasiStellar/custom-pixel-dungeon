@@ -27,16 +27,16 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Amok;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfRage extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RAGE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_RAGE;
 	}
 
 	@Override

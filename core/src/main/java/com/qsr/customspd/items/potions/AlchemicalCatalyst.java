@@ -28,7 +28,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.potions.exotic.ExoticPotion;
 import com.qsr.customspd.items.stones.Runestone;
 import com.qsr.customspd.plants.Plant;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
@@ -38,7 +38,7 @@ import java.util.HashMap;
 public class AlchemicalCatalyst extends Potion {
 	
 	{
-		image = ItemSpriteSheet.POTION_CATALYST;
+		image = GeneralAsset.POTION_CATALYST;
 		
 	}
 	

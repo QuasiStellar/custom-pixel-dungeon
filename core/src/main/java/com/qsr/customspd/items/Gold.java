@@ -28,7 +28,7 @@ import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
@@ -39,7 +39,7 @@ public class Gold extends Item {
 	private static final String TXT_VALUE	= "%+d";
 	
 	{
-		image = ItemSpriteSheet.GOLD;
+		image = GeneralAsset.GOLD;
 		stackable = true;
 	}
 	

@@ -27,7 +27,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
@@ -58,7 +58,7 @@ public class WndCombo extends Window {
 		if (Dungeon.hero.belongings.weapon() != null){
 			icon = new ItemSprite(Dungeon.hero.belongings.weapon().image, null);
 		} else {
-			icon = new ItemSprite(new Item(){ {image = ItemSpriteSheet.WEAPON_HOLDER; }});
+			icon = new ItemSprite(new Item(){ {image = GeneralAsset.WEAPON_HOLDER; }});
 		}
 
 		for (Combo.ComboMove move : Combo.ComboMove.values()) {

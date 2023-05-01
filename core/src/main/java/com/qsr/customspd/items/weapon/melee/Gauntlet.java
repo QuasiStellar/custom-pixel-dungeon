@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.melee;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Gauntlet extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.GAUNTLETS;
+		image = GeneralAsset.GAUNTLETS;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.2f;
 		

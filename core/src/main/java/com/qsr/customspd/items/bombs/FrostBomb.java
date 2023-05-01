@@ -29,14 +29,14 @@ import com.qsr.customspd.actors.blobs.Freezing;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Frost;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.utils.PathFinder;
 
 public class FrostBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.FROST_BOMB;
+		image = GeneralAsset.FROST_BOMB;
 	}
 	
 	@Override

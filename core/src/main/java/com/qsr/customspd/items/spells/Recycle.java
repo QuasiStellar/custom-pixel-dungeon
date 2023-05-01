@@ -39,14 +39,14 @@ import com.qsr.customspd.items.stones.Runestone;
 import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Reflection;
 
 public class Recycle extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.RECYCLE;
+		image = GeneralAsset.RECYCLE;
 	}
 
 	@Override

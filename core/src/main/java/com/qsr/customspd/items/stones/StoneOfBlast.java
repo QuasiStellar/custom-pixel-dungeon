@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.stones;
 
 import com.qsr.customspd.items.bombs.Bomb;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class StoneOfBlast extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_BLAST;
+		image = GeneralAsset.STONE_BLAST;
 	}
 	
 	@Override

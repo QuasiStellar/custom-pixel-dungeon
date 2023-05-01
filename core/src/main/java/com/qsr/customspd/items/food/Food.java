@@ -36,7 +36,7 @@ import com.qsr.customspd.items.artifacts.Artifact;
 import com.qsr.customspd.items.artifacts.HornOfPlenty;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
@@ -52,7 +52,7 @@ public class Food extends Item {
 	
 	{
 		stackable = true;
-		image = ItemSpriteSheet.RATION;
+		image = GeneralAsset.RATION;
 
 		defaultAction = AC_EAT;
 

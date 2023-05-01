@@ -25,15 +25,15 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class PotionOfInvisibility extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_INVIS;
+		icon = GeneralAsset.ITEM_ICON_POTION_INVIS;
 	}
 
 	@Override

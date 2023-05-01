@@ -29,12 +29,12 @@ import com.qsr.customspd.actors.blobs.Fire;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Burning;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class IncendiaryDart extends TippedDart {
 
 	{
-		image = ItemSpriteSheet.INCENDIARY_DART;
+		image = GeneralAsset.INCENDIARY_DART;
 	}
 	
 	@Override

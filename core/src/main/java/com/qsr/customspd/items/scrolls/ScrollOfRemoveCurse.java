@@ -25,6 +25,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Degrade;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.items.EquipableItem;
@@ -33,13 +34,12 @@ import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
 public class ScrollOfRemoveCurse extends InventoryScroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_REMCURSE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_REMCURSE;
 		preferredBag = Belongings.Backpack.class;
 	}
 

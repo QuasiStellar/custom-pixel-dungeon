@@ -24,6 +24,7 @@ package com.qsr.customspd.items.rings;
 import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Gold;
@@ -40,7 +41,6 @@ import com.qsr.customspd.items.spells.ArcaneCatalyst;
 import com.qsr.customspd.items.stones.StoneOfEnchantment;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Visual;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -52,7 +52,7 @@ import java.util.HashSet;
 public class RingOfWealth extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_WEALTH;
+		icon = GeneralAsset.ITEM_ICON_RING_WEALTH;
 	}
 
 	private float triesToDrop = Float.MIN_VALUE;

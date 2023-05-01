@@ -29,6 +29,8 @@ import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.buffs.ScrollEmpower;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.ItemStatusHandler;
@@ -52,7 +54,7 @@ import com.qsr.customspd.items.stones.StoneOfShock;
 import com.qsr.customspd.journal.Catalog;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.HeroSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Reflection;
@@ -68,20 +70,20 @@ public abstract class Scroll extends Item {
 	
 	protected static final float TIME_TO_READ	= 1f;
 
-	private static final LinkedHashMap<String, Integer> runes = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, Asset> runes = new LinkedHashMap<String, Asset>() {
 		{
-			put("KAUNAN",ItemSpriteSheet.SCROLL_KAUNAN);
-			put("SOWILO",ItemSpriteSheet.SCROLL_SOWILO);
-			put("LAGUZ",ItemSpriteSheet.SCROLL_LAGUZ);
-			put("YNGVI",ItemSpriteSheet.SCROLL_YNGVI);
-			put("GYFU",ItemSpriteSheet.SCROLL_GYFU);
-			put("RAIDO",ItemSpriteSheet.SCROLL_RAIDO);
-			put("ISAZ",ItemSpriteSheet.SCROLL_ISAZ);
-			put("MANNAZ",ItemSpriteSheet.SCROLL_MANNAZ);
-			put("NAUDIZ",ItemSpriteSheet.SCROLL_NAUDIZ);
-			put("BERKANAN",ItemSpriteSheet.SCROLL_BERKANAN);
-			put("ODAL",ItemSpriteSheet.SCROLL_ODAL);
-			put("TIWAZ",ItemSpriteSheet.SCROLL_TIWAZ);
+			put("KAUNAN",GeneralAsset.SCROLL_KAUNAN);
+			put("SOWILO",GeneralAsset.SCROLL_SOWILO);
+			put("LAGUZ",GeneralAsset.SCROLL_LAGUZ);
+			put("YNGVI",GeneralAsset.SCROLL_YNGVI);
+			put("GYFU",GeneralAsset.SCROLL_GYFU);
+			put("RAIDO",GeneralAsset.SCROLL_RAIDO);
+			put("ISAZ",GeneralAsset.SCROLL_ISAZ);
+			put("MANNAZ",GeneralAsset.SCROLL_MANNAZ);
+			put("NAUDIZ",GeneralAsset.SCROLL_NAUDIZ);
+			put("BERKANAN",GeneralAsset.SCROLL_BERKANAN);
+			put("ODAL",GeneralAsset.SCROLL_ODAL);
+			put("TIWAZ",GeneralAsset.SCROLL_TIWAZ);
 		}
 	};
 	
@@ -134,7 +136,7 @@ public abstract class Scroll extends Item {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.SCROLL_HOLDER;
+		if (!isKnown()) image = GeneralAsset.SCROLL_HOLDER;
 		anonymous = true;
 	}
 	
@@ -268,7 +270,7 @@ public abstract class Scroll extends Item {
 	public static class PlaceHolder extends Scroll {
 		
 		{
-			image = ItemSpriteSheet.SCROLL_HOLDER;
+			image = GeneralAsset.SCROLL_HOLDER;
 		}
 		
 		@Override

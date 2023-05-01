@@ -28,14 +28,14 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.blobs.Freezing;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Roots;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 
 public class PotionOfSnapFreeze extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_SNAPFREEZ;
+		icon = GeneralAsset.ITEM_ICON_POTION_SNAPFREEZ;
 	}
 	
 	@Override

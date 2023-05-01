@@ -28,12 +28,12 @@ import com.qsr.customspd.actors.buffs.Hunger;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.items.Generator;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Berry extends Food {
 
 	{
-		image = ItemSpriteSheet.BERRY;
+		image = GeneralAsset.BERRY;
 		energy = Hunger.HUNGRY/3f; //100 food value
 
 		bones = false;

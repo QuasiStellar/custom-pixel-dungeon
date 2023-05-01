@@ -30,14 +30,14 @@ import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 
 public class Noisemaker extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.NOISEMAKER;
+		image = GeneralAsset.NOISEMAKER;
 	}
 
 	public void setTrigger(int cell){

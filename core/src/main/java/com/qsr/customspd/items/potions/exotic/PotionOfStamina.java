@@ -26,12 +26,11 @@ import com.qsr.customspd.actors.buffs.Stamina;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class PotionOfStamina extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_STAMINA;
+		icon = GeneralAsset.ITEM_ICON_POTION_STAMINA;
 	}
 	
 	@Override

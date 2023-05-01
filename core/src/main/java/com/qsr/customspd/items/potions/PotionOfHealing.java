@@ -37,14 +37,14 @@ import com.qsr.customspd.actors.buffs.Vulnerable;
 import com.qsr.customspd.actors.buffs.Weakness;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
 public class PotionOfHealing extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_HEALING;
+		icon = GeneralAsset.ITEM_ICON_POTION_HEALING;
 
 		bones = true;
 	}

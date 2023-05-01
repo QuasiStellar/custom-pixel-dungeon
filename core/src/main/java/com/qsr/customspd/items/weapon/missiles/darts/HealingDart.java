@@ -25,12 +25,12 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Healing;
 import com.qsr.customspd.items.potions.PotionOfHealing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class HealingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.HEALING_DART;
+		image = GeneralAsset.HEALING_DART;
 	}
 	
 	@Override

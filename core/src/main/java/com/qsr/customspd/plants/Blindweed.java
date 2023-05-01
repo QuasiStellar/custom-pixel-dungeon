@@ -32,7 +32,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Blindweed extends Plant {
 	
@@ -64,7 +64,7 @@ public class Blindweed extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_BLINDWEED;
+			image = GeneralAsset.SEED_BLINDWEED;
 
 			plantClass = Blindweed.class;
 		}

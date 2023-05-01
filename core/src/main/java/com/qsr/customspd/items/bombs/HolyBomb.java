@@ -27,7 +27,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.particles.ShadowParticle;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class HolyBomb extends Bomb.MagicalBomb {
 	
 	{
-		image = ItemSpriteSheet.HOLY_BOMB;
+		image = GeneralAsset.HOLY_BOMB;
 	}
 	
 	@Override

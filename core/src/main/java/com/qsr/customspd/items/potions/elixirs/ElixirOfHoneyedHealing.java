@@ -32,13 +32,13 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Bee;
 import com.qsr.customspd.items.Honeypot;
 import com.qsr.customspd.items.potions.PotionOfHealing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class ElixirOfHoneyedHealing extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_HONEY;
+		image = GeneralAsset.ELIXIR_HONEY;
 	}
 	
 	@Override

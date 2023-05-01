@@ -23,12 +23,12 @@ package com.qsr.customspd.items.journal;
 
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class GuidePage extends DocumentPage {
 	
 	{
-		image = ItemSpriteSheet.GUIDE_PAGE;
+		image = GeneralAsset.GUIDE_PAGE;
 	}
 	
 	@Override

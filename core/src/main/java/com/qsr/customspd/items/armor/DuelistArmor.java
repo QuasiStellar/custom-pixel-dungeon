@@ -21,12 +21,13 @@
 
 package com.qsr.customspd.items.armor;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class DuelistArmor extends ClassArmor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_DUELIST;
+		image = GeneralAsset.ARMOR_DUELIST;
 	}
 
 }

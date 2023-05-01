@@ -23,6 +23,7 @@ package com.qsr.customspd.items.potions.exotic;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.weapon.Weapon;
@@ -30,7 +31,6 @@ import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
@@ -39,7 +39,7 @@ import com.watabou.noosa.audio.Sample;
 public class PotionOfMastery extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_MASTERY;
+		icon = GeneralAsset.ITEM_ICON_POTION_MASTERY;
 
 		unique = true;
 	}

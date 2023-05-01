@@ -21,15 +21,16 @@
 
 package com.qsr.customspd.items.bags;
 
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.LiquidMetal;
 import com.qsr.customspd.items.potions.Potion;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class PotionBandolier extends Bag {
 
 	{
-		image = ItemSpriteSheet.BANDOLIER;
+		image = GeneralAsset.BANDOLIER;
 	}
 
 	@Override

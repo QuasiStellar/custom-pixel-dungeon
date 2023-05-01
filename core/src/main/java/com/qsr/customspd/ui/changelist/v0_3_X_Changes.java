@@ -27,7 +27,7 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -192,7 +192,7 @@ public class v0_3_X_Changes {
 				"_-_ Thieves can escape with a stolen item\n" +
 				"_-_ Gnoll shaman attack speed increased"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MASTERY, null), "Balance Changes",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.MASTERY, null), "Balance Changes",
 				"_-_ Mastery Book now always at floor 10, even when unlocked\n" +
 				"_-_ Hunger damage now increases with hero level, starts lower\n" +
 				"\n" +
@@ -296,7 +296,7 @@ public class v0_3_X_Changes {
 				"_-_ Battlemage reworked, staff now deals bonus effects when used as a melee weapon.\n\n" +
 				"_-_ Warlock reworked, gains more health and fullness from gaining exp, but food no longer restores hunger."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.WAND_DISINTEGRATION, null), "Wand Rework!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.WAND_DISINTEGRATION, null), "Wand Rework!",
 				"Removed Wands:\n" +
 				"Flock, Blink, Teleportation, Avalanche\n" +
 				"\n" +

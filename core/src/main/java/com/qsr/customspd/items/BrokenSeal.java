@@ -28,12 +28,13 @@ import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
@@ -51,7 +52,7 @@ public class BrokenSeal extends Item {
 	public static final String AC_INFO = "INFO_WINDOW";
 
 	{
-		image = ItemSpriteSheet.SEAL;
+		image = GeneralAsset.SEAL;
 
 		cursedKnown = levelKnown = true;
 		unique = true;

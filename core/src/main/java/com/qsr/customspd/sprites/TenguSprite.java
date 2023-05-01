@@ -23,6 +23,7 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.TextureFilm;
@@ -124,7 +125,7 @@ public class TenguSprite extends MobSprite {
 	
 	public static class TenguShuriken extends Item {
 		{
-			image = ItemSpriteSheet.SHURIKEN;
+			image = GeneralAsset.SHURIKEN;
 		}
 	}
 }

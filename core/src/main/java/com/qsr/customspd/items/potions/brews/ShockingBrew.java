@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.blobs.Electricity;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.PotionOfParalyticGas;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -36,7 +36,7 @@ import com.watabou.utils.PathFinder;
 public class ShockingBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_SHOCKING;
+		image = GeneralAsset.BREW_SHOCKING;
 	}
 	
 	@Override

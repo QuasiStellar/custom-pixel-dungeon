@@ -26,6 +26,7 @@ import com.qsr.customspd.Badges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.wands.WandOfLivingEarth;
@@ -33,7 +34,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Earthroot;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.audio.Sample;
@@ -45,7 +46,7 @@ import java.util.ArrayList;
 public class ChaliceOfBlood extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CHALICE1;
+		image = GeneralAsset.ARTIFACT_CHALICE1;
 
 		levelCap = 10;
 	}
@@ -134,17 +135,17 @@ public class ChaliceOfBlood extends Artifact {
 	@Override
 	public Item upgrade() {
 		if (level() >= 6)
-			image = ItemSpriteSheet.ARTIFACT_CHALICE3;
+			image = GeneralAsset.ARTIFACT_CHALICE3;
 		else if (level() >= 2)
-			image = ItemSpriteSheet.ARTIFACT_CHALICE2;
+			image = GeneralAsset.ARTIFACT_CHALICE2;
 		return super.upgrade();
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		if (level() >= 7) image = ItemSpriteSheet.ARTIFACT_CHALICE3;
-		else if (level() >= 3) image = ItemSpriteSheet.ARTIFACT_CHALICE2;
+		if (level() >= 7) image = GeneralAsset.ARTIFACT_CHALICE3;
+		else if (level() >= 3) image = GeneralAsset.ARTIFACT_CHALICE2;
 	}
 
 	@Override

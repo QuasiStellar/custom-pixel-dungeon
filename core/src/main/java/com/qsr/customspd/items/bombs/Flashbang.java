@@ -29,12 +29,12 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Cripple;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Flashbang extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.FLASHBANG;
+		image = GeneralAsset.FLASHBANG;
 	}
 
 	@Override

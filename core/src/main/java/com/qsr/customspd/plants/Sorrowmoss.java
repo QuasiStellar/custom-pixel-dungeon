@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.PoisonParticle;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Sorrowmoss extends Plant {
 
@@ -56,7 +56,7 @@ public class Sorrowmoss extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_SORROWMOSS;
+			image = GeneralAsset.SEED_SORROWMOSS;
 
 			plantClass = Sorrowmoss.class;
 		}

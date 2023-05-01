@@ -31,16 +31,16 @@ import com.qsr.customspd.actors.buffs.Frost;
 import com.qsr.customspd.actors.buffs.Ooze;
 import com.qsr.customspd.actors.buffs.Paralysis;
 import com.qsr.customspd.actors.buffs.Poison;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.armor.glyphs.AntiMagic;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 import java.util.HashSet;
 
 public class RingOfElements extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ELEMENTS;
+		icon = GeneralAsset.ITEM_ICON_RING_ELEMENTS;
 	}
 
 	public String statsInfo() {

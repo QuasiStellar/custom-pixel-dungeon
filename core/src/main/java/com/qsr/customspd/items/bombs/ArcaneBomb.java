@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.blobs.GooWarn;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class ArcaneBomb extends Bomb.MagicalBomb {
 	
 	{
-		image = ItemSpriteSheet.ARCANE_BOMB;
+		image = GeneralAsset.ARCANE_BOMB;
 	}
 	
 	@Override

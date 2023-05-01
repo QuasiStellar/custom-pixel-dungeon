@@ -25,12 +25,12 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Poison;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class PoisonDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.POISON_DART;
+		image = GeneralAsset.POISON_DART;
 	}
 	
 	@Override

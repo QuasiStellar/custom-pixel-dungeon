@@ -26,7 +26,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndJournal;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -34,7 +34,7 @@ import com.watabou.utils.Bundle;
 public abstract class DocumentPage extends Item {
 	
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = GeneralAsset.MASTERY;
 	}
 
 	public abstract Document document();

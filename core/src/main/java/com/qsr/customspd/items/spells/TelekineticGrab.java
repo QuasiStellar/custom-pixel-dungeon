@@ -34,7 +34,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.LiquidMetal;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
@@ -42,7 +42,7 @@ import com.watabou.utils.Callback;
 public class TelekineticGrab extends TargetedSpell {
 
 	{
-		image = ItemSpriteSheet.TELE_GRAB;
+		image = GeneralAsset.TELE_GRAB;
 	}
 
 	@Override

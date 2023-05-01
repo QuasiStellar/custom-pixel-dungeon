@@ -35,6 +35,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.KindOfWeapon;
 import com.qsr.customspd.items.weapon.Weapon;
@@ -42,7 +43,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.Image;
@@ -548,7 +549,7 @@ public class MeleeWeapon extends Weapon {
 		@Override
 		public Image actionIcon() {
 			if (Dungeon.hero.belongings.weapon == null){
-				return new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER);
+				return new ItemSprite(GeneralAsset.WEAPON_HOLDER);
  			} else {
 				return new ItemSprite(Dungeon.hero.belongings.weapon);
 			}

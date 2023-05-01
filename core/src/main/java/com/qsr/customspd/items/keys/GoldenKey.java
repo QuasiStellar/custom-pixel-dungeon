@@ -21,12 +21,12 @@
 
 package com.qsr.customspd.items.keys;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class GoldenKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.GOLDEN_KEY;
+		image = GeneralAsset.GOLDEN_KEY;
 	}
 
 	public GoldenKey() {

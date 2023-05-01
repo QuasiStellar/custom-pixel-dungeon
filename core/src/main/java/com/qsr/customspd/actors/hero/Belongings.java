@@ -25,6 +25,7 @@ import com.qsr.customspd.Badges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.GamesInProgress;
 import com.qsr.customspd.actors.buffs.LostInventory;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.EquipableItem;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.KindOfWeapon;
@@ -36,7 +37,7 @@ import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.rings.Ring;
 import com.qsr.customspd.items.scrolls.ScrollOfRemoveCurse;
 import com.qsr.customspd.items.wands.Wand;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -49,7 +50,7 @@ public class Belongings implements Iterable<Item> {
 
 	public static class Backpack extends Bag {
 		{
-			image = ItemSpriteSheet.BACKPACK;
+			image = GeneralAsset.BACKPACK;
 		}
 		public int capacity(){
 			int cap = super.capacity();

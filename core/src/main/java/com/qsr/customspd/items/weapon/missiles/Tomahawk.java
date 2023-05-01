@@ -25,12 +25,12 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Bleeding;
 import com.qsr.customspd.actors.buffs.Buff;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Tomahawk extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.TOMAHAWK;
+		image = GeneralAsset.TOMAHAWK;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 0.9f;
 

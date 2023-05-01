@@ -26,7 +26,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Light;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.particles.FlameParticle;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 
@@ -39,7 +39,7 @@ public class Torch extends Item {
 	public static final float TIME_TO_LIGHT = 1;
 	
 	{
-		image = ItemSpriteSheet.TORCH;
+		image = GeneralAsset.TORCH;
 		
 		stackable = true;
 		

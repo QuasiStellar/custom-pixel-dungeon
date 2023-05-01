@@ -39,7 +39,7 @@ import com.qsr.customspd.levels.traps.TenguDartTrap;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
@@ -53,7 +53,7 @@ import com.watabou.utils.Random;
 public class WandOfBlastWave extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_BLAST_WAVE;
+		image = GeneralAsset.WAND_BLAST_WAVE;
 
 		collisionProperties = Ballistica.PROJECTILE;
 	}

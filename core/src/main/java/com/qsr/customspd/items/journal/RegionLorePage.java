@@ -22,7 +22,7 @@
 package com.qsr.customspd.items.journal;
 
 import com.qsr.customspd.journal.Document;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class RegionLorePage {
 
@@ -38,7 +38,7 @@ public class RegionLorePage {
 
 	public static class Sewers extends DocumentPage {
 		{
-			image = ItemSpriteSheet.SEWER_PAGE;
+			image = GeneralAsset.SEWER_PAGE;
 		}
 
 		@Override
@@ -49,7 +49,7 @@ public class RegionLorePage {
 
 	public static class Prison extends DocumentPage {
 		{
-			image = ItemSpriteSheet.PRISON_PAGE;
+			image = GeneralAsset.PRISON_PAGE;
 		}
 
 		@Override
@@ -60,7 +60,7 @@ public class RegionLorePage {
 
 	public static class Caves extends DocumentPage {
 		{
-			image = ItemSpriteSheet.CAVES_PAGE;
+			image = GeneralAsset.CAVES_PAGE;
 		}
 
 		@Override
@@ -71,7 +71,7 @@ public class RegionLorePage {
 
 	public static class City extends DocumentPage {
 		{
-			image = ItemSpriteSheet.CITY_PAGE;
+			image = GeneralAsset.CITY_PAGE;
 		}
 
 		@Override
@@ -82,7 +82,7 @@ public class RegionLorePage {
 
 	public static class Halls extends DocumentPage {
 		{
-			image = ItemSpriteSheet.HALLS_PAGE;
+			image = GeneralAsset.HALLS_PAGE;
 		}
 
 		@Override

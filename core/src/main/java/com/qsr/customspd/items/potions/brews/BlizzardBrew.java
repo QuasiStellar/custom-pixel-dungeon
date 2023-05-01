@@ -28,14 +28,14 @@ import com.qsr.customspd.actors.blobs.Blob;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.PotionOfFrost;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 
 public class BlizzardBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_BLIZZARD;
+		image = GeneralAsset.BREW_BLIZZARD;
 	}
 	
 	@Override

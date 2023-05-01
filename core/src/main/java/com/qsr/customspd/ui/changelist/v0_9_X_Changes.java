@@ -38,7 +38,7 @@ import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.FistSprite;
 import com.qsr.customspd.sprites.GolemSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.SpawnerSprite;
 import com.qsr.customspd.sprites.SpinnerSprite;
 import com.qsr.customspd.ui.TalentIcon;
@@ -71,7 +71,7 @@ public class v0_9_X_Changes {
 				"\n" +
 				"Dev commentary will be added here in the future."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN, null), "Armor abilities and T4 Talents!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN, null), "Armor abilities and T4 Talents!",
 				"_Hero armor abilities have been totally overhauled, featuring 13 abilities and 40 T4 talents!_\n\n" +
 				"After the defeating the fourth boss, the player now gets to choose between one of three abilities for each hero. Armor abilities also charge much faster, and can be further improved via tier four talents!\n\n" +
 				"Each armor ability has three talents, plus one charge-speed talent that's shared between them. These talents all take up to 4 points, and there are up to 10 points available in tier 4, for levels 21-30."));
@@ -100,7 +100,7 @@ public class v0_9_X_Changes {
 				"_-_ Reduced chance for 3+ enemies to appear near each other on floor 1.\n" +
 				"_-_ Increased the minimum size of pit rooms, to prevent wraith fights in 3x3 spaces." ));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MASK, null), "Hero Changes",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.MASK, null), "Hero Changes",
 				"I've made several changes to hero starting items and the process of powering up your hero:\n\n" +
 				"_Gameplay Changes:_\n" +
 				"_-_ All heroes now start with a velvet pouch. This should make sewers inventory management a bit smoother.\n\n" +
@@ -262,7 +262,7 @@ public class v0_9_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.MASTERY, null), "Other Subclass Changes",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.MASTERY, null), "Other Subclass Changes",
 				"Several subclasses have received more minor changes due to the addition of talents. Primarily subclass abilities that used to be innate are now talents:\n\n" +
 				"_- Berserker:_ Rage increasing past 100% has been moved to a talent, berserking has been nerfed but can be buffed back up via a talent.\n\n" +
 				"_- Warlock:_ Gaining satiety from soul mark, and soul mark triggering from other characters have both been moved to talents.\n\n" +
@@ -512,7 +512,7 @@ public class v0_9_X_Changes {
 				"_-_ Self-damage reduced to 5% of max HP, from 10% max HP\n" +
 				"_-_ Damage from allies no longer cancels charm effect"));
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_TOPAZ, null), Messages.get(RingOfEnergy.class, "name"),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_TOPAZ, null), Messages.get(RingOfEnergy.class, "name"),
 				"The _Ring of Energy_ is doing better after being buffed to apply to artifacts, but there is still room to make its effect stronger without making it overpowered:\n\n" +
 				"_-_ Bonus artifact charging increased from 10% to 15%"));
 

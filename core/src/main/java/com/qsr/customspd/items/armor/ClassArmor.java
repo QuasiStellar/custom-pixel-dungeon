@@ -30,6 +30,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.BrokenSeal;
 import com.qsr.customspd.items.Item;
@@ -37,7 +38,7 @@ import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndChooseAbility;
@@ -197,7 +198,7 @@ abstract public class ClassArmor extends Armor {
 			
 		} else if (action.equals(AC_TRANSFER)){
 
-			GameScene.show(new WndOptions(new ItemSprite(ItemSpriteSheet.CROWN),
+			GameScene.show(new WndOptions(new ItemSprite(GeneralAsset.CROWN),
 					Messages.get(ClassArmor.class, "transfer_title"),
 					Messages.get(ClassArmor.class, "transfer_desc"),
 					Messages.get(ClassArmor.class, "transfer_prompt"),

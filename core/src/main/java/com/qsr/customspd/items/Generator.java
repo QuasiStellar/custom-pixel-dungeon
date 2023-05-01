@@ -22,6 +22,7 @@
 package com.qsr.customspd.items;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.armor.ClothArmor;
 import com.qsr.customspd.items.armor.DuelistArmor;
@@ -247,7 +248,7 @@ public class Generator {
 			}
 
 			//items without a category-defined order are sorted based on the spritesheet
-			return Short.MAX_VALUE+item.image();
+			return Short.MAX_VALUE + ((GeneralAsset)item.image()).ordinal();
 		}
 
 		static {

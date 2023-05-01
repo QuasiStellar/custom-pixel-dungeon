@@ -29,12 +29,12 @@ import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.items.potions.exotic.PotionOfCleansing;
 import com.qsr.customspd.items.weapon.melee.Crossbow;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class CleansingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.CLEANSING_DART;
+		image = GeneralAsset.CLEANSING_DART;
 	}
 	
 	@Override

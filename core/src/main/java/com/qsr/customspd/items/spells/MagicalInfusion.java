@@ -26,19 +26,20 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.buffs.Degrade;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.scrolls.ScrollOfUpgrade;
 import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 
 public class MagicalInfusion extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.MAGIC_INFUSE;
+		image = GeneralAsset.MAGIC_INFUSE;
 
 		unique = true;
 	}

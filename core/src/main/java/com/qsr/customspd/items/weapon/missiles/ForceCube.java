@@ -29,7 +29,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
 import com.qsr.customspd.levels.traps.TenguDartTrap;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class ForceCube extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.FORCE_CUBE;
+		image = GeneralAsset.FORCE_CUBE;
 		
 		tier = 5;
 		baseUses = 5;

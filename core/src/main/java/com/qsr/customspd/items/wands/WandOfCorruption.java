@@ -67,7 +67,7 @@ import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
@@ -78,7 +78,7 @@ import java.util.HashMap;
 public class WandOfCorruption extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_CORRUPTION;
+		image = GeneralAsset.WAND_CORRUPTION;
 	}
 	
 	//Note that some debuffs here have a 0% chance to be applied.

@@ -23,11 +23,12 @@ package com.qsr.customspd.items;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite.Glowing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -39,7 +40,7 @@ public class Ankh extends Item {
 	public static final String AC_BLESS = "BLESS";
 
 	{
-		image = ItemSpriteSheet.ANKH;
+		image = GeneralAsset.ANKH;
 
 		//You tell the ankh no, don't revive me, and then it comes back to revive you again in another run.
 		//I'm not sure if that's enthusiasm or passive-aggression.

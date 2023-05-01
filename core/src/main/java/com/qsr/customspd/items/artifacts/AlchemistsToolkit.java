@@ -26,12 +26,13 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.AlchemyScene;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.Game;
@@ -44,7 +45,7 @@ import java.util.ArrayList;
 public class AlchemistsToolkit extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_TOOLKIT;
+		image = GeneralAsset.ARTIFACT_TOOLKIT;
 		defaultAction = AC_BREW;
 
 		levelCap = 10;
@@ -132,7 +133,7 @@ public class AlchemistsToolkit extends Artifact {
 
 					@Override
 					protected Image getIcon(int index) {
-						return new ItemSprite(ItemSpriteSheet.ENERGY);
+						return new ItemSprite(GeneralAsset.ENERGY);
 					}
 				});
 			}

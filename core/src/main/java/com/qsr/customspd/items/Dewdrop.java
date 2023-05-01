@@ -32,14 +32,14 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class Dewdrop extends Item {
 	
 	{
-		image = ItemSpriteSheet.DEWDROP;
+		image = GeneralAsset.DEWDROP;
 		
 		stackable = true;
 		dropsDownHeap = true;

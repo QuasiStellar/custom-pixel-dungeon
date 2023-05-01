@@ -30,7 +30,7 @@ import com.qsr.customspd.items.artifacts.TimekeepersHourglass;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -79,7 +79,7 @@ public class v0_2_X_Changes {
 				"_-_ Honey pots now shatter in a new item: shattered honeypot. A bee will defend its shattered pot to the death against anything that gets near.\n\n" +
 				"_-_ Bombs have been reworked/nerfed: they explode after a delay, no longer stun, deal more damage at the center of the blast, affect the world (destroy items, blow up other bombs)."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.BANDOLIER, null), "New Content",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.BANDOLIER, null), "New Content",
 				"_-_ The huntress has been buffed: starts with Potion of Mind Vision identified, now benefits from strength on melee attacks, and has a chance to reclaim a single used ranged weapon from each defeated enemy.\n\n" +
 				"_-_ A new container: The Potion Bandolier! Potions can now shatter from frost, but the bandolier can protect them.\n\n" +
 				"_-_ Shops now stock a much greater variety of items, some item prices have been rebalanced.\n\n" +
@@ -122,7 +122,7 @@ public class v0_2_X_Changes {
 				"_-_ Cloak of Shadows is now exclusive to the rogue\n" +
 				"_-_ Smaller Balance Changes and QOL improvements to almost every artifact"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.POTION_CRIMSON, null), "Balance Changes",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.POTION_CRIMSON, null), "Balance Changes",
 				"_-_ Health potion farming has been nerfed from all sources\n" +
 				"_-_ Freerunner now moves at very high speeds when invisible\n" +
 				"_-_ Ring of Force buffed significantly\n" +
@@ -152,7 +152,7 @@ public class v0_2_X_Changes {
 				"\n" +
 				"Heroes remains also received big changes this update. In Pixel Dungeon you could use remains to consistently pass highly upgraded armor from one run to the next. I felt this violated the roguelike nature of the game, and so I nerfed remains to prevent this."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.STONE_AUGMENTATION, null), "Pixel Dungeon v1.7.2",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.STONE_AUGMENTATION, null), "Pixel Dungeon v1.7.2",
 				"Implemented directly from v1.7.2:\n" +
 				"_-_ Synchronous Movement\n" +
 				"_-_ Challenges\n" +
@@ -171,7 +171,7 @@ public class v0_2_X_Changes {
 				"_-_ Potion of levitation can now be thrown to make a cloud of confusion gas\n\n" +
 				"_-_ Removed gas collision logic, gasses can now stack without limitation."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.REMAINS, null), "Heroes Remains",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.REMAINS, null), "Heroes Remains",
 				"Heroes remains have been significantly adjusted to prevent strategies that exploit them, but also to increase their average loot.\n\n" +
 				"Remains have additional limitations:\n" +
 				"_-_ Heros will no longer drop remains if they have obtained the amulet of yendor, or die 5 or more floors above the deepest floor they have reached\n" +
@@ -206,7 +206,7 @@ public class v0_2_X_Changes {
 				"Goo's animations have been overhauled, including a particle effect for the area of its pumped up attack.\n\n" +
 				"Goo's arena has been updated to give more room to maneuver, and to be more variable."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.GUIDE_PAGE, null), "Story & Signpost Changes",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.GUIDE_PAGE, null), "Story & Signpost Changes",
 				"Most text in the sewers has been overhauled, including descriptions, quest dialogues, signposts, and story scrolls"));
 	}
 	
@@ -239,7 +239,7 @@ public class v0_2_X_Changes {
 				"_-_ Ring of Haggler becomes Master Thieves' Armband\n" +
 				"_-_ Ring of Naturalism becomes Sandals of Nature"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_DIAMOND, null), "New Rings!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.RING_DIAMOND, null), "New Rings!",
 				"To replace the lost rings, 6 new rings have been added:\n" +
 				"_-_ Ring of Force\n" +
 				"_-_ Ring of Furor\n" +

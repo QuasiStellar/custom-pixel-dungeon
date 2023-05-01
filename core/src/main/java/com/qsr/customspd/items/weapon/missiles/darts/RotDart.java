@@ -25,13 +25,13 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Corrosion;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 
 public class RotDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.ROT_DART;
+		image = GeneralAsset.ROT_DART;
 	}
 	
 	@Override

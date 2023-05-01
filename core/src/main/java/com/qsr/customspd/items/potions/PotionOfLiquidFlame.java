@@ -25,15 +25,15 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.blobs.Blob;
 import com.qsr.customspd.actors.blobs.Fire;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 
 public class PotionOfLiquidFlame extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_LIQFLAME;
+		icon = GeneralAsset.ITEM_ICON_POTION_LIQFLAME;
 	}
 
 	@Override

@@ -29,13 +29,15 @@ import com.qsr.customspd.actors.buffs.EnhancedRings;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.ItemStatusHandler;
 import com.qsr.customspd.items.KindofMisc;
 import com.qsr.customspd.journal.Catalog;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -48,20 +50,20 @@ public class Ring extends KindofMisc {
 	
 	protected Buff buff;
 
-	private static final LinkedHashMap<String, Integer> gems = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, Asset> gems = new LinkedHashMap<String, Asset>() {
 		{
-			put("garnet",ItemSpriteSheet.RING_GARNET);
-			put("ruby",ItemSpriteSheet.RING_RUBY);
-			put("topaz",ItemSpriteSheet.RING_TOPAZ);
-			put("emerald",ItemSpriteSheet.RING_EMERALD);
-			put("onyx",ItemSpriteSheet.RING_ONYX);
-			put("opal",ItemSpriteSheet.RING_OPAL);
-			put("tourmaline",ItemSpriteSheet.RING_TOURMALINE);
-			put("sapphire",ItemSpriteSheet.RING_SAPPHIRE);
-			put("amethyst",ItemSpriteSheet.RING_AMETHYST);
-			put("quartz",ItemSpriteSheet.RING_QUARTZ);
-			put("agate",ItemSpriteSheet.RING_AGATE);
-			put("diamond",ItemSpriteSheet.RING_DIAMOND);
+			put("garnet",GeneralAsset.RING_GARNET);
+			put("ruby",GeneralAsset.RING_RUBY);
+			put("topaz",GeneralAsset.RING_TOPAZ);
+			put("emerald",GeneralAsset.RING_EMERALD);
+			put("onyx",GeneralAsset.RING_ONYX);
+			put("opal",GeneralAsset.RING_OPAL);
+			put("tourmaline",GeneralAsset.RING_TOURMALINE);
+			put("sapphire",GeneralAsset.RING_SAPPHIRE);
+			put("amethyst",GeneralAsset.RING_AMETHYST);
+			put("quartz",GeneralAsset.RING_QUARTZ);
+			put("agate",GeneralAsset.RING_AGATE);
+			put("diamond",GeneralAsset.RING_DIAMOND);
 		}
 	};
 	
@@ -100,7 +102,7 @@ public class Ring extends KindofMisc {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.RING_HOLDER;
+		if (!isKnown()) image = GeneralAsset.RING_HOLDER;
 		anonymous = true;
 	}
 	

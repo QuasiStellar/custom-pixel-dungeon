@@ -147,7 +147,7 @@ import com.qsr.customspd.scenes.SurfaceScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.QuickSlotButton;
@@ -1179,7 +1179,7 @@ public class Hero extends Char {
 				Game.runOnRenderThread(new Callback() {
 					@Override
 					public void call() {
-						GameScene.show( new WndOptions( new ItemSprite(ItemSpriteSheet.AMULET),
+						GameScene.show( new WndOptions( new ItemSprite(GeneralAsset.AMULET),
 								Messages.get(Amulet.class, "ascent_title"),
 								Messages.get(Amulet.class, "ascent_desc"),
 								Messages.get(Amulet.class, "ascent_yes"),
@@ -1830,7 +1830,7 @@ public class Hero extends Char {
 				PotionOfHealing.cure(this);
 				Buff.prolong(this, AnkhInvulnerability.class, AnkhInvulnerability.DURATION);
 
-				SpellSprite.show(this, GeneralAsset.ANKH);
+				SpellSprite.show(this, GeneralAsset.ANKH_ICON);
 				GameScene.flash(0x80FFFF40);
 				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 				GLog.w(Messages.get(this, "revive"));

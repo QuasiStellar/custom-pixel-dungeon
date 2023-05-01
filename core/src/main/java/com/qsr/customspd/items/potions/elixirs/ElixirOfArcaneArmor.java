@@ -26,12 +26,12 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.potions.exotic.PotionOfEarthenArmor;
 import com.qsr.customspd.items.quest.GooBlob;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ElixirOfArcaneArmor extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_ARCANE;
+		image = GeneralAsset.ELIXIR_ARCANE;
 	}
 	
 	@Override

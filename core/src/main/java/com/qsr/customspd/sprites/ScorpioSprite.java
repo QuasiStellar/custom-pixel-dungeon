@@ -23,6 +23,7 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Callback;
@@ -93,7 +94,7 @@ public class ScorpioSprite extends MobSprite {
 	
 	public class ScorpioShot extends Item {
 		{
-			image = ItemSpriteSheet.FISHING_SPEAR;
+			image = GeneralAsset.FISHING_SPEAR;
 		}
 	}
 }

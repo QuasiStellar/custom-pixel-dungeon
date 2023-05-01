@@ -56,7 +56,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.Window;
@@ -98,7 +98,7 @@ public class v0_6_X_Changes {
 				"Can now be used on armor! Armor can be modified to enhance either defense or evasion, at the cost of the other.\n\n" +
 				"Every shop now stocks a runestone of augmentation and an ankh, instead of one or the other."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH, new Bulk().glowing()), "New Curses",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.ARMOR_CLOTH, new Bulk().glowing()), "New Curses",
 				"Added 4 new curses:\n\n" +
 				"_-_ Friendly curse makes weapons sometimes charm both you and the enemy.\n" +
 				"_-_ Elastic curse lets weapons apply knockback, but reduces damage to 0.\n\n" +
@@ -128,7 +128,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.WARNING );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.STYLUS, null), "Glyph Changes",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.STYLUS, null), "Glyph Changes",
 				"Glyphs were originally designed with the intention that taking no glyph should be a valid option. Now with augmenting armor, glyphs can be more about added bonuses, somewhat like enchantments. Several glyphs have been adjusted:\n\n" +
 				"_-_ Entanglement now only roots if you stand still.\n\n" +
 				"_-_ Potential no longer self-damages and grants charge more consistently.\n\n" +
@@ -167,7 +167,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.POSITIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SWORD, new Lucky().glowing()), "Lucky Enchantment",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.SWORD, new Lucky().glowing()), "Lucky Enchantment",
 				"The Lucky enchant is a nice overall DPS increase, but comes at the cost of consistency. The problem is that with a bit of bad luck it's possible to do 0x damage many times in a row.\n\n" +
 				"Lucky has been adjusted to reign in the extremes of bad luck, and to give a little more strategy to using it.\n\n" +
 				"_-_ Base chance to deal 2x damage reduced to 50% from 60%\n" +
@@ -186,7 +186,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.NEGATIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SHORTSWORD, new Wayward().glowing()), "Wayward curse",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.SHORTSWORD, new Wayward().glowing()), "Wayward curse",
 				"Wayward's accuracy penalty was very extreme, often making it impossible to win fights without doors. Wayward should punish non-guaranteed attacks, but this extent of this has been lessened.\n\n" +
 				"_-_ Reduced wayward accuracy penalty by 50%"));
 		
@@ -196,7 +196,7 @@ public class v0_6_X_Changes {
 				"_-_ Armor is now 2x effective against bone explosion, up from 0.5x\n\n" +
 				"_-_ Loot drop chance reduced to 1/8, from 1/5"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.KIT, null), "Rogue Garb and Huntress Cloak",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.KIT, null), "Rogue Garb and Huntress Cloak",
 				"Eventually I want to totally overhaul class armors. In the meantime though, two of the armors are disproportionately powerful with mind vision, and need to be adjusted:\n\n" +
 				"_-_ Rogue's smoke bomb now has a max range of 8 and does not go through walls\n\n" +
 				"_-_ Huntress's spectral blades now have a max range of 12"));
@@ -240,7 +240,7 @@ public class v0_6_X_Changes {
 				"_-_ Hero select is now a window, offering more flexibility of where games can be started\n" +
 				"_-_ More details are now shown for games in progress before they are loaded"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROSSBOW, null), "New Weapons",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROSSBOW, null), "New Weapons",
 				"Three new weapons have been added!\n" +
 				"\n" +
 				"Throwing spears are a basic tier 3 missile weapon, fishing spears have been reduced to tier 2. Tiers 2-5 now each have a basic missile weapon.\n" +
@@ -253,7 +253,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.WARNING );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.HOLSTER, null), "Inventory changes",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.HOLSTER, null), "Inventory changes",
 				"Since the ranged weapon improvements in 0.6.3, inventory space has become a bit too congested. Rather than make a small change that only helps the issue for a few more updates, I have decided to make a larger-scale adjustment to available inventory space:\n" +
 				"\n" +
 				"_-_ The wand holster is now the magical holster, and can store missile weapons as well as wands.\n" +
@@ -327,7 +327,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"_-_ Enemies killed via chasms now only award 50% exp"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SEED_SUNGRASS, null), "Seed adjustments",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.SEED_SUNGRASS, null), "Seed adjustments",
 				"Sungrass is almost as effective as a potion of healing when used properly, which is extremely strong for a seed. I am increasing the time it takes to heal, so that hunger and combat while waiting can add some cost to the otherwise very powerful healing sungrass provides.\n" +
 				"\n" +
 				"_-_ Sungrass now grants healing significantly more slowly, scaling to ~40% speed at high levels\n" +
@@ -338,7 +338,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"_-_ Earthroot now blocks up to a certain amount of damage, based on depth, rather than 50% damage"));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.POTION_CRIMSON, null), new PotionOfHealing().trueName(),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.POTION_CRIMSON, null), new PotionOfHealing().trueName(),
 				"Heal potion drops have had their RNG bounded in shattered for a long time, but this bound was always fairly lax. This meant that people who wanted to slowly farm for potions could still amass large numbers of them. I have decided to reign this in more harshly.\n" +
 				"\n" +
 				"_-_ Health potion drops now lower in probability more quickly after potions have already been dropped from a given enemy type\n" +
@@ -365,7 +365,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"This update also demonstrates Shattered's ever-increasing scope and update size. Despite reworking a whole category of items, I ended up just calling this a minor update."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.TRIDENT, null), "Ranged Weapons Overhaul!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.TRIDENT, null), "Ranged Weapons Overhaul!",
 				"Ranged weapons have been completely overhauled!\n\n" +
 				"_-_ Quantity of ranged weapons decreased, however most ranged weapons now last for several uses before breaking.\n\n" +
 				"_-_ Ranged weapon effectiveness increased significantly.\n\n" +
@@ -381,14 +381,14 @@ public class v0_6_X_Changes {
 				"_-_ Boomerang str req reduced to 9 from 10\n" +
 				"_-_ Knuckleduster dmg reduced to 1-5 from 1-6"));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.CHILLING_DART, null), "Expanded Alchemy",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.CHILLING_DART, null), "Expanded Alchemy",
 				"It is now possible to use alchemy to tip darts!\n\n" +
 				"_-_ Every seed (except blandfruit) can now be combined with two darts to make two tipped darts.\n\n" +
 				"_-_ Tipped dart effects are similar to their potion/seed counterparts.\n\n" +
 				"_-_ Curare darts are now paralytic darts, and paralyze for 5 turns, up from 3\n\n" +
 				"_-_ Alchemy interface now features a recipes button to show you what you can create."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_TOPAZ, null), Messages.get(RingOfSharpshooting.class, "name"),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_TOPAZ, null), Messages.get(RingOfSharpshooting.class, "name"),
 				"Ring of Sharpshooting overhauled\n\n" +
 				"_-_ No longer grants bonus accuracy\n\n" +
 				"_-_ Now increases ranged weapon durability, instead of giving a chance to not consume them\n\n" +
@@ -444,7 +444,7 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.POSITIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_EMERALD, null), Messages.get(RingOfElements.class, "name"),
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.RING_EMERALD, null), Messages.get(RingOfElements.class, "name"),
 				"Thanks to the increased flexibility of the improved resistance system, buffing the ring of elements is now possible!\n\n" +
 				"_-_ Now reduces the duration and damage of harmful effects significantly more at higher levels.\n\n" +
 				"_-_ Rather than granting a chance to resist elemental/magic damage, ring now grants a set percentage resistance to these effects, which increases each level.\n\n" +
@@ -457,7 +457,7 @@ public class v0_6_X_Changes {
 				"_-_ Increased soul mark chance scaling by 100%\n\n" +
 				"Soul mark chance reaches pre-adjustment levels at a +2 wand, and grows from there."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE, null), "Minor Wand buffs",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.WAND_MAGIC_MISSILE, null), "Minor Wand buffs",
 				"Wand of Corruption:\n" +
 				"_-_ Reduced the corruption resistance of wraiths by ~40%\n" +
 				"_-_ Enemies now drop their loot (including ranged weapons) when corrupted.\n" +
@@ -465,7 +465,7 @@ public class v0_6_X_Changes {
 				"Wand of Corrosion:\n" +
 				"_-_ Corrosion damage growth will continue at 1/2 speed when the damage cap is reached, rather than stopping completely."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.FLAIL, null), "Weapon and Glyph buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.FLAIL, null), "Weapon and Glyph buffs",
 				"Weapons with non-standard accuracy are generally weak, so they have been buffed across the board:\n\n" +
 				"_-_ Flail accuracy penalty reduced by 10%\n" +
 				"_-_ Handaxe accuracy bonus increased by 9.5%\n" +
@@ -486,7 +486,7 @@ public class v0_6_X_Changes {
 				"_-_ Decreased lvls to recover rage to 2 from 3\n" +
 				"_-_ Berserking now reduces max health by 20%"));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_ONYX, null), new RingOfEvasion().trueName(),
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.RING_ONYX, null), new RingOfEvasion().trueName(),
 				"The ring of evasion has always been a very powerful ring, but the recent freerunner rework has increased the power of evasiveness in general, making the ring overbearingly strong.\n\n" +
 				"Evasion synergy has been adjusted:\n" +
 				"_-_ Ring of evasion no longer synergizes as strongly with freerunner or armor of swiftness.\n" +
@@ -558,11 +558,11 @@ public class v0_6_X_Changes {
 				"_-_ Tengu now uses Gripping Traps\n\n" +
 				"_-_ Significantly reduced instances of items appearing ontop of item-destroying traps"));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.LOCKED_CHEST, null), "Chest Adjustments",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.LOCKED_CHEST, null), "Chest Adjustments",
 				"_-_ Crystal chests are now opened by crystal keys.\n\n" +
 				"_-_ Golden chests now sometimes appear in the dungeon, containing more valuable items."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.IRON_KEY, null), "New Key Display",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.IRON_KEY, null), "New Key Display",
 				"The key display has been overhauled!\n\n" +
 				"_-_ Each key type now has its own icon, instead of all special keys being shown as golden.\n\n" +
 				"_-_ Can now display up to 6 keys, up from 3. After 3 keys the key icons will become smaller.\n\n" +
@@ -659,7 +659,7 @@ public class v0_6_X_Changes {
 				"The flail's downsides were too harsh, so one of them has been changed both to make its weaknesses more centralized and to hopefully increase its power.\n\n" +
 				"_-_ Flail no longer attacks at 0.8x speed, instead it has 20% reduced accuracy."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.POTION_GOLDEN, null), "Potion Adjustments",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.POTION_GOLDEN, null), "Potion Adjustments",
 				"Potion of Purification buffed:\n" +
 				"_-_ Drinking effect now lasts for 20 turns, up from 15.\n" +
 				"_-_ Drinking now provides immunity to all area-bound effects, not just gasses.\n\n" +
@@ -675,7 +675,7 @@ public class v0_6_X_Changes {
 				"_-_ Bonus damage from low health reduced significantly when below 50% HP. 2x damage while berserking is unchanged.\n\n" +
 				"_-_ Turns of exhaustion after berserking increased to 60 from 40. Damage reduction from exhaustion stays higher for longer."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.REMAINS, null), "Heroes Remains",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.REMAINS, null), "Heroes Remains",
 				"_-_ Remains can no longer contain progression items, such as potions of strength or scrolls of upgrade.\n\n" +
 				"_-_ All upgradeable items dropped by remains are now capped at +3 (+0 for artifacts)\n\n" +
 				"The intention for remains is so a previously failed run can give a nice surprise and tiny boost to the next one, but these items are both too strong and too easy to abuse.\n\n" +
@@ -699,7 +699,7 @@ public class v0_6_X_Changes {
 				"\n" +
 				"v0.6.1 also overhauled the changes screen, which you're viewing right now! Long text-based changelogs just don't work on mobile screens, as there's much less screen real-estate to work with. I didn't want Shattered's changelog to be a big wall of text, but I also didn't want to abbreviate lots of details. The solution was to keep the full text, but hide it behind categories and icons!"));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.GUIDE_PAGE, null), "Journal Additions",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.GUIDE_PAGE, null), "Journal Additions",
 				"_-_ Overhauled the Journal window with loads of new functionality\n\n" +
 				"_-_ Added a completely overhauled tutorial experience, which replaces the existing signpost system.\n\n" +
 				"_-_ Massively expanded the items catalog, now contains every identifiable item in the game."));
@@ -720,10 +720,10 @@ public class v0_6_X_Changes {
 				"_-_ Tunnels will now appear more consistently.\n\n" +
 				"_-_ Ascending stairs, descending stairs, and mining no longer increase hunger."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_TOPAZ, null), new RingOfEnergy().trueName(),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_TOPAZ, null), new RingOfEnergy().trueName(),
 				"_-_ Added the ring of energy."));
 		
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CHEST, null), "Sprites",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CHEST, null), "Sprites",
 				"New sprites for the following:\n" +
 				"_-_ Chests & Mimics\n" +
 				"_-_ Darts\n" +
@@ -734,26 +734,26 @@ public class v0_6_X_Changes {
 		changes.hardlight( CharSprite.WARNING );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_DIAMOND, null), "Ring Mechanics Changes",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_DIAMOND, null), "Ring Mechanics Changes",
 				"Rings now handle upgrades and curses more similarly to other items:\n\n" +
 				"_-_ Rings are now found at +0, down from +1, but are more powerful to compensate.\n\n" +
 				"_-_ Curses no longer affect ring upgrades, it is now impossible to find negatively upgraded rings.\n\n" +
 				"_-_ Cursed rings are now always harmful regardless of their level, until the curse is cleansed.\n\n" +
 				"_-_ Scrolls of upgrade have a chance to remove curses on a ring, scrolls of remove curse will always remove the curse."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_AMETHYST, null), new RingOfWealth().trueName(),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_AMETHYST, null), new RingOfWealth().trueName(),
 				"The ring of wealth is getting a change in emphasis, moving away from affecting items generally, and instead affecting item drops more strongly.\n\n" +
 				"_-_ No longer grants any benefit to item spawns when levels are generated.\n\n" +
 				"_-_ Now has a chance to generate extra loot when defeating enemies.\n\n" +
 				"I'm planning to make further tweaks to this item in future updates."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.POTION_CRIMSON, null), new PotionOfHealing().trueName(),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.POTION_CRIMSON, null), new PotionOfHealing().trueName(),
 				"Health Potions are getting a changeup to make hoarding and chugging them less effective, and to encourage a bit more strategy than to just drink them on the verge of death.\n\n" +
 				"_-_ Health potions now heal in a burst that fades over time, rather than instantly.\n\n" +
 				"_-_ Health potions now heal more than max HP at low levels, and slightly less than max HP at high levels.\n\n" +
 				"Make sure to read the dew vial changes as well."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.VIAL, null), "Dew Vial",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.VIAL, null), "Dew Vial",
 				"The dew vial (and dew) are having their healing abilities enhanced to improve the availability of healing in the sewers, and to help offset the health potion changes.\n\n" +
 				"_-_ Dew drops now heal 5% of max HP\n\n" +
 				"_-_ Dew vial now always spawns on floor 1\n\n" +
@@ -844,7 +844,7 @@ public class v0_6_X_Changes {
 				"_-_ Charge Speed reduced, primarily at lower levels:\n-20% at +0\n-7.5% at +10\n\n" +
 				"_-_ Upgrade rate adjusted, Food now contributes towards upgrades exactly in line with how much hunger it restores. This means smaller food items will contribute more, larger ones will contribute less. Rations still grant exactly 1 upgrade each."));
 		
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.RING_GARNET, null), new RingOfMight().trueName(),
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_GARNET, null), new RingOfMight().trueName(),
 				"The Ring of Might's strength bonus is already extremely valuable, having it also provide an excellent health boost was simply too much:\n\n" +
 				"_-_ Health granted reduced from +5 per upgrade to +3.5% of max hp per upgrade.\n\n" +
 				"This is a massive reduction to its earlygame health boosting power, however as the player levels up this will improve. By hero level 26 it will be as strong as before this change."));

@@ -27,7 +27,7 @@ import com.qsr.customspd.actors.buffs.Levitation;
 import com.qsr.customspd.actors.buffs.Vertigo;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroSubClass;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Stormvine extends Plant {
 
@@ -50,7 +50,7 @@ public class Stormvine extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_STORMVINE;
+			image = GeneralAsset.SEED_STORMVINE;
 
 			plantClass = Stormvine.class;
 		}

@@ -31,7 +31,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.AlchemyScene;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.RedButton;
 
 public class WndEnergizeItem extends WndInfoItem {
@@ -58,7 +58,7 @@ public class WndEnergizeItem extends WndInfoItem {
 				}
 			};
 			btnEnergize.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnEnergize.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+			btnEnergize.icon(new ItemSprite(GeneralAsset.ENERGY));
 			add( btnEnergize );
 
 			pos = btnEnergize.bottom();
@@ -74,7 +74,7 @@ public class WndEnergizeItem extends WndInfoItem {
 				}
 			};
 			btnEnergize1.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnEnergize1.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+			btnEnergize1.icon(new ItemSprite(GeneralAsset.ENERGY));
 			add( btnEnergize1 );
 			RedButton btnEnergizeAll = new RedButton( Messages.get(this, "energize_all", energyAll ) ) {
 				@Override
@@ -84,7 +84,7 @@ public class WndEnergizeItem extends WndInfoItem {
 				}
 			};
 			btnEnergizeAll.setRect( 0, btnEnergize1.bottom() + 1, width, BTN_HEIGHT );
-			btnEnergizeAll.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+			btnEnergizeAll.icon(new ItemSprite(GeneralAsset.ENERGY));
 			add( btnEnergizeAll );
 
 			pos = btnEnergizeAll.bottom();

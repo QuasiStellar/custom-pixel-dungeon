@@ -26,12 +26,12 @@ import com.qsr.customspd.items.quest.GooBlob;
 import com.qsr.customspd.items.quest.MetalShard;
 import com.qsr.customspd.items.stones.Runestone;
 import com.qsr.customspd.plants.Plant;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class VelvetPouch extends Bag {
 
 	{
-		image = ItemSpriteSheet.POUCH;
+		image = GeneralAsset.POUCH;
 	}
 
 	@Override

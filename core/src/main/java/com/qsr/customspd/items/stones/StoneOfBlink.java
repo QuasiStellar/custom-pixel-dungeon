@@ -26,12 +26,12 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.mechanics.Ballistica;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class StoneOfBlink extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_BLINK;
+		image = GeneralAsset.STONE_BLINK;
 	}
 	
 	private static Ballistica throwPath;

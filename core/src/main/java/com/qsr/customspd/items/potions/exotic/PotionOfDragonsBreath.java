@@ -31,6 +31,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Burning;
 import com.qsr.customspd.actors.buffs.Cripple;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
@@ -40,7 +41,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
@@ -51,7 +51,7 @@ import java.util.ArrayList;
 public class PotionOfDragonsBreath extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_DRGBREATH;
+		icon = GeneralAsset.ITEM_ICON_POTION_DRGBREATH;
 	}
 
 	protected static boolean identifiedByUse = false;

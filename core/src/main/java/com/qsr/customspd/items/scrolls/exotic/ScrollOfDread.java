@@ -28,14 +28,14 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Dread;
 import com.qsr.customspd.actors.buffs.Terror;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfDread extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_DREAD;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_DREAD;
 	}
 	
 	@Override

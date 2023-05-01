@@ -29,7 +29,6 @@ import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.effects.particles.EnergyParticle;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
@@ -37,7 +36,7 @@ import com.watabou.noosa.particles.Emitter;
 public class ScrollOfRecharging extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RECHARGE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_RECHARGE;
 	}
 
 	@Override

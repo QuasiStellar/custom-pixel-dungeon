@@ -31,7 +31,7 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.scenes.InterlevelScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Game;
 
 public class Fadeleaf extends Plant {
@@ -74,7 +74,7 @@ public class Fadeleaf extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_FADELEAF;
+			image = GeneralAsset.SEED_FADELEAF;
 
 			plantClass = Fadeleaf.class;
 		}

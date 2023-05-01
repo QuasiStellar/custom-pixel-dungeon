@@ -28,13 +28,13 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.exotic.PotionOfDragonsBreath;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class ElixirOfDragonsBlood extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_DRAGON;
+		image = GeneralAsset.ELIXIR_DRAGON;
 	}
 	
 	@Override

@@ -27,16 +27,16 @@ import com.qsr.customspd.actors.buffs.Blindness;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Weakness;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfRetribution extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RETRIB;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_RETRIB;
 	}
 	
 	@Override

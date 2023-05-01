@@ -24,7 +24,7 @@ package com.qsr.customspd.items;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.npcs.Shopkeeper;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class MerchantsBeacon extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = ItemSpriteSheet.BEACON;
+		image = GeneralAsset.BEACON;
 
 		stackable = true;
 

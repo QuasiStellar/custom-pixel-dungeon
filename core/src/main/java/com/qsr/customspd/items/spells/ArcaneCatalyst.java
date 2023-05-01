@@ -22,6 +22,7 @@
 package com.qsr.customspd.items.spells;
 
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.scrolls.Scroll;
 import com.qsr.customspd.items.scrolls.ScrollOfIdentify;
@@ -38,7 +39,7 @@ import com.qsr.customspd.items.scrolls.ScrollOfTransmutation;
 import com.qsr.customspd.items.scrolls.exotic.ExoticScroll;
 import com.qsr.customspd.items.stones.Runestone;
 import com.qsr.customspd.plants.Plant;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
@@ -48,7 +49,7 @@ import java.util.HashMap;
 public class ArcaneCatalyst extends Spell {
 	
 	{
-		image = ItemSpriteSheet.SCROLL_CATALYST;
+		image = GeneralAsset.SCROLL_CATALYST;
 	}
 	
 	private static HashMap<Class<? extends Scroll>, Float> scrollChances = new HashMap<>();

@@ -30,6 +30,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.DwarfKing;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.BrokenSeal;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
@@ -38,7 +39,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -180,7 +181,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		if (((Hero)target).belongings.weapon() != null){
 			icon = new ItemSprite(((Hero)target).belongings.weapon().image, null);
 		} else {
-			icon = new ItemSprite(new Item(){ {image = ItemSpriteSheet.WEAPON_HOLDER; }});
+			icon = new ItemSprite(new Item(){ {image = GeneralAsset.WEAPON_HOLDER; }});
 		}
 
 		icon.tint(getHighestMove().tintColor);

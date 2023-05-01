@@ -25,13 +25,13 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class RingOfEnergy extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ENERGY;
+		icon = GeneralAsset.ITEM_ICON_RING_ENERGY;
 	}
 
 	public String statsInfo() {

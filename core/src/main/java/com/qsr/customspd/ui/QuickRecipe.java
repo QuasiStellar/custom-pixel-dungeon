@@ -73,7 +73,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.AlchemyScene;
 import com.qsr.customspd.scenes.PixelScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndInfoItem;
 import com.watabou.noosa.BitmapText;
@@ -264,7 +264,7 @@ public class QuickRecipe extends Component {
 		ArrayList<QuickRecipe> result = new ArrayList<>();
 		switch (pageIdx){
 			case 0: default:
-				result.add(new QuickRecipe( new Potion.SeedToPotion(), new ArrayList<>(Arrays.asList(new Plant.Seed.PlaceHolder().quantity(3))), new WndBag.Placeholder(ItemSpriteSheet.POTION_HOLDER){
+				result.add(new QuickRecipe( new Potion.SeedToPotion(), new ArrayList<>(Arrays.asList(new Plant.Seed.PlaceHolder().quantity(3))), new WndBag.Placeholder(GeneralAsset.POTION_HOLDER){
 					@Override
 					public String name() {
 						return Messages.get(Potion.SeedToPotion.class, "name");

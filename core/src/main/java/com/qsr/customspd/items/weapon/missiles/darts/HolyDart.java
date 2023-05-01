@@ -27,14 +27,14 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Bless;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.effects.particles.ShadowParticle;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 public class HolyDart extends TippedDart {
 
 	{
-		image = ItemSpriteSheet.HOLY_DART;
+		image = GeneralAsset.HOLY_DART;
 	}
 	
 	@Override

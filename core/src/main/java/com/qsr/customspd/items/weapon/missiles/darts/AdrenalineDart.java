@@ -25,12 +25,12 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Adrenaline;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Cripple;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class AdrenalineDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.ADRENALINE_DART;
+		image = GeneralAsset.ADRENALINE_DART;
 	}
 	
 	@Override

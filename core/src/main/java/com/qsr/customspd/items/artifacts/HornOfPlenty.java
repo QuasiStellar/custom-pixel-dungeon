@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
@@ -43,7 +44,7 @@ import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
@@ -55,7 +56,7 @@ public class HornOfPlenty extends Artifact {
 
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_HORN1;
+		image = GeneralAsset.ARTIFACT_HORN1;
 
 		levelCap = 10;
 
@@ -140,11 +141,10 @@ public class HornOfPlenty extends Artifact {
 
 				Badges.validateFoodEaten();
 
-				int oldImage = image;
-				if (charge >= 15)       image = ItemSpriteSheet.ARTIFACT_HORN4;
-				else if (charge >= 10)  image = ItemSpriteSheet.ARTIFACT_HORN3;
-				else if (charge >= 5)   image = ItemSpriteSheet.ARTIFACT_HORN2;
-				else                    image = ItemSpriteSheet.ARTIFACT_HORN1;
+				if (charge >= 15)       image = GeneralAsset.ARTIFACT_HORN4;
+				else if (charge >= 10)  image = GeneralAsset.ARTIFACT_HORN3;
+				else if (charge >= 5)   image = GeneralAsset.ARTIFACT_HORN2;
+				else                    image = GeneralAsset.ARTIFACT_HORN1;
 
 				updateQuickslot();
 			}
@@ -174,11 +174,10 @@ public class HornOfPlenty extends Artifact {
 					partialCharge = 0;
 				}
 
-				int oldImage = image;
-				if (charge >= 15)       image = ItemSpriteSheet.ARTIFACT_HORN4;
-				else if (charge >= 10)  image = ItemSpriteSheet.ARTIFACT_HORN3;
-				else if (charge >= 5)   image = ItemSpriteSheet.ARTIFACT_HORN2;
-				else                    image = ItemSpriteSheet.ARTIFACT_HORN1;
+				if (charge >= 15)       image = GeneralAsset.ARTIFACT_HORN4;
+				else if (charge >= 10)  image = GeneralAsset.ARTIFACT_HORN3;
+				else if (charge >= 5)   image = GeneralAsset.ARTIFACT_HORN2;
+				else                    image = GeneralAsset.ARTIFACT_HORN1;
 
 				updateQuickslot();
 			}
@@ -259,9 +258,9 @@ public class HornOfPlenty extends Artifact {
 
 		storedFoodEnergy = bundle.getInt(STORED);
 		
-		if (charge >= 8)       image = ItemSpriteSheet.ARTIFACT_HORN4;
-		else if (charge >= 5)  image = ItemSpriteSheet.ARTIFACT_HORN3;
-		else if (charge >= 2)   image = ItemSpriteSheet.ARTIFACT_HORN2;
+		if (charge >= 8)       image = GeneralAsset.ARTIFACT_HORN4;
+		else if (charge >= 5)  image = GeneralAsset.ARTIFACT_HORN3;
+		else if (charge >= 2)   image = GeneralAsset.ARTIFACT_HORN2;
 	}
 
 	public class hornRecharge extends ArtifactBuff{
@@ -286,11 +285,10 @@ public class HornOfPlenty extends Artifact {
 					charge++;
 					partialCharge -= 1;
 
-					int oldImage = image;
-					if (charge >= 8)        image = ItemSpriteSheet.ARTIFACT_HORN4;
-					else if (charge >= 5)   image = ItemSpriteSheet.ARTIFACT_HORN3;
-					else if (charge >= 2)   image = ItemSpriteSheet.ARTIFACT_HORN2;
-					else                    image = ItemSpriteSheet.ARTIFACT_HORN1;
+					if (charge >= 8)        image = GeneralAsset.ARTIFACT_HORN4;
+					else if (charge >= 5)   image = GeneralAsset.ARTIFACT_HORN3;
+					else if (charge >= 2)   image = GeneralAsset.ARTIFACT_HORN2;
+					else                    image = GeneralAsset.ARTIFACT_HORN1;
 
 					updateQuickslot();
 

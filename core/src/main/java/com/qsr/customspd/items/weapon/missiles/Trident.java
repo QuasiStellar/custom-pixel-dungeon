@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.weapon.missiles;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Trident extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.TRIDENT;
+		image = GeneralAsset.TRIDENT;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 0.9f;
 		

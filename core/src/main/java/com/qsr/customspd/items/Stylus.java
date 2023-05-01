@@ -30,7 +30,7 @@ import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
@@ -44,7 +44,7 @@ public class Stylus extends Item {
 	private static final String AC_INSCRIBE = "INSCRIBE";
 	
 	{
-		image = ItemSpriteSheet.STYLUS;
+		image = GeneralAsset.STYLUS;
 		
 		stackable = true;
 

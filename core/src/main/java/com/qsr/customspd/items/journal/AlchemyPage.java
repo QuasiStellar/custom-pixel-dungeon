@@ -23,12 +23,12 @@ package com.qsr.customspd.items.journal;
 
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class AlchemyPage extends DocumentPage {
 	
 	{
-		image = ItemSpriteSheet.ALCH_PAGE;
+		image = GeneralAsset.ALCH_PAGE;
 	}
 	
 	@Override

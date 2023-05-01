@@ -21,12 +21,12 @@
 
 package com.qsr.customspd.items.keys;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class CrystalKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.CRYSTAL_KEY;
+		image = GeneralAsset.CRYSTAL_KEY;
 	}
 	
 	public CrystalKey() {

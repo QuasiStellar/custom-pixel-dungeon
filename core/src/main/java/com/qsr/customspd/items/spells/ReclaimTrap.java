@@ -24,6 +24,7 @@ package com.qsr.customspd.items.spells;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.quest.MetalShard;
 import com.qsr.customspd.items.scrolls.ScrollOfMagicMapping;
 import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
@@ -31,7 +32,7 @@ import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 public class ReclaimTrap extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.RECLAIM_TRAP;
+		image = GeneralAsset.RECLAIM_TRAP;
 	}
 	
 	private Class<?extends Trap> storedTrap = null;

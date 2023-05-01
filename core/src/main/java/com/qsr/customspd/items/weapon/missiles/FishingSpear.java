@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.missiles;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.Piranha;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class FishingSpear extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.FISHING_SPEAR;
+		image = GeneralAsset.FISHING_SPEAR;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.1f;
 		

@@ -25,13 +25,13 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Random;
 
 public class ThrowingKnife extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.THROWING_KNIFE;
+		image = GeneralAsset.THROWING_KNIFE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.2f;
 		

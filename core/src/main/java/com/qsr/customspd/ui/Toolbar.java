@@ -40,7 +40,7 @@ import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTerrainTilemap;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndKeyBindings;
@@ -137,7 +137,7 @@ public class Toolbar extends Component {
 							slotIcons[i] = new ItemSprite(item);
 						} else {
 							slotNames[i] = Messages.get(Toolbar.class, "quickslot_assign");
-							slotIcons[i] = new ItemSprite(ItemSpriteSheet.SOMETHING);
+							slotIcons[i] = new ItemSprite(GeneralAsset.SOMETHING);
 						}
 					}
 

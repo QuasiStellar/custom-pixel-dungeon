@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.weapon.missiles;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Javelin extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.JAVELIN;
+		image = GeneralAsset.JAVELIN;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1f;
 		

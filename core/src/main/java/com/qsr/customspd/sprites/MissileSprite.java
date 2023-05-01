@@ -22,6 +22,7 @@
 package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.weapon.SpiritBow;
 import com.qsr.customspd.items.weapon.melee.Crossbow;
@@ -76,7 +77,7 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 	public void reset( PointF from, PointF to, Item item, Callback listener) {
 		revive();
 
-		if (item == null)   view(0, null);
+		if (item == null)   view(GeneralAsset.SOMETHING, null);
 		else                view( item );
 
 		setup( from,

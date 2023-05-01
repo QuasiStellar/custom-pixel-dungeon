@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.mobs.Bee;
 import com.qsr.customspd.effects.Pushing;
 import com.qsr.customspd.effects.Splash;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.utils.PathFinder;
@@ -43,7 +43,7 @@ public class Honeypot extends Item {
 	public static final String AC_SHATTER	= "SHATTER";
 	
 	{
-		image = ItemSpriteSheet.HONEYPOT;
+		image = GeneralAsset.HONEYPOT;
 
 		defaultAction = AC_THROW;
 		usesTargeting = true;
@@ -151,7 +151,7 @@ public class Honeypot extends Item {
 	public static class ShatteredPot extends Item {
 
 		{
-			image = ItemSpriteSheet.SHATTPOT;
+			image = GeneralAsset.SHATTPOT;
 			stackable = true;
 		}
 

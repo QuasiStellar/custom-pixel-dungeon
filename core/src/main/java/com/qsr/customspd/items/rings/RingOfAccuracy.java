@@ -22,13 +22,13 @@
 package com.qsr.customspd.items.rings;
 
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class RingOfAccuracy extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ACCURACY;
+		icon = GeneralAsset.ITEM_ICON_RING_ACCURACY;
 	}
 	
 	public String statsInfo() {

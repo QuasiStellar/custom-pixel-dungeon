@@ -32,7 +32,7 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.particles.Emitter;
@@ -61,7 +61,7 @@ public class Swiftthistle extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_SWIFTTHISTLE;
+			image = GeneralAsset.SEED_SWIFTTHISTLE;
 			
 			plantClass = Swiftthistle.class;
 		}

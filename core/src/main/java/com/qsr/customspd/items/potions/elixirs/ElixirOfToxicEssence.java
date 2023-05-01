@@ -27,12 +27,12 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.particles.PoisonParticle;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.PotionOfToxicGas;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ElixirOfToxicEssence extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_TOXIC;
+		image = GeneralAsset.ELIXIR_TOXIC;
 	}
 	
 	@Override

@@ -30,7 +30,7 @@ import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -62,7 +62,7 @@ public class v2_X_Changes {
 		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Smaller Fixes",
 				"There will also be more miscellaneous changes and bugfixes! Despite all of the fixes I've made in v2.0.0, my list of things to do has actually grown! I'd like to spend a bit of time keeping that list in check."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.PICKAXE), "Blacksmith Quest?",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.PICKAXE), "Blacksmith Quest?",
 				"And no I haven't forgotten about the blacksmith's quest! I will likely do some concepting or internal technical work for it during v2.1.0's development, but the quest rework itself is more likely to be part of v2.2.0."));
 
 	}
@@ -253,7 +253,7 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOPAZ), "Item Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.RING_TOPAZ), "Item Buffs",
 				"I'm making several buffs to various items that could be performing a little better:\n" +
 				"\n" +
 				"_- Pickaxe_ can now benefit from upgrades enchantments and augmentation, if you feel like using it for fun.\n" +
@@ -280,7 +280,7 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.NEGATIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ROUND_SHIELD), "Major Item Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.ROUND_SHIELD), "Major Item Nerfs",
 				"I'm also making several significant nerfs to items with standout winrates this update:\n" +
 				"\n" +
 				"_- Round Shield_ blocking per level reduced to 0-1 from 0-2, base damage increased to 3-12 from 3-10\n" +
@@ -301,7 +301,7 @@ public class v2_X_Changes {
 				"\n" +
 				"_- Ethereal chains_ charge from gaining exp reduced by 40%"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_RUBY), "Smaller Item Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.RING_RUBY), "Smaller Item Nerfs",
 				"There are also some more minor nerfs to items that are just doing a bit too well:\n" +
 				"\n" +
 				"_- Ring of Furor_ attack speed boost per level down to 9.05% from 10.5%\n" +

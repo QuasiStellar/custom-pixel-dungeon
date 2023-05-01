@@ -32,7 +32,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Rotberry extends Plant {
 
@@ -64,7 +64,7 @@ public class Rotberry extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_ROTBERRY;
+			image = GeneralAsset.SEED_ROTBERRY;
 
 			plantClass = Rotberry.class;
 

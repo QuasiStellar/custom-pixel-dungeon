@@ -31,7 +31,7 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
@@ -226,7 +226,7 @@ public class RankingsScene extends PixelScene {
 			int odd = pos % 2;
 			
 			if (rec.win) {
-				shield.copy( new ItemSprite(ItemSpriteSheet.AMULET, null) );
+				shield.copy( new ItemSprite(GeneralAsset.AMULET, null) );
 				position.hardlight( TEXT_WIN[odd] );
 				desc.hardlight( TEXT_WIN[odd] );
 				depth.hardlight( TEXT_WIN[odd] );
@@ -247,7 +247,7 @@ public class RankingsScene extends PixelScene {
 				}
 
 				if (rec.ascending){
-					shield.copy( new ItemSprite(ItemSpriteSheet.AMULET, null) );
+					shield.copy( new ItemSprite(GeneralAsset.AMULET, null) );
 					shield.hardlight(0.4f, 0.4f, 0.7f);
 				}
 
@@ -279,7 +279,7 @@ public class RankingsScene extends PixelScene {
 			
 			super.createChildren();
 			
-			shield = new Image(new ItemSprite( ItemSpriteSheet.TOMB, null ));
+			shield = new Image(new ItemSprite( GeneralAsset.TOMB, null ));
 			add( shield );
 			
 			position = new BitmapText( PixelScene.pixelFont);

@@ -31,7 +31,7 @@ import com.qsr.customspd.actors.buffs.Vulnerable;
 import com.qsr.customspd.actors.buffs.Weakness;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -40,7 +40,7 @@ import com.watabou.utils.Callback;
 public class Mace extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.MACE;
+		image = GeneralAsset.MACE;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1f;
 

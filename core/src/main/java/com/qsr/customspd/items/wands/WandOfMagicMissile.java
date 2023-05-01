@@ -33,7 +33,7 @@ import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
@@ -45,7 +45,7 @@ import kotlin.Pair;
 public class WandOfMagicMissile extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_MAGIC_MISSILE;
+		image = GeneralAsset.WAND_MAGIC_MISSILE;
 	}
 
 	public int min(int lvl){

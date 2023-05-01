@@ -27,13 +27,12 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
 public class PotionOfHaste extends Potion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_HASTE;
+		icon = GeneralAsset.ITEM_ICON_POTION_HASTE;
 	}
 	
 	@Override

@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -39,7 +39,7 @@ import com.watabou.utils.Callback;
 public class Spear extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.SPEAR;
+		image = GeneralAsset.SPEAR;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 0.9f;
 

@@ -37,7 +37,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.InventorySlot;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -171,7 +171,7 @@ public class WndBag extends WndTabbed {
 
 		float titleWidth;
 		if (Dungeon.energy == 0) {
-			ItemSprite gold = new ItemSprite(ItemSpriteSheet.GOLD, null);
+			ItemSprite gold = new ItemSprite(GeneralAsset.GOLD, null);
 			gold.x = width - gold.width();
 			gold.y = (TITLE_HEIGHT - gold.height()) / 2f;
 			PixelScene.align(gold);
@@ -238,11 +238,11 @@ public class WndBag extends WndTabbed {
 		
 		// Equipped items
 		Belongings stuff = Dungeon.hero.belongings;
-		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) );
-		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( ItemSpriteSheet.ARMOR_HOLDER ) );
-		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) );
-		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( ItemSpriteSheet.SOMETHING ) );
-		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( ItemSpriteSheet.RING_HOLDER ) );
+		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( GeneralAsset.WEAPON_HOLDER ) );
+		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( GeneralAsset.ARMOR_HOLDER ) );
+		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( GeneralAsset.ARTIFACT_HOLDER ) );
+		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( GeneralAsset.SOMETHING ) );
+		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( GeneralAsset.RING_HOLDER ) );
 
 		int equipped = 5;
 
@@ -445,7 +445,7 @@ public class WndBag extends WndTabbed {
 	
 	public static class Placeholder extends Item {
 
-		public Placeholder(int image ) {
+		public Placeholder(Asset image ) {
 			this.image = image;
 		}
 

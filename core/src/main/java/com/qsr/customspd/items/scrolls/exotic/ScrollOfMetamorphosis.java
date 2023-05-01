@@ -25,6 +25,7 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.Transmuting;
 import com.qsr.customspd.items.scrolls.InventoryScroll;
@@ -32,7 +33,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.TalentButton;
 import com.qsr.customspd.ui.TalentsPane;
@@ -49,7 +49,7 @@ import java.util.Set;
 public class ScrollOfMetamorphosis extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_METAMORPH;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_METAMORPH;
 	}
 
 	protected static boolean identifiedByUse = false;

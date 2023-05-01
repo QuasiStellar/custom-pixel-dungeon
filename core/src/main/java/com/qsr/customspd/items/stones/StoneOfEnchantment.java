@@ -29,14 +29,14 @@ import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.scrolls.exotic.ScrollOfEnchantment;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 
 public class StoneOfEnchantment extends InventoryStone {
 	
 	{
 		preferredBag = Belongings.Backpack.class;
-		image = ItemSpriteSheet.STONE_ENCHANT;
+		image = GeneralAsset.STONE_ENCHANT;
 
 		unique = true;
 	}

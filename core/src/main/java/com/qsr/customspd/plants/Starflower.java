@@ -30,7 +30,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Starflower extends Plant {
 
@@ -56,7 +56,7 @@ public class Starflower extends Plant {
 	public static class Seed extends Plant.Seed{
 
 		{
-			image = ItemSpriteSheet.SEED_STARFLOWER;
+			image = GeneralAsset.SEED_STARFLOWER;
 
 			plantClass = Starflower.class;
 		}

@@ -22,13 +22,13 @@
 package com.qsr.customspd.items.potions;
 
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class PotionOfExperience extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_EXP;
+		icon = GeneralAsset.ITEM_ICON_POTION_EXP;
 
 		bones = true;
 	}

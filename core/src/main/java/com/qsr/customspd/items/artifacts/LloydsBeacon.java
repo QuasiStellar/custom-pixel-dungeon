@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
@@ -39,7 +40,7 @@ import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.InterlevelScene;
 import com.qsr.customspd.sprites.ItemSprite.Glowing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.Game;
@@ -62,7 +63,7 @@ public class LloydsBeacon extends Artifact {
 	public int returnPos;
 	
 	{
-		image = ItemSpriteSheet.ARTIFACT_BEACON;
+		image = GeneralAsset.ARTIFACT_BEACON;
 
 		levelCap = 3;
 

@@ -27,7 +27,7 @@ import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.mechanics.ShadowCaster;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
@@ -41,7 +41,7 @@ public class StoneOfDisarming extends Runestone {
 	private static final int DIST = 8;
 	
 	{
-		image = ItemSpriteSheet.STONE_DISARM;
+		image = GeneralAsset.STONE_DISARM;
 
 		//so traps do not activate before the effect
 		pressesCell = false;

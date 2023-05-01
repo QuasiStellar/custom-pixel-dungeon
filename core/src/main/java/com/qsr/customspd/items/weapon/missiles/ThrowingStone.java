@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.weapon.missiles;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ThrowingStone extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.THROWING_STONE;
+		image = GeneralAsset.THROWING_STONE;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.1f;
 		

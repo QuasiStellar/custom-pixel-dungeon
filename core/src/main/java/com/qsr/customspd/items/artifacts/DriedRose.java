@@ -40,6 +40,7 @@ import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.Wraith;
 import com.qsr.customspd.actors.mobs.npcs.DirectableAlly;
 import com.qsr.customspd.actors.mobs.npcs.Ghost;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ShaftParticle;
@@ -60,7 +61,7 @@ import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.GhostSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BossHealthBar;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
@@ -82,7 +83,7 @@ import java.util.ArrayList;
 public class DriedRose extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ROSE1;
+		image = GeneralAsset.ARTIFACT_ROSE1;
 
 		levelCap = 10;
 
@@ -317,9 +318,9 @@ public class DriedRose extends Artifact {
 	@Override
 	public Item upgrade() {
 		if (level() >= 9)
-			image = ItemSpriteSheet.ARTIFACT_ROSE3;
+			image = GeneralAsset.ARTIFACT_ROSE3;
 		else if (level() >= 4)
-			image = ItemSpriteSheet.ARTIFACT_ROSE2;
+			image = GeneralAsset.ARTIFACT_ROSE2;
 
 		//For upgrade transferring via well of transmutation
 		droppedPetals = Math.max( level(), droppedPetals );
@@ -476,7 +477,7 @@ public class DriedRose extends Artifact {
 			stackable = true;
 			dropsDownHeap = true;
 			
-			image = ItemSpriteSheet.PETAL;
+			image = GeneralAsset.PETAL;
 		}
 
 		@Override
@@ -885,7 +886,7 @@ public class DriedRose extends Artifact {
 				@Override
 				protected void onClick() {
 					if (rose.weapon != null){
-						item(new WndBag.Placeholder(ItemSpriteSheet.WEAPON_HOLDER));
+						item(new WndBag.Placeholder(GeneralAsset.WEAPON_HOLDER));
 						if (!rose.weapon.doPickUp(Dungeon.hero)){
 							Dungeon.level.drop( rose.weapon, Dungeon.hero.pos);
 						}
@@ -943,7 +944,7 @@ public class DriedRose extends Artifact {
 			if (rose.weapon != null) {
 				btnWeapon.item(rose.weapon);
 			} else {
-				btnWeapon.item(new WndBag.Placeholder(ItemSpriteSheet.WEAPON_HOLDER));
+				btnWeapon.item(new WndBag.Placeholder(GeneralAsset.WEAPON_HOLDER));
 			}
 			add( btnWeapon );
 			
@@ -951,7 +952,7 @@ public class DriedRose extends Artifact {
 				@Override
 				protected void onClick() {
 					if (rose.armor != null){
-						item(new WndBag.Placeholder(ItemSpriteSheet.ARMOR_HOLDER));
+						item(new WndBag.Placeholder(GeneralAsset.ARMOR_HOLDER));
 						if (!rose.armor.doPickUp(Dungeon.hero)){
 							Dungeon.level.drop( rose.armor, Dungeon.hero.pos);
 						}
@@ -1009,7 +1010,7 @@ public class DriedRose extends Artifact {
 			if (rose.armor != null) {
 				btnArmor.item(rose.armor);
 			} else {
-				btnArmor.item(new WndBag.Placeholder(ItemSpriteSheet.ARMOR_HOLDER));
+				btnArmor.item(new WndBag.Placeholder(GeneralAsset.ARMOR_HOLDER));
 			}
 			add( btnArmor );
 			

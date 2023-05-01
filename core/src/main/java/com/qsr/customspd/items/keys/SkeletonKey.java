@@ -21,12 +21,12 @@
 
 package com.qsr.customspd.items.keys;
 
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class SkeletonKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.SKELETON_KEY;
+		image = GeneralAsset.SKELETON_KEY;
 	}
 	
 	public SkeletonKey() {

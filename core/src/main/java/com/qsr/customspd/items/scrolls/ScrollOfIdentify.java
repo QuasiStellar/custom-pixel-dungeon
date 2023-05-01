@@ -22,16 +22,16 @@
 package com.qsr.customspd.items.scrolls;
 
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Identification;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 
 public class ScrollOfIdentify extends InventoryScroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_IDENTIFY;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_IDENTIFY;
 
 		bones = true;
 	}

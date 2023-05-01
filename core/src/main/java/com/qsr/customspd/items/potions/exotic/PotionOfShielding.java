@@ -27,13 +27,13 @@ import com.qsr.customspd.actors.buffs.Barrier;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.potions.PotionOfHealing;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class PotionOfShielding extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_SHIELDING;
+		icon = GeneralAsset.ITEM_ICON_POTION_SHIELDING;
 	}
 	
 	@Override

@@ -35,7 +35,7 @@ import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.levels.rooms.special.MagicalFireRoom;
 import com.qsr.customspd.mechanics.Ballistica;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
@@ -44,7 +44,7 @@ import com.watabou.utils.Random;
 public class WandOfFrost extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_FROST;
+		image = GeneralAsset.WAND_FROST;
 	}
 
 	public int min(int lvl){

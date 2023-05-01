@@ -30,14 +30,14 @@ import com.qsr.customspd.actors.buffs.Slow;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Random;
 
 public class MysteryMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.MEAT;
+		image = GeneralAsset.MEAT;
 		energy = Hunger.HUNGRY/2f;
 	}
 	
@@ -75,7 +75,7 @@ public class MysteryMeat extends Food {
 	public static class PlaceHolder extends MysteryMeat {
 		
 		{
-			image = ItemSpriteSheet.FOOD_HOLDER;
+			image = GeneralAsset.FOOD_HOLDER;
 		}
 		
 		@Override

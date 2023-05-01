@@ -33,7 +33,7 @@ import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.HeroSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndChooseAbility;
 import com.watabou.noosa.audio.Sample;
@@ -45,7 +45,7 @@ public class KingsCrown extends Item {
 	private static final String AC_WEAR = "WEAR";
 	
 	{
-		image = ItemSpriteSheet.CROWN;
+		image = GeneralAsset.CROWN;
 
 		defaultAction = AC_WEAR;
 

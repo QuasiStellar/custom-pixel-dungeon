@@ -23,6 +23,7 @@ package com.qsr.customspd.items.scrolls;
 
 import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.Transmuting;
 import com.qsr.customspd.items.EquipableItem;
@@ -49,7 +50,6 @@ import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.journal.Catalog;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
@@ -57,7 +57,7 @@ import com.watabou.utils.Reflection;
 public class ScrollOfTransmutation extends InventoryScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_TRANSMUTE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_TRANSMUTE;
 		
 		bones = true;
 	}

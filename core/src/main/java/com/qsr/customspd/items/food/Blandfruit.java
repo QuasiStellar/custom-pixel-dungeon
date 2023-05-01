@@ -44,7 +44,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant.Seed;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndUseItem;
 import com.watabou.utils.Bundle;
@@ -59,7 +59,7 @@ public class Blandfruit extends Food {
 
 	{
 		stackable = true;
-		image = ItemSpriteSheet.BLANDFRUIT;
+		image = GeneralAsset.BLANDFRUIT;
 
 		//only applies when blandfruit is cooked
 		energy = Hunger.STARVING;
@@ -167,7 +167,7 @@ public class Blandfruit extends Food {
 		potionAttrib = potion;
 		potionAttrib.anonymize();
 
-		potionAttrib.image = ItemSpriteSheet.BLANDFRUIT;
+		potionAttrib.image = GeneralAsset.BLANDFRUIT;
 
 		if (potionAttrib instanceof PotionOfHealing)        potionGlow = new ItemSprite.Glowing( 0x2EE62E );
 		if (potionAttrib instanceof PotionOfStrength)       potionGlow = new ItemSprite.Glowing( 0xCC0022 );
@@ -297,7 +297,7 @@ public class Blandfruit extends Food {
 
 		{
 			stackable = true;
-			image = ItemSpriteSheet.BLAND_CHUNKS;
+			image = GeneralAsset.BLAND_CHUNKS;
 
 			energy = Hunger.STARVING;
 

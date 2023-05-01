@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 import java.util.Calendar;
 
@@ -83,13 +83,13 @@ public class Pasty extends Food {
 		super.reset();
 		switch(holiday){
 			case NONE:
-				image = ItemSpriteSheet.PASTY;
+				image = GeneralAsset.PASTY;
 				break;
 			case HWEEN:
-				image = ItemSpriteSheet.PUMPKIN_PIE;
+				image = GeneralAsset.PUMPKIN_PIE;
 				break;
 			case XMAS:
-				image = ItemSpriteSheet.CANDY_CANE;
+				image = GeneralAsset.CANDY_CANE;
 				break;
 		}
 	}

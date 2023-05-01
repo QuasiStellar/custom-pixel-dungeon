@@ -21,14 +21,14 @@
 
 package com.qsr.customspd.items.quest;
 
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class Embers extends Item {
 
 	{
-		image = ItemSpriteSheet.EMBER;
+		image = GeneralAsset.EMBER;
 
 		unique = true;
 	}

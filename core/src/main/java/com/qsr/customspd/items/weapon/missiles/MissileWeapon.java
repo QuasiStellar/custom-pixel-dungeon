@@ -32,6 +32,7 @@ import com.qsr.customspd.actors.buffs.RevealedArea;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.bags.MagicalHolster;
@@ -41,7 +42,7 @@ import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.items.weapon.enchantments.Projecting;
 import com.qsr.customspd.items.weapon.missiles.darts.Dart;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -487,7 +488,7 @@ abstract public class MissileWeapon extends Weapon {
 	public static class PlaceHolder extends MissileWeapon {
 
 		{
-			image = ItemSpriteSheet.MISSILE_HOLDER;
+			image = GeneralAsset.MISSILE_HOLDER;
 		}
 
 		@Override

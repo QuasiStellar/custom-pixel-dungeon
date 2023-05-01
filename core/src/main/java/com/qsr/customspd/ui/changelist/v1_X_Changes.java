@@ -42,7 +42,7 @@ import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ElementalSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.SpectralNecromancerSprite;
 import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -77,11 +77,11 @@ public class v1_X_Changes {
 				"\n" +
 				"Dev commentary will be added here in the future."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.GUIDE_PAGE), "Lore Additions",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.GUIDE_PAGE), "Lore Additions",
 				"_30 pages of lore text have been added to the game, scattered around the regions of the dungeon!_\n\n" +
 				"These pages are found through the dungeon and go into a new tab in the journal window. Each region contains 6 pages that make up a short story that gives more details about that region and the people who have been there before the player."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_TOURMALINE), new RingOfArcana().trueName(),
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.RING_TOURMALINE), new RingOfArcana().trueName(),
 				"_A new ring has been added that enhances enchantments and glyphs!_\n\n" +
 				"The Ring of Arcana lets the player directly power up their enchantments and glyphs, instead of only being able to power them up by upgrading the item they are attached to. This can lead to be some really potent enchant/glyph effects at high ring levels."));
 
@@ -97,7 +97,7 @@ public class v1_X_Changes {
 				"_- Endless Rage_ Now grants bonuses to berserk duration and cooldown when above 100% rage.\n" +
 				"_- Berserking Stamina_ has been replaced with _Deathless Fury_, which lets berserking automatically trigger just like before, but at a high cooldown cost."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MASTERY), "Tutorial Additions",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.MASTERY), "Tutorial Additions",
 				"_A short guided tutorial has been added at the start of the game for new players._\n\n" +
 				"This tutorial guides the player through their first few actions, and encourages reading the game log and guidebook.\n\n" +
 				"As part of this tutorial change, initial story texts and the guidebook have been slightly adjusted, and there is a new pop-up for controller players that explains how to use the in-game cursor."));
@@ -112,7 +112,7 @@ public class v1_X_Changes {
 				"_- Excess Charge_ now triggers when the Mage's staff is zapped at full charge, instead of on-hit, but the barrier effect is a bit stronger. This should encourage a mix of staff melee and zapping, instead of just pure melee at full charge.\n\n" +
 				"_- Bounty Hunter_ now increases enemy drop chance, instead of providing gold. This should make it more varied and interesting. The bonus also gets notably higher at high preparation charge, instead of scaling linearly."));
 
-		changes.addButton(new ChangeButton( new ItemSprite(ItemSpriteSheet.LONGSWORD, new ItemSprite.Glowing(0x0000FF)), "Blocking Enchant Redesign",
+		changes.addButton(new ChangeButton( new ItemSprite(GeneralAsset.LONGSWORD, new ItemSprite.Glowing(0x0000FF)), "Blocking Enchant Redesign",
 				"Blocking has been slightly redesigned to provide a more visible benefit. Instead of always granting a little armor, the enchantment now has a chance to grant a larger shield.\n\n" +
 				"I don't expect that this will make the enchantment significantly stronger or weaker, but it should feel more impactful."));
 
@@ -261,7 +261,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.RING_AMETHYST), new RingOfWealth().trueName(),
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.RING_AMETHYST), new RingOfWealth().trueName(),
 				"I'm making a few improvements to the ring of wealth, mainly to make it more worth upgrading:\n\n" +
 				"_-_ Now gives a rare drop every 0-20 kills, up from every 0-25\n" +
 				"_-_ Now gives an equipment drop every 5-10 rare drops, down from every 4-8\n" +
@@ -276,7 +276,7 @@ public class v1_X_Changes {
 				"I'm enhancing the value of telekinetic grab a bit for users with multiple thrown weapons:\n\n" +
 				"_-_ Now grabs all items at a location or stuck to an enemy, not just the first one."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.SHORTSWORD, new ItemSprite.Glowing( 0x000000 )), "Annoying Curse",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.SHORTSWORD, new ItemSprite.Glowing( 0x000000 )), "Annoying Curse",
 				"A very critical buff has been given to the annoying curse:\n\n" +
 				"_-_ Added 5 new regular dialogue lines, for 10 total\n" +
 				"_-_ Added 3 additional new lines that trigger rarely"));
@@ -285,7 +285,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.NEGATIVE);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.EXOTIC_GYFU), new ScrollOfAntiMagic().trueName(),
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.EXOTIC_GYFU), new ScrollOfAntiMagic().trueName(),
 				"Antimagic now also suppresses the positive effects of rings and artifacts while it is applied to the hero." ));
 
 	}
@@ -325,7 +325,7 @@ public class v1_X_Changes {
 				"The score system now factors in a bunch of new criteria like exploration, performance during boss fights, quest completions, and enabled challenges. This should make score a much better measure of player performance.\n\n" +
 				"A score breakdown page has also been added to the rankings screen. This page even works for old games, and retroactively applies the challenge bonus!"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.AMULET), "Harder Ascension Route!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.AMULET), "Harder Ascension Route!",
 				"_A bunch of adjustments have been made to the ascension route to make it a proper challenge!_\n\n" +
 				"Enemies will get much stronger as you ascend, and it's impossible to teleport back up or flee and avoid all combat. Expect to have to work a little bit more for an ascension win!"));
 
@@ -344,7 +344,7 @@ public class v1_X_Changes {
 				"_-_ Four new 'cause of death' badges have also been added, which should be a little trickier than the existing ones.\n\n" +
 				"Several of these badges are on the harder end, in particular the final high score and boss challenge badge should be a real challenge, even for veteran players."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SHORTSWORD, new ItemSprite.Glowing(0x000000)), "Curse Redesigns",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.SHORTSWORD, new ItemSprite.Glowing(0x000000)), "Curse Redesigns",
 				"_Three of the most annoying curses have been replaced or redesigned, and two more have been adjusted._\n\n" +
 				"_- Fragile_ has been replaced by _explosive,_ which builds power and then explodes!\n" +
 				"_- Wayward_ has been redesigned to sometimes apply an accuracy reducing debuff, instead of always reducing accuracy.\n" +
@@ -355,7 +355,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.EXOTIC_ODAL), Messages.get(ScrollOfMetamorphosis.class, "name"),
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.EXOTIC_ODAL), Messages.get(ScrollOfMetamorphosis.class, "name"),
 				"The scroll of metamorphosis has been adjusted to allow more of the game's talents to work with its effect.\n\n" +
 				"Several talents that were previously exempt from being chosen by the scroll now have alternative effects that let them be used by any hero.\n\n" +
 				"These alternative effects only appear when getting these talents via metamorphosis."));
@@ -413,7 +413,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN), "Armor Ability Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN), "Armor Ability Buffs",
 				"_- Endure_ damage bonus increased to 1/2 of damage taken from 1/3\n\n" +
 				"_- Wild Magic_ base wand boost and max boost increased by 1\n" +
 				"_- Fire Everything_ now has a 25% chance per point to let a wand be usable 3 times\n" +
@@ -431,10 +431,10 @@ public class v1_X_Changes {
 				"Only one isolated talent change in this update:\n\n" +
 				"_- Wand Preservation_ chance to preserve at +1 reverted to 67% from 50%, still grants 1 arcane resin if it fails to preserve"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CRYSTAL_KEY), "Crystal Path Rooms",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CRYSTAL_KEY), "Crystal Path Rooms",
 				"Loot from crystal path rooms (the rooms with a sequence of 3 crystal doors) has been buffed to make their value closer to other crystal key rooms."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CLEANSING_DART), "Alchemy Item Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CLEANSING_DART), "Alchemy Item Buffs",
 				"I'm giving woolly bomb's a big buff to help make them more distinct from other sheep-spawning items:\n\n" +
 				"_- Woolly Bombs_ now summon sheep for 200 turns, or 20 turns during boss fights, up from 12-16 turns. However, sheep no longer totally prevent bosses from summoning minions.\n\n" +
 				"I've given some alternative functions to three darts that would previously only help allies:\n\n" +
@@ -446,7 +446,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.NEGATIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN), "Armor Ability Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN), "Armor Ability Nerfs",
 				"Along with several armor ability buffs, two have received energy cost nerfs, mainly to reduce the uptime of positioning/escape abilities. Some compensation buffs have been given for the energy cost change as well:\n\n" +
 				"_- Heroic Leap_ energy cost up to 35 from 25\n" +
 				"_- Body Slam_ now adds 1-4 base damage per point in talent\n" +
@@ -455,7 +455,7 @@ public class v1_X_Changes {
 				"_- Smoke Bomb_ energy cost up to 50 from 35\n" +
 				"_- Smoke Bomb_ max range up to 10 from 6"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ARMOR_LEATHER, new ItemSprite.Glowing(0x000000)), "Curse Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.ARMOR_LEATHER, new ItemSprite.Glowing(0x000000)), "Curse Nerfs",
 				"Two of the most harsh curses have been nerfed (i.e. made better for the player):\n\n" +
 				"_- Anti-Entropy_ now spreads less fire to the player, and freezes all adjacent tiles instead of just the enemy.\n\n" +
 				"_- Sacrifice_ now more heavily scales on current HP, bleeding for a bit more at high health, and very little at medium to low health."));
@@ -500,7 +500,7 @@ public class v1_X_Changes {
 				"Three of these rooms include new terrain hazards, which will require the right tools to get past.\n\n" +
 				"The final new room is the sacrificial room from the original Pixel Dungeon! It returns with a few tweaks to its mechanics and loot (sorry, no scroll of wipe out)."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND), "Armband Rework!",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.ARTIFACT_ARMBAND), "Armband Rework!",
 				"_The Master Thieves' Armband has been reworked!_\n\n" +
 				"This rework focuses on giving the armband usefulness outside of shops. You can now use it to steal from enemies as well as shopkeepers, and it gains charge as you gain exp, instead of when you collect gold."));
 
@@ -581,7 +581,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.FIRE_BOMB), "Recipe Cost Reductions",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.FIRE_BOMB), "Recipe Cost Reductions",
 				"I've made a bunch of cost adjustments to alchemy recipes to help counteract energy becoming more expensive after v1.1.0:\n\n" +
 				"_- Bomb Recipe_ energy costs down across the board\n\n" +
 				"_- Infernal, Blizzard, and Caustic Brew_ energy costs down by 1\n\n" +
@@ -592,7 +592,7 @@ public class v1_X_Changes {
 				"_- Summon Elemental_ energy cost down to 6 from 8\n" +
 				"_- Alchemize_ energy cost down to 2 from 3"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.AQUA_BLAST), "Alchemy Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.AQUA_BLAST), "Alchemy Buffs",
 				"Several recipes have also been buffed, in addition to the cost reductions:\n\n" +
 				"_- Scroll of Foresight_ duration up to 400 from 250\n" +
 				"_- Scroll of Dread_ now grants 1/2 exp for defeated enemies\n" +
@@ -608,7 +608,7 @@ public class v1_X_Changes {
 				"_- Curse Infusion_ now boosts highly levelled gear by more than +1, quantity up to 4 from 3.\n" +
 				"_- Recycle_ quantity up to 12 from 8, cost up to 8 from 6"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.ROT_DART), "Dart Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.ROT_DART), "Dart Buffs",
 				"While they don't tie into v1.1.0's energy changes in particular, I am also handing out several buffs to tipped darts:\n\n" +
 				"_- Rot Dart_ uses increased to 5 from 1\n" +
 				"_- Adrenaline Dart_ duration up to 30 from 10\n" +
@@ -631,7 +631,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.NEGATIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.MAGIC_INFUSE), "Alchemy Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.MAGIC_INFUSE), "Alchemy Nerfs",
 				"v1.2.0 is mostly about alchemy buffs, but a few alchemy items have had their power reduced as well:\n\n" +
 				"_- Magical Infusion_ energy cost up to 4 from 3\n" +
 				"_- Holy Bomb_ bonus damage reduced to 50% from 67%\n" +
@@ -670,14 +670,14 @@ public class v1_X_Changes {
 				"_-_ 115 days after Shattered v1.0.0\n\n" +
 				"Dev commentary will be added here in the future."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ENERGY), "Alchemical Energy Overhaul",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.ENERGY), "Alchemical Energy Overhaul",
 				"_The role of Alchemical Energy in the alchemy system has been totally overhauled!_\n\n" +
 				"Energy is now a resource that the player carries with themselves, like gold. The game also generates much less energy for free, but more can be created by scrapping consumable items.\n\n" +
 				"Many recipes have been adjusted to compensate for this. Exotic potions and scrolls now require energy instead of seeds/stones, and several of them have been buffed or totally redesigned (see buffs and changes sections for more details).\n\n" +
 				"Other recipes have received relatively minor changes for now (mostly energy cost tweaks), but I'll likely be giving them more attention soon in future updates.\n\n" +
 				"This repositions energy as the primary driving force for alchemy, and should make the system both more flexible and better at recycling consumables the player doesn't want into ones that they do."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.SUMMON_ELE), "New and Reworked Spells",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.SUMMON_ELE), "New and Reworked Spells",
 				"While this update mostly focused changes on exotic potions and scrolls, there are _two new spells, and one totally redesigned spell:_\n\n" +
 				"_Summon Elemental_ requires fresh embers and an arcane catalyst. It can be used to summon a friendly elemental to fight for you, and can even be powered up with other items!\n\n" +
 				"_Telekinetic Grab_ requires some liquid metal and an arcane catalyst. It can be used to grab items remotely, even thrown items that are stuck to an enemy!\n\n" +
@@ -694,7 +694,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.EXOTIC_ISAZ), "Exotic Reworks",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.EXOTIC_ISAZ), "Exotic Reworks",
 				"Several exotic potions and scrolls have been redesigned to be more powerful and worth using:\n\n" +
 				"_- Potion of Holy Furor_ is now _Potion of Divine Inspiration_, which gives bonus talent points.\n" +
 				"_- Potion of Adrenaline Surge_ is now _Potion of Mastery_, which reduces the strength requirement of one item by 2.\n\n" +
@@ -779,7 +779,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.EXOTIC_AMBER), "Exotic Buffs",
+		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.EXOTIC_AMBER), "Exotic Buffs",
 				"Some exotic potions and scrolls have received more minor buffs, and not total redesigns:\n\n" +
 				"_- Potions of Storm Clouds, Shrouding Fog, and Corrosion_ initial gas AOE up to 3x3 from 1x1\n" +
 				"_- Potion of Shrouding Fog_ now only blocks enemy vision\n" +
@@ -789,7 +789,7 @@ public class v1_X_Changes {
 				"_- Scroll of Foresight_ now increases detection range to 8 (from 2), but lasts 250 turns (from 600)\n" +
 				"_- Scroll of Prismatic Image_ hp +2 and damage +20%"));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ARTIFACT_TOOLKIT), "Artifact Buffs",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.ARTIFACT_TOOLKIT), "Artifact Buffs",
 				"The _Alchemist's Toolkit_ has received some minor changes to go along with the energy system adjustments:\n" +
 				"_-_ Toolkit indirectly buffed by energy now being more valuable\n" +
 				"_-_ Energy required to level up toolkit halved, kit can now be levelled anywhere\n" +
@@ -805,7 +805,7 @@ public class v1_X_Changes {
 				"The berserker is getting a small QOL buff to make it easier to hold onto rage in combat:\n\n" +
 				"_-_ Rage now starts expiring after not taking damage for 2 turns, instead of immediately."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN, null), "Talent and Ability Buffs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN, null), "Talent and Ability Buffs",
 				"Talent and ability balance is becoming more stable now, but I've still got a few buffs to hand out, some are quite significant:\n\n" +
 				"_- Wild Magic_ Charge cost reduced to 25, from 35.\n" +
 				"_- Spirit Hawk_ Duration up to 100 turns, from 60.\n\n" +
@@ -862,7 +862,7 @@ public class v1_X_Changes {
 				"The new music is composed by Kristjan Harristo, check the about scene for more details on them. Currently we have only replaced the existing tracks, but we are working on tracks for each of the dungeons regions as well!\n\n" +
 				"The new in-game track in particular is also an experiment in variable music looping. The track has an intro and a main segment and can play the main segment once or twice before looping back to the intro. This makes the track notably less repetative, and we intend to use similar techniques in other tracks."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.LIQUID_METAL), "new alchemy recipes!",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.LIQUID_METAL), "new alchemy recipes!",
 				"Two new alchemy recipes have been added! They're focused on helping you recycle thrown weapons and wands that you don't want to use.\n\n" +
 				"_Liquid metal_ lets you sacrifice thrown weapons to repair other ones.\n\n" +
 				"_Arcane resin_ lets you sacrifice a wand to upgrade other low level wands.\n\n" +
@@ -874,7 +874,7 @@ public class v1_X_Changes {
 				"_Gateway traps_ are a special teleportation trap which never expire, and always teleport to the same location.\n\n" +
 				"All teleportation traps now also affect characters and items next to them."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.MASTERY), "new player experience improvements",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.MASTERY), "new player experience improvements",
 				"_The adventurer's guidebook is now the Tome of Dungeon Mastery!_\n\n" +
 				"This is partly as a reference to the tome of mastery, which I removed in the previous update, and partly because the game's tutorial functionality has been improved.\n\n" +
 				"Guidebook pages are now a bit shorter and more plentiful, and some of them are now given to the player right at the start of the game. These automatic pages are suggested to the player to read at crucial moments. This way the guidebook does a better job of highlighting info right when it's needed."));
@@ -883,7 +883,7 @@ public class v1_X_Changes {
 				"A new rare variant has been added for necromancers: _Spectral Necromancers!_\n\n" +
 				"These necromancers don't care for skeletons, and prefer to summon a bunch of wraiths instead! Dealing with their horde might be tricky, but you'll be rewarded with a scroll of remove curse."));
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.ANKH), "new ankh mechanics",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.ANKH), "new ankh mechanics",
 				"_Regular Ankhs_ have been totally redesigned, and now give the player a chance to save all of their equipment! Be careful though, you'll have to fight your way back to your lost gear.\n\n" +
 				"_Blessed Ankhs_ have received comparatively minor changes. In addition to the resurrection effect, these ankhs now also give the player 3 turns of invulnerability. This should help give players a moment to heal up after being revived."));
 
@@ -891,7 +891,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new ItemSprite(ItemSpriteSheet.STONE_FEAR), "runestones",
+		changes.addButton(new ChangeButton(new ItemSprite(GeneralAsset.STONE_FEAR), "runestones",
 				"All Scrolls now produce 2 runestones, instead of some scrolls producing 3. The stones that used to be given in higher quantities have received buffs in compensation:\n\n" +
 				"_- Stone of Intuition_ can now be used a second time if the guess was correct.\n" +
 				"_- Stone of Flock_ AOE up to 5x5 from 3x3, sheep duration increased slightly.\n" +
@@ -959,7 +959,7 @@ public class v1_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN, null), "Armor Ability Buffs pt.1",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN, null), "Armor Ability Buffs pt.1",
 				"Based on balance data and feedback, I'm making a bunch of buffs and adjustments to armor abilities and their related talents!\n\n" +
 				"_- Endure_ bonus damage conversion rate up to 1/3 from 1/4.\n\n" +
 				"_- Striking Wave_ effectiveness increased by 20%.\n" +
@@ -971,7 +971,7 @@ public class v1_X_Changes {
 				"_- Elemental Power_ now boosts power by 20% per level, up from 15%.\n\n" +
 				"_- Remote Beacon_ range per level increased to 4, from 3."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN, null), "Armor Ability Buffs pt.2",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN, null), "Armor Ability Buffs pt.2",
 				"_- Shadow Clone_ now follows the hero at 2x speed.\n" +
 				"_- Shadow Blade_ damage per level increased to 7.5% from 6.25%.\n" +
 				"_- Cloned Armor_ armor per level increased to 15% from 12.5%.\n\n" +
@@ -993,7 +993,7 @@ public class v1_X_Changes {
 				"The Mage continues to do too well in the early game since the talent changes in v0.9.1. Rather than weakening his talents and other magical abilities more, I've decided to make him more reliant on them instead by reducing his melee damage.\n\n" +
 				"_- Mage's Staff_ base damage reduced to 1-7 from 1-8."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.CROWN, null), "Armor Ability Nerfs",
+		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.CROWN, null), "Armor Ability Nerfs",
 				"I focused mostly on buffs this update, but a few abilities and talents do need to be scaled back a little:\n\n" +
 				"_- Double Jump_ charge cost reduction down to 20/36/50/60%, from 24/42/56/67%.\n\n" +
 				"_- Telefrag_ self damage increased to a flat 5 per level.\n\n" +

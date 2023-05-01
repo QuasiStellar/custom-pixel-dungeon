@@ -23,6 +23,7 @@ package com.qsr.customspd.items.spells;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.items.EquipableItem;
@@ -37,13 +38,13 @@ import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class CurseInfusion extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.CURSE_INFUSE;
+		image = GeneralAsset.CURSE_INFUSE;
 	}
 
 	@Override

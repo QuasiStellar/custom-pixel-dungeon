@@ -31,7 +31,7 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.EarthParticle;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Camera;
 import com.watabou.utils.Bundle;
@@ -64,7 +64,7 @@ public class Earthroot extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_EARTHROOT;
+			image = GeneralAsset.SEED_EARTHROOT;
 
 			plantClass = Earthroot.class;
 

@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.missiles.darts;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Paralysis;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ParalyticDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.PARALYTIC_DART;
+		image = GeneralAsset.PARALYTIC_DART;
 	}
 	
 	@Override

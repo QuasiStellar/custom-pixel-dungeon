@@ -28,7 +28,7 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.items.artifacts.TalismanOfForesight;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.utils.PathFinder;
 
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class DisplacingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.DISPLACING_DART;
+		image = GeneralAsset.DISPLACING_DART;
 	}
 	
 	@Override

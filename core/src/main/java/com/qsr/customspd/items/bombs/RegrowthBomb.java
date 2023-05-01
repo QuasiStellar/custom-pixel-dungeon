@@ -34,7 +34,7 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.plants.Starflower;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 public class RegrowthBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.REGROWTH_BOMB;
+		image = GeneralAsset.REGROWTH_BOMB;
 	}
 	
 	@Override

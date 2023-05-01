@@ -31,7 +31,7 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.items.quest.GooBlob;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Bundle;
@@ -43,7 +43,7 @@ import kotlin.Pair;
 public class ElixirOfAquaticRejuvenation extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_AQUA;
+		image = GeneralAsset.ELIXIR_AQUA;
 	}
 	
 	@Override

@@ -28,14 +28,14 @@ import com.qsr.customspd.actors.blobs.Inferno;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.PotionOfLiquidFlame;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 
 public class InfernalBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_INFERNAL;
+		image = GeneralAsset.BREW_INFERNAL;
 	}
 	
 	@Override

@@ -27,6 +27,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.bags.VelvetPouch;
@@ -36,7 +37,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
 import com.watabou.noosa.audio.Sample;
@@ -48,7 +49,7 @@ import java.util.ArrayList;
 public class Dart extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.DART;
+		image = GeneralAsset.DART;
 		hitSound = Assets.Sounds.HIT_ARROW;
 		hitSoundPitch = 1.3f;
 		

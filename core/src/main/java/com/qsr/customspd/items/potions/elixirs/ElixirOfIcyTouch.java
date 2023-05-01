@@ -27,12 +27,12 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.particles.SnowParticle;
 import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.exotic.PotionOfSnapFreeze;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ElixirOfIcyTouch extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_ICY;
+		image = GeneralAsset.ELIXIR_ICY;
 	}
 	
 	@Override

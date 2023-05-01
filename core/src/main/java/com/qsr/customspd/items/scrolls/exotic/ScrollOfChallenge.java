@@ -26,12 +26,12 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ChallengeParticle;
 import com.qsr.customspd.mechanics.ShadowCaster;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.BArray;
 import com.watabou.noosa.Image;
@@ -48,7 +48,7 @@ import kotlin.Pair;
 public class ScrollOfChallenge extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_CHALLENGE;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_CHALLENGE;
 	}
 	
 	@Override

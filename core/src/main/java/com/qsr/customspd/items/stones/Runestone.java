@@ -23,8 +23,9 @@ package com.qsr.customspd.items.stones;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.buffs.Invisibility;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public abstract class Runestone extends Item {
 	
@@ -72,7 +73,7 @@ public abstract class Runestone extends Item {
 	public static class PlaceHolder extends Runestone {
 		
 		{
-			image = ItemSpriteSheet.STONE_HOLDER;
+			image = GeneralAsset.STONE_HOLDER;
 		}
 		
 		@Override

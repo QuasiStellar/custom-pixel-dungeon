@@ -31,13 +31,13 @@ import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.HeroSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 
 public class LostBackpack extends Item {
 
 	{
-		image = ItemSpriteSheet.BACKPACK;
+		image = GeneralAsset.BACKPACK;
 
 		unique = true;
 	}

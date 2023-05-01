@@ -27,7 +27,7 @@ import com.qsr.customspd.effects.CheckedCell;
 import com.qsr.customspd.items.scrolls.ScrollOfMagicMapping;
 import com.qsr.customspd.mechanics.ShadowCaster;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Point;
 
@@ -36,7 +36,7 @@ public class StoneOfClairvoyance extends Runestone {
 	private static final int DIST = 20;
 	
 	{
-		image = ItemSpriteSheet.STONE_CLAIRVOYANCE;
+		image = GeneralAsset.STONE_CLAIRVOYANCE;
 	}
 	
 	@Override

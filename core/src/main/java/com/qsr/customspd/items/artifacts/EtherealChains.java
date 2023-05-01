@@ -41,7 +41,7 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
@@ -58,7 +58,7 @@ public class EtherealChains extends Artifact {
 	public static final String AC_CAST       = "CAST";
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CHAINS;
+		image = GeneralAsset.ARTIFACT_CHAINS;
 
 		levelCap = 5;
 		exp = 0;

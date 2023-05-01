@@ -21,13 +21,14 @@
 
 package com.qsr.customspd.items.quest;
 
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class DarkGold extends Item {
 	
 	{
-		image = ItemSpriteSheet.ORE;
+		image = GeneralAsset.ORE;
 		
 		stackable = true;
 		unique = true;

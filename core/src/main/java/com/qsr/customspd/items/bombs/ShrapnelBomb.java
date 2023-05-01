@@ -27,7 +27,7 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.BlastParticle;
 import com.qsr.customspd.mechanics.ShadowCaster;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class ShrapnelBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.SHRAPNEL_BOMB;
+		image = GeneralAsset.SHRAPNEL_BOMB;
 	}
 	
 	@Override

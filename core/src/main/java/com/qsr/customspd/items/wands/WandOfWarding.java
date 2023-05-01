@@ -40,7 +40,7 @@ import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.WardSprite;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
@@ -54,7 +54,7 @@ import com.watabou.utils.Random;
 public class WandOfWarding extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_WARDING;
+		image = GeneralAsset.WAND_WARDING;
 	}
 
 	@Override

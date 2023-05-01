@@ -33,7 +33,7 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Amulet;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.StyledButton;
 import com.watabou.noosa.Camera;
@@ -99,7 +99,7 @@ public class AmuletScene extends PixelScene {
 				});
 			}
 		};
-		btnExit.icon(new ItemSprite(ItemSpriteSheet.AMULET));
+		btnExit.icon(new ItemSprite(GeneralAsset.AMULET));
 		btnExit.setSize( WIDTH, BTN_HEIGHT );
 		add( btnExit );
 		

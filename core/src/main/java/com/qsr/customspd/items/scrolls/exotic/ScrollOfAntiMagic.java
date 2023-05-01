@@ -23,13 +23,13 @@ package com.qsr.customspd.items.scrolls.exotic;
 
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.MagicImmune;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 
 public class ScrollOfAntiMagic extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_ANTIMAGIC;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_ANTIMAGIC;
 	}
 	
 	@Override

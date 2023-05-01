@@ -28,16 +28,16 @@ import com.qsr.customspd.actors.blobs.ConfusionGas;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Levitation;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 public class PotionOfLevitation extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_LEVITATE;
+		icon = GeneralAsset.ITEM_ICON_POTION_LEVITATE;
 	}
 
 	@Override

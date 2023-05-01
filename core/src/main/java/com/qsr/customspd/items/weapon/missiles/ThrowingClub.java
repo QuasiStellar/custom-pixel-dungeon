@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.weapon.missiles;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ThrowingClub extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.THROWING_CLUB;
+		image = GeneralAsset.THROWING_CLUB;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.1f;
 		

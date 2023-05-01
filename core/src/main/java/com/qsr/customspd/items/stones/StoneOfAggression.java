@@ -32,7 +32,7 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Heap;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.watabou.noosa.audio.Sample;
 
@@ -41,7 +41,7 @@ import kotlin.Pair;
 public class StoneOfAggression extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_AGGRESSION;
+		image = GeneralAsset.STONE_AGGRESSION;
 	}
 	
 	@Override

@@ -30,6 +30,8 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Burning;
 import com.qsr.customspd.actors.buffs.Ooze;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
@@ -60,7 +62,7 @@ import com.qsr.customspd.plants.Sungrass;
 import com.qsr.customspd.plants.Swiftthistle;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
@@ -84,20 +86,20 @@ public class Potion extends Item {
 
 	private static final float TIME_TO_DRINK = 1f;
 
-	private static final LinkedHashMap<String, Integer> colors = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, Asset> colors = new LinkedHashMap<String, Asset>() {
 		{
-			put("crimson",ItemSpriteSheet.POTION_CRIMSON);
-			put("amber",ItemSpriteSheet.POTION_AMBER);
-			put("golden",ItemSpriteSheet.POTION_GOLDEN);
-			put("jade",ItemSpriteSheet.POTION_JADE);
-			put("turquoise",ItemSpriteSheet.POTION_TURQUOISE);
-			put("azure",ItemSpriteSheet.POTION_AZURE);
-			put("indigo",ItemSpriteSheet.POTION_INDIGO);
-			put("magenta",ItemSpriteSheet.POTION_MAGENTA);
-			put("bistre",ItemSpriteSheet.POTION_BISTRE);
-			put("charcoal",ItemSpriteSheet.POTION_CHARCOAL);
-			put("silver",ItemSpriteSheet.POTION_SILVER);
-			put("ivory",ItemSpriteSheet.POTION_IVORY);
+			put("crimson", GeneralAsset.POTION_CRIMSON);
+			put("amber",GeneralAsset.POTION_AMBER);
+			put("golden",GeneralAsset.POTION_GOLDEN);
+			put("jade",GeneralAsset.POTION_JADE);
+			put("turquoise",GeneralAsset.POTION_TURQUOISE);
+			put("azure",GeneralAsset.POTION_AZURE);
+			put("indigo",GeneralAsset.POTION_INDIGO);
+			put("magenta",GeneralAsset.POTION_MAGENTA);
+			put("bistre",GeneralAsset.POTION_BISTRE);
+			put("charcoal",GeneralAsset.POTION_CHARCOAL);
+			put("silver",GeneralAsset.POTION_SILVER);
+			put("ivory",GeneralAsset.POTION_IVORY);
 		}
 	};
 	
@@ -180,7 +182,7 @@ public class Potion extends Item {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.POTION_HOLDER;
+		if (!isKnown()) image = GeneralAsset.POTION_HOLDER;
 		anonymous = true;
 	}
 
@@ -409,7 +411,7 @@ public class Potion extends Item {
 	public static class PlaceHolder extends Potion {
 		
 		{
-			image = ItemSpriteSheet.POTION_HOLDER;
+			image = GeneralAsset.POTION_HOLDER;
 		}
 		
 		@Override
@@ -509,7 +511,7 @@ public class Potion extends Item {
 		
 		@Override
 		public Item sampleOutput(ArrayList<Item> ingredients) {
-			return new WndBag.Placeholder(ItemSpriteSheet.POTION_HOLDER){
+			return new WndBag.Placeholder(GeneralAsset.POTION_HOLDER){
 
 				@Override
 				public String name() {

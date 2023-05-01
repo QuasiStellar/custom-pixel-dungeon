@@ -26,7 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.effects.Lightning;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class ShockingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.SHOCKING_DART;
+		image = GeneralAsset.SHOCKING_DART;
 	}
 	
 	@Override

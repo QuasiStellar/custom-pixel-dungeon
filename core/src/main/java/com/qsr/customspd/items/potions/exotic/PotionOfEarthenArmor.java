@@ -24,12 +24,12 @@ package com.qsr.customspd.items.potions.exotic;
 import com.qsr.customspd.actors.buffs.Barkskin;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class PotionOfEarthenArmor extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_EARTHARMR;
+		icon = GeneralAsset.ITEM_ICON_POTION_EARTHARMR;
 	}
 	
 	@Override

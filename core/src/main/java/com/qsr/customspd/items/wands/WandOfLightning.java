@@ -35,7 +35,7 @@ import com.qsr.customspd.items.weapon.enchantments.Shocking;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
@@ -50,7 +50,7 @@ import java.util.ArrayList;
 public class WandOfLightning extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_LIGHTNING;
+		image = GeneralAsset.WAND_LIGHTNING;
 	}
 	
 	private ArrayList<Char> affected = new ArrayList<>();

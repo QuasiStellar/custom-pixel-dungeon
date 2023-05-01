@@ -27,13 +27,14 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.bags.MagicalHolster;
 import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
@@ -43,7 +44,7 @@ import java.util.ArrayList;
 public class ArcaneResin extends Item {
 
 	{
-		image = ItemSpriteSheet.ARCANE_RESIN;
+		image = GeneralAsset.ARCANE_RESIN;
 
 		stackable = true;
 

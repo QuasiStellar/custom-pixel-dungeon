@@ -27,13 +27,12 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.effects.SpellSprite;
 import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfMysticalEnergy extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_MYSTENRG;
+		icon = GeneralAsset.ITEM_ICON_SCROLL_MYSTENRG;
 	}
 	
 	@Override

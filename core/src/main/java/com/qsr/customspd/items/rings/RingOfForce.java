@@ -28,9 +28,9 @@ import com.qsr.customspd.actors.buffs.MonkEnergy;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
@@ -44,7 +44,7 @@ import kotlin.Pair;
 public class RingOfForce extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_FORCE;
+		icon = GeneralAsset.ITEM_ICON_RING_FORCE;
 	}
 
 	@Override

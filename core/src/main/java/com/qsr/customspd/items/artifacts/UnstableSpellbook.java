@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.buffs.MagicImmune;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;
@@ -44,7 +45,7 @@ import com.qsr.customspd.items.scrolls.exotic.ExoticScroll;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndOptions;
@@ -61,7 +62,7 @@ import java.util.Collections;
 public class UnstableSpellbook extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_SPELLBOOK;
+		image = GeneralAsset.ARTIFACT_SPELLBOOK;
 
 		levelCap = 10;
 

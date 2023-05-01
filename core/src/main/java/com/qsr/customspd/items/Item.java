@@ -31,6 +31,8 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Degrade;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.bags.Bag;
 import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
@@ -71,8 +73,8 @@ public class Item implements Bundlable {
 	public boolean usesTargeting;
 
 	//TODO should these be private and accessed through methods?
-	public int image = 0;
-	public int icon = -1; //used as an identifier for items with randomized images
+	public Asset image = GeneralAsset.SOMETHING;
+	public Asset icon = GeneralAsset.SOMETHING; //used as an identifier for items with randomized images
 	
 	public boolean stackable = false;
 	protected int quantity = 1;
@@ -470,7 +472,7 @@ public class Item implements Bundlable {
 		return Messages.get(this, "name");
 	}
 	
-	public int image() {
+	public Asset image() {
 		return image;
 	}
 	

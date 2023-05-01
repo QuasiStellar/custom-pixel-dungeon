@@ -29,9 +29,10 @@ import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.buffs.AscensionChallenge;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.AmuletScene;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Game;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class Amulet extends Item {
 	private static final String AC_END = "END";
 	
 	{
-		image = ItemSpriteSheet.AMULET;
+		image = GeneralAsset.AMULET;
 		
 		unique = true;
 	}

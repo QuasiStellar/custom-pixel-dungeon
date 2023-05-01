@@ -22,12 +22,12 @@
 package com.qsr.customspd.items.food;
 
 import com.qsr.customspd.actors.buffs.Hunger;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class ChargrilledMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.STEAK;
+		image = GeneralAsset.STEAK;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

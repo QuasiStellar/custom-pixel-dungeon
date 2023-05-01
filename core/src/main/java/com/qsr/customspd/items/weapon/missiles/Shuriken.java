@@ -24,12 +24,12 @@ package com.qsr.customspd.items.weapon.missiles;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 
 public class Shuriken extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.SHURIKEN;
+		image = GeneralAsset.SHURIKEN;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		

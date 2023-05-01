@@ -30,7 +30,7 @@ import com.qsr.customspd.items.potions.AlchemicalCatalyst;
 import com.qsr.customspd.items.potions.PotionOfStrength;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.Image;
@@ -41,7 +41,7 @@ import kotlin.Pair;
 public class ElixirOfMight extends Elixir {
 
 	{
-		image = ItemSpriteSheet.ELIXIR_MIGHT;
+		image = GeneralAsset.ELIXIR_MIGHT;
 
 		unique = true;
 	}
