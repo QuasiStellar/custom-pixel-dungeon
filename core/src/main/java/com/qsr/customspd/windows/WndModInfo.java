@@ -27,7 +27,9 @@ import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Image;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public class WndModInfo extends Window {
 
@@ -40,6 +42,9 @@ public class WndModInfo extends Window {
 	private static WndModInfo INSTANCE;
 
 	private Callback updateCallback;
+
+	private List<Image> previews;
+	private int currentPreview = 0;
 
 	public WndModInfo(Mod mod, Callback updateCallback) {
 
@@ -72,6 +77,8 @@ public class WndModInfo extends Window {
 			6
 		);
 
+		previews = mod.getPreviews();
+
 		RenderedTextBlock author = PixelScene.renderTextBlock(
 			Messages.get(this, "author", mod.getInfo().getAuthor()),
 			6
@@ -81,6 +88,16 @@ public class WndModInfo extends Window {
 			Messages.get(this, "version", mod.getInfo().getVersion()),
 			6
 		);
+
+		List<String> langs = mod.getInfo().getLanguages();
+		RenderedTextBlock languages;
+		if (langs != null) {
+			String langChars = mod.getInfo().getLanguages().toString();
+			languages = PixelScene.renderTextBlock(
+				Messages.get(this, "languages", langChars.substring(1, langChars.length() - 1)),
+				6
+			);
+		} else languages = null;
 
 		RenderedTextBlock license = PixelScene.renderTextBlock(
 			Messages.get(this, "license", mod.getInfo().getLicense()),
@@ -107,7 +124,27 @@ public class WndModInfo extends Window {
 			}
 		};
 
-		layoutFields(title, description, author, version, license, button);
+		RedButton left = new RedButton("<") {
+			@Override
+			protected void onClick() {
+				super.onClick();
+				previews.get(currentPreview).alpha(0);
+				previews.get((currentPreview - 1 + previews.size()) % previews.size()).alpha(1);
+				currentPreview = (currentPreview - 1 + previews.size()) % previews.size();
+			}
+		};
+
+		RedButton right = new RedButton(">") {
+			@Override
+			protected void onClick() {
+				super.onClick();
+				previews.get(currentPreview).alpha(0);
+				previews.get((currentPreview + 1) % previews.size()).alpha(1);
+				currentPreview = (currentPreview + 1) % previews.size();
+			}
+		};
+
+		layoutFields(title, description, author, version, languages, license, button, left, right);
 	}
 
 	private void layoutFields(
@@ -115,14 +152,18 @@ public class WndModInfo extends Window {
 		RenderedTextBlock info,
 		RenderedTextBlock author,
 		RenderedTextBlock version,
+		RenderedTextBlock languages,
 		RenderedTextBlock license,
-		RedButton button
+		RedButton button,
+		RedButton left,
+		RedButton right
 	){
 		int width = WIDTH_MIN;
 
 		info.maxWidth(width);
 		author.maxWidth(width);
 		version.maxWidth(width);
+		if (languages != null) languages.maxWidth(width);
 		license.maxWidth(width);
 
 		//window can go out of the screen on landscape, so widen it as appropriate
@@ -136,6 +177,7 @@ public class WndModInfo extends Window {
 			info.maxWidth(width);
 			author.maxWidth(width);
 			version.maxWidth(width);
+			if (languages != null) languages.maxWidth(width);
 			license.maxWidth(width);
 		}
 
@@ -145,13 +187,43 @@ public class WndModInfo extends Window {
 		info.setPos(title.left(), title.bottom() + GAP);
 		add( info );
 
-		author.setPos(title.left(), info.bottom() + GAP);
+		float maxHeight = 0;
+		for (Image preview : previews) {
+			preview.scale.set(width / preview.width);
+			preview.x = title.left();
+			preview.y = info.bottom() + GAP;
+			preview.height *= width / preview.width;
+			maxHeight = Math.max(maxHeight, preview.height);
+			preview.width *= width / preview.width;
+			add( preview );
+			preview.alpha(0);
+		}
+		for (Image preview : previews) {
+			preview.y = info.bottom() + GAP + maxHeight / 2 - preview.height / 2;
+		}
+		if (previews.size() > 1) {
+			previews.get(0).alpha(1);
+
+			left.setSize(left.reqWidth(), 8);
+			right.setSize(right.reqWidth(), 8);
+			left.setPos(title.left() + (float) width / 2 - left.width() - GAP / 2, previews.get(0).y + maxHeight + GAP);
+			right.setPos(left.right() + GAP, left.top());
+			add(left);
+			add(right);
+		}
+
+		author.setPos(title.left(), (previews.isEmpty() ? info.bottom() : left.bottom()) + GAP);
 		add( author );
 
 		version.setPos(title.left(), author.bottom() + GAP);
 		add( version );
 
-		license.setPos(title.left(), version.bottom() + GAP);
+		if (languages != null) {
+			languages.setPos(title.left(), version.bottom() + GAP);
+			add( languages );
+		}
+
+		license.setPos(title.left(), (languages != null ? languages.bottom() : version.bottom()) + GAP);
 		add( license );
 
 		button.setSize(button.reqWidth(), 16);

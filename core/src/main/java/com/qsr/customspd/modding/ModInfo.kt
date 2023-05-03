@@ -8,5 +8,6 @@ data class ModInfo(
     val version: Int,
     val description: String,
     val author: String,
+    val languages: List<String>? = null,
     val license: String,
 )

@@ -27,7 +27,9 @@ import com.qsr.customspd.scenes.PixelScene
 import com.qsr.customspd.ui.RedButton
 import com.qsr.customspd.ui.RenderedTextBlock
 import com.qsr.customspd.ui.Window
+import com.qsr.customspd.utils.Pixmap
 import com.watabou.noosa.Game
+import com.watabou.noosa.Image
 import com.watabou.utils.Callback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -67,12 +69,18 @@ class WndModDownload(
         }
     }
 
+    private lateinit var previews: List<Image>
+    private var currentPreview = 0
+
     private lateinit var title: IconTitle
     private lateinit var description: RenderedTextBlock
     private lateinit var author: RenderedTextBlock
     private lateinit var version: RenderedTextBlock
+    private var languages: RenderedTextBlock? = null
     private lateinit var license: RenderedTextBlock
     private lateinit var button: RedButton
+    private lateinit var left: RedButton
+    private lateinit var right: RedButton
 
     private fun fillFields() {
         title = IconTitle(mod)
@@ -81,6 +89,9 @@ class WndModDownload(
             mod.info.description,
             6
         )
+
+        previews = mod.previewPixmaps.map { Image(Pixmap(it)) }
+
         author = PixelScene.renderTextBlock(
             Messages.get(WndModInfo::class.java, "author", mod.info.author),
             6
@@ -89,6 +100,13 @@ class WndModDownload(
             Messages.get(WndModInfo::class.java, "version", mod.info.version),
             6
         )
+        mod.info.languages?.let {
+            val langChars = mod.info.languages.toString()
+            languages = PixelScene.renderTextBlock(
+                Messages.get(WndModInfo::class.java, "languages", langChars.slice(1 until langChars.length - 1)),
+                6
+            )
+        }
         license = PixelScene.renderTextBlock(
             Messages.get(WndModInfo::class.java, "license", mod.info.license),
             6
@@ -118,6 +136,25 @@ class WndModDownload(
                 updateCallback.call()
             }
         }
+
+        left = object : RedButton("<") {
+            override fun onClick() {
+                super.onClick()
+                previews[currentPreview].alpha(0f)
+                previews[(currentPreview - 1 + previews.size) % previews.size].alpha(1f)
+                currentPreview = (currentPreview - 1 + previews.size) % previews.size
+            }
+        }
+
+        right = object : RedButton(">") {
+            override fun onClick() {
+                super.onClick()
+                previews[currentPreview].alpha(0f)
+                previews[(currentPreview + 1) % previews.size].alpha(1f)
+                currentPreview = (currentPreview + 1) % previews.size
+            }
+        }
+
         layoutFields()
     }
 
@@ -137,6 +174,7 @@ class WndModDownload(
         description.maxWidth(width)
         author.maxWidth(width)
         version.maxWidth(width)
+        languages?.maxWidth(width)
         license.maxWidth(width)
 
         //window can go out of the screen on landscape, so widen it as appropriate
@@ -152,17 +190,45 @@ class WndModDownload(
             description.maxWidth(width)
             author.maxWidth(width)
             version.maxWidth(width)
+            languages?.maxWidth(width)
             license.maxWidth(width)
         }
         title.setRect(0f, 0f, width.toFloat(), 0f)
         add(title)
         description.setPos(title.left(), title.bottom() + GAP)
         add(description)
-        author.setPos(title.left(), description.bottom() + GAP)
+
+        var maxHeight = 0f
+        for (preview in previews) {
+            preview.scale.set(width / preview.width)
+            preview.x = title.left()
+            preview.y = description.bottom() + GAP
+            preview.height *= width / preview.width
+            maxHeight = Math.max(maxHeight, preview.height)
+            preview.width *= width / preview.width
+            add(preview)
+            preview.alpha(0f)
+        }
+        for (preview in previews) {
+            preview.y = description.bottom() + GAP + maxHeight / 2 - preview.height / 2
+        }
+        if (previews.size > 1) {
+            previews[0].alpha(1f)
+            left.setSize(left.reqWidth(), 8f)
+            right.setSize(right.reqWidth(), 8f)
+            left.setPos(title.left() + width.toFloat() / 2 - left.width() - GAP / 2, previews[0].y + maxHeight + GAP)
+            right.setPos(left.right() + GAP, left.top())
+            add(left)
+            add(right)
+        }
+
+        author.setPos(title.left(), (if (previews.isEmpty()) description.bottom() else left.bottom()) + GAP)
         add(author)
         version.setPos(title.left(), author.bottom() + GAP)
         add(version)
-        license.setPos(title.left(), version.bottom() + GAP)
+        languages?.setPos(title.left(), version.bottom() + GAP)
+        languages?.let { add(it) }
+        license.setPos(title.left(), (languages?.bottom() ?: version.bottom()) + GAP)
         add(license)
         button.setSize(button.reqWidth(), 16f)
         button.setPos(

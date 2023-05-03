@@ -4,6 +4,7 @@ import com.badlogic.gdx.Files
 import com.badlogic.gdx.files.FileHandle
 import com.qsr.customspd.utils.Archiver
 import com.qsr.customspd.utils.Network
+import com.watabou.noosa.Image
 import com.watabou.utils.Bundle
 import com.watabou.utils.FileUtils
 import io.ktor.client.request.get
@@ -35,7 +36,8 @@ object ModManager {
     private val SUMMARY_PATH = "${SLASH}Summary"
     private val MOD_LIST_PATH = "$SUMMARY_PATH${SLASH}mod_list.json"
     private val MOD_INFO_PATH = "$SUMMARY_PATH${SLASH}%s.json"
-    private val MOD_INFO_ICON = "$SUMMARY_PATH${SLASH}%s.png"
+    private val MOD_ICON_PATH = "$SUMMARY_PATH${SLASH}%s.png"
+    private val MOD_PREVIEW_PATH = "$SUMMARY_PATH${SLASH}%s %d.png"
 
     private const val MARKETPLACE = "https://d5dsgaub4mu915q7vd3p.apigw.yandexcloud.net"
 
@@ -73,7 +75,13 @@ object ModManager {
         ).map { name ->
             MarketplaceMod(
                 Json.decodeFromString(getFileHandle(MOD_INFO_PATH.format(name)).readString()),
-                getFileHandle(MOD_INFO_ICON.format(name)).readBytes(),
+                getFileHandle(MOD_ICON_PATH.format(name)).readBytes(),
+                (1..5).mapNotNull {
+                    with(getFileHandle(MOD_PREVIEW_PATH.format(name, it))) {
+                        if (exists()) readBytes()
+                        else null
+                    }
+                },
             )
         }.also {
             getFileHandle(SUMMARY_PATH).deleteDirectory()

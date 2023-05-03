@@ -15,9 +15,16 @@ class Mod(
     val icon: Image
         get() = with(folder.child("mod_icon.png")) {
             if (exists())
-                Image("${File.separatorChar}${ModManager.STORAGE}${File.separatorChar}${folder.name()}${File.separatorChar}mod_icon.png") // I'm done with this shit
+                Image("${File.separatorChar}${ModManager.STORAGE}${File.separatorChar}${folder.name()}${File.separatorChar}mod_icon.png")
             else Image(getAssetFileHandle(GeneralAsset.ICON_TALENT))
         }
+
+    fun getPreviews(): List<Image> = (1..5).mapNotNull {
+        with(folder.child("mod_preview_$it.png")) {
+            if (exists()) Image("${File.separatorChar}${ModManager.STORAGE}${File.separatorChar}${folder.name()}${File.separatorChar}mod_preview_$it.png")
+            else null
+        }
+    }
 
     fun enable() = ModManager.enableMod(info.name)
 

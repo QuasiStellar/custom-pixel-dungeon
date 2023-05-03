@@ -52,11 +52,18 @@ import com.qsr.customspd.items.armor.ClothArmor;
 import com.qsr.customspd.items.artifacts.CloakOfShadows;
 import com.qsr.customspd.items.bags.VelvetPouch;
 import com.qsr.customspd.items.food.Food;
+import com.qsr.customspd.items.potions.PotionOfExperience;
+import com.qsr.customspd.items.potions.PotionOfFrost;
+import com.qsr.customspd.items.potions.PotionOfHaste;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.items.potions.PotionOfInvisibility;
+import com.qsr.customspd.items.potions.PotionOfLevitation;
 import com.qsr.customspd.items.potions.PotionOfLiquidFlame;
 import com.qsr.customspd.items.potions.PotionOfMindVision;
+import com.qsr.customspd.items.potions.PotionOfParalyticGas;
+import com.qsr.customspd.items.potions.PotionOfPurity;
 import com.qsr.customspd.items.potions.PotionOfStrength;
+import com.qsr.customspd.items.potions.PotionOfToxicGas;
 import com.qsr.customspd.items.scrolls.ScrollOfIdentify;
 import com.qsr.customspd.items.scrolls.ScrollOfLullaby;
 import com.qsr.customspd.items.scrolls.ScrollOfMagicMapping;
@@ -106,6 +113,31 @@ public enum HeroClass {
 
 		Waterskin waterskin = new Waterskin();
 		waterskin.collect();
+
+		PotionOfHealing p1 = new PotionOfHealing();
+		p1.collect();
+		PotionOfInvisibility p2 = new PotionOfInvisibility();
+		p2.collect();
+		PotionOfLiquidFlame p3 = new PotionOfLiquidFlame();
+		p3.collect();
+		PotionOfMindVision p4 = new PotionOfMindVision();
+		p4.collect();
+		PotionOfStrength p5 = new PotionOfStrength();
+		p5.collect();
+		PotionOfExperience p6 = new PotionOfExperience();
+		p6.collect();
+		PotionOfFrost p7 = new PotionOfFrost();
+		p7.collect();
+		PotionOfHaste p8 = new PotionOfHaste();
+		p8.collect();
+		PotionOfLevitation p9 = new PotionOfLevitation();
+		p9.collect();
+		PotionOfParalyticGas p10 = new PotionOfParalyticGas();
+		p10.collect();
+		PotionOfPurity p11 = new PotionOfPurity();
+		p11.collect();
+		PotionOfToxicGas p12 = new PotionOfToxicGas();
+		p12.collect();
 
 		new ScrollOfIdentify().identify();
 
