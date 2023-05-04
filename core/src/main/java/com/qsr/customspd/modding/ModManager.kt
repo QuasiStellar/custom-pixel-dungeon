@@ -55,6 +55,12 @@ object ModManager {
         return assetPath
     }
 
+    fun getAllModdedAssetFileHandles(assetPath: String): List<String> = lazyEnabledModNames.mapNotNull {
+        val path = "$SLASH$it$SLASH${assetPath.replace('/', SLASH)}"
+        if (getFileHandle(path).exists()) "$STORAGE$SLASH$path"
+        else null
+    }
+
     @OptIn(DelicateCoroutinesApi::class)
     fun getMarketplaceMods() = GlobalScope.launch {
 

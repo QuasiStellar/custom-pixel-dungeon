@@ -20,6 +20,7 @@
  */
 package com.qsr.customspd.windows
 
+import com.qsr.customspd.SPDSettings
 import com.qsr.customspd.ShatteredPixelDungeon
 import com.qsr.customspd.messages.Messages
 import com.qsr.customspd.modding.ModManager
@@ -92,6 +93,7 @@ class WndMods : WndTabbed() {
     override fun hide() {
         super.hide()
         TileMapCompilationManager.compileTileMaps()
+        Messages.setup(SPDSettings.language())
     }
 
     private class EnabledModsTab : Component() {

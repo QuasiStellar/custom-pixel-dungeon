@@ -201,18 +201,21 @@ public class WndModInfo extends Window {
 		for (Image preview : previews) {
 			preview.y = info.bottom() + GAP + maxHeight / 2 - preview.height / 2;
 		}
+		if (!previews.isEmpty()) previews.get(0).alpha(1);
 		if (previews.size() > 1) {
-			previews.get(0).alpha(1);
-
 			left.setSize(left.reqWidth(), 8);
 			right.setSize(right.reqWidth(), 8);
-			left.setPos(title.left() + (float) width / 2 - left.width() - GAP / 2, previews.get(0).y + maxHeight + GAP);
+			left.setPos(title.left() + (float) width / 2 - left.width() - GAP / 2, previews.get(0).y + maxHeight + GAP / 2);
 			right.setPos(left.right() + GAP, left.top());
 			add(left);
 			add(right);
 		}
 
-		author.setPos(title.left(), (previews.isEmpty() ? info.bottom() : left.bottom()) + GAP);
+		float authorY;
+		if (previews.isEmpty()) authorY = info.bottom() + GAP / 2;
+		else if (previews.size() == 1) authorY = previews.get(0).y + maxHeight + GAP / 2;
+		else authorY = left.bottom() + GAP / 2;
+		author.setPos(title.left(), authorY);
 		add( author );
 
 		version.setPos(title.left(), author.bottom() + GAP);

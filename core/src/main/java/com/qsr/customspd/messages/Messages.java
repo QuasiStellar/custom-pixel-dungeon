@@ -21,11 +21,14 @@
 
 package com.qsr.customspd.messages;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.I18NBundle;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
+import com.qsr.customspd.modding.ModManager;
+import com.watabou.utils.FileUtils;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -91,11 +94,22 @@ public class Messages {
 			locale = new Locale(lang.code());
 		}
 
+		String moddedAssetFile = "messages" + (lang == Languages.ENGLISH ? "" : ("_" + lang.code())) + ".properties";
+
+		Locale bundleLocale = new Locale(lang.code());
+
 		//strictly match the language code when fetching bundles however
 		bundles = new ArrayList<>();
-		Locale bundleLocal = new Locale(lang.code());
+		for (String moddedFileHandle : ModManager.INSTANCE.getAllModdedAssetFileHandles(moddedAssetFile)) {
+			System.out.println("bundle locale " + bundleLocale);
+			bundles.add(I18NBundle.createBundle(FileUtils.getFileHandle(
+				Files.FileType.External,
+				FileUtils.defaultPath,
+				moddedFileHandle.substring(0, moddedFileHandle.lastIndexOf(".properties"))
+			), bundleLocale));
+		}
 		for (String file : prop_files) {
-			bundles.add(I18NBundle.createBundle(Gdx.files.internal(file), bundleLocal));
+			bundles.add(I18NBundle.createBundle(Gdx.files.internal(file), bundleLocale));
 		}
 	}
 

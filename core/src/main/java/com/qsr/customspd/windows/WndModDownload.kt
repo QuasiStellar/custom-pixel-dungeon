@@ -212,17 +212,18 @@ class WndModDownload(
         for (preview in previews) {
             preview.y = description.bottom() + GAP + maxHeight / 2 - preview.height / 2
         }
+        if (previews.isNotEmpty()) previews[0].alpha(1f)
         if (previews.size > 1) {
-            previews[0].alpha(1f)
             left.setSize(left.reqWidth(), 8f)
             right.setSize(right.reqWidth(), 8f)
-            left.setPos(title.left() + width.toFloat() / 2 - left.width() - GAP / 2, previews[0].y + maxHeight + GAP)
+            left.setPos(title.left() + width.toFloat() / 2 - left.width() - GAP / 2, previews[0].y + maxHeight + GAP / 2)
             right.setPos(left.right() + GAP, left.top())
             add(left)
             add(right)
         }
 
-        author.setPos(title.left(), (if (previews.isEmpty()) description.bottom() else left.bottom()) + GAP)
+        val authorY = if (previews.isEmpty()) description.bottom() + GAP / 2 else if (previews.size == 1) previews[0].y + maxHeight + GAP / 2 else left.bottom() + GAP / 2
+        author.setPos(title.left(), authorY)
         add(author)
         version.setPos(title.left(), author.bottom() + GAP)
         add(version)
