@@ -250,7 +250,7 @@ public enum Talent {
 	public static class SwiftEquipCooldown extends FlavourBuff{
 		public boolean secondUse;
 		public boolean hasSecondUse(){
-			return secondUse && cooldown() > 24f;
+			return secondUse && cooldown() > 14f;
 		}
 
 		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
@@ -258,7 +258,7 @@ public enum Talent {
 			if (hasSecondUse()) icon.hardlight(0.85f, 0f, 1.0f);
 			else                icon.hardlight(0.35f, 0f, 0.7f);
 		}
-		public float iconFadePercent() { return GameMath.gate(0, visualcooldown() / 30f, 1); }
+		public float iconFadePercent() { return GameMath.gate(0, visualcooldown() / 20f, 1); }
 
 		private static final String SECOND_USE = "second_use";
 		@Override
@@ -452,8 +452,8 @@ public enum Talent {
 			Buff.prolong( hero, Haste.class, 0.67f+hero.pointsInTalent(INVIGORATING_MEAL));
 		}
 		if (hero.hasTalent(STRENGTHENING_MEAL)){
-			//2 bonus physical damage for next 2/3 attacks
-			Buff.affect( hero, PhysicalEmpower.class).set(2, 1 + hero.pointsInTalent(STRENGTHENING_MEAL));
+			//3 bonus physical damage for next 2/3 attacks
+			Buff.affect( hero, PhysicalEmpower.class).set(3, 1 + hero.pointsInTalent(STRENGTHENING_MEAL));
 		}
 		if (hero.hasTalent(FOCUSED_MEAL)){
 			if (hero.heroClass == HeroClass.DUELIST){
@@ -662,7 +662,9 @@ public enum Talent {
 
 		if (hero.hasTalent(DEADLY_FOLLOWUP)) {
 			if (hero.belongings.attackingWeapon() instanceof MissileWeapon) {
-				Buff.prolong(enemy, DeadlyFollowupTracker.class, 5f);
+				if (!(hero.belongings.attackingWeapon() instanceof SpiritBow.SpiritArrow)) {
+					Buff.prolong(enemy, DeadlyFollowupTracker.class, 5f);
+				}
 			} else if (enemy.buff(DeadlyFollowupTracker.class) != null){
 				dmg = Math.round(dmg * (1.0f + .08f*hero.pointsInTalent(DEADLY_FOLLOWUP)));
 				if (!(enemy instanceof Mob) || !((Mob) enemy).surprisedBy(hero)){

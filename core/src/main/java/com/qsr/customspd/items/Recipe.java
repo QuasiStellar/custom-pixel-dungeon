@@ -49,7 +49,6 @@ import com.qsr.customspd.items.spells.BeaconOfReturning;
 import com.qsr.customspd.items.spells.CurseInfusion;
 import com.qsr.customspd.items.spells.FeatherFall;
 import com.qsr.customspd.items.spells.MagicalInfusion;
-import com.qsr.customspd.items.spells.MagicalPorter;
 import com.qsr.customspd.items.spells.PhaseShift;
 import com.qsr.customspd.items.spells.ReclaimTrap;
 import com.qsr.customspd.items.spells.Recycle;
@@ -200,7 +199,6 @@ public abstract class Recipe {
 		new CurseInfusion.Recipe(),
 		new FeatherFall.Recipe(),
 		new MagicalInfusion.Recipe(),
-		new MagicalPorter.Recipe(),
 		new PhaseShift.Recipe(),
 		new ReclaimTrap.Recipe(),
 		new Recycle.Recipe(),

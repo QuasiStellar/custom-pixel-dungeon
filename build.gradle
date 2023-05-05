@@ -15,9 +15,9 @@ allprojects {
         appPackageName = 'com.qsr.customspd'
 
         appVersionCode = 1
-        appVersionName = '2.0.0-0.1'
+        appVersionName = '2.0.2-0.1'
 
-        appJavaCompatibility = JavaVersion.VERSION_1_8
+        appJavaCompatibility = JavaVersion.VERSION_17
 
         appAndroidCompileSDK = 33
         appAndroidMinSDK = 19

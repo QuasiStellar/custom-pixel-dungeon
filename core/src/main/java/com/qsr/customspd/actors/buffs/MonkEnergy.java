@@ -43,13 +43,17 @@ import com.qsr.customspd.levels.features.Door;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
+import com.qsr.customspd.scenes.PixelScene;
+import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndMonkAbilities;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
@@ -66,6 +70,8 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 	public float energy;
 	public int cooldown;
 
+	private static final float MAX_COOLDOWN = 5;
+
 	@Override
 	public Pair<Asset, Asset> icon() {
 		return BuffIndicator.MONK_ENERGY;
@@ -75,8 +81,6 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 	public void tintIcon(Image icon) {
 		if (cooldown > 0){
 			icon.hardlight(0.33f, 0.33f, 1f);
-		} else if (abilitiesEmpowered(Dungeon.hero)) {
-			icon.tint(0.6f, 1f, 0.2f, 0.33f);
 		} else {
 			icon.resetColor();
 		}
@@ -84,12 +88,16 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 
 	@Override
 	public float iconFadePercent() {
-		return Math.max(0, (energyCap() - energy)/ energyCap());
+		return Math.max(0, cooldown/MAX_COOLDOWN);
 	}
 
 	@Override
 	public String iconTextDisplay() {
-		return Integer.toString((int)energy);
+		if (cooldown > 0){
+			return Integer.toString(cooldown);
+		} else {
+			return "";
+		}
 	}
 
 	@Override
@@ -164,9 +172,9 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 					if (hero.belongings.armor().tier <= 1 && points >= 3){
 						enGainMulti += 1.00f;
 					} else if (hero.belongings.armor().tier <= 2 && points >= 2){
-						enGainMulti += 0.50f;
+						enGainMulti += 0.667f;
 					} else if (hero.belongings.armor().tier <= 3 && points >= 1){
-						enGainMulti += 0.25f;
+						enGainMulti += 0.333f;
 					}
 				}
 
@@ -175,9 +183,9 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 					if (((MeleeWeapon) hero.belongings.weapon()).tier <= 1 && points >= 3){
 						enGainMulti += 1.00f;
 					} else if (((MeleeWeapon) hero.belongings.weapon()).tier <= 2 && points >= 2){
-						enGainMulti += 0.50f;
+						enGainMulti += 0.667f;
 					} else if (((MeleeWeapon) hero.belongings.weapon()).tier <= 3 && points >= 1){
-						enGainMulti += 0.25f;
+						enGainMulti += 0.333f;
 					}
 				} else if (hero.belongings.weapon == null) {
 					if (hero.buff(RingOfForce.Force.class) == null && points >= 3){
@@ -219,17 +227,19 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 
 		if (cooldown > 0 || energy < 1){
 			ActionIndicator.clearAction(this);
+		} else {
+			ActionIndicator.refresh();
 		}
 		BuffIndicator.refreshHero();
 	}
 
 	public boolean abilitiesEmpowered( Hero hero ){
-		//100%/85%/70% energy at +1/+2/+3
-		return energy/energyCap() >= 1.15f - 0.15f*hero.pointsInTalent(Talent.MONASTIC_VIGOR);
+		//100%/80%/60% energy at +1/+2/+3
+		return energy/energyCap() >= 1.2f - 0.2f*hero.pointsInTalent(Talent.MONASTIC_VIGOR);
 	}
 
 	public void processCombinedEnergy(Talent.CombinedEnergyAbilityTracker tracker){
-		energy += tracker.energySpent/3f;
+		energy = Math.min(energy+tracker.energySpent/3f, energyCap());
 		cooldown = 0;
 		tracker.detach();
 		if (energy >= 1){
@@ -244,8 +254,26 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public Image actionIcon() {
-		return new HeroIcon(HeroSubClass.MONK);
+	public Asset actionIcon() {
+		return HeroIcon.MONK_ABILITIES;
+	}
+
+	@Override
+	public Visual secondaryVisual() {
+		BitmapText txt = new BitmapText(PixelScene.pixelFont);
+		txt.text( Integer.toString((int)energy) );
+		txt.hardlight(CharSprite.POSITIVE);
+		txt.measure();
+		return txt;
+	}
+
+	@Override
+	public int indicatorColor() {
+		if (abilitiesEmpowered(Dungeon.hero)){
+			return 0x99CC33;
+		} else {
+			return 0xA08840;
+		}
 	}
 
 	@Override
@@ -605,22 +633,27 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 					}
 				}
 
+				//we process this as 5x wait actions instead of one 5 tick action to prevent
+				// effects like time freeze from eating the whole action duration
+				for (int i = 0; i < 5; i++) hero.spendConstant(Actor.TICK);
+
 				if (Buff.affect(hero, MonkEnergy.class).abilitiesEmpowered(hero)){
 					int toHeal = Math.round((hero.HT - hero.HP)/5f);
 					if (toHeal > 0) {
 						Buff.affect(hero, Healing.class).setHeal(toHeal, 0, 1);
 					}
-					Buff.affect(hero, MeditateResistance.class, 5f);
+					Buff.affect(hero, MeditateResistance.class, hero.cooldown());
 				}
 
-				//we process this as 5x wait actions instead of one 5 tick action to prevent
-				// effects like time freeze from eating the whole action duration
-				for (int i = 0; i < 5; i++) hero.spendConstant(Actor.TICK);
 				hero.next();
 				Buff.affect(hero, MonkEnergy.class).abilityUsed(this);
 			}
 
-			public static class MeditateResistance extends FlavourBuff{};
+			public static class MeditateResistance extends FlavourBuff{
+				{
+					actPriority = HERO_PRIO+1; //ends just before the hero acts
+				}
+			};
 		}
 
 	}

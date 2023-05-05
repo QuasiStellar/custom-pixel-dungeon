@@ -23,6 +23,7 @@ package com.qsr.customspd.items.potions.exotic;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.blobs.Blob;
@@ -90,26 +91,31 @@ public class PotionOfDragonsBreath extends ExoticPotion {
 
 			if (cell == null && identifiedByUse){
 				showingWindow = true;
-				GameScene.show( new WndOptions(new ItemSprite(PotionOfDragonsBreath.this),
-						Messages.titleCase(name()),
-						Messages.get(ExoticPotion.class, "warning"),
-						Messages.get(ExoticPotion.class, "yes"),
-						Messages.get(ExoticPotion.class, "no") ) {
+				ShatteredPixelDungeon.runOnRenderThread(new Callback() {
 					@Override
-					protected void onSelect( int index ) {
-						showingWindow = false;
-						switch (index) {
-							case 0:
-								curUser.spendAndNext(1f);
-								identifiedByUse = false;
-								break;
-							case 1:
-								GameScene.selectCell( targeter );
-								break;
-						}
+					public void call() {
+						GameScene.show( new WndOptions(new ItemSprite(PotionOfDragonsBreath.this),
+								Messages.titleCase(name()),
+								Messages.get(ExoticPotion.class, "warning"),
+								Messages.get(ExoticPotion.class, "yes"),
+								Messages.get(ExoticPotion.class, "no") ) {
+							@Override
+							protected void onSelect( int index ) {
+								showingWindow = false;
+								switch (index) {
+									case 0:
+										curUser.spendAndNext(1f);
+										identifiedByUse = false;
+										break;
+									case 1:
+										GameScene.selectCell( targeter );
+										break;
+								}
+							}
+							public void onBackPressed() {}
+						} );
 					}
-					public void onBackPressed() {}
-				} );
+				});
 			} else if (cell == null && !anonymous){
 				curItem.collect( curUser.belongings.backpack );
 			} else if (cell != null) {

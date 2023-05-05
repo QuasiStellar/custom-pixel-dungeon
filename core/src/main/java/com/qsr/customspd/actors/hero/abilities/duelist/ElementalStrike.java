@@ -333,7 +333,9 @@ public class ElementalStrike extends ArmorAbility {
 				int terr = Dungeon.level.map[cell];
 				if (terr == Terrain.EMPTY || terr == Terrain.EMBERS || terr == Terrain.EMPTY_DECO ||
 						terr == Terrain.GRASS) {
-					if (grassToPlace > 0){
+					if (grassToPlace > 0
+							&& !Char.hasProp(Actor.findChar(cell), Char.Property.IMMOVABLE)
+							&& Dungeon.level.plants.get(cell) == null){
 						Level.set(cell, highGrassType);
 						grassToPlace--;
 					} else {
@@ -403,8 +405,9 @@ public class ElementalStrike extends ArmorAbility {
 		//*** Lucky ***
 		} else if (ench instanceof Lucky){
 			for (Char ch : affected){
-				if (Random.Float() < 0.1f*powerMulti &&
-						ch.buff(ElementalStrikeLuckyTracker.class) == null) {
+				if (ch.alignment == Char.Alignment.ENEMY
+						&& Random.Float() < 0.1f*powerMulti
+						&& ch.buff(ElementalStrikeLuckyTracker.class) == null) {
 					Dungeon.level.drop(Lucky.genLoot(), ch.pos).sprite.drop();
 					Lucky.showFlare(ch.sprite);
 					Buff.affect(ch, ElementalStrikeLuckyTracker.class);

@@ -65,6 +65,15 @@ public class HeroIcon extends Image {
 	public static final Asset FEINT           = GeneralAsset.HERO_ICON_FEINT;
 	public static final Asset RATMOGRIFY      = GeneralAsset.HERO_ICON_RATMOGRIFY;
 
+	//action indicator visuals
+	public static final Asset BERSERK         = GeneralAsset.HERO_ICON_BERSERK;
+	public static final Asset COMBO           = GeneralAsset.HERO_ICON_COMBO;
+	public static final Asset PREPARATION     = GeneralAsset.HERO_ICON_PREPARATION;
+	public static final Asset MOMENTUM        = GeneralAsset.HERO_ICON_MOMENTUM;
+	public static final Asset SNIPERS_MARK    = GeneralAsset.HERO_ICON_SNIPERS_MARK;
+	public static final Asset WEAPON_SWAP     = GeneralAsset.HERO_ICON_WEAPON_SWAP;
+	public static final Asset MONK_ABILITIES  = GeneralAsset.HERO_ICON_MONK_ABILITIES;
+
 	public HeroIcon(HeroSubClass subCls) {
 		super( Asset.getAssetFileHandle(subCls.icon()) );
 	}
@@ -73,4 +82,7 @@ public class HeroIcon extends Image {
 		super( Asset.getAssetFileHandle(ability.icon()) );
 	}
 
+	public HeroIcon(ActionIndicator.Action action){
+		super( Asset.getAssetFileHandle(action.actionIcon()) );
+	}
 }

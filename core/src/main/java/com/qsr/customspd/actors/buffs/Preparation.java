@@ -32,18 +32,21 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
+import com.qsr.customspd.scenes.PixelScene;
+import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
+import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -186,25 +189,6 @@ public class Preparation extends Buff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public float iconFadePercent() {
-		AttackLevel level = AttackLevel.getLvl(turnsInvis);
-		if (level == AttackLevel.LVL_4){
-			return 0;
-		} else {
-			float turnsForCur = level.turnsReq;
-			float turnsForNext = AttackLevel.values()[level.ordinal()+1].turnsReq;
-			turnsForNext -= turnsForCur;
-			float turnsToNext = turnsInvis - turnsForCur;
-			return Math.min(1, (turnsForNext - turnsToNext)/(turnsForNext));
-		}
-	}
-
-	@Override
-	public String iconTextDisplay() {
-		return Integer.toString(turnsInvis);
-	}
-
-	@Override
 	public String desc() {
 		String desc = Messages.get(this, "desc");
 		
@@ -254,12 +238,31 @@ public class Preparation extends Buff implements ActionIndicator.Action {
 	}
 	
 	@Override
-	public Image actionIcon() {
-		Image actionIco = new Image(Asset.getAssetFileHandle(GeneralAsset.WOUND));
+	public Asset actionIcon() {
+		return HeroIcon.PREPARATION;
+	}
+
+	@Override
+	public Visual primaryVisual() {
+		Image actionIco = new HeroIcon(this);
 		tintIcon(actionIco);
 		return actionIco;
 	}
-	
+
+	@Override
+	public Visual secondaryVisual() {
+		BitmapText txt = new BitmapText(PixelScene.pixelFont);
+		txt.text(Integer.toString(Math.min(9, turnsInvis)));
+		txt.hardlight(CharSprite.POSITIVE);
+		txt.measure();
+		return txt;
+	}
+
+	@Override
+	public int indicatorColor() {
+		return 0x444444;
+	}
+
 	@Override
 	public void doAction() {
 		GameScene.selectCell(attack);

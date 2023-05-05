@@ -62,7 +62,7 @@ public class Flail extends MeleeWeapon {
 	@Override
 	public int damageRoll(Char owner) {
 		int dmg = Math.round(super.damageRoll(owner) * spinBonus);
-		if (spinBonus == 1.6f) Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG);
+		if (spinBonus == 2f) Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG);
 		spinBonus = 1f;
 		return dmg;
 	}
@@ -85,8 +85,8 @@ public class Flail extends MeleeWeapon {
 			});
 			//we detach and calculate bonus here in case the attack misses
 			spin.detach();
-			spinBonus = 1f + 0.2f*spin.spins;
-			if (spinBonus == 1.6f){
+			spinBonus = 1f + (spin.spins/3f);
+			if (spinBonus == 2f){
 				return Float.POSITIVE_INFINITY;
 			} else {
 				return super.accuracyFactor(owner, target);
@@ -108,23 +108,24 @@ public class Flail extends MeleeWeapon {
 	@Override
 	protected void duelistAbility(Hero hero, Integer target) {
 
-		beforeAbilityUsed(hero);
 		SpinAbilityTracker spin = hero.buff(SpinAbilityTracker.class);
+		if (spin != null && spin.spins >= 3){
+			GLog.w(Messages.get(this, "spin_warn"));
+			return;
+		}
 
+		beforeAbilityUsed(hero);
 		if (spin == null){
 			spin = Buff.affect(hero, SpinAbilityTracker.class, 3f);
 		}
 
-		if (spin.spins < 3){
-			spin.spins++;
-			Buff.prolong(hero, SpinAbilityTracker.class, 3f);
-			Sample.INSTANCE.play(Assets.Sounds.CHAINS, 1, 1, 0.9f + 0.1f*spin.spins);
-			hero.sprite.operate(hero.pos);
-			hero.spendAndNext(Actor.TICK);
-			BuffIndicator.refreshHero();
-		} else {
-			GLog.w(Messages.get(this, "spin_warn"));
-		}
+		spin.spins++;
+		Buff.prolong(hero, SpinAbilityTracker.class, 3f);
+		Sample.INSTANCE.play(Assets.Sounds.CHAINS, 1, 1, 0.9f + 0.1f*spin.spins);
+		hero.sprite.operate(hero.pos);
+		hero.spendAndNext(Actor.TICK);
+		BuffIndicator.refreshHero();
+
 		afterAbilityUsed(hero);
 	}
 
@@ -163,7 +164,7 @@ public class Flail extends MeleeWeapon {
 
 		@Override
 		public String desc() {
-			return Messages.get(this, "desc", 20*spins, dispTurns());
+			return Messages.get(this, "desc", (int)Math.round((spins/3f)*100f), dispTurns());
 		}
 
 		public static String SPINS = "spins";

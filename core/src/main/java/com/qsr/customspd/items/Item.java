@@ -173,7 +173,10 @@ public class Item implements Bundlable {
 	}
 	
 	public void execute( Hero hero ) {
-		execute( hero, defaultAction() );
+		String action = defaultAction();
+		if (action != null) {
+			execute(hero, defaultAction());
+		}
 	}
 	
 	protected void onThrow( int cell ) {

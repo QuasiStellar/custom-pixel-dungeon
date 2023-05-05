@@ -101,7 +101,6 @@ public class Messages {
 		//strictly match the language code when fetching bundles however
 		bundles = new ArrayList<>();
 		for (String moddedFileHandle : ModManager.INSTANCE.getAllModdedAssetFileHandles(moddedAssetFile)) {
-			System.out.println("bundle locale " + bundleLocale);
 			bundles.add(I18NBundle.createBundle(FileUtils.getFileHandle(
 				Files.FileType.External,
 				FileUtils.defaultPath,

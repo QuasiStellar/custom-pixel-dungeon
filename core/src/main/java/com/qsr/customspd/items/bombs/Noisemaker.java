@@ -25,12 +25,14 @@ import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.sprites.ItemSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 
@@ -43,6 +45,7 @@ public class Noisemaker extends Bomb {
 	public void setTrigger(int cell){
 
 		Buff.affect(Dungeon.hero, Trigger.class).set(cell);
+		fuse = null;
 
 		CellEmitter.center( cell ).start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
 		Sample.INSTANCE.play( Assets.Sounds.ALERT );
@@ -52,7 +55,30 @@ public class Noisemaker extends Bomb {
 		}
 
 	}
-	
+
+	@Override
+	public ItemSprite.Glowing glowing() {
+		if (fuse == null){
+			for (Trigger trigger : Dungeon.hero.buffs(Trigger.class)){
+				Heap heap = Dungeon.level.heaps.get(trigger.cell);
+				if (heap != null && heap.items.contains(this)) {
+					return new ItemSprite.Glowing( 0xFF0000, 0.6f);
+				}
+			}
+		}
+		return super.glowing();
+	}
+
+	@Override
+	public boolean doPickUp(Hero hero, int pos) {
+		if (fuse == null){
+			for (Trigger trigger : hero.buffs(Trigger.class)){
+				if (trigger.cell == pos) return false;
+			}
+		}
+		return super.doPickUp(hero, pos);
+	}
+
 	public static class Trigger extends Buff {
 
 		{

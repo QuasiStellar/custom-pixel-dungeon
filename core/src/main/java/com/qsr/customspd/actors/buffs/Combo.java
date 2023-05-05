@@ -30,23 +30,24 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.mobs.DwarfKing;
 import com.qsr.customspd.assets.Asset;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.BrokenSeal;
-import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.scenes.PixelScene;
+import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.ActionIndicator;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
+import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndCombo;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
@@ -73,7 +74,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	public void tintIcon(Image icon) {
 		ComboMove move = getHighestMove();
 		if (move != null){
-			icon.hardlight(move.tintColor & 0x00FFFFFF);
+			icon.hardlight(move.tintColor);
 		} else {
 			icon.resetColor();
 		}
@@ -176,16 +177,31 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public Image actionIcon() {
-		Image icon;
-		if (((Hero)target).belongings.weapon() != null){
-			icon = new ItemSprite(((Hero)target).belongings.weapon().image, null);
-		} else {
-			icon = new ItemSprite(new Item(){ {image = GeneralAsset.WEAPON_HOLDER; }});
-		}
+	public Asset actionIcon() {
+		return HeroIcon.COMBO;
+	}
 
-		icon.tint(getHighestMove().tintColor);
-		return icon;
+	@Override
+	public Visual secondaryVisual() {
+		BitmapText txt = new BitmapText(PixelScene.pixelFont);
+		txt.text( Integer.toString(count) );
+		txt.hardlight(CharSprite.POSITIVE);
+		txt.measure();
+		return txt;
+	}
+
+	@Override
+	public int indicatorColor() {
+		ComboMove best = getHighestMove();
+		if (best == null) {
+			return 0xDFDFDF;
+		} else {
+			//take the tint color and darken slightly to match buff icon
+			int r = (int) ((best.tintColor >> 16) * 0.875f);
+			int g = (int) (((best.tintColor >> 8) & 0xFF) * 0.875f);
+			int b = (int) ((best.tintColor & 0xFF) * 0.875f);
+			return (r << 16) + (g << 8) + b;
+		}
 	}
 
 	@Override
@@ -194,11 +210,11 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	}
 
 	public enum ComboMove {
-		CLOBBER(2, 0xFF00FF00),
-		SLAM   (4, 0xFFCCFF00),
-		PARRY  (6, 0xFFFFFF00),
-		CRUSH  (8, 0xFFFFCC00),
-		FURY   (10, 0xFFFF0000);
+		CLOBBER(2, 0x00FF00),
+		SLAM   (4, 0xCCFF00),
+		PARRY  (6, 0xFFFF00),
+		CRUSH  (8, 0xFFCC00),
+		FURY   (10, 0xFF0000);
 
 		public int comboReq, tintColor;
 

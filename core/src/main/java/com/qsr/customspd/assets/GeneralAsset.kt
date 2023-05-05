@@ -350,6 +350,13 @@ enum class GeneralAsset(override val path: String) : Asset {
     HERO_ICON_ELEMENTAL_STRIKE("interfaces/hero_icons/elemental_strike.png"),
     HERO_ICON_FEINT("interfaces/hero_icons/feint.png"),
     HERO_ICON_RATMOGRIFY("interfaces/hero_icons/ratmogrify.png"),
+    HERO_ICON_BERSERK("interfaces/hero_icons/berserk.png"),
+    HERO_ICON_COMBO("interfaces/hero_icons/combo.png"),
+    HERO_ICON_PREPARATION("interfaces/hero_icons/preparation.png"),
+    HERO_ICON_MOMENTUM("interfaces/hero_icons/momentum.png"),
+    HERO_ICON_SNIPERS_MARK("interfaces/hero_icons/snipers_mark.png"),
+    HERO_ICON_WEAPON_SWAP("interfaces/hero_icons/weapon_swap.png"),
+    HERO_ICON_MONK_ABILITIES("interfaces/hero_icons/monk_abilities.png"),
 
     TALENT_ICON_HEARTY_MEAL("interfaces/talent_icons/hearty_meal.png"),
     TALENT_ICON_VETERANS_INTUITION("interfaces/talent_icons/veterans_intuition.png"),

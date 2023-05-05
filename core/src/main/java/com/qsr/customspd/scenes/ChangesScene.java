@@ -28,6 +28,7 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -35,7 +36,8 @@ import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.ui.changelist.ChangeInfo;
-import com.qsr.customspd.ui.changelist.ChangesWindow;
+import com.qsr.customspd.ui.changelist.WndChanges;
+import com.qsr.customspd.ui.changelist.WndChangesTabbed;
 import com.qsr.customspd.ui.changelist.v0_1_X_Changes;
 import com.qsr.customspd.ui.changelist.v0_2_X_Changes;
 import com.qsr.customspd.ui.changelist.v0_3_X_Changes;
@@ -62,6 +64,7 @@ public class ChangesScene extends PixelScene {
 	public static int changesSelected = 0;
 
 	private NinePatch rightPanel;
+	private ScrollPane rightScroll;
 	private IconTitle changeTitle;
 	private RenderedTextBlock changeBody;
 	
@@ -106,19 +109,26 @@ public class ChangesScene extends PixelScene {
 			rightPanel.y = title.bottom() + 5;
 			add(rightPanel);
 
+			rightScroll = new ScrollPane(new Component());
+			add(rightScroll);
+			rightScroll.setRect(
+					rightPanel.x + rightPanel.marginLeft(),
+					rightPanel.y + rightPanel.marginTop()-1,
+					rightPanel.innerWidth() + 2,
+					rightPanel.innerHeight() + 2);
+			rightScroll.scrollTo(0, 0);
+
 			changeTitle = new IconTitle(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)), Messages.get(this, "right_title"));
-			changeTitle.setPos(rightPanel.x + rightPanel.marginLeft(), rightPanel.y + rightPanel.marginTop());
+			changeTitle.setPos(0, 1);
 			changeTitle.setSize(pw, 20);
-			add(changeTitle);
+			rightScroll.content().add(changeTitle);
 
 			String body = Messages.get(this, "right_body");
-			if (Messages.lang() != Languages.ENGLISH){
-				body += "\n\n_" + Messages.get(this, "lang_warn") + "_";
-			}
+
 			changeBody = PixelScene.renderTextBlock(body, 6);
 			changeBody.maxWidth(pw - panel.marginHor());
-			changeBody.setPos(rightPanel.x + rightPanel.marginLeft(), changeTitle.bottom()+2);
-			add(changeBody);
+			changeBody.setPos(0, changeTitle.bottom()+2);
+			rightScroll.content().add(changeBody);
 
 		} else {
 			panel.size( pw, ph );
@@ -129,7 +139,13 @@ public class ChangesScene extends PixelScene {
 		add( panel );
 		
 		final ArrayList<ChangeInfo> changeInfos = new ArrayList<>();
-		
+
+		if (Messages.lang() != Languages.ENGLISH){
+			ChangeInfo langWarn = new ChangeInfo("", true, Messages.get(this, "lang_warn"));
+			langWarn.hardlight(CharSprite.WARNING);
+			changeInfos.add(langWarn);
+		}
+
 		switch (changesSelected){
 			case 0: default:
 				v2_X_Changes.addAllChanges(changeInfos);
@@ -315,34 +331,44 @@ public class ChangesScene extends PixelScene {
 		fadeIn();
 	}
 
-	private void updateChangesText(Image icon, String title, String message){
+	private void updateChangesText(Image icon, String title, String... messages){
 		if (changeTitle != null){
 			changeTitle.icon(icon);
 			changeTitle.label(title);
 			changeTitle.setPos(changeTitle.left(), changeTitle.top());
 
-			int pw = 135 + rightPanel.marginHor() - 2;
-			changeBody.text(message, pw - rightPanel.marginHor());
-			int ph = Camera.main.height - 36;
-			while (changeBody.height() > ph-25
-					&& changeBody.right() + 5 < Camera.main.width){
-				changeBody.maxWidth(changeBody.maxWidth()+5);
+			String message = "";
+			for (int i = 0; i < messages.length; i++){
+				message += messages[i];
+				if (i != messages.length-1){
+					message += "\n\n";
+				}
 			}
-			rightPanel.size(changeBody.maxWidth() + rightPanel.marginHor(), Math.max(ph, changeBody.height()+18+rightPanel.marginVer()));
-			changeBody.setPos(changeBody.left(), changeTitle.bottom()+2);
+			changeBody.text(message);
+			rightScroll.content().setSize(rightScroll.width(), changeBody.bottom()+2);
+			rightScroll.setSize(rightScroll.width(), rightScroll.height());
+			rightScroll.scrollTo(0, 0);
 
 		} else {
-			addToFront(new ChangesWindow(icon, title, message));
+			if (messages.length == 1) {
+				addToFront(new WndChanges(icon, title, messages[0]));
+			} else {
+				addToFront(new WndChangesTabbed(icon, title, messages));
+			}
 		}
 	}
 
-	public static void showChangeInfo(Image icon, String title, String message){
+	public static void showChangeInfo(Image icon, String title, String... messages){
 		Scene s = ShatteredPixelDungeon.scene();
 		if (s instanceof ChangesScene){
-			((ChangesScene) s).updateChangesText(icon, title, message);
+			((ChangesScene) s).updateChangesText(icon, title, messages);
 			return;
 		}
-		s.addToFront(new ChangesWindow(icon, title, message));
+		if (messages.length == 1) {
+			s.addToFront(new WndChanges(icon, title, messages[0]));
+		} else {
+			s.addToFront(new WndChangesTabbed(icon, title, messages));
+		}
 	}
 	
 	@Override

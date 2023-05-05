@@ -31,11 +31,15 @@ import com.qsr.customspd.items.BrokenSeal.WarriorShield;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
+import com.qsr.customspd.scenes.PixelScene;
+import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.ActionIndicator;
-import com.qsr.customspd.ui.BuffIcon;
 import com.qsr.customspd.ui.BuffIndicator;
+import com.qsr.customspd.ui.HeroIcon;
 import com.qsr.customspd.utils.GLog;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.GameMath;
@@ -139,6 +143,8 @@ public class Berserk extends Buff implements ActionIndicator.Action {
 
 				if (power < 1f){
 					ActionIndicator.clearAction(this);
+				} else {
+					ActionIndicator.refresh();
 				}
 
 				if (power <= 0) {
@@ -244,9 +250,22 @@ public class Berserk extends Buff implements ActionIndicator.Action {
 	}
 
 	@Override
-	public Image actionIcon() {
-		//TODO, should look into these in general honestly
-		return new BuffIcon(BuffIndicator.FURY, true);
+	public Asset actionIcon() {
+		return HeroIcon.BERSERK;
+	}
+
+	@Override
+	public Visual secondaryVisual() {
+		BitmapText txt = new BitmapText(PixelScene.pixelFont);
+		txt.text((int) (power * 100) + "%");
+		txt.hardlight(CharSprite.POSITIVE);
+		txt.measure();
+		return txt;
+	}
+
+	@Override
+	public int indicatorColor() {
+		return 0x660000;
 	}
 
 	@Override
