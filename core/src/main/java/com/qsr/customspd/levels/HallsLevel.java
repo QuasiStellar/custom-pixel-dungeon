@@ -123,7 +123,7 @@ public class HallsLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_HALLS);
 	}
 	
 	@Override

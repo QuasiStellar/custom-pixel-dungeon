@@ -54,7 +54,6 @@ import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.TengusMask;
 import com.qsr.customspd.items.artifacts.DriedRose;
-import com.qsr.customspd.items.artifacts.LloydsBeacon;
 import com.qsr.customspd.items.bombs.Bomb;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.PrisonBossLevel;
@@ -62,7 +61,6 @@ import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.MissileSprite;
 import com.qsr.customspd.sprites.TenguSprite;
 import com.qsr.customspd.tiles.DungeonTilemap;
@@ -215,17 +213,12 @@ public class Tengu extends Mob {
 		GameScene.bossSlain();
 		super.die( cause );
 		
-		Badges.validateBossSlain();
+		Badges.validateBossSlain(Tengu.class);
 		if (Statistics.qualifiedForBossChallengeBadge){
-			Badges.validateBossChallengeCompleted();
+			Badges.validateBossChallengeCompleted(Tengu.class);
 		}
 		Statistics.bossScores[1] += 2000;
-		
-		LloydsBeacon beacon = Dungeon.hero.belongings.getItem(LloydsBeacon.class);
-		if (beacon != null) {
-			beacon.upgrade();
-		}
-		
+
 		yell( Messages.get(this, "defeated") );
 	}
 	

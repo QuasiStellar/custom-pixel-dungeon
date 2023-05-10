@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
@@ -162,7 +161,7 @@ public class HeroSprite extends CharSprite {
 	
 	public static TextureFilm tiers() {
 		if (tiers == null) {
-			SmartTexture texture = TextureCache.get( Asset.getAssetFileHandle(GeneralAsset.ROGUE) );
+			SmartTexture texture = TextureCache.get( Asset.getAssetFilePath(GeneralAsset.ROGUE) );
 			tiers = new TextureFilm( texture, texture.width, FRAME_HEIGHT );
 		}
 		

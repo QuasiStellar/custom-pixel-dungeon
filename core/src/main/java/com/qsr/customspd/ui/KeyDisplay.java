@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -49,7 +48,7 @@ public class KeyDisplay extends Visual {
 	private FloatBuffer quads;
 	private Vertexbuffer buffer;
 	
-	private SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle(GeneralAsset.KEYS));
+	private SmartTexture tx = TextureCache.get(Asset.getAssetFilePath(GeneralAsset.KEYS));
 	
 	private boolean dirty = true;
 	private int[] keys;
@@ -75,10 +74,10 @@ public class KeyDisplay extends Visual {
 		keys = new int[keyMap.size()+1];
 		
 		for (Notes.KeyRecord rec : Notes.getRecords(Notes.KeyRecord.class)){
-			if (rec.depth() < Dungeon.depth){
+			if (!rec.levelName().equals(Dungeon.levelName)){
 				//only ever 1 black key
 				keys[0] = 1;
-			} else if (rec.depth() == Dungeon.depth){
+			} else {
 				keys[keyMap.get(rec.type())] += rec.quantity();
 			}
 		}

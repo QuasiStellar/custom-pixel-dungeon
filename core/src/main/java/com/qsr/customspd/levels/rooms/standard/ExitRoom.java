@@ -21,6 +21,7 @@
 
 package com.qsr.customspd.levels.rooms.standard;
 
+import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.features.LevelTransition;
@@ -51,7 +52,11 @@ public class ExitRoom extends StandardRoom {
 		
 		int exit = level.pointToCell(random( 2 ));
 		Painter.set( level, exit, Terrain.EXIT );
-		level.transitions.add(new LevelTransition(level, exit, LevelTransition.Type.REGULAR_EXIT));
+		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getEntrances().get(0).equals("surface")) {
+			level.transitions.add(new LevelTransition(level, exit, LevelTransition.Type.SURFACE, 0));
+		} else {
+			level.transitions.add(new LevelTransition(level, exit, LevelTransition.Type.REGULAR_EXIT, 0));
+		}
 	}
 	
 	@Override

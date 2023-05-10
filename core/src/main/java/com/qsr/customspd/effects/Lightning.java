@@ -130,13 +130,13 @@ public class Lightning extends Group {
 			start = from;
 			end = to;
 
-			arc1 = new Image(Asset.getAssetFileHandle(GeneralAsset.LIGHTNING));
+			arc1 = new Image(Asset.getAssetFilePath(GeneralAsset.LIGHTNING));
 			arc1.x = start.x - arc1.origin.x;
 			arc1.y = start.y - arc1.origin.y;
 			arc1.origin.set( 0, arc1.height()/2 );
 			add( arc1 );
 
-			arc2 = new Image(Asset.getAssetFileHandle(GeneralAsset.LIGHTNING));
+			arc2 = new Image(Asset.getAssetFilePath(GeneralAsset.LIGHTNING));
 			arc2.origin.set( 0, arc2.height()/2 );
 			add( arc2 );
 

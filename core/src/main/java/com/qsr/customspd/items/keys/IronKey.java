@@ -30,12 +30,12 @@ public class IronKey extends Key {
 	}
 
 	public IronKey() {
-		this( 0 );
+		this( "" );
 	}
-	
-	public IronKey( int depth ) {
+
+	public IronKey( String levelName ) {
 		super();
-		this.depth = depth;
+		this.levelName = levelName;
 	}
 
 }

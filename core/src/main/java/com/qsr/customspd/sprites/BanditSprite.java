@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -31,7 +30,7 @@ public class BanditSprite extends MobSprite {
 	public BanditSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.THIEF) );
+		texture( Asset.getAssetFilePath(GeneralAsset.THIEF) );
 		TextureFilm film = new TextureFilm( texture, 12, 13 );
 		
 		idle = new Animation( 1, true );

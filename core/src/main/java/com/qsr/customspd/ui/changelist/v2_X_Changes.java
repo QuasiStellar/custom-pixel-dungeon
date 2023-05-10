@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.ui.changelist;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -30,7 +29,6 @@ import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -49,17 +47,17 @@ public class v2_X_Changes {
 		changes.hardlight(0xCCCCCC);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Overview",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Overview",
 				"My current plan is for the next major update to be v2.1.0, which will mostly be focused on responding to any balance or general gameplay issues that appear as dust settles from the Duelist's release.\n\n" +
 				"I don't yet have a specific timeline for v2.1.0, but I think it's a safe bet that you'll hear from me about it sometime in late April or May. Please keep in mind that while I always try to keep to the ETAs I provide, they are just estimates. If you don't hear from me by the ETA, it means I'm still busy with the update!"));
 
 		changes.addButton( new ChangeButton(HeroSprite.avatar(HeroClass.DUELIST, 6), "Hero Changes",
 				"The largest changes in v2.1.0 will be focused around the game's heroes, with a big emphasis on the Duelist. I'm generally happy with how she performed during the beta, but such a large addition to the game is definitely going to need some refinement over time. I may also make some smaller changes to the other heroes as well, depending on how things shake out. "));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)), "Side Content",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)), "Side Content",
 				"v2.1.0 will also include some amount of side content, but it will probably be fairly small. I plan to add a couple new exotic enemies, and there might be room for one or two other little things as well."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Smaller Fixes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), "Smaller Fixes",
 				"There will also be more miscellaneous changes and bugfixes! Despite all of the fixes I've made in v2.0.0, my list of things to do has actually grown! I'd like to spend a bit of time keeping that list in check."));
 
 		changes.addButton( new ChangeButton(new ItemSprite(GeneralAsset.PICKAXE), "Blacksmith Quest?",
@@ -77,14 +75,14 @@ public class v2_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Overhauled visuals for the action indicator. It now has different background colors for different actions, and supports a smaller secondary icon or text. Subclass abilities all make use of this new functionality, and some info has been moved from buff icons to this new indicator.\n\n" +
 				"_-_ The game's pixel font now supports Vietnamese!\n\n" +
 				"_-_ Rankings now attempt to show some basic information if loading full game data fails.\n\n" +
 				"_-_ The changes scene now shows a warning if the user is not viewing it in English.\n\n" +
 				"_-_ Liquid metal value increased to 1 from 0.5."));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed (Caused by v2.0):\n" +
 				"_-_ Various minor visual errors\n" +
 				"_-_ Flail spin ability triggering talents when already at full spin power\n" +
@@ -121,7 +119,7 @@ public class v2_X_Changes {
 				"_- Combo Strike_ now deals +40/35/30% damage per stack, up from +30/25/20%\n" +
 				"_- Spin_ now deals +33% damage per stack, up from +20%"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Quickslot contents are now automatically swapped if a newly equipped item that is not quickslotted replaces an item that was quickslotted. This should make weapon swapping gameplay smoother.\n" +
 				"\n" +
 				"_-_ The changes screen now supports more text for a single entry. On mobile UI the changes window can now have multiple tabs, on full UI the changes pane on the right is now scrollable.\n" +
@@ -131,7 +129,7 @@ public class v2_X_Changes {
 				"_-_ Levitation now prevents damage from floor electricity during the DM-300 fight\n" +
 				"_-_ Removed support for save data prior to v1.2.3"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed (Caused by v2.0):\n" +
 				"_-_ Various rare crash bugs\n" +
 				"_-_ Duelist not being automatically unlocked for existing players with a win\n" +
@@ -157,7 +155,7 @@ public class v2_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released March 13th, 2023\n" +
 				"_-_ 160 days after Shattered v1.4.0\n" +
 				"_-_ 413 days after Shattered v1.0.0\n" +
@@ -191,7 +189,7 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "Ascension Challenge",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)), "Ascension Challenge",
 				"I'm making a few adjustments to the ascension challenge to slightly increase the difficulty of some regions, while also reducing the pressure to kill enemies a little bit:\n" +
 				"\n" +
 				"_-_ Enemies to kill per floor reduced to 2 from 2.5. Thresholds for all amulet debuff effects adjusted to compensate\n" +
@@ -206,7 +204,7 @@ public class v2_X_Changes {
 				"_- Gnoll & Snake_ stat boost up to 9x from 7x\n" +
 				"_- Rat_ stat boost up to 10x from 8x"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc") + " 1",
 				"_Highlights:_\n" +
 				"_-_ The game now remembers if the player removes the waterskin from their quickslot right after starting a run\n" +
 				"_-_ The damage warning vfx now always interrupts the hero, regardless of any other factors\n" +
@@ -250,7 +248,7 @@ public class v2_X_Changes {
 				"_-_ Healing no longer interrupts resting when HP is already full\n" +
 				"_-_ Updated various code libraries\n"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes") + " 1",
 				"Fixed the following bugs:\n" +
 				"_Highlights:_\n" +
 				"_-_ Various rare crash and freeze errors\n" +

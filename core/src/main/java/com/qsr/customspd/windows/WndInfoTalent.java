@@ -72,7 +72,7 @@ public class WndInfoTalent extends Window {
 					buttonCallback.call();
 				}
 			};
-			button.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)));
+			button.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)));
 			button.setRect(0, txtInfo.bottom() + 2*GAP, WIDTH, 18);
 			add(button);
 			resize( WIDTH, (int)button.bottom()+1 );

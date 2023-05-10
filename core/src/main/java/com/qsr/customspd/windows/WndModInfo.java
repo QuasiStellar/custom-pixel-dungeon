@@ -104,6 +104,14 @@ public class WndModInfo extends Window {
 			6
 		);
 
+		RenderedTextBlock gameplayMod;
+		if (mod.getInfo().getGameplayMod()) {
+			gameplayMod = PixelScene.renderTextBlock(
+				Messages.get(this, "gameplay_mod"),
+				6
+			);
+		} else gameplayMod = null;
+
 		RedButton button = new RedButton(Messages.get(
 			this,
 			mod.isEnabled() ? "disable" : "enable"
@@ -118,7 +126,7 @@ public class WndModInfo extends Window {
 				setSize(reqWidth(), 16);
 				setPos(
 					title.left() + (title.width() - width()) / 2,
-					license.bottom() + GAP
+					(gameplayMod != null ? gameplayMod.bottom() : license.bottom()) + GAP
 				);
 				updateCallback.call();
 			}
@@ -144,7 +152,7 @@ public class WndModInfo extends Window {
 			}
 		};
 
-		layoutFields(title, description, author, version, languages, license, button, left, right);
+		layoutFields(title, description, author, version, languages, license, gameplayMod, button, left, right);
 	}
 
 	private void layoutFields(
@@ -154,6 +162,7 @@ public class WndModInfo extends Window {
 		RenderedTextBlock version,
 		RenderedTextBlock languages,
 		RenderedTextBlock license,
+		RenderedTextBlock gameplayMod,
 		RedButton button,
 		RedButton left,
 		RedButton right
@@ -165,6 +174,7 @@ public class WndModInfo extends Window {
 		version.maxWidth(width);
 		if (languages != null) languages.maxWidth(width);
 		license.maxWidth(width);
+		if (gameplayMod != null) gameplayMod.maxWidth(width);
 
 		//window can go out of the screen on landscape, so widen it as appropriate
 		while (PixelScene.landscape()
@@ -179,6 +189,7 @@ public class WndModInfo extends Window {
 			version.maxWidth(width);
 			if (languages != null) languages.maxWidth(width);
 			license.maxWidth(width);
+			if (gameplayMod != null) gameplayMod.maxWidth(width);
 		}
 
 		title.setRect( 0, 0, width, 0 );
@@ -212,7 +223,7 @@ public class WndModInfo extends Window {
 		}
 
 		float authorY;
-		if (previews.isEmpty()) authorY = info.bottom() + GAP / 2;
+		if (previews.isEmpty()) authorY = info.bottom() + GAP;
 		else if (previews.size() == 1) authorY = previews.get(0).y + maxHeight + GAP / 2;
 		else authorY = left.bottom() + GAP / 2;
 		author.setPos(title.left(), authorY);
@@ -229,10 +240,15 @@ public class WndModInfo extends Window {
 		license.setPos(title.left(), (languages != null ? languages.bottom() : version.bottom()) + GAP);
 		add( license );
 
+		if (gameplayMod != null) {
+			gameplayMod.setPos(title.left(), license.bottom() + GAP);
+			add( gameplayMod );
+		}
+
 		button.setSize(button.reqWidth(), 16);
 		button.setPos(
 			title.left() + (title.width() - button.width()) / 2,
-			license.bottom() + GAP
+			(gameplayMod != null ? gameplayMod.bottom() : license.bottom()) + GAP
 		);
 		add(button);
 

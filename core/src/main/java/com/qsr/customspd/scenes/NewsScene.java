@@ -155,7 +155,7 @@ public class NewsScene extends PixelScene {
 				ShatteredPixelDungeon.platform.openURI(link);
 			}
 		};
-		btnSite.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS)));
+		btnSite.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)));
 		btnSite.textColor(Window.TITLE_COLOR);
 		btnSite.setRect(left, top, fullWidth, BTN_HEIGHT);
 		add(btnSite);

@@ -98,7 +98,7 @@ public class CavesBossLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_CAVES);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_CAVES);
 	}
 
 	private static int WIDTH = 33;
@@ -155,7 +155,7 @@ public class CavesBossLevel extends Level {
 		Painter.fill(this, 15, 0, 3, 3, Terrain.EXIT);
 
 		int exitCell = 16 + 2*width();
-		LevelTransition exit = new LevelTransition(this, exitCell, LevelTransition.Type.REGULAR_EXIT);
+		LevelTransition exit = new LevelTransition(this, exitCell, LevelTransition.Type.REGULAR_EXIT, 0);
 		exit.set(14, 0, 18, 2);
 		transitions.add(exit);
 
@@ -178,14 +178,6 @@ public class CavesBossLevel extends Level {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-
-		//pre-1.3.0 saves, modifies exit transition with custom size
-		if (bundle.contains("exit")){
-			LevelTransition exit = getTransition(LevelTransition.Type.REGULAR_EXIT);
-			exit.set(14, 0, 18, 2);
-			transitions.add(exit);
-		}
-
 		for (CustomTilemap c : customTiles){
 			if (c instanceof ArenaVisuals){
 				customArenaVisuals = (ArenaVisuals) c;
@@ -522,7 +514,7 @@ public class CavesBossLevel extends Level {
 		}
 
 		Painter.set(this, entrance, Terrain.ENTRANCE);
-		transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE));
+		transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 	}
 
 	private static short[] corner1 = {
@@ -611,7 +603,7 @@ public class CavesBossLevel extends Level {
 	public static class CityEntrance extends CustomTilemap{
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
+			texture = Asset.getAssetFilePath(GeneralAsset.CAVES_BOSS);
 		}
 
 		private static short[] entryWay = new short[]{
@@ -659,7 +651,7 @@ public class CavesBossLevel extends Level {
 	public static class EntranceOverhang extends CustomTilemap{
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
+			texture = Asset.getAssetFilePath(GeneralAsset.CAVES_BOSS);
 		}
 
 		private static short[] entryWay = new short[]{
@@ -703,7 +695,7 @@ public class CavesBossLevel extends Level {
 	public static class ArenaVisuals extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.CAVES_BOSS);
+			texture = Asset.getAssetFilePath(GeneralAsset.CAVES_BOSS);
 		}
 
 		@Override

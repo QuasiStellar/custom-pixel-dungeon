@@ -52,7 +52,7 @@ public class ScrollHolder extends Bag {
 		super.onDetach();
 		for (Item item : items) {
 			if (item instanceof BeaconOfReturning) {
-				((BeaconOfReturning) item).returnDepth = -1;
+				((BeaconOfReturning) item).returnLevel = "surface";
 			}
 		}
 	}

@@ -28,13 +28,13 @@ public class SkeletonKey extends Key {
 	{
 		image = GeneralAsset.SKELETON_KEY;
 	}
-	
+
 	public SkeletonKey() {
-		this( 0 );
+		this( "" );
 	}
-	
-	public SkeletonKey( int depth ) {
+
+	public SkeletonKey( String levelName ) {
 		super();
-		this.depth = depth;
+		this.levelName = levelName;
 	}
 }

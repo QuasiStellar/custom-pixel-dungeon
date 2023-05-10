@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.actors.hero.abilities.huntress;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
@@ -284,7 +283,7 @@ public class SpiritHawk extends ArmorAbility {
 		public HawkSprite() {
 			super();
 
-			texture( Asset.getAssetFileHandle(GeneralAsset.SPIRIT_HAWK) );
+			texture( Asset.getAssetFilePath(GeneralAsset.SPIRIT_HAWK) );
 
 			TextureFilm frames = new TextureFilm( texture, 15, 15 );
 

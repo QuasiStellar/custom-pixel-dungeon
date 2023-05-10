@@ -107,11 +107,11 @@ public class WndRanking extends WndTabbed {
 
 		if (Dungeon.hero != null) {
 			Image[] icons = {
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK_LRG)),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BADGES)),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON))
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_RANKINGS)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BACKPACK_LRG)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BADGES)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHALLENGE_ON))
 			};
 			Group[] pages =
 					{new StatsTab(), new TalentsTab(), new ItemsTab(), new BadgesTab(), null};
@@ -201,7 +201,7 @@ public class WndRanking extends WndTabbed {
 				pos = statSlot( this, Messages.get(this, "score"), num.format( record.score ), pos );
 				pos += GAP;
 
-				Image errorIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING));
+				Image errorIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING));
 				errorIcon.y = pos;
 				add(errorIcon);
 
@@ -214,7 +214,7 @@ public class WndRanking extends WndTabbed {
 
 				pos = statSlot(this, Messages.get(this, "score"), num.format(Statistics.totalScore), pos);
 
-				IconButton scoreInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))) {
+				IconButton scoreInfo = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))) {
 					@Override
 					protected void onClick() {
 						super.onClick();
@@ -268,7 +268,7 @@ public class WndRanking extends WndTabbed {
 
 			if (Dungeon.hero != null && Dungeon.seed != -1 && !Dungeon.daily &&
 					(DeviceCompat.isDebug() || Badges.isUnlocked(Badges.Badge.VICTORY))){
-				final Image icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED));
+				final Image icon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SEED));
 				RedButton btnSeed = new RedButton(Messages.get(this, "copy_seed")){
 					@Override
 					protected void onClick() {
@@ -440,7 +440,7 @@ public class WndRanking extends WndTabbed {
 
 				add( cb );
 
-				IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
+				IconButton info = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						super.onClick();

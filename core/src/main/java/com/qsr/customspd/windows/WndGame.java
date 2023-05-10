@@ -62,7 +62,7 @@ public class WndGame extends Window {
 				GameScene.show(new WndSettings());
 			}
 		});
-		curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)));
+		curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)));
 
 		//install prompt
 		if (Updates.isInstallable()){
@@ -73,7 +73,7 @@ public class WndGame extends Window {
 				}
 			} );
 			curBtn.textColor(Window.SHPX_COLOR);
-			curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
+			curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)));
 		}
 
 		// Challenges window
@@ -85,7 +85,7 @@ public class WndGame extends Window {
 					GameScene.show( new WndChallenges( Dungeon.challenges, false ) );
 				}
 			} );
-			curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)));
+			curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHALLENGE_ON)));
 		}
 
 		// Restart
@@ -99,7 +99,7 @@ public class WndGame extends Window {
 					ShatteredPixelDungeon.switchScene(HeroSelectScene.class);
 				}
 			} );
-			curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
+			curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENTER)));
 			curBtn.textColor(Window.TITLE_COLOR);
 			
 			addButton( curBtn = new RedButton( Messages.get(this, "rankings") ) {
@@ -109,7 +109,7 @@ public class WndGame extends Window {
 					Game.switchScene( RankingsScene.class );
 				}
 			} );
-			curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)));
+			curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_RANKINGS)));
 		}
 
 		// Main menu
@@ -124,7 +124,7 @@ public class WndGame extends Window {
 				Game.switchScene(TitleScene.class);
 			}
 		});
-		curBtn.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)));
+		curBtn.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT)));
 		if (SPDSettings.intro()) curBtn.enable(false);
 
 		resize( WIDTH, pos );

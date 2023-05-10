@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.scenes.InterlevelScene;
 import com.qsr.customspd.scenes.PixelScene;
@@ -42,6 +43,7 @@ import com.qsr.customspd.utils.DungeonSeed;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 public class WndGameInProgress extends Window {
@@ -81,7 +83,7 @@ public class WndGameInProgress extends Window {
 					Game.scene().add( new WndChallenges( info.challenges, false ) );
 				}
 			};
-			btnChallenges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHALLENGE_ON)));
+			btnChallenges.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHALLENGE_ON)));
 			float btnW = btnChallenges.reqWidth() + 2;
 			btnChallenges.setRect( (WIDTH - btnW)/2, pos, btnW , 18 );
 			add( btnChallenges );
@@ -120,6 +122,12 @@ public class WndGameInProgress extends Window {
 			@Override
 			protected void onClick() {
 				super.onClick();
+
+				if (!Arrays.equals(info.gameplayMods, ModManager.INSTANCE.getEnabledGameplayModNames().toArray(new String[0]))) {
+					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "gameplay", Arrays.toString(info.gameplayMods))));
+					return;
+				}
+
 				if (TileMapCompilationManager.INSTANCE.isBusy()) {
 					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "wait")));
 					return;
@@ -140,7 +148,7 @@ public class WndGameInProgress extends Window {
 			protected void onClick() {
 				super.onClick();
 				
-				ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
+				ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)),
 						Messages.get(WndGameInProgress.class, "erase_warn_title"),
 						Messages.get(WndGameInProgress.class, "erase_warn_body"),
 						Messages.get(WndGameInProgress.class, "erase_warn_yes"),
@@ -156,11 +164,11 @@ public class WndGameInProgress extends Window {
 			}
 		};
 
-		cont.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
+		cont.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENTER)));
 		cont.setRect(0, pos, WIDTH/2 -1, 20);
 		add(cont);
 
-		erase.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CLOSE)));
+		erase.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CLOSE)));
 		erase.setRect(WIDTH/2 + 1, pos, WIDTH/2 - 1, 20);
 		add(erase);
 		

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
@@ -44,7 +43,7 @@ public class LotusSprite extends MobSprite {
 
 		perspectiveRaise = 0f;
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.LOTUS) );
+		texture( Asset.getAssetFilePath(GeneralAsset.LOTUS) );
 
 		TextureFilm frames = new TextureFilm( texture, 19, 16 );
 

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -37,7 +36,7 @@ public class GnollTricksterSprite extends MobSprite {
 	public GnollTricksterSprite() {
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.GNOLL) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GNOLL) );
 
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 

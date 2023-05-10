@@ -22,15 +22,12 @@
 package com.qsr.customspd.scenes;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.Badges;
-import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.GamesInProgress;
 import com.qsr.customspd.Rankings;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.ShatteredPixelDungeon;
-import com.qsr.customspd.Statistics;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Fireball;
@@ -69,7 +66,7 @@ public class WelcomeScene extends PixelScene {
 		final int previousVersion = SPDSettings.version();
 
 		if (!triedCleaningTemp && FileUtils.cleanTempFiles()){
-			add(new WndHardNotification(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
+			add(new WndHardNotification(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)),
 					Messages.get(WndError.class, "title"),
 					Messages.get(this, "save_warning"),
 					Messages.get(this, "continue"),
@@ -106,7 +103,7 @@ public class WelcomeScene extends PixelScene {
 		//darkens the arches
 		add(new ColorBlock(w, h, 0x88000000));
 
-		Image title = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON));
+		Image title = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON));
 		add( title );
 
 		float topRegion = Math.max(title.height - 6, h*0.45f);
@@ -119,7 +116,7 @@ public class WelcomeScene extends PixelScene {
 		placeTorch(title.x + 22, title.y + 46);
 		placeTorch(title.x + title.width - 22, title.y + 46);
 
-		Image signs = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
+		Image signs = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
 			private float time = 0;
 			@Override
 			public void update() {
@@ -183,12 +180,12 @@ public class WelcomeScene extends PixelScene {
 			add(okay);
 
 			changes.setRect(okay.right()+2, buttonY, (title.width()/2)-2, 20);
-			changes.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
+			changes.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)));
 			add(changes);
 		} else {
 			okay.text(Messages.get(TitleScene.class, "enter"));
 			okay.setRect(title.x, buttonY, title.width(), 20);
-			okay.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
+			okay.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENTER)));
 			add(okay);
 		}
 
@@ -220,7 +217,7 @@ public class WelcomeScene extends PixelScene {
 		add(text);
 
 		if (SPDSettings.intro() && ControllerHandler.isControllerConnected()){
-			addToFront(new WndHardNotification(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CONTROLLER)),
+			addToFront(new WndHardNotification(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CONTROLLER)),
 					Messages.get(WelcomeScene.class, "controller_title"),
 					Messages.get(WelcomeScene.class, "controller_body"),
 					Messages.get(WelcomeScene.class, "controller_okay"),

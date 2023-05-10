@@ -40,6 +40,8 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
+import com.qsr.customspd.levels.CavesBossLevel;
+import com.qsr.customspd.levels.CavesLevel;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.messages.Messages;
@@ -95,7 +97,7 @@ public class Pickaxe extends MeleeWeapon {
 		
 		if (action.equals(AC_MINE)) {
 			
-			if (Dungeon.depth < 11 || Dungeon.depth > 15) {
+			if (Dungeon.level instanceof CavesLevel || Dungeon.level instanceof CavesBossLevel) {
 				GLog.w( Messages.get(this, "no_vein") );
 				return;
 			}

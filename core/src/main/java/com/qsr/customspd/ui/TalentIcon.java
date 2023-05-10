@@ -21,11 +21,9 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.assets.Asset;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
 
 public class TalentIcon extends Image {
 
@@ -34,7 +32,7 @@ public class TalentIcon extends Image {
 	}
 
 	public TalentIcon(Asset icon){
-		super( Asset.getAssetFileHandle(icon) );
+		super( Asset.getAssetFilePath(icon) );
 	}
 
 }

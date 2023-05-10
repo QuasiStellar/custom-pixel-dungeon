@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.ShadowParticle;
@@ -33,7 +32,7 @@ public class GuardSprite extends MobSprite {
 	public GuardSprite() {
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.GUARD) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GUARD) );
 
 		TextureFilm frames = new TextureFilm( texture, 12, 16 );
 

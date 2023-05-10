@@ -110,7 +110,7 @@ public class DistortionTrap extends Trap{
 					int floor;
 					do {
 						floor = Random.Int(25);
-					} while( Dungeon.bossLevel(floor));
+					} while( Dungeon.bossLevel(String.valueOf(floor)));
 					mob = Reflection.newInstance(Bestiary.getMobRotation(floor).get(0));
 					break;
 				case 2:

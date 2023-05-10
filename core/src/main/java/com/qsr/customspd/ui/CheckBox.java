@@ -33,7 +33,7 @@ public class CheckBox extends RedButton {
 	public CheckBox( String label ) {
 		super( label );
 		
-		icon( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_UNCHECKED)) );
+		icon( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_UNCHECKED)) );
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class CheckBox extends RedButton {
 	public void checked( boolean value ) {
 		if (checked != value) {
 			checked = value;
-			icon.copy( checked ? new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHECKED)) : new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_UNCHECKED)) );
+			icon.copy( checked ? new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHECKED)) : new Image(Asset.getAssetFilePath(GeneralAsset.ICON_UNCHECKED)) );
 		}
 	}
 	

@@ -34,7 +34,7 @@ import com.watabou.noosa.Image;
 public class ExitButton extends IconButton {
 
 	public ExitButton() {
-		super(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_EXIT)));
+		super(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_EXIT)));
 
 		width = 20;
 		height = 20;

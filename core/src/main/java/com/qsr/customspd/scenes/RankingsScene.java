@@ -31,7 +31,6 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Archs;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
@@ -39,7 +38,6 @@ import com.qsr.customspd.ui.IconUtils;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.windows.WndDailies;
-import com.qsr.customspd.windows.WndError;
 import com.qsr.customspd.windows.WndRanking;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
@@ -147,7 +145,7 @@ public class RankingsScene extends PixelScene {
 		int left = 0;
 
 		if (Rankings.INSTANCE.latestDaily != null) {
-			IconButton btnDailies = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR))) {
+			IconButton btnDailies = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CALENDAR))) {
 				@Override
 				protected void onClick() {
 					ShatteredPixelDungeon.scene().addToFront(new WndDailies());
@@ -240,7 +238,7 @@ public class RankingsScene extends PixelScene {
 				if (rec.depth != 0){
 					depth.text( Integer.toString(rec.depth) );
 					depth.measure();
-					steps.copy(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)));
+					steps.copy(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)));
 
 					add(steps);
 					add(depth);
@@ -254,10 +252,10 @@ public class RankingsScene extends PixelScene {
 			}
 
 			if (rec.daily){
-				shield.copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR)) );
+				shield.copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CALENDAR)) );
 				shield.hardlight(0.5f, 1f, 2f);
 			} else if (!rec.customSeed.isEmpty()){
-				shield.copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED)) );
+				shield.copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SEED)) );
 				shield.hardlight(1f, 1.5f, 0.67f);
 			}
 

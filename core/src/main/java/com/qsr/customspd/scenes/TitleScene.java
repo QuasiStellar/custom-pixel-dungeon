@@ -77,7 +77,7 @@ public class TitleScene extends PixelScene {
 		archs.setSize( w, h );
 		add( archs );
 		
-		Image title = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON));
+		Image title = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON));
 		add( title );
 
 		float topRegion = Math.max(title.height - 6, h*0.45f);
@@ -90,7 +90,7 @@ public class TitleScene extends PixelScene {
 		placeTorch(title.x + 22, title.y + 46);
 		placeTorch(title.x + title.width - 22, title.y + 46);
 
-		Image signs = new Image(Asset.getAssetFileHandle(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
+		Image signs = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
 			private float time = 0;
 			@Override
 			public void update() {
@@ -135,7 +135,7 @@ public class TitleScene extends PixelScene {
 				return super.onLongClick();
 			}
 		};
-		btnPlay.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
+		btnPlay.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENTER)));
 		add(btnPlay);
 
 		StyledButton btnMods = new ModsButton(GREY_TR, Messages.get(this, "mods"));
@@ -147,7 +147,7 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchNoFade( RankingsScene.class );
 			}
 		};
-		btnRankings.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)));
+		btnRankings.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_RANKINGS)));
 		add(btnRankings);
 		Dungeon.daily = Dungeon.dailyReplay = false;
 
@@ -157,15 +157,15 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchNoFade( BadgesScene.class );
 			}
 		};
-		btnBadges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BADGES)));
+		btnBadges.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BADGES)));
 		add(btnBadges);
 
 		StyledButton btnNews = new NewsButton(GREY_TR, Messages.get(this, "news"));
-		btnNews.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS)));
+		btnNews.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)));
 		add(btnNews);
 
 		StyledButton btnChanges = new ChangesButton(GREY_TR, Messages.get(this, "changes"));
-		btnChanges.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
+		btnChanges.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)));
 		add(btnChanges);
 
 		StyledButton btnSettings = new SettingsButton(GREY_TR, Messages.get(this, "settings"));
@@ -177,7 +177,7 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchScene( AboutScene.class );
 			}
 		};
-		btnAbout.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)));
+		btnAbout.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)));
 		add(btnAbout);
 		
 		final int BTN_HEIGHT = 20;
@@ -302,7 +302,7 @@ public class TitleScene extends PixelScene {
 				AvailableUpdateData update = Updates.updateData();
 
 				ShatteredPixelDungeon.scene().addToFront( new WndOptions(
-					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)),
+					new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)),
 						update.versionName == null ? Messages.get(this,"title") : Messages.get(this,"versioned_title", update.versionName),
 						update.desc == null ? Messages.get(this,"desc") : update.desc,
 						Messages.get(this,"update"),
@@ -340,10 +340,10 @@ public class TitleScene extends PixelScene {
 		public SettingsButton( Chrome.Type type, String label ){
 			super(type, label);
 			if (Messages.lang().status() == Languages.Status.UNFINISHED){
-				icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)));
+				icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)));
 				icon.hardlight(1.5f, 0, 0);
 			} else {
-				icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)));
+				icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)));
 			}
 		}
 
@@ -369,7 +369,7 @@ public class TitleScene extends PixelScene {
 
 		public ModsButton(Chrome.Type type, String label ){
 			super(type, label);
-			icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)));
+			icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)));
 		}
 
 		@Override

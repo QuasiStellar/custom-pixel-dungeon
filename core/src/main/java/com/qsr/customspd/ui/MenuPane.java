@@ -72,13 +72,13 @@ public class MenuPane extends Component {
 	protected void createChildren() {
 		super.createChildren();
 
-		bg = new Image(Asset.getAssetFileHandle(GeneralAsset.MENU_PANE));
+		bg = new Image(Asset.getAssetFilePath(GeneralAsset.MENU_PANE));
 		add(bg);
 
 		depthIcon = IconUtils.get(Dungeon.level.feeling);
 		add(depthIcon);
 
-		depthText = new BitmapText( Integer.toString( Dungeon.depth ), PixelScene.pixelFont);
+		depthText = new BitmapText( Dungeon.levelName, PixelScene.pixelFont);
 		depthText.hardlight( 0xCACFC2 );
 		depthText.measure();
 		add( depthText );
@@ -108,7 +108,7 @@ public class MenuPane extends Component {
 		add(depthButton);
 
 		if (Challenges.activeChallenges() > 0){
-			challengeIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHAL_COUNT));
+			challengeIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHAL_COUNT));
 			add(challengeIcon);
 
 			challengeText = new BitmapText( Integer.toString( Challenges.activeChallenges() ), PixelScene.pixelFont);
@@ -233,10 +233,10 @@ public class MenuPane extends Component {
 		protected void createChildren() {
 			super.createChildren();
 
-			bg = new Image(Asset.getAssetFileHandle(GeneralAsset.JOURNAL_BUTTON));
+			bg = new Image(Asset.getAssetFilePath(GeneralAsset.JOURNAL_BUTTON));
 			add( bg );
 
-			journalIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.JOURNAL_ICON));
+			journalIcon = new Image(Asset.getAssetFilePath(GeneralAsset.JOURNAL_ICON));
 			add( journalIcon );
 
 			keyIcon = new KeyDisplay();
@@ -355,7 +355,7 @@ public class MenuPane extends Component {
 		protected void createChildren() {
 			super.createChildren();
 
-			image = new Image(Asset.getAssetFileHandle(GeneralAsset.MENU_BUTTON));
+			image = new Image(Asset.getAssetFilePath(GeneralAsset.MENU_BUTTON));
 			add( image );
 		}
 

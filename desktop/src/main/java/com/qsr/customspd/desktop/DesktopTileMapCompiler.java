@@ -24,9 +24,9 @@ public class DesktopTileMapCompiler implements TileMapCompiler {
         for (TileAsset tileAsset : tiles) {
             FileHandle handle = FileUtils.getFileHandle(
                 Files.FileType.External, FileUtils.defaultPath,
-                ModManager.INSTANCE.getAssetFileHandle(tileAsset.getPath())
+                ModManager.INSTANCE.getModdedAssetFilePath(tileAsset.getPath())
             );
-            if (!handle.exists()) handle = Gdx.files.internal(ModManager.INSTANCE.getAssetFileHandle(tileAsset.getPath()));
+            if (!handle.exists()) handle = Gdx.files.internal(ModManager.INSTANCE.getModdedAssetFilePath(tileAsset.getPath()));
             int pos = tileAsset.getPos();
             try {
                 tileMap.drawImage(

@@ -49,7 +49,6 @@ import com.qsr.customspd.sprites.DM300Sprite;
 import com.qsr.customspd.sprites.ElementalSprite;
 import com.qsr.customspd.sprites.GuardSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.sprites.KingSprite;
 import com.qsr.customspd.sprites.NecromancerSprite;
 import com.qsr.customspd.sprites.ShamanSprite;
@@ -81,7 +80,7 @@ public class v0_8_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 6th, 2020\n" +
 				"_-_ 40 days after Shattered v0.8.1\n" +
 				"\n" +
@@ -96,7 +95,7 @@ public class v0_8_X_Changes {
 				"The player can now equip _one ring, one artifact, and one ring or artifact._ The third slot doesn't allow equipping three of the same type of item.\n\n" +
 				"I'm hoping this change will reduce the amount that these two item types compete with each other, and also opens up some interesting new build possibilities!"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS)), "Ingame News Feed",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)), "Ingame News Feed",
 				"_A news feed has been added to the game's main menu!_\n\n" +
 				"This feed pulls in blog posts from ShatteredPixel.com, and displays then within the game. It will also notify players when new posts are available.\n\n" +
 				"I've wanted to improve my communication with the game's playerbase for quite a while, and this is a huge step in that direction."));
@@ -110,7 +109,7 @@ public class v0_8_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)), "Interface Improvements",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT)), "Interface Improvements",
 				"Several of the game's interfaces have been substantially improved:\n\n" +
 				"_-_ The title screen has received major layout changes. It now has links to the new news screen, and no longer has buttons cluttering the corners\n\n" +
 				"_-_ The supporter interface now has its own dedicated scene and improved visuals\n\n" +
@@ -118,14 +117,14 @@ public class v0_8_X_Changes {
 				"_-_ Icons have been added to pages of the adventurer's guidebook\n\n" +
 				"_-_ Various minor tweaks/improvements to other interfaces"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DATA)), "Google Play Functionality",
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DATA)), "Google Play Functionality",
 				"Several Improvements have been made to Google Play-specific functionality:\n\n" +
 				"_-_ Shattered now supports Android instant app and instant game functionality, which lets new users try the game without installing it\n\n" +
 				"_-_ Google Play Games is now much smarter about when it prompts the player to sign in if they have already enabled it\n\n" +
 				"_-_ Google Play Games now prompts new users to sign in if they already have Google Play Games installed\n\n" +
 				"_-_ Journal sync is now supported by Google Play Games functionality"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_Balance:_\n" +
 				"_-_ Bleed from gripping/flashing traps reduced, but they are also affected less by armor.\n" +
 				"_-_ All effects which cancel invisibility and time freeze now fully resolve before they cancel invis/freeze.\n" +
@@ -161,7 +160,7 @@ public class v0_8_X_Changes {
 				"_-_ Shortened text from well of awareness\n" +
 				"_-_ Tweaked the sprites of tipped vs. untipped darts"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash/freeze errors\n" +
 				"_-_ Various audiovisual errors\n" +
@@ -268,7 +267,7 @@ public class v0_8_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released June 27th, 2020\n" +
 				"_-_ 72 days after Shattered v0.8.0\n" +
 				"\n" +
@@ -276,11 +275,11 @@ public class v0_8_X_Changes {
 				"\n" +
 				"This update had some pretty big additions aside from game content though, with hero splash art and new sound effects! The splash art in particular was a long time coming, I first approached Aleksandar about them in 2016! While new game content is perhaps more exciting, these presentation improvements were a really important addition to Shattered, especially when it comes to enticing new players to try the game."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)), "New Hero Select!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT)), "New Hero Select!",
 				"The game's hero select screen has been completely overhauled, and how shows off the heroes in more detail than ever before.\n\n" +
 				"The new hero select features a minimal UI that retains all the old functionality while trying to keep out of the way as much as possible. The centerpiece of hero select is now the heroes themselves, who are depicted with _new detailed splash arts_ by Aleksandar Komitov! _Make sure check out their credits listing in the new about page!_"));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO)), "Sound Effects",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_AUDIO)), "Sound Effects",
 				"_15+ new sound effects_ have been added to the game, courtesy of Charlie! _Make sure check out their credits listing in the new about page!_\n\n" +
 				"These sounds cover movement, combat, and a bunch of miscellanious situations:\n" +
 				"_-_ Grass now crunches underfoot (extra loud if it's tall grass), and solid floors now have a more solid sound.\n" +
@@ -334,7 +333,7 @@ public class v0_8_X_Changes {
 				"_-_ Equipment drops are now slightly rarer, but are also higher in quality on average. In particular enemy equipment drops can now be above +0.\n" +
 				"_-_ Item drops have been added to DM-200s, Ghouls, and Golems."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.TENGU), 0, 0, 14, 16), "Boss Changes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.TENGU), 0, 0, 14, 16), "Boss Changes",
 				"I'm making some design and balance changes to bosses based on analytics data and feedback:\n\n" +
 				"_Tengu_'s second phase has been removed due to its overall negative reception. In exchange, the traps in Tengu's first phase are now more maze-like. Tengu now also receives an accuracy penalty when attacking at melee range.\n\n" +
 				"_DM-300_'s boss fight now starts after the player explores its arena, the supercharge sparks now move more quickly, and several dialogue lines have been tweaked. This will hopefully make it easier for the player to understand what to do when DM-300 becomes supercharged.\n\n" +
@@ -343,7 +342,7 @@ public class v0_8_X_Changes {
 				"_-_ Bright/Dark fist ranged damage down to 10-20 from 12-24\n" +
 				"_-_ Burning fist now evaporates slightly more water tiles"));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)), "Interface Adjustments",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT)), "Interface Adjustments",
 				"Aside from the new hero select, several other interfaces have been adjusted as well:\n" +
 				"_-_ The about scene has been expanded with more credits listings and links.\n" +
 				"_-_ Small improvements to icon style and button layout on the title screen.\n" +
@@ -351,7 +350,7 @@ public class v0_8_X_Changes {
 				"_-_ The settings window now uses icons for its tabs, instead of text.\n" +
 				"_-_ Adjusted the layout of buying and selling windows slightly."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The game's startup time has been substantially improved on devices with slower storage.\n" +
 				"_-_ Volume sliders are now more sensetive at the lower range.\n" +
 				"_-_ A keybinding has been added for resting.\n\n" +
@@ -361,7 +360,7 @@ public class v0_8_X_Changes {
 				"_-_ Cell checking visual effects have been improved.\n\n" +
 				"_-_ Updated translations."));
 
-		changes.addButton( new ChangeButton(new Image( Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image( Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various visual/textual errors\n" +
 				"_-_ Various rare crash bugs\n" +
@@ -394,7 +393,7 @@ public class v0_8_X_Changes {
 				"The _Lucky_ Enchantment is also being buffed:\n" +
 				"_-_ Lucky now gives low and medium value drops from ring of wealth's special reward pool."));
 
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ROGUE), 0, 90, 12, 15), "Assassin and Sniper",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.ROGUE), 0, 90, 12, 15), "Assassin and Sniper",
 				"The _Assassin_ is having a little trouble now that more enemies have tools to counter raw damage, so he's getting a boost:\n" +
 				"_-_ Preparation now gives a +15% damage bonus at 1/3/6/11 turns, up from a +10% damage bonus at 1/3/6/11/16 turns.\n" +
 				"_-_ Preparation now executes low health enemies, rather than dealing more damage.\n" +
@@ -478,7 +477,7 @@ public class v0_8_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released April 16th, 2020\n" +
 				"_-_ 197 days after Shattered v0.7.5\n" +
 				"_-_ 546 days after Shattered v0.7.0\n" +
@@ -586,7 +585,7 @@ public class v0_8_X_Changes {
 				"_-_ The hero is now interrupted if their path becomes obstructed by an ally."));
 
 		if (DeviceCompat.isDesktop()) {
-			changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)), "libGDX Desktop Functionality",
+			changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LIBGDX)), "libGDX Desktop Functionality",
 					"The desktop version of the game is now running through the same codebase as the Android version!\n\n" +
 					"Moving forward the desktop version of the game will be at feature parity with the Android version, which includes translations, access to betas, and release timings!\n\n" +
 					"Currently all features from the old desktop codebase have been re-implemented in this version:\n" +
@@ -606,7 +605,7 @@ public class v0_8_X_Changes {
 					"Note that on Android, both updaters require Android 5.0+ to work correctly. If your device isn't compatible the notification simply won't appear."));
 		}
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The game now flashes red when the hero is badly hurt.\n" +
 				"\n" +
 				"_-_ Imp now assigns monks or golems based on depth.\n" +
@@ -643,7 +642,7 @@ public class v0_8_X_Changes {
 				"\n" +
 				"_-_ Updated translations and translator credits"));
 
-		changes.addButton( new ChangeButton(new Image( Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image( Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Rare freeze bugs when enemies make ranged attacks\n" +
 				"_-_ Loading screens very rarely freezing\n" +

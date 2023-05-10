@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.mobs.npcs.Imp;
 import com.qsr.customspd.assets.Asset;
@@ -34,7 +33,7 @@ public class ImpSprite extends MobSprite {
 	public ImpSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.IMP) );
+		texture( Asset.getAssetFilePath(GeneralAsset.IMP) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 14 );
 		

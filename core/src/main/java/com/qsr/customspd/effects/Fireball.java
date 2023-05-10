@@ -49,7 +49,7 @@ public class Fireball extends Component {
 		sparks = new Group();
 		add( sparks );
 		
-		bLight = new Image(Asset.getAssetFileHandle(GeneralAsset.B_LIGHT));
+		bLight = new Image(Asset.getAssetFilePath(GeneralAsset.B_LIGHT));
 		bLight.origin.set( bLight.width / 2 );
 		bLight.angularSpeed = -90;
 		add( bLight );
@@ -67,7 +67,7 @@ public class Fireball extends Component {
 		}, 0.1f );
 		add( emitter );
 		
-		fLight = new Image(Asset.getAssetFileHandle(GeneralAsset.F_LIGHT));
+		fLight = new Image(Asset.getAssetFilePath(GeneralAsset.F_LIGHT));
 		fLight.origin.set( fLight.width / 2 );
 		fLight.angularSpeed = 360;
 		add( fLight );
@@ -128,8 +128,8 @@ public class Fireball extends Component {
 			
 			super(
 				new Image(Random.Int( 2 ) == 0
-					? Asset.getAssetFileHandle(GeneralAsset.FLAME1)
-					: Asset.getAssetFileHandle(GeneralAsset.FLAME2))
+					? Asset.getAssetFilePath(GeneralAsset.FLAME1)
+					: Asset.getAssetFilePath(GeneralAsset.FLAME2))
 			);
 			
 			origin.set( width / 2, height / 2 );

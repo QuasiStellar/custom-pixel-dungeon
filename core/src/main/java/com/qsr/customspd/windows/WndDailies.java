@@ -59,14 +59,14 @@ public class WndDailies extends Window {
 
 		Component content = pane.content();
 
-		IconTitle title = new IconTitle(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR)), Messages.get(this, "title"));
+		IconTitle title = new IconTitle(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CALENDAR)), Messages.get(this, "title"));
 		title.imIcon.hardlight(0.5f, 1f, 2f);
 		title.setRect(0, 0, WIDTH, 0);
 		title.setPos(0, 0);
 		content.add(title);
 
 		if (Rankings.INSTANCE.latestDailyReplay != null){
-			IconButton replayInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CALENDAR))){
+			IconButton replayInfo = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CALENDAR))){
 				@Override
 				protected void onClick() {
 					ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDailyReplay));
@@ -120,7 +120,7 @@ public class WndDailies extends Window {
 			content.add(day);
 
 			if (first){
-				IconButton latestInfo = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
+				IconButton latestInfo = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						ShatteredPixelDungeon.scene().addToFront(new WndRanking(Rankings.INSTANCE.latestDaily));

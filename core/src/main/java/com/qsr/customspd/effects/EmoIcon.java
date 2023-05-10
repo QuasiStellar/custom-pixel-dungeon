@@ -73,7 +73,7 @@ public class EmoIcon extends Image {
 			
 			super( owner );
 			
-			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SLEEP)) );
+			copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SLEEP)) );
 			
 			maxSize = 1.2f;
 			timeScale = 0.5f;
@@ -92,7 +92,7 @@ public class EmoIcon extends Image {
 			
 			super( owner );
 			
-			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ALERT)) );
+			copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ALERT)) );
 			
 			maxSize = 1.3f;
 			timeScale = 2;
@@ -110,7 +110,7 @@ public class EmoIcon extends Image {
 		public Lost( CharSprite owner ){
 			super( owner );
 			
-			copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LOST)) );
+			copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LOST)) );
 			
 			maxSize = 1.25f;
 			timeScale = 1;

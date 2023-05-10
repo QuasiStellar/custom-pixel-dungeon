@@ -53,7 +53,7 @@ public class ResumeIndicator extends Tag {
 	protected void createChildren() {
 		super.createChildren();
 
-		icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW));
+		icon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ARROW));
 		add( icon );
 	}
 

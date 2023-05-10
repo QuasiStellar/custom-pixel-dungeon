@@ -30,6 +30,9 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ChallengeParticle;
+import com.qsr.customspd.levels.CityBossLevel;
+import com.qsr.customspd.levels.PrisonBossLevel;
+import com.qsr.customspd.levels.SewerBossLevel;
 import com.qsr.customspd.mechanics.ShadowCaster;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
@@ -108,7 +111,7 @@ public class ScrollOfChallenge extends ExoticScroll {
 		public void setup(int pos){
 
 			int dist;
-			if (Dungeon.depth == 5 || Dungeon.depth == 10 || Dungeon.depth == 20){
+			if (Dungeon.level instanceof SewerBossLevel || Dungeon.level instanceof PrisonBossLevel || Dungeon.level instanceof CityBossLevel){
 				dist = 1; //smaller boss arenas
 			} else {
 

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.levels.rooms.special;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.mobs.DemonSpawner;
@@ -85,7 +84,7 @@ public class DemonSpawnerRoom extends SpecialRoom {
 	public static class CustomFloor extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 		}
 
 		@Override

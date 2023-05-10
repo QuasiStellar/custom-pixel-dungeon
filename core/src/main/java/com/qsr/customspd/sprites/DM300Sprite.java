@@ -45,7 +45,7 @@ public class DM300Sprite extends MobSprite {
 	public DM300Sprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.DM300) );
+		texture( Asset.getAssetFilePath(GeneralAsset.DM300) );
 		
 		updateChargeState(false);
 	}

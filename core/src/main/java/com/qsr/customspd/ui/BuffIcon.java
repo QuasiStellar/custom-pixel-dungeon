@@ -21,11 +21,9 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.assets.Asset;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
 
 import kotlin.Pair;
 
@@ -34,13 +32,13 @@ public class BuffIcon extends Image {
 	private final boolean large;
 
 	public BuffIcon(Buff buff, boolean large){
-		super( Asset.getAssetFileHandle(large ? buff.icon().getSecond() : buff.icon().getFirst()) );
+		super( Asset.getAssetFilePath(large ? buff.icon().getSecond() : buff.icon().getFirst()) );
 		this.large = large;
 		refresh(buff);
 	}
 
 	public BuffIcon(Pair<Asset, Asset> icon, boolean large){
-		super( Asset.getAssetFileHandle(large ? icon.getSecond() : icon.getFirst()) );
+		super( Asset.getAssetFilePath(large ? icon.getSecond() : icon.getFirst()) );
 		this.large = large;
 	}
 
@@ -50,6 +48,6 @@ public class BuffIcon extends Image {
 	}
 
 	public void refresh(Pair<Asset, Asset> icon){
-		texture(Asset.getAssetFileHandle(large ? icon.getSecond() : icon.getFirst()));
+		texture(Asset.getAssetFilePath(large ? icon.getSecond() : icon.getFirst()));
 	}
 }

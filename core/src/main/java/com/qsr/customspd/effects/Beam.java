@@ -58,19 +58,19 @@ public class Beam extends Image {
 
 	public static class DeathRay extends Beam{
 		public DeathRay(PointF s, PointF e){
-			super(s, e, new Image(Asset.getAssetFileHandle(GeneralAsset.DEATH_RAY)), 0.5f);
+			super(s, e, new Image(Asset.getAssetFilePath(GeneralAsset.DEATH_RAY)), 0.5f);
 		}
 	}
 
 	public static class LightRay extends Beam{
 		public LightRay(PointF s, PointF e){
-			super(s, e, new Image(Asset.getAssetFileHandle(GeneralAsset.LIGHT_RAY)), 1f);
+			super(s, e, new Image(Asset.getAssetFilePath(GeneralAsset.LIGHT_RAY)), 1f);
 		}
 	}
 
 	public static class HealthRay extends Beam{
 		public HealthRay(PointF s, PointF e){
-			super(s, e, new Image(Asset.getAssetFileHandle(GeneralAsset.HEALTH_RAY)), 0.75f);
+			super(s, e, new Image(Asset.getAssetFilePath(GeneralAsset.HEALTH_RAY)), 0.75f);
 		}
 	}
 	

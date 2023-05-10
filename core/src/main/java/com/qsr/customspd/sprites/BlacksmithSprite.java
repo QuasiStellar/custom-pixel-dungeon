@@ -38,7 +38,7 @@ public class BlacksmithSprite extends MobSprite {
 	public BlacksmithSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.TROLL) );
+		texture( Asset.getAssetFilePath(GeneralAsset.TROLL) );
 		
 		TextureFilm frames = new TextureFilm( texture, 13, 16 );
 		

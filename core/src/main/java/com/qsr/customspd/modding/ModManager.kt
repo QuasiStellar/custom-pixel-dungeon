@@ -1,10 +1,10 @@
 package com.qsr.customspd.modding
 
 import com.badlogic.gdx.Files
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.files.FileHandle
 import com.qsr.customspd.utils.Archiver
 import com.qsr.customspd.utils.Network
-import com.watabou.noosa.Image
 import com.watabou.utils.Bundle
 import com.watabou.utils.FileUtils
 import io.ktor.client.request.get
@@ -47,7 +47,7 @@ object ModManager {
     private val _downloadedMods: MutableStateFlow<Set<String>> = MutableStateFlow(emptySet())
     val downloadedMods: StateFlow<Set<String>> = _downloadedMods
 
-    fun getAssetFileHandle(assetPath: String): String {
+    fun getModdedAssetFilePath(assetPath: String): String {
         lazyEnabledModNames.forEach {
             val path = "$SLASH$it$SLASH${assetPath.replace('/', SLASH)}"
             if (getFileHandle(path).exists()) return "$STORAGE$SLASH$path"
@@ -55,10 +55,20 @@ object ModManager {
         return assetPath
     }
 
-    fun getAllModdedAssetFileHandles(assetPath: String): List<String> = lazyEnabledModNames.mapNotNull {
+    fun getAllModdedAssetFilePaths(assetPath: String): List<String> = lazyEnabledModNames.mapNotNull {
         val path = "$SLASH$it$SLASH${assetPath.replace('/', SLASH)}"
         if (getFileHandle(path).exists()) "$STORAGE$SLASH$path"
         else null
+    }
+
+    fun getAssetFileHandle(assetPath: String): FileHandle {
+        val internal = Gdx.files.internal(assetPath)
+        if (internal.exists()) return internal
+
+        val modded = FileUtils.getFileHandle(Files.FileType.External, FileUtils.defaultPath, assetPath)
+        if (modded.exists()) return modded
+
+        return FileUtils.getFileHandle(assetPath)
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -130,6 +140,10 @@ object ModManager {
     }
 
     fun getEnabledMods(): List<Mod> = getEnabledModsWithoutSaving().also { saveToEnabled(it) }
+
+    fun getEnabledModNames(): List<String> = getEnabledModsWithoutSaving().map { it.info.name }
+
+    fun getEnabledGameplayModNames(): List<String> = getEnabledModsWithoutSaving().filter { it.info.gameplayMod }.map { it.info.name }
 
     fun isEnabled(mod: Mod): Boolean = mod.info.name in lazyEnabledModNames.map { it }
 

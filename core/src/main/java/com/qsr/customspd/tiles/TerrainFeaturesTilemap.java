@@ -23,7 +23,19 @@ package com.qsr.customspd.tiles;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.levels.CavesBossLevel;
+import com.qsr.customspd.levels.CavesLevel;
+import com.qsr.customspd.levels.CityBossLevel;
+import com.qsr.customspd.levels.CityLevel;
+import com.qsr.customspd.levels.CustomLevel;
+import com.qsr.customspd.levels.HallsBossLevel;
+import com.qsr.customspd.levels.HallsLevel;
+import com.qsr.customspd.levels.LastLevel;
 import com.qsr.customspd.levels.LastShopLevel;
+import com.qsr.customspd.levels.PrisonBossLevel;
+import com.qsr.customspd.levels.PrisonLevel;
+import com.qsr.customspd.levels.SewerBossLevel;
+import com.qsr.customspd.levels.SewerLevel;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.plants.Plant;
@@ -64,8 +76,14 @@ public class TerrainFeaturesTilemap extends DungeonTilemap {
 			return plants.get(pos).image + 7*16;
 		}
 
-		int stage = (Dungeon.depth-1)/5;
-		if (Dungeon.depth == 21 && Dungeon.level instanceof LastShopLevel) stage--;
+		int stage;
+		if (Dungeon.level instanceof CustomLevel) stage = Dungeon.layout().getDungeon().get(Dungeon.levelName).getCustomLayout().getRegion() - 1;
+		else if (Dungeon.level instanceof SewerLevel || Dungeon.level instanceof SewerBossLevel) stage = 0;
+		else if (Dungeon.level instanceof PrisonLevel || Dungeon.level instanceof PrisonBossLevel) stage = 1;
+		else if (Dungeon.level instanceof CavesLevel || Dungeon.level instanceof CavesBossLevel) stage = 2;
+		else if (Dungeon.level instanceof CityLevel || Dungeon.level instanceof CityBossLevel) stage = 3;
+		else if (Dungeon.level instanceof HallsLevel || Dungeon.level instanceof HallsBossLevel || Dungeon.level instanceof LastLevel) stage = 4;
+		else stage = 1;
 		if (tile == Terrain.HIGH_GRASS){
 			return 9 + 16*stage + (DungeonTileSheet.tileVariance[pos] >= 50 ? 1 : 0);
 		} else if (tile == Terrain.FURROWED_GRASS){

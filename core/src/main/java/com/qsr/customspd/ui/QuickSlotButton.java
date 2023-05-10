@@ -152,7 +152,7 @@ public class QuickSlotButton extends Button {
 		slot.showExtraInfo( false );
 		add( slot );
 		
-		crossB = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET));
+		crossB = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TARGET));
 		crossB.visible = false;
 		add( crossB );
 		

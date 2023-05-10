@@ -41,7 +41,7 @@ public abstract class ShamanSprite extends MobSprite {
 		
 		int c = texOffset();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.SHAMAN) );
+		texture( Asset.getAssetFilePath(GeneralAsset.SHAMAN) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		

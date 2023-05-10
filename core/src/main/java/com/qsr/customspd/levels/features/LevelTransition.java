@@ -38,8 +38,8 @@ public class LevelTransition extends Rect implements Bundlable {
 	}
 
 	public Type type;
-	public int destDepth;
-	public int destBranch;
+	public String departLevel;
+	public String destLevel;
 	public Type destType;
 
 	public int centerCell;
@@ -49,38 +49,27 @@ public class LevelTransition extends Rect implements Bundlable {
 		super();
 	}
 
-	public LevelTransition(Level level, int cell, Type type, int destDepth, int destBranch, Type destType){
-		centerCell = cell;
-		Point p = level.cellToPoint(cell);
-		set(p.x, p.y, p.x, p.y);
-		this.type = type;
-		this.destDepth = destDepth;
-		this.destBranch = destBranch;
-		this.destType = destType;
-	}
-
 	//gives default values for common transition types
-	public LevelTransition(Level level, int cell, Type type){
+	public LevelTransition(Level level, int cell, Type type, int destIndex){
 		centerCell = cell;
 		Point p = level.cellToPoint(cell);
 		set(p.x, p.y, p.x, p.y);
 		this.type = type;
-		switch (type){
-			case REGULAR_ENTRANCE: default:
-				destDepth = Dungeon.depth-1;
-				destBranch = Dungeon.branch;
+		departLevel = Dungeon.levelName;
+		switch (type) {
+			default -> {
+				System.out.println(Dungeon.levelName);
+				destLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getEntrances().get(destIndex);
 				destType = Type.REGULAR_EXIT;
-				break;
-			case REGULAR_EXIT:
-				destDepth = Dungeon.depth+1;
-				destBranch = Dungeon.branch;
+			}
+			case REGULAR_EXIT -> {
+				destLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getExits().get(destIndex);
 				destType = Type.REGULAR_ENTRANCE;
-				break;
-			case SURFACE:
-				destDepth = 0;
-				destBranch = 0;
+			}
+			case SURFACE -> {
+				destLevel = "surface";
 				destType = null;
-				break;
+			}
 		}
 	}
 
@@ -118,8 +107,8 @@ public class LevelTransition extends Rect implements Bundlable {
 	}
 
 	public static final String TYPE = "type";
-	public static final String DEST_DEPTH = "dest_depth";
-	public static final String DEST_BRANCH = "dest_branch";
+	public static final String DEPART_LEVEL = "depart_level";
+	public static final String DEST_LEVEL = "dest_level";
 	public static final String DEST_TYPE = "dest_type";
 
 	@Override
@@ -132,8 +121,8 @@ public class LevelTransition extends Rect implements Bundlable {
 		bundle.put( "center", centerCell );
 
 		bundle.put(TYPE, type);
-		bundle.put(DEST_DEPTH, destDepth);
-		bundle.put(DEST_BRANCH, destBranch);
+		bundle.put(DEPART_LEVEL, departLevel);
+		bundle.put(DEST_LEVEL, destLevel);
 		bundle.put(DEST_TYPE, destType);
 	}
 
@@ -147,8 +136,8 @@ public class LevelTransition extends Rect implements Bundlable {
 		centerCell = bundle.getInt( "center" );
 
 		type = bundle.getEnum(TYPE, Type.class);
-		destDepth = bundle.getInt(DEST_DEPTH);
-		destBranch = bundle.getInt(DEST_BRANCH);
+		departLevel = bundle.getString(DEPART_LEVEL);
+		destLevel = bundle.getString(DEST_LEVEL);
 		if (bundle.contains(DEST_TYPE)) destType = bundle.getEnum(DEST_TYPE, Type.class);
 	}
 }

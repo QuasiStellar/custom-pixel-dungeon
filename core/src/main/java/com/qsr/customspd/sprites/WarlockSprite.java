@@ -35,7 +35,7 @@ public class WarlockSprite extends MobSprite {
 	public WarlockSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.WARLOCK) );
+		texture( Asset.getAssetFilePath(GeneralAsset.WARLOCK) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 		

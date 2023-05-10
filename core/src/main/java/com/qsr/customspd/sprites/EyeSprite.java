@@ -44,7 +44,7 @@ public class EyeSprite extends MobSprite {
 	public EyeSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.EYE) );
+		texture( Asset.getAssetFilePath(GeneralAsset.EYE) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 18 );
 		

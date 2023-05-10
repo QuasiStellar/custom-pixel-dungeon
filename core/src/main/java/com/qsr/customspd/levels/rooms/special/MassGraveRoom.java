@@ -102,7 +102,7 @@ public class MassGraveRoom extends SpecialRoom {
 		private static final int FLOOR          = 7;
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_QUEST);
+			texture = Asset.getAssetFilePath(GeneralAsset.PRISON_QUEST);
 		}
 
 		@Override

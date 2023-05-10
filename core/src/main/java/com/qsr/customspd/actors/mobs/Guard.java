@@ -100,7 +100,7 @@ public class Guard extends Mob {
 					Sample.INSTANCE.play(Assets.Sounds.CHAINS);
 					sprite.parent.add(new Chains(sprite.center(),
 							enemy.sprite.destinationCenter(),
-							new Image(Asset.getAssetFileHandle(GeneralAsset.CHAIN)),
+							new Image(Asset.getAssetFilePath(GeneralAsset.CHAIN)),
 							new Callback() {
 						public void call() {
 							Actor.addDelayed(new Pushing(enemy, enemy.pos, newPosFinal, new Callback() {

@@ -30,7 +30,7 @@ public class BusyIndicator extends Image {
 	
 	public BusyIndicator() {
 		super();
-		copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BUSY)) );
+		copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BUSY)) );
 		
 		origin.set( width / 2, height / 2 );
 		angularSpeed = 720;

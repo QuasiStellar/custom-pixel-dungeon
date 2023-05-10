@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -33,7 +32,7 @@ public class GhoulSprite extends MobSprite {
 	public GhoulSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.GHOUL) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GHOUL) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 14 );
 

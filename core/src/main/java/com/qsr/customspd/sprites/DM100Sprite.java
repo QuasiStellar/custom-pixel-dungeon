@@ -38,7 +38,7 @@ public class DM100Sprite extends MobSprite {
 	public DM100Sprite () {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.DM100) );
+		texture( Asset.getAssetFilePath(GeneralAsset.DM100) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 14 );
 		

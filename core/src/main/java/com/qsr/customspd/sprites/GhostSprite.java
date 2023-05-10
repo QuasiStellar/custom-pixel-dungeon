@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
@@ -34,7 +33,7 @@ public class GhostSprite extends MobSprite {
 	public GhostSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.GHOST) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GHOST) );
 		
 		TextureFilm frames = new TextureFilm( texture, 14, 15 );
 		

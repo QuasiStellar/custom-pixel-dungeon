@@ -23,6 +23,11 @@ package com.qsr.customspd;
 
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.actors.hero.HeroSubClass;
+import com.qsr.customspd.actors.mobs.DM300;
+import com.qsr.customspd.actors.mobs.DwarfKing;
+import com.qsr.customspd.actors.mobs.Goo;
+import com.qsr.customspd.actors.mobs.Tengu;
+import com.qsr.customspd.actors.mobs.YogDzewa;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
@@ -732,21 +737,16 @@ public class Badges {
 		thirdBossSubclassBadges.put(HeroSubClass.MONK, Badge.BOSS_SLAIN_3_MONK);
 	}
 
-	public static void validateBossSlain() {
+	public static void validateBossSlain(Class<?> boss) {
 		Badge badge = null;
-		switch (Dungeon.depth) {
-		case 5:
+		if (boss.equals(Goo.class)) {
 			badge = Badge.BOSS_SLAIN_1;
-			break;
-		case 10:
+		} else if (boss.equals(Tengu.class)) {
 			badge = Badge.BOSS_SLAIN_2;
-			break;
-		case 15:
+		} else if (boss.equals(DM300.class)) {
 			badge = Badge.BOSS_SLAIN_3;
-			break;
-		case 20:
+		} else if (boss.equals(DwarfKing.class)) {
 			badge = Badge.BOSS_SLAIN_4;
-			break;
 		}
 
 		if (badge != null) {
@@ -797,24 +797,18 @@ public class Badges {
 		}
 	}
 
-	public static void validateBossChallengeCompleted(){
+	public static void validateBossChallengeCompleted(Class<?> boss){
 		Badge badge = null;
-		switch (Dungeon.depth) {
-			case 5:
-				badge = Badge.BOSS_CHALLENGE_1;
-				break;
-			case 10:
-				badge = Badge.BOSS_CHALLENGE_2;
-				break;
-			case 15:
-				badge = Badge.BOSS_CHALLENGE_3;
-				break;
-			case 20:
-				badge = Badge.BOSS_CHALLENGE_4;
-				break;
-			case 25:
-				badge = Badge.BOSS_CHALLENGE_5;
-				break;
+		if (boss.equals(Goo.class)) {
+			badge = Badge.BOSS_CHALLENGE_1;
+		} else if (boss.equals(Tengu.class)) {
+			badge = Badge.BOSS_CHALLENGE_2;
+		} else if (boss.equals(DM300.class)) {
+			badge = Badge.BOSS_CHALLENGE_3;
+		} else if (boss.equals(DwarfKing.class)) {
+			badge = Badge.BOSS_CHALLENGE_4;
+		} else if (boss.equals(YogDzewa.class)) {
+			badge = Badge.BOSS_CHALLENGE_5;
 		}
 
 		if (badge != null) {

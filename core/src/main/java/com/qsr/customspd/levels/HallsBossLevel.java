@@ -92,7 +92,7 @@ public class HallsBossLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_HALLS);
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class HallsBossLevel extends Level {
 
 			if (i == 2) {
 				int entrance = (6 + i * 5) + (bottom - 1) * width();
-				transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE));
+				transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 			}
 
 		}
@@ -158,7 +158,7 @@ public class HallsBossLevel extends Level {
 		Painter.fill(this, ROOM_LEFT+3, ROOM_TOP+2, 3, 4, Terrain.EMPTY );
 
 		int exitCell = width/2 + ((ROOM_TOP+1) * width);
-		LevelTransition exit = new LevelTransition(this, exitCell, LevelTransition.Type.REGULAR_EXIT);
+		LevelTransition exit = new LevelTransition(this, exitCell, LevelTransition.Type.REGULAR_EXIT, 0);
 		exit.top--;
 		exit.left--;
 		exit.right++;
@@ -349,7 +349,7 @@ public class HallsBossLevel extends Level {
 	public static class CenterPieceVisuals extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 
 			tileW = 9;
 			tileH = 8;
@@ -388,7 +388,7 @@ public class HallsBossLevel extends Level {
 	public static class CenterPieceWalls extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 
 			tileW = 9;
 			tileH = 9;

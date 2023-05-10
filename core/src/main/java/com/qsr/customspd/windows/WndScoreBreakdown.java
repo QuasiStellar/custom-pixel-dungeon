@@ -42,7 +42,7 @@ public class WndScoreBreakdown extends Window {
 
 	public WndScoreBreakdown(){
 
-		IconTitle title = new IconTitle( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)), Messages.get(this, "title"));
+		IconTitle title = new IconTitle( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)), Messages.get(this, "title"));
 		title.setRect(0, 0, WIDTH, 16);
 		add(title);
 

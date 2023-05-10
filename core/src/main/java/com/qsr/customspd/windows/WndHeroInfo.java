@@ -32,7 +32,6 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.IconButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.TalentButton;
@@ -97,7 +96,7 @@ public class WndHeroInfo extends WndTabbed {
 		talentInfo.setSize(WIDTH, MIN_HEIGHT);
 		finalHeight = (int)Math.max(finalHeight, talentInfo.height());
 
-		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)) ){
+		add( new IconTab( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)) ){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -184,7 +183,7 @@ public class WndHeroInfo extends WndTabbed {
 					break;
 				case ROGUE:
 					icons = new Image[]{ new ItemSprite(GeneralAsset.ARTIFACT_CLOAK),
-							new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)),
+							new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)),
 							new ItemSprite(GeneralAsset.DAGGER),
 							new ItemSprite(GeneralAsset.SCROLL_ISAZ)};
 					break;
@@ -291,7 +290,7 @@ public class WndHeroInfo extends WndTabbed {
 			for (int i = 0; i < subClasses.length; i++){
 				subClsDescs[i] = PixelScene.renderTextBlock(subClasses[i].shortDesc(), 6);
 				int finalI = i;
-				subClsInfos[i] = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)) ){
+				subClsInfos[i] = new IconButton( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)) ){
 					@Override
 					protected void onClick() {
 						Game.scene().addToFront(new WndInfoSubclass(cls, subClasses[finalI]));
@@ -351,7 +350,7 @@ public class WndHeroInfo extends WndTabbed {
 			for (int i = 0; i < abilities.length; i++){
 				abilityDescs[i] = PixelScene.renderTextBlock(abilities[i].shortDesc(), 6);
 				int finalI = i;
-				abilityInfos[i] = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)) ){
+				abilityInfos[i] = new IconButton( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)) ){
 					@Override
 					protected void onClick() {
 						Game.scene().addToFront(new WndInfoArmorAbility(cls, abilities[finalI]));

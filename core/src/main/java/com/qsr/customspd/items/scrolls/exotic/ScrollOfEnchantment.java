@@ -196,7 +196,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 		@Override
 		protected void onInfo( int index ) {
 			GameScene.show(new WndTitledMessage(
-					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
+					new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)),
 					Messages.titleCase(enchantments[index].name()),
 					enchantments[index].desc()));
 		}
@@ -260,7 +260,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 		@Override
 		protected void onInfo( int index ) {
 			GameScene.show(new WndTitledMessage(
-					new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
+					new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)),
 					Messages.titleCase(glyphs[index].name()),
 					glyphs[index].desc()));
 		}

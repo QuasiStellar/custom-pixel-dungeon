@@ -52,14 +52,13 @@ public class BeaconOfReturning extends Spell {
 		image = GeneralAsset.RETURN_BEACON;
 	}
 	
-	public int returnDepth	= -1;
-	public int returnBranch	= 0;
+	public String returnLevel	= "surface";
 	public int returnPos;
 	
 	@Override
 	protected void onCast(final Hero hero) {
 		
-		if (returnDepth == -1){
+		if (returnLevel.equals("surface")){
 			setBeacon(hero);
 		} else {
 			GameScene.show(new WndOptions(new ItemSprite(this),
@@ -85,19 +84,18 @@ public class BeaconOfReturning extends Spell {
 	
 	@Override
 	protected void onThrow(int cell) {
-		returnDepth = -1;
+		returnLevel = "surface";
 		super.onThrow(cell);
 	}
 	
 	@Override
 	public void doDrop(Hero hero) {
-		returnDepth = -1;
+		returnLevel = "surface";
 		super.doDrop(hero);
 	}
 	
 	private void setBeacon(Hero hero ){
-		returnDepth = Dungeon.depth;
-		returnBranch = Dungeon.branch;
+		returnLevel = Dungeon.levelName;
 		returnPos = hero.pos;
 		
 		hero.spend( 1f );
@@ -112,7 +110,7 @@ public class BeaconOfReturning extends Spell {
 	
 	private void returnBeacon( Hero hero ){
 		
-		if (returnDepth == Dungeon.depth && returnBranch == Dungeon.branch) {
+		if (returnLevel.equals(Dungeon.levelName)) {
 
 			Char existing = Actor.findChar(returnPos);
 			if (existing != null && existing != hero){
@@ -155,8 +153,7 @@ public class BeaconOfReturning extends Spell {
 
 			Level.beforeTransition();
 			InterlevelScene.mode = InterlevelScene.Mode.RETURN;
-			InterlevelScene.returnDepth = returnDepth;
-			InterlevelScene.returnBranch = returnBranch;
+			InterlevelScene.returnLevel = returnLevel;
 			InterlevelScene.returnPos = returnPos;
 			Game.switchScene( InterlevelScene.class );
 		}
@@ -167,8 +164,8 @@ public class BeaconOfReturning extends Spell {
 	@Override
 	public String desc() {
 		String desc = super.desc();
-		if (returnDepth != -1){
-			desc += "\n\n" + Messages.get(this, "desc_set", returnDepth);
+		if (!returnLevel.equals("surface")){
+			desc += "\n\n" + Messages.get(this, "desc_set", returnLevel);
 		}
 		return desc;
 	}
@@ -177,17 +174,17 @@ public class BeaconOfReturning extends Spell {
 	
 	@Override
 	public ItemSprite.Glowing glowing() {
-		return returnDepth != -1 ? WHITE : null;
+		return !returnLevel.equals("surface") ? WHITE : null;
 	}
 	
-	private static final String DEPTH	= "depth";
+	private static final String LEVEL	= "level";
 	private static final String POS		= "pos";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( DEPTH, returnDepth );
-		if (returnDepth != -1) {
+		bundle.put( LEVEL, returnLevel );
+		if (!returnLevel.equals("surface")) {
 			bundle.put( POS, returnPos );
 		}
 	}
@@ -195,7 +192,7 @@ public class BeaconOfReturning extends Spell {
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
-		returnDepth	= bundle.getInt( DEPTH );
+		returnLevel	= bundle.getString( LEVEL );
 		returnPos	= bundle.getInt( POS );
 	}
 	

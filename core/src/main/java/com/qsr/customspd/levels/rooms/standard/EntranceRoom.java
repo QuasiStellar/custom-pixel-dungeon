@@ -75,10 +75,10 @@ public class EntranceRoom extends StandardRoom {
 		} while (level.findMob(entrance) != null);
 		Painter.set( level, entrance, Terrain.ENTRANCE );
 
-		if (Dungeon.depth == 1){
-			level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.SURFACE));
+		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getEntrances().get(0).equals("surface")) {
+			level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.SURFACE, 0));
 		} else {
-			level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.REGULAR_ENTRANCE));
+			level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 		}
 
 		//use a separate generator here so meta progression doesn't affect levelgen

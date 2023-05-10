@@ -78,6 +78,7 @@ class WndModDownload(
     private lateinit var version: RenderedTextBlock
     private var languages: RenderedTextBlock? = null
     private lateinit var license: RenderedTextBlock
+    private var gameplayMod: RenderedTextBlock? = null
     private lateinit var button: RedButton
     private lateinit var left: RedButton
     private lateinit var right: RedButton
@@ -111,6 +112,12 @@ class WndModDownload(
             Messages.get(WndModInfo::class.java, "license", mod.info.license),
             6
         )
+        if (mod.info.gameplayMod) {
+            gameplayMod = PixelScene.renderTextBlock(
+                Messages.get(WndModInfo::class.java, "gameplay_mod"),
+                6
+            )
+        }
         button = object : RedButton(
             Messages.get(
                 this,
@@ -131,7 +138,7 @@ class WndModDownload(
                 setSize(reqWidth(), 16f)
                 setPos(
                     title.left() + (title.width() - width()) / 2,
-                    license.bottom() + GAP
+                    (gameplayMod?.bottom() ?: license.bottom()) + GAP
                 )
                 updateCallback.call()
             }
@@ -164,7 +171,7 @@ class WndModDownload(
         button.setSize(button.reqWidth(), 16f)
         button.setPos(
             title.left() + (title.width() - button.width()) / 2,
-            license.bottom() + GAP
+            (gameplayMod?.bottom() ?: license.bottom()) + GAP
         )
         button.text(Messages.get(this, state)) // beyond your understanding
     }
@@ -176,6 +183,7 @@ class WndModDownload(
         version.maxWidth(width)
         languages?.maxWidth(width)
         license.maxWidth(width)
+        gameplayMod?.maxWidth(width)
 
         //window can go out of the screen on landscape, so widen it as appropriate
         while (
@@ -192,6 +200,7 @@ class WndModDownload(
             version.maxWidth(width)
             languages?.maxWidth(width)
             license.maxWidth(width)
+            gameplayMod?.maxWidth(width)
         }
         title.setRect(0f, 0f, width.toFloat(), 0f)
         add(title)
@@ -222,7 +231,7 @@ class WndModDownload(
             add(right)
         }
 
-        val authorY = if (previews.isEmpty()) description.bottom() + GAP / 2 else if (previews.size == 1) previews[0].y + maxHeight + GAP / 2 else left.bottom() + GAP / 2
+        val authorY = if (previews.isEmpty()) description.bottom() + GAP else if (previews.size == 1) previews[0].y + maxHeight + GAP / 2 else left.bottom() + GAP / 2
         author.setPos(title.left(), authorY)
         add(author)
         version.setPos(title.left(), author.bottom() + GAP)
@@ -231,10 +240,12 @@ class WndModDownload(
         languages?.let { add(it) }
         license.setPos(title.left(), (languages?.bottom() ?: version.bottom()) + GAP)
         add(license)
+        gameplayMod?.setPos(title.left(), license.bottom() + GAP)
+        languages?.let { add(it) }
         button.setSize(button.reqWidth(), 16f)
         button.setPos(
             title.left() + (title.width() - button.width()) / 2,
-            license.bottom() + GAP
+            (gameplayMod?.bottom() ?: license.bottom()) + GAP
         )
         add(button)
         resize(width, (button.bottom() + 2).toInt())

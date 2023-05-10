@@ -66,7 +66,7 @@ public class LastLevel extends Level {
 
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_HALLS);
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class LastLevel extends Level {
 		Painter.fill(this, 0, height - ROOM_TOP, width, 2, Terrain.WALL);
 		map[entrance] = Terrain.ENTRANCE;
 		map[entrance+width] = Terrain.ENTRANCE;
-		LevelTransition entry = new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE);
+		LevelTransition entry = new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0);
 		entry.left--;
 		entry.right++;
 		entry.bottom += 2;
@@ -227,8 +227,6 @@ public class LastLevel extends Level {
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
-		//pre-1.3.0 saves, deletes unneeded exit
-		if (bundle.contains("exit")) bundle.remove("exit");
 
 		super.restoreFromBundle(bundle);
 		for (int i=0; i < length(); i++) {
@@ -254,7 +252,7 @@ public class LastLevel extends Level {
 	public static class CustomFloor extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 		}
 
 		private static final int[] CANDLES = new int[]{
@@ -325,7 +323,7 @@ public class LastLevel extends Level {
 	public static class CenterPieceVisuals extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 
 			tileW = 16;
 			tileH = 10;
@@ -355,7 +353,7 @@ public class LastLevel extends Level {
 	public static class CenterPieceWalls extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.HALLS_SP);
+			texture = Asset.getAssetFilePath(GeneralAsset.HALLS_SP);
 
 			tileW = 16;
 			tileH = 9;

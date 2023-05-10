@@ -45,7 +45,7 @@ public class GamesInProgress {
 	
 	private static final String GAME_FOLDER = "game%d";
 	private static final String GAME_FILE	= "game.dat";
-	private static final String DEPTH_FILE	= "depth%d.dat";
+	private static final String LEVEL_FILE = "level_%s.dat";
 	private static final String DEPTH_BRANCH_FILE	= "depth%d-branch%d.dat";
 	
 	public static boolean gameExists( int slot ){
@@ -61,12 +61,8 @@ public class GamesInProgress {
 		return gameFolder(slot) + "/" + GAME_FILE;
 	}
 	
-	public static String depthFile( int slot, int depth, int branch ) {
-		if (branch == 0) {
-			return gameFolder(slot) + "/" + Messages.format(DEPTH_FILE, depth);
-		} else {
-			return gameFolder(slot) + "/" + Messages.format(DEPTH_BRANCH_FILE, depth, branch);
-		}
+	public static String levelFile(int slot, String levelName ) {
+		return gameFolder(slot) + "/" + Messages.format(LEVEL_FILE, levelName);
 	}
 	
 	public static int firstEmpty(){
@@ -130,6 +126,7 @@ public class GamesInProgress {
 		info.slot = slot;
 		
 		info.depth = Dungeon.depth;
+		info.levelName = Dungeon.levelName;
 		info.challenges = Dungeon.challenges;
 
 		info.seed = Dungeon.seed;
@@ -151,6 +148,8 @@ public class GamesInProgress {
 		info.goldCollected = Statistics.goldCollected;
 		info.maxDepth = Statistics.deepestFloor;
 
+		info.gameplayMods = Dungeon.gameplayMods.clone();
+
 		slotStates.put( slot, info );
 	}
 	
@@ -166,6 +165,7 @@ public class GamesInProgress {
 		public int slot;
 		
 		public int depth;
+		public String levelName;
 		public int version;
 		public int challenges;
 
@@ -187,6 +187,8 @@ public class GamesInProgress {
 		
 		public int goldCollected;
 		public int maxDepth;
+
+		public String[] gameplayMods;
 	}
 	
 	public static final Comparator<GamesInProgress.Info> scoreComparator = new Comparator<GamesInProgress.Info>() {

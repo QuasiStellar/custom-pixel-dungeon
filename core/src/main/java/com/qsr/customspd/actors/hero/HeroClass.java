@@ -263,30 +263,30 @@ public enum HeroClass {
 	public String spritesheet() {
 		switch (this) {
 			case WARRIOR: default:
-				return Asset.getAssetFileHandle(GeneralAsset.WARRIOR);
+				return Asset.getAssetFilePath(GeneralAsset.WARRIOR);
 			case MAGE:
-				return Asset.getAssetFileHandle(GeneralAsset.MAGE);
+				return Asset.getAssetFilePath(GeneralAsset.MAGE);
 			case ROGUE:
-				return Asset.getAssetFileHandle(GeneralAsset.ROGUE);
+				return Asset.getAssetFilePath(GeneralAsset.ROGUE);
 			case HUNTRESS:
-				return Asset.getAssetFileHandle(GeneralAsset.HUNTRESS);
+				return Asset.getAssetFilePath(GeneralAsset.HUNTRESS);
 			case DUELIST:
-				return Asset.getAssetFileHandle(GeneralAsset.DUELIST);
+				return Asset.getAssetFilePath(GeneralAsset.DUELIST);
 		}
 	}
 
 	public String splashArt(){
 		switch (this) {
 			case WARRIOR: default:
-				return Asset.getAssetFileHandle(GeneralAsset.WARRIOR_SPLASH);
+				return Asset.getAssetFilePath(GeneralAsset.WARRIOR_SPLASH);
 			case MAGE:
-				return Asset.getAssetFileHandle(GeneralAsset.MAGE_SPLASH);
+				return Asset.getAssetFilePath(GeneralAsset.MAGE_SPLASH);
 			case ROGUE:
-				return Asset.getAssetFileHandle(GeneralAsset.ROGUE_SPLASH);
+				return Asset.getAssetFilePath(GeneralAsset.ROGUE_SPLASH);
 			case HUNTRESS:
-				return Asset.getAssetFileHandle(GeneralAsset.HUNTRESS_SPLASH);
+				return Asset.getAssetFilePath(GeneralAsset.HUNTRESS_SPLASH);
 			case DUELIST:
-				return Asset.getAssetFileHandle(GeneralAsset.DUELIST_SPLASH);
+				return Asset.getAssetFilePath(GeneralAsset.DUELIST_SPLASH);
 		}
 	}
 	

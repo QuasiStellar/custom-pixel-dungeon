@@ -41,7 +41,7 @@ public class NecromancerSprite extends MobSprite {
 	public NecromancerSprite(){
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.NECRO) );
+		texture( Asset.getAssetFilePath(GeneralAsset.NECRO) );
 		TextureFilm film = new TextureFilm( texture, 16, 16 );
 		
 		idle = new Animation( 1, true );

@@ -80,7 +80,7 @@ public class WndChallenges extends Window {
 			add( cb );
 			boxes.add( cb );
 			
-			IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
+			IconButton info = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					super.onClick();

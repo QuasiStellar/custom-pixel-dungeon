@@ -40,7 +40,7 @@ public class GolemSprite extends MobSprite {
 	public GolemSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.GOLEM) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GOLEM) );
 		
 		TextureFilm frames = new TextureFilm( texture, 17, 19 );
 		

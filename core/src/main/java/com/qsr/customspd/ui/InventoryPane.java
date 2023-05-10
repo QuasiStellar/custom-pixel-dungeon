@@ -40,7 +40,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.CharSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndUseItem;
 import com.watabou.gltextures.TextureCache;
@@ -164,13 +163,13 @@ public class InventoryPane extends Component {
 			add(btn);
 		}
 
-		gold = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COIN_SML));
+		gold = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_COIN_SML));
 		add(gold);
 		goldTxt = new BitmapText(PixelScene.pixelFont);
 		goldTxt.hardlight(Window.TITLE_COLOR);
 		add(goldTxt);
 
-		energy = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENERGY_SML));
+		energy = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENERGY_SML));
 		add(energy);
 		energyTxt = new BitmapText(PixelScene.pixelFont);
 		energyTxt.hardlight(0x44CCFF);
@@ -194,7 +193,7 @@ public class InventoryPane extends Component {
 			add(btn);
 		}
 
-		crossB = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET));
+		crossB = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TARGET));
 		crossB.visible = false;
 		add( crossB );
 
@@ -474,15 +473,15 @@ public class InventoryPane extends Component {
 
 	private Image bagIcon(Bag bag ) {
 		if (bag instanceof VelvetPouch) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED_POUCH));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SEED_POUCH));
 		} else if (bag instanceof ScrollHolder) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SCROLL_HOLDER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SCROLL_HOLDER));
 		} else if (bag instanceof MagicalHolster) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WAND_HOLSTER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WAND_HOLSTER));
 		} else if (bag instanceof PotionBandolier) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_POTION_BANDOLIER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_POTION_BANDOLIER));
 		} else {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BACKPACK));
 		}
 	}
 

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -34,7 +33,7 @@ public class MonkSprite extends MobSprite {
 	public MonkSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.MONK) );
+		texture( Asset.getAssetFilePath(GeneralAsset.MONK) );
 		
 		TextureFilm frames = new TextureFilm( texture, 15, 14 );
 		

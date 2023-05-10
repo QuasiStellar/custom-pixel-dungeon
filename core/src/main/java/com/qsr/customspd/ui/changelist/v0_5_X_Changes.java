@@ -45,7 +45,7 @@ public class v0_5_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released February 8th, 2017\n" +
 				"_-_ 115 days after Shattered v0.4.3\n" +
 				"_-_ 233 days after Shattered v0.4.0\n" +
@@ -54,7 +54,7 @@ public class v0_5_X_Changes {
 				"\n" +
 				"v0.5.0 was also Shattered's longest-developed update yet. While I don't think there was much I could do about this for v0.5.0 and v0.6.0, it started an unfortunate trend of major updates taking up to half a year! I eventually broke this trend in v0.9.0 by splitting these larger updates into smaller parts."));
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)), "New Dungeon Visual Style!",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)), "New Dungeon Visual Style!",
 				"_-_ Walls and some terrain now have depth\n" +
 				"_-_ Characters & items are raised & cast shadows\n" +
 				"_-_ Added a visible tile grid in the settings menu"));
@@ -71,7 +71,7 @@ public class v0_5_X_Changes {
 				"_-_ Glyph of Antimagic magical damage resist reduced from 50% of armor to 33% of armor\n\n" +
 				"_-_ Glyph of Viscosity damage rate increased from 10% of deferred damage to 15%"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"_-_ Added new Language: Esperanto\n" +
 				"_-_ Added new Language: Indonesian\n"));
 	}

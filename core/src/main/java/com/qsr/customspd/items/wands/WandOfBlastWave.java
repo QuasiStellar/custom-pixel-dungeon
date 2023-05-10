@@ -39,7 +39,6 @@ import com.qsr.customspd.levels.traps.TenguDartTrap;
 import com.qsr.customspd.mechanics.Ballistica;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
@@ -236,7 +235,7 @@ public class WandOfBlastWave extends DamageWand {
 		private float time;
 
 		public BlastWave(){
-			super(new Image(Asset.getAssetFileHandle(GeneralAsset.RIPPLE)));
+			super(new Image(Asset.getAssetFilePath(GeneralAsset.RIPPLE)));
 			origin.set(width / 2, height / 2);
 		}
 

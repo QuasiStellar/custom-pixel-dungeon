@@ -88,7 +88,7 @@ public class TalentButton extends Button {
 				break;
 		}
 
-		bg.texture(Asset.getAssetFileHandle(asset));
+		bg.texture(Asset.getAssetFilePath(asset));
 
 		icon = new TalentIcon( talent );
 		add(icon);

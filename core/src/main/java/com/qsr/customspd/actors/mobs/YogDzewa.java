@@ -512,7 +512,7 @@ public class YogDzewa extends Mob {
 		GameScene.bossSlain();
 
 		if (Dungeon.isChallenged(Challenges.STRONGER_BOSSES) && Statistics.spawnersAlive == 4){
-			Badges.validateBossChallengeCompleted();
+			Badges.validateBossChallengeCompleted(YogDzewa.class);
 		} else {
 			Statistics.qualifiedForBossChallengeBadge = false;
 		}

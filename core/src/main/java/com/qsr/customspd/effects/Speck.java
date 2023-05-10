@@ -107,18 +107,18 @@ public class Speck extends Image {
 		case DISCOVER:
 		case RED_LIGHT:
 		case LIGHT:
-			texture(Asset.getAssetFileHandle(GeneralAsset.LIGHT));
+			texture(Asset.getAssetFilePath(GeneralAsset.LIGHT));
 			break;
 		case EVOKE:
 		case MASK:
 		case CROWN:
 		case FORGE:
 		case STAR:
-			texture(Asset.getAssetFileHandle(GeneralAsset.STAR));
+			texture(Asset.getAssetFilePath(GeneralAsset.STAR));
 			break;
 		case RATTLE:
 		case BONE:
-			texture(Asset.getAssetFileHandle(GeneralAsset.BONE));
+			texture(Asset.getAssetFilePath(GeneralAsset.BONE));
 			break;
 		case JET:
 		case TOXIC:
@@ -132,41 +132,41 @@ public class Speck extends Image {
 		case BLIZZARD:
 		case INFERNO:
 		case STEAM:
-			texture(Asset.getAssetFileHandle(GeneralAsset.STEAM));
+			texture(Asset.getAssetFilePath(GeneralAsset.STEAM));
 			break;
 		case CALM:
 		case SCREAM:
-			texture(Asset.getAssetFileHandle(GeneralAsset.SCREAM));
+			texture(Asset.getAssetFilePath(GeneralAsset.SCREAM));
 			break;
 		case UP:
-			texture(Asset.getAssetFileHandle(GeneralAsset.UP));
+			texture(Asset.getAssetFilePath(GeneralAsset.UP));
 			break;
 		case BUBBLE:
-			texture(Asset.getAssetFileHandle(GeneralAsset.BUBBLE));
+			texture(Asset.getAssetFilePath(GeneralAsset.BUBBLE));
 			break;
 		case CHANGE:
-			texture(Asset.getAssetFileHandle(GeneralAsset.CHANGE));
+			texture(Asset.getAssetFilePath(GeneralAsset.CHANGE));
 			break;
 		case COIN:
-			texture(Asset.getAssetFileHandle(GeneralAsset.COIN));
+			texture(Asset.getAssetFilePath(GeneralAsset.COIN));
 			break;
 		case HEALING:
-			texture(Asset.getAssetFileHandle(GeneralAsset.HEALING));
+			texture(Asset.getAssetFilePath(GeneralAsset.HEALING));
 			break;
 		case HEART:
-			texture(Asset.getAssetFileHandle(GeneralAsset.HEART));
+			texture(Asset.getAssetFilePath(GeneralAsset.HEART));
 			break;
 		case NOTE:
-			texture(Asset.getAssetFileHandle(GeneralAsset.NOTE));
+			texture(Asset.getAssetFilePath(GeneralAsset.NOTE));
 			break;
 		case QUESTION:
-			texture(Asset.getAssetFileHandle(GeneralAsset.QUESTION));
+			texture(Asset.getAssetFilePath(GeneralAsset.QUESTION));
 			break;
 		case ROCK:
-			texture(Asset.getAssetFileHandle(GeneralAsset.ROCK));
+			texture(Asset.getAssetFilePath(GeneralAsset.ROCK));
 			break;
 		case WOOL:
-			texture(Asset.getAssetFileHandle(GeneralAsset.WOOL));
+			texture(Asset.getAssetFilePath(GeneralAsset.WOOL));
 			break;
 		}
 		

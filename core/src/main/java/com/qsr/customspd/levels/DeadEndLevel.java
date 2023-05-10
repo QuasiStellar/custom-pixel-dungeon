@@ -45,7 +45,7 @@ public class DeadEndLevel extends Level {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_HALLS);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_HALLS);
 	}
 	
 	@Override
@@ -68,7 +68,7 @@ public class DeadEndLevel extends Level {
 		}
 		
 		int entrance = SIZE * width() + SIZE / 2 + 1;
-		transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE));
+		transitions.add(new LevelTransition(this, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 		map[entrance] = Terrain.ENTRANCE;
 		
 		return true;

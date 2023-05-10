@@ -84,7 +84,7 @@ public class WndSettings extends WndTabbed {
 		height = display.height();
 		add( display );
 
-		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT))){
+		add( new IconTab(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -98,7 +98,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, ui.height());
 		add( ui );
 
-		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS))){
+		add( new IconTab(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -115,9 +115,9 @@ public class WndSettings extends WndTabbed {
 			add( input );
 			Image icon;
 			if (ControllerHandler.controllerActive || !DeviceCompat.hasHardKeyboard()){
-				icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CONTROLLER));
+				icon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CONTROLLER));
 			} else {
-				icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_KEYBOARD));
+				icon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_KEYBOARD));
 			}
 			add(new IconTab(icon) {
 				@Override
@@ -134,7 +134,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, data.height());
 		add( data );
 
-		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DATA))){
+		add( new IconTab(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DATA))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -148,7 +148,7 @@ public class WndSettings extends WndTabbed {
 		height = Math.max(height, audio.height());
 		add( audio );
 
-		add( new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_AUDIO))){
+		add( new IconTab(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_AUDIO))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -163,7 +163,7 @@ public class WndSettings extends WndTabbed {
 		add( langs );
 
 
-		IconTab langsTab = new IconTab(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS))){
+		IconTab langsTab = new IconTab(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS))){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -260,7 +260,7 @@ public class WndSettings extends WndTabbed {
 						super.onClick();
 						if (checked()) {
 							checked(!checked());
-							ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DISPLAY_PORT)),
+							ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DISPLAY_PORT)),
 									Messages.get(DisplayTab.class, "saver"),
 									Messages.get(DisplayTab.class, "saver_desc"),
 									Messages.get(DisplayTab.class, "okay"),

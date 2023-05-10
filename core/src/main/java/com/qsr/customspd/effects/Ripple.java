@@ -35,7 +35,7 @@ public class Ripple extends Image {
 	private float time;
 	
 	public Ripple() {
-		super(new Image(Asset.getAssetFileHandle(GeneralAsset.RIPPLE)));
+		super(new Image(Asset.getAssetFilePath(GeneralAsset.RIPPLE)));
 	}
 	
 	public void reset( int p ) {

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.assets.Asset;
@@ -213,11 +212,11 @@ public class RadialMenu extends Window {
 
 	private static Image getBGTexture(int size, boolean inner){
 		if (size >= 200){
-			if (!inner)  return new Image(Asset.getAssetFileHandle(GeneralAsset.RADIAL_MENU_LARGE));
-			else        return new Image(Asset.getAssetFileHandle(GeneralAsset.RADIAL_MENU_INNER_LARGE));
+			if (!inner)  return new Image(Asset.getAssetFilePath(GeneralAsset.RADIAL_MENU_LARGE));
+			else        return new Image(Asset.getAssetFilePath(GeneralAsset.RADIAL_MENU_INNER_LARGE));
 		} else {
-			if (!inner)  return new Image(Asset.getAssetFileHandle(GeneralAsset.RADIAL_MENU));
-			else        return new Image(Asset.getAssetFileHandle(GeneralAsset.RADIAL_MENU_INNER));
+			if (!inner)  return new Image(Asset.getAssetFilePath(GeneralAsset.RADIAL_MENU));
+			else        return new Image(Asset.getAssetFilePath(GeneralAsset.RADIAL_MENU_INNER));
 		}
 	}
 

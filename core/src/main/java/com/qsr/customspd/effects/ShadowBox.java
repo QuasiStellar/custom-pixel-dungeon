@@ -31,7 +31,7 @@ public class ShadowBox extends NinePatch {
 	public static final float SIZE = 16;
 
 	public ShadowBox() {
-		super(Asset.getAssetFileHandle(GeneralAsset.SHADOW), 1 );
+		super(Asset.getAssetFilePath(GeneralAsset.SHADOW), 1 );
 
 		//If this is the first time the texture is generated, set the filtering
 		if (texture.id == -1)

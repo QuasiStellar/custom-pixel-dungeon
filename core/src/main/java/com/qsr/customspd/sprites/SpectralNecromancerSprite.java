@@ -41,7 +41,7 @@ public class SpectralNecromancerSprite extends MobSprite {
 	public SpectralNecromancerSprite(){
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.NECRO) );
+		texture( Asset.getAssetFilePath(GeneralAsset.NECRO) );
 		TextureFilm film = new TextureFilm( texture, 16, 16 );
 
 		int c = 16;

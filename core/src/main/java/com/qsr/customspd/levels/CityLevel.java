@@ -23,7 +23,6 @@ package com.qsr.customspd.levels;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
-import com.qsr.customspd.actors.mobs.npcs.Imp;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.painters.CityPainter;
@@ -90,7 +89,7 @@ public class CityLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_CITY);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_CITY);
 	}
 	
 	@Override
@@ -115,13 +114,6 @@ public class CityLevel extends RegularLevel {
 				4, 4, 4, 4, 4,
 				2, 2, 2, 2,
 				1, 1, 1, 1, 1, 1, 1, 1 };
-	}
-	
-	@Override
-	protected void createMobs() {
-		Imp.Quest.spawn( this );
-		
-		super.createMobs();
 	}
 	
 	@Override

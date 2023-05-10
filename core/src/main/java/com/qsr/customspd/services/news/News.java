@@ -24,11 +24,8 @@ package com.qsr.customspd.services.news;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.qsr.customspd.SPDSettings;
-import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
-import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.ui.IconUtils;
 import com.watabou.noosa.Image;
 
 import java.util.ArrayList;
@@ -119,7 +116,7 @@ public class News {
 //		//if we run into any formatting errors (or icon is null), default to the news icon
 //		} catch (Exception e){
 //			if (article.icon != null) ShatteredPixelDungeon.reportException(e);
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_NEWS));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS));
 //		}
 	}
 

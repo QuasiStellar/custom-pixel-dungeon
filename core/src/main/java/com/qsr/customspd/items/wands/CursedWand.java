@@ -54,7 +54,6 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.bombs.Bomb;
 import com.qsr.customspd.items.scrolls.ScrollOfRecharging;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
-import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.traps.CursingTrap;
 import com.qsr.customspd.levels.traps.ShockingTrap;
@@ -65,7 +64,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.scenes.InterlevelScene;
 import com.qsr.customspd.ui.TargetHealthIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.qsr.customspd.windows.WndOptions;
@@ -259,7 +257,7 @@ public class CursedWand {
 	}
 
 	private static boolean rareEffect(final Item origin, final Char user, final int targetPos){
-		switch(Random.Int(4)){
+		switch(Random.Int(3)){
 
 			//sheep transformation
 			case 0: default:
@@ -293,30 +291,8 @@ public class CursedWand {
 				}
 				return true;
 
-			//inter-level teleportation
-			case 2:
-				if (Dungeon.depth > 1 && Dungeon.interfloorTeleportAllowed() && user == Dungeon.hero) {
-
-					//each depth has 1 more weight than the previous depth.
-					float[] depths = new float[Dungeon.depth-1];
-					for (int i = 1; i < Dungeon.depth; i++) depths[i-1] = i;
-					int depth = 1+Random.chances(depths);
-
-					Level.beforeTransition();
-					InterlevelScene.mode = InterlevelScene.Mode.RETURN;
-					InterlevelScene.returnDepth = depth;
-					InterlevelScene.returnBranch = 0;
-					InterlevelScene.returnPos = -1;
-					Game.switchScene(InterlevelScene.class);
-
-				} else {
-					ScrollOfTeleportation.teleportChar(user);
-
-				}
-				return true;
-
 			//summon monsters
-			case 3:
+			case 2:
 				new SummoningTrap().set( targetPos ).activate();
 				return true;
 		}
@@ -389,7 +365,7 @@ public class CursedWand {
 									@Override
 									public void call() {
 										GameScene.show(
-												new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)),
+												new WndOptions(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)),
 														"CURSED WAND ERROR",
 														"this application will now self-destruct",
 														"abort",

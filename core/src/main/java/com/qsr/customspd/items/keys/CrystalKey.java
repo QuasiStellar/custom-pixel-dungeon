@@ -28,14 +28,14 @@ public class CrystalKey extends Key {
 	{
 		image = GeneralAsset.CRYSTAL_KEY;
 	}
-	
+
 	public CrystalKey() {
-		this( 0 );
+		this( "" );
 	}
-	
-	public CrystalKey( int depth ) {
+
+	public CrystalKey( String levelName ) {
 		super();
-		this.depth = depth;
+		this.levelName = levelName;
 	}
 	
 }

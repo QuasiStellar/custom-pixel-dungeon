@@ -34,7 +34,9 @@ import com.qsr.customspd.actors.mobs.GoldenMimic;
 import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Statue;
+import com.qsr.customspd.actors.mobs.npcs.Blacksmith;
 import com.qsr.customspd.actors.mobs.npcs.Ghost;
+import com.qsr.customspd.actors.mobs.npcs.Wandmaker;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
@@ -147,6 +149,14 @@ public abstract class RegularLevel extends Level {
 		if (feeling == Feeling.SECRETS) secrets++;
 		for (int i = 0; i < secrets; i++) {
 			initRooms.add(SecretRoom.createRoom());
+		}
+
+		if (Dungeon.levelName.equals(Dungeon.blacksmithLevel)) {
+			Blacksmith.Quest.spawn(initRooms);
+		}
+
+		if (Dungeon.levelName.equals(Dungeon.wandmakerLevel)) {
+			Wandmaker.Quest.spawnRoom(initRooms);
 		}
 		
 		return initRooms;
@@ -332,6 +342,8 @@ public abstract class RegularLevel extends Level {
 	
 	@Override
 	protected void createItems() {
+
+		super.createItems();
 		
 		// drops 3/4/5 items 60%/30%/10% of the time
 		int nItems = 3 + Random.chances(new float[]{6, 3, 1});
@@ -383,7 +395,7 @@ public abstract class RegularLevel extends Level {
 					Heap dropped = drop(toDrop, cell);
 					if (heaps.get(cell) == dropped) {
 						dropped.type = Heap.Type.LOCKED_CHEST;
-						addItemToSpawn(new GoldenKey(Dungeon.depth));
+						addItemToSpawn(new GoldenKey(Dungeon.levelName));
 					}
 				}
 			} else {
@@ -648,7 +660,7 @@ public abstract class RegularLevel extends Level {
 	}
 
 	@Override
-	public boolean isLevelExplored( int depth ) {
+	public boolean isLevelExplored( String levelName ) {
 		//A level is considered fully explored if:
 
 		//There are no levelgen heaps which are undiscovered, in an openable container, or which contain keys
@@ -692,7 +704,7 @@ public abstract class RegularLevel extends Level {
 
 		//There are no unused keys for this depth in the journal
 		for (Notes.KeyRecord rec : Notes.getRecords(Notes.KeyRecord.class)){
-			if (rec.depth() == depth){
+			if (rec.levelName().equals(levelName)){
 				return false;
 			}
 		}

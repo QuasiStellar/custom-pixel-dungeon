@@ -434,7 +434,7 @@ public class GameScene extends PixelScene {
 				break;
 		}
 
-		ArrayList<Item> dropped = Dungeon.droppedItems.get( Dungeon.depth );
+		ArrayList<Item> dropped = Dungeon.droppedItems.get( Dungeon.levelName );
 		if (dropped != null) {
 			for (Item item : dropped) {
 				int pos = Dungeon.level.randomRespawnCell( null );
@@ -449,7 +449,7 @@ public class GameScene extends PixelScene {
 					Dungeon.level.drop(item, pos);
 				}
 			}
-			Dungeon.droppedItems.remove( Dungeon.depth );
+			Dungeon.droppedItems.remove( Dungeon.levelName );
 		}
 
 		Dungeon.hero.next();
@@ -1271,7 +1271,7 @@ public class GameScene extends PixelScene {
 	public static void gameOver() {
 		if (scene == null) return;
 
-		Banner gameOver = new Banner( Asset.getAssetFileHandle(GeneralAsset.GAME_OVER) );
+		Banner gameOver = new Banner( Asset.getAssetFilePath(GeneralAsset.GAME_OVER) );
 		gameOver.show( 0x000000, 2f );
 		scene.showBanner( gameOver );
 
@@ -1289,7 +1289,7 @@ public class GameScene extends PixelScene {
 				super.update();
 			}
 		};
-		restart.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENTER)));
+		restart.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENTER)));
 		restart.alpha(0);
 		restart.camera = uiCamera;
 		float offset = Camera.main.centerOffset.y;
@@ -1312,7 +1312,7 @@ public class GameScene extends PixelScene {
 				super.update();
 			}
 		};
-		menu.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)));
+		menu.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)));
 		menu.alpha(0);
 		menu.camera = uiCamera;
 		menu.setSize(Math.max(80, menu.reqWidth()), 20);
@@ -1325,7 +1325,7 @@ public class GameScene extends PixelScene {
 	
 	public static void bossSlain() {
 		if (Dungeon.hero.isAlive()) {
-			Banner bossSlain = new Banner( Asset.getAssetFileHandle(GeneralAsset.BOSS_SLAIN) );
+			Banner bossSlain = new Banner( Asset.getAssetFilePath(GeneralAsset.BOSS_SLAIN) );
 			bossSlain.show( 0xFFFFFF, 0.3f, 5f );
 			scene.showBanner( bossSlain );
 			
@@ -1423,7 +1423,7 @@ public class GameScene extends PixelScene {
 		} else {
 			String[] names = getObjectNames(objects).toArray(new String[0]);
 
-			GameScene.show(new WndOptions(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO)),
+			GameScene.show(new WndOptions(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO)),
 					Messages.get(GameScene.class, "choose_examine"),
 					Messages.get(GameScene.class, "multiple_examine"),
 					names){
@@ -1520,7 +1520,7 @@ public class GameScene extends PixelScene {
 				image = WndInfoCell.cellImage(cell);
 			} else if (objects.size() > 1){
 				title = Messages.get(GameScene.class, "multiple");
-				image = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO));
+				image = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO));
 			} else if (objects.get(0) instanceof Hero) {
 				title = textLines.remove(0);
 				image = HeroSprite.avatar(((Hero) objects.get(0)).heroClass, ((Hero) objects.get(0)).tier());

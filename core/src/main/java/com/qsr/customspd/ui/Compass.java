@@ -42,7 +42,7 @@ public class Compass extends Image {
 	public Compass( int cell ) {
 		
 		super();
-		copy( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COMPASS)) );
+		copy( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_COMPASS)) );
 		origin.set( width / 2, RADIUS );
 		
 		this.cell = cell;

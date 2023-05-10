@@ -30,12 +30,12 @@ public class GoldenKey extends Key {
 	}
 
 	public GoldenKey() {
-		this( 0 );
+		this( "" );
 	}
-	
-	public GoldenKey( int depth ) {
+
+	public GoldenKey( String levelName ) {
 		super();
-		this.depth = depth;
+		this.levelName = levelName;
 	}
 
 }

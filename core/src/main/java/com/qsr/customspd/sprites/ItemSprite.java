@@ -226,7 +226,7 @@ public class ItemSprite extends MovieClip {
 	public ItemSprite view( Asset image, Glowing glowing ) {
 		if (this.emitter != null) this.emitter.killAndErase();
 		emitter = null;
-		texture( Asset.getAssetFileHandle(image) );
+		texture( Asset.getAssetFilePath(image) );
 		glow( glowing );
 		return this;
 	}
@@ -360,7 +360,7 @@ public class ItemSprite extends MovieClip {
 	}
 
 	public static int pick( Asset asset, int x, int y ) {
-		SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle( asset ));
+		SmartTexture tx = TextureCache.get(Asset.getAssetFilePath( asset ));
 		return tx.getPixel( x, y );
 	}
 	

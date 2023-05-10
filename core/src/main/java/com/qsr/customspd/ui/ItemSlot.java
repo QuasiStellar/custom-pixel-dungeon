@@ -239,7 +239,7 @@ public class ItemSlot extends Button {
 		if (item.icon != GeneralAsset.SOMETHING && (item.isIdentified() || (item instanceof Ring && ((Ring) item).isKnown()))){
 			extra.text( null );
 
-			itemIcon = new Image(Asset.getAssetFileHandle(item.icon));
+			itemIcon = new Image(Asset.getAssetFilePath(item.icon));
 			add(itemIcon);
 
 		} else if (item instanceof Weapon || item instanceof Armor) {

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.QuickSlot;
 import com.qsr.customspd.SPDAction;
@@ -40,7 +39,6 @@ import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTerrainTilemap;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndKeyBindings;
@@ -361,7 +359,7 @@ public class Toolbar extends Component {
 			@Override
 			protected void createChildren() {
 				super.createChildren();
-				arrow = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COMPASS));
+				arrow = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_COMPASS));
 				arrow.originToCenter();
 				arrow.visible = SPDSettings.interfaceSize() == 2;
 				arrow.tint(0x3D2E18, 1f);
@@ -514,15 +512,15 @@ public class Toolbar extends Component {
 				String asset;
 				if (i == endingSlot){
 					btnQuick[i].border(0, 2);
-					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_LAST);
+					asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_LAST);
 					btnQuick[i].base.texture(asset);
 				} else if (i == 0){
 					btnQuick[i].border(2, 1);
-					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_FIRST);
+					asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_FIRST);
 					btnQuick[i].base.texture(asset);
 				} else {
 					btnQuick[i].border(0, 1);
-					asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_MIDDLE);
+					asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_MIDDLE);
 					btnQuick[i].base.texture(asset);
 				}
 				SmartTexture texture = new SmartTexture( getBitmap( asset ) );
@@ -541,16 +539,16 @@ public class Toolbar extends Component {
 			if (i == startingSlot && !SPDSettings.flipToolbar() ||
 				i == endingSlot && SPDSettings.flipToolbar()){
 				btnQuick[i].border(0, 2);
-				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_LAST);
+				asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_LAST);
 				btnQuick[i].base.texture(asset);
 			} else if (i == startingSlot && SPDSettings.flipToolbar() ||
 					i == endingSlot && !SPDSettings.flipToolbar()){
 				btnQuick[i].border(2, 1);
-				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_FIRST);
+				asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_FIRST);
 				btnQuick[i].base.texture(asset);
 			} else {
 				btnQuick[i].border(0, 1);
-				asset = Asset.getAssetFileHandle(GeneralAsset.QUICKSLOT_MIDDLE);
+				asset = Asset.getAssetFilePath(GeneralAsset.QUICKSLOT_MIDDLE);
 				btnQuick[i].base.texture(asset);
 			}
 			SmartTexture texture = new SmartTexture( getBitmap( asset ) );
@@ -702,8 +700,8 @@ public class Toolbar extends Component {
 			super();
 
 			hotArea.blockLevel = PointerArea.ALWAYS_BLOCK;
-			base = new Image(Asset.getAssetFileHandle(asset));
-			SmartTexture texture = new SmartTexture(getBitmap(Asset.getAssetFileHandle(asset)));
+			base = new Image(Asset.getAssetFilePath(asset));
+			SmartTexture texture = new SmartTexture(getBitmap(Asset.getAssetFilePath(asset)));
 			format(texture.width, texture.height);
 			add( base );
 		}
@@ -827,7 +825,7 @@ public class Toolbar extends Component {
 
 		public void updateVisuals(){
 			if (icons[0] == null){
-				icons[0] = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES));
+				icons[0] = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES));
 				icons[0].scale.set(PixelScene.align(0.45f));
 				add(icons[0]);
 			}

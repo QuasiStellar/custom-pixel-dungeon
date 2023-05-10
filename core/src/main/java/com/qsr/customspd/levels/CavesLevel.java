@@ -23,12 +23,10 @@ package com.qsr.customspd.levels;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
-import com.qsr.customspd.actors.mobs.npcs.Blacksmith;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.painters.CavesPainter;
 import com.qsr.customspd.levels.painters.Painter;
-import com.qsr.customspd.levels.rooms.Room;
 import com.qsr.customspd.levels.traps.BurningTrap;
 import com.qsr.customspd.levels.traps.ConfusionTrap;
 import com.qsr.customspd.levels.traps.CorrosionTrap;
@@ -52,8 +50,6 @@ import com.watabou.noosa.particles.PixelParticle;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
-import java.util.ArrayList;
-
 public class CavesLevel extends RegularLevel {
 
 	{
@@ -67,11 +63,6 @@ public class CavesLevel extends RegularLevel {
 				new String[]{Assets.Music.CAVES_1, Assets.Music.CAVES_2, Assets.Music.CAVES_2},
 				new float[]{1, 1, 0.5f},
 				false);
-	}
-
-	@Override
-	protected ArrayList<Room> initRooms() {
-		return Blacksmith.Quest.spawn(super.initRooms());
 	}
 	
 	@Override
@@ -103,7 +94,7 @@ public class CavesLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_CAVES);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_CAVES);
 	}
 	
 	@Override

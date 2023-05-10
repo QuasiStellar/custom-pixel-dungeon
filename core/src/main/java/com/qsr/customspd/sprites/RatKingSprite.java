@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
@@ -55,7 +54,7 @@ public class RatKingSprite extends MobSprite {
 			if (parent != null) aura(0xFFFF00);
 		}
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.RATKING) );
+		texture( Asset.getAssetFilePath(GeneralAsset.RATKING) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 17 );
 

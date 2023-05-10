@@ -215,7 +215,7 @@ abstract public class MissileWeapon extends Weapon {
 					&& curUser.buff(Talent.SeerShotCooldown.class) == null){
 				if (Actor.findChar(cell) == null) {
 					RevealedArea a = Buff.affect(curUser, RevealedArea.class, 5 * curUser.pointsInTalent(Talent.SEER_SHOT));
-					a.depth = Dungeon.depth;
+					a.level = Dungeon.levelName;
 					a.pos = cell;
 					Buff.affect(curUser, Talent.SeerShotCooldown.class, 20f);
 				}

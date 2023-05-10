@@ -38,7 +38,7 @@ public class Wound extends Image {
 	private float time;
 	
 	public Wound() {
-		super( new Image(Asset.getAssetFileHandle(GeneralAsset.WOUND)) );
+		super( new Image(Asset.getAssetFilePath(GeneralAsset.WOUND)) );
 		hardlight(1f, 0f, 0f);
 		origin.set( width / 2, height / 2 );
 	}

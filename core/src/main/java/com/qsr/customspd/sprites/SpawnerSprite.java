@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
@@ -34,7 +33,7 @@ public class SpawnerSprite extends MobSprite {
 	public SpawnerSprite() {
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.SPAWNER) );
+		texture( Asset.getAssetFilePath(GeneralAsset.SPAWNER) );
 
 		perspectiveRaise = 8 / 16f;
 		shadowOffset = 1.25f;

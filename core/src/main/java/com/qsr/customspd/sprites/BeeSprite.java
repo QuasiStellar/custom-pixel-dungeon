@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -31,7 +30,7 @@ public class BeeSprite extends MobSprite {
 	public BeeSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.BEE) );
+		texture( Asset.getAssetFilePath(GeneralAsset.BEE) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 		

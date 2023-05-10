@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
@@ -32,7 +31,7 @@ public class LarvaSprite extends MobSprite {
 	public LarvaSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.LARVA) );
+		texture( Asset.getAssetFilePath(GeneralAsset.LARVA) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 8 );
 		

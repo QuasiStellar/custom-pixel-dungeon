@@ -79,7 +79,7 @@ public class WndHero extends WndTabbed {
 		buffs.setRect(0, 0, WIDTH, HEIGHT);
 		buffs.setupList();
 		
-		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_RANKINGS)) ) {
+		add( new IconTab( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_RANKINGS)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) {
@@ -91,7 +91,7 @@ public class WndHero extends WndTabbed {
 				stats.visible = stats.active = selected;
 			}
 		} );
-		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT)) ) {
+		add( new IconTab( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 1;
@@ -99,7 +99,7 @@ public class WndHero extends WndTabbed {
 				talents.visible = talents.active = selected;
 			}
 		} );
-		add( new IconTab( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BUFFS)) ) {
+		add( new IconTab( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BUFFS)) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 2;
@@ -152,7 +152,7 @@ public class WndHero extends WndTabbed {
 			title.setRect( 0, 0, WIDTH-16, 0 );
 			add(title);
 
-			IconButton infoButton = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
+			IconButton infoButton = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))){
 				@Override
 				protected void onClick() {
 					super.onClick();

@@ -39,7 +39,7 @@ public class SpinnerSprite extends MobSprite {
 
 		perspectiveRaise = 0f;
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.SPINNER) );
+		texture( Asset.getAssetFilePath(GeneralAsset.SPINNER) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 		

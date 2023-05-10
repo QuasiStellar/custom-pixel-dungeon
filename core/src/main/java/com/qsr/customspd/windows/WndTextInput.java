@@ -128,7 +128,7 @@ public class WndTextInput extends Window {
 				textBox.copyToClipboard();
 			}
 		};
-		btnCopy.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COPY)));
+		btnCopy.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_COPY)));
 		add(btnCopy);
 
 		btnPaste = new RedButton(""){
@@ -151,7 +151,7 @@ public class WndTextInput extends Window {
 			}
 
 		};
-		btnPaste.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PASTE)));
+		btnPaste.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PASTE)));
 		add(btnPaste);
 
 		btnCopy.setRect(textBoxWidth + 2*MARGIN, pos, BUTTON_HEIGHT, BUTTON_HEIGHT);

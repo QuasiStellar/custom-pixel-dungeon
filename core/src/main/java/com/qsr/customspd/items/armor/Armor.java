@@ -522,7 +522,7 @@ public class Armor extends EquipableItem {
 	public Emitter emitter() {
 		if (seal == null) return super.emitter();
 		Emitter emitter = new Emitter();
-		SmartTexture texture = TextureCache.get(Asset.getAssetFileHandle(image));
+		SmartTexture texture = TextureCache.get(Asset.getAssetFilePath(image));
 		emitter.pos(texture.width/2f + 2f, texture.height/3f);
 		emitter.fillTarget = false;
 		emitter.pour(Speck.factory( Speck.RED_LIGHT ), 0.6f);

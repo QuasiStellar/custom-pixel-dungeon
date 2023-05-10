@@ -32,7 +32,7 @@ public class TargetedCell extends Image {
 	private float alpha;
 
 	public TargetedCell( int pos, int color ) {
-		super(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TARGET)));
+		super(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TARGET)));
 		hardlight(color);
 
 		origin.set( width/2f );

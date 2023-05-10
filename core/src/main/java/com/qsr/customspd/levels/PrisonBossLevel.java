@@ -116,7 +116,7 @@ public class PrisonBossLevel extends Level {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_PRISON);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_PRISON);
 	}
 	
 	private static final String STATE	        = "state";
@@ -137,20 +137,6 @@ public class PrisonBossLevel extends Level {
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
 		state = bundle.getEnum( STATE, State.class );
-
-		//pre-1.3.0 saves, recreates custom exit and entrance transitions
-		if (bundle.contains("entrance")){
-			transitions.clear();
-			if (state == State.START || state == State.WON){
-				transitions.add(new LevelTransition(this, ENTRANCE_POS, LevelTransition.Type.REGULAR_ENTRANCE));
-			}
-			if (state == State.WON){
-				LevelTransition exit = new LevelTransition(this, pointToCell(levelExit), LevelTransition.Type.REGULAR_EXIT);
-				exit.right+=2;
-				exit.bottom+=3;
-				transitions.add(exit);
-			}
-		}
 		
 		//in some states tengu won't be in the world, in others he will be.
 		if (state == State.START || state == State.FIGHT_PAUSE) {
@@ -196,7 +182,7 @@ public class PrisonBossLevel extends Level {
 	                                       new Point(8, 23), new Point(12, 23)};
 	
 	private void setMapStart(){
-		transitions.add(new LevelTransition(this, ENTRANCE_POS, LevelTransition.Type.REGULAR_ENTRANCE));
+		transitions.add(new LevelTransition(this, ENTRANCE_POS, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 		
 		Painter.fill(this, 0, 0, 32, 32, Terrain.WALL);
 		
@@ -326,7 +312,7 @@ public class PrisonBossLevel extends Level {
 			cell += width();
 		}
 
-		LevelTransition exit = new LevelTransition(this, pointToCell(levelExit), LevelTransition.Type.REGULAR_EXIT);
+		LevelTransition exit = new LevelTransition(this, pointToCell(levelExit), LevelTransition.Type.REGULAR_EXIT, 0);
 		exit.right+=2;
 		exit.bottom+=3;
 		transitions.add(exit);
@@ -348,7 +334,7 @@ public class PrisonBossLevel extends Level {
 		}
 		
 		for (HeavyBoomerang.CircleBack b : Dungeon.hero.buffs(HeavyBoomerang.CircleBack.class)){
-			if (b.activeDepth() == Dungeon.depth
+			if (b.activeLevel().equals(Dungeon.levelName)
 					&& (safeArea == null || !safeArea.inside(cellToPoint(b.returnPos())))){
 				storedItems.add(b.cancel());
 			}
@@ -583,7 +569,7 @@ public class PrisonBossLevel extends Level {
 		if (item != null) {
 			drop( item, randomRespawnCell( null ) ).setHauntedIfCursed().type = Heap.Type.REMAINS;
 		}
-		drop(new IronKey(10), randomPrisonCellPos());
+		drop(new IronKey(Dungeon.levelName), randomPrisonCellPos());
 	}
 
 	@Override
@@ -841,7 +827,7 @@ public class PrisonBossLevel extends Level {
 	public static class ExitVisual extends CustomTilemap {
 		
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_EXIT);
+			texture = Asset.getAssetFilePath(GeneralAsset.PRISON_EXIT);
 			
 			tileW = 14;
 			tileH = 11;
@@ -887,7 +873,7 @@ public class PrisonBossLevel extends Level {
 	public static class ExitVisualWalls extends CustomTilemap {
 		
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.PRISON_EXIT);
+			texture = Asset.getAssetFilePath(GeneralAsset.PRISON_EXIT);
 			
 			tileW = 14;
 			tileH = 22;

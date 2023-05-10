@@ -60,7 +60,7 @@ public class SpellSprite extends Image {
 	private static HashMap<Char,SpellSprite> all = new HashMap<>();
 
 	public void reset(GeneralAsset asset ) {
-		texture( Asset.getAssetFileHandle(asset) );
+		texture( Asset.getAssetFilePath(asset) );
 		origin.set( width / 2, height / 2 );
 		
 		phase = Phase.FADE_IN;

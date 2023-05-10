@@ -53,7 +53,7 @@ public class SewerBossEntranceRoom extends EntranceRoom {
 			entrance = level.pointToCell(random(3));
 		} while (level.findMob(entrance) != null);
 		Painter.set( level, entrance, Terrain.ENTRANCE );
-		level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.REGULAR_ENTRANCE));
+		level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.REGULAR_ENTRANCE, 0));
 
 		for (Room.Door door : connected.values()) {
 			door.set( Room.Door.Type.REGULAR );

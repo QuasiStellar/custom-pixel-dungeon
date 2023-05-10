@@ -57,7 +57,7 @@ public abstract class FistSprite extends MobSprite {
 
 		int c = texOffset();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.FISTS) );
+		texture( Asset.getAssetFilePath(GeneralAsset.FISTS) );
 
 		TextureFilm frames = new TextureFilm( texture, 24, 17 );
 

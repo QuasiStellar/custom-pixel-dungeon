@@ -43,23 +43,23 @@ public class Bones {
 	private static final String LEVEL	= "level";
 	private static final String ITEM	= "item";
 
-	private static int depth = -1;
+	private static String level = "surface";
 	private static Item item;
 	
 	public static void leave() {
 
-		depth = Dungeon.depth;
+		level = Dungeon.levelName;
 
 		//heroes drop no bones if they have the amulet, die far above their farthest depth, are challenged, or are playing with a custom seed.
-		if (Statistics.amuletObtained || (Statistics.deepestFloor - 5) >= depth || Dungeon.challenges > 0 || !Dungeon.customSeedText.isEmpty()) {
-			depth = -1;
+		if (Statistics.amuletObtained || (Statistics.deepestFloor - 5) >= Dungeon.depth || Dungeon.challenges > 0 || !Dungeon.customSeedText.isEmpty()) {
+			level = "surface";
 			return;
 		}
 
 		item = pickItem(Dungeon.hero);
 
 		Bundle bundle = new Bundle();
-		bundle.put( LEVEL, depth );
+		bundle.put( LEVEL, level);
 		bundle.put( ITEM, item );
 
 		try {
@@ -130,13 +130,13 @@ public class Bones {
 	}
 
 	public static Item get() {
-		if (depth == -1) {
+		if (level.equals("surface")) {
 
 			try {
 				Bundle bundle = FileUtils.bundleFromFile(BONES_FILE);
 
-				depth = bundle.getInt( LEVEL );
-				if (depth > 0) {
+				level = bundle.getString( LEVEL );
+				if (!level.equals("surface") && !level.equals("0")) {
 					item = (Item) bundle.get(ITEM);
 				}
 
@@ -148,7 +148,7 @@ public class Bones {
 
 		} else {
 			//heroes who are challenged or on a seeded run cannot find bones
-			if (depth == Dungeon.depth && Dungeon.challenges == 0 && Dungeon.customSeedText.isEmpty()) {
+			if (level.equals(Dungeon.levelName) && Dungeon.challenges == 0 && Dungeon.customSeedText.isEmpty()) {
 				Bundle emptyBones = new Bundle();
 				emptyBones.put(LEVEL, 0);
 				try {
@@ -156,7 +156,7 @@ public class Bones {
 				} catch (IOException e) {
 					ShatteredPixelDungeon.reportException(e);
 				}
-				depth = 0;
+				level = "0";
 				
 				if (item == null) return null;
 

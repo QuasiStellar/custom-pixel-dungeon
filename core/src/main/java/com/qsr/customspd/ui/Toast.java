@@ -54,7 +54,7 @@ public class Toast extends Component {
 		bg = Chrome.get( Chrome.Type.TOAST_TR );
 		add( bg );
 
-		close = new IconButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CLOSE)) ) {
+		close = new IconButton( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CLOSE)) ) {
 			protected void onClick() {
 				onClose();
 			}

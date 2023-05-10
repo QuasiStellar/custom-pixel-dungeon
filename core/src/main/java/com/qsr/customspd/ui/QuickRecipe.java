@@ -73,7 +73,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.plants.Plant;
 import com.qsr.customspd.scenes.AlchemyScene;
 import com.qsr.customspd.scenes.PixelScene;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.windows.WndBag;
 import com.qsr.customspd.windows.WndInfoItem;
 import com.watabou.noosa.BitmapText;
@@ -135,10 +134,10 @@ public class QuickRecipe extends Component {
 		}
 		
 		if (cost > 0) {
-			arrow = new arrow(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)), cost);
+			arrow = new arrow(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ARROW)), cost);
 			arrow.hardlightText(0x44CCFF);
 		} else {
-			arrow = new arrow(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)));
+			arrow = new arrow(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ARROW)));
 		}
 		if (hasInputs) {
 			arrow.icon.tint(1, 1, 0, 1);

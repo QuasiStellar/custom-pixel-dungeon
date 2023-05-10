@@ -348,7 +348,7 @@ public class SentryRoom extends SpecialRoom {
 		private Emitter chargeParticles;
 
 		public SentrySprite(){
-			texture( Asset.getAssetFileHandle(GeneralAsset.RED_SENTRY) );
+			texture( Asset.getAssetFilePath(GeneralAsset.RED_SENTRY) );
 
 			idle = new Animation(1, true);
 			idle.frames(texture.uvRect(0, 0, 8, 15));

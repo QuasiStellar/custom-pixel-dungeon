@@ -42,6 +42,7 @@ import com.qsr.customspd.items.armor.ScaleArmor;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.journal.Notes;
+import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.SewerLevel;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
@@ -135,14 +136,14 @@ public class Ghost extends NPC {
 						@Override
 						public void call() {
 							switch (Quest.type) {
-								case 1:
+								case 0:
 								default:
 									GameScene.show(new WndQuest(Ghost.this, Messages.get(Ghost.this, "rat_2")));
 									break;
-								case 2:
+								case 1:
 									GameScene.show(new WndQuest(Ghost.this, Messages.get(Ghost.this, "gnoll_2")));
 									break;
-								case 3:
+								case 2:
 									GameScene.show(new WndQuest(Ghost.this, Messages.get(Ghost.this, "crab_2")));
 									break;
 							}
@@ -170,13 +171,13 @@ public class Ghost extends NPC {
 			String txt_quest;
 
 			switch (Quest.type){
-				case 1: default:
+				case 0: default:
 					questBoss = new FetidRat();
 					txt_quest = Messages.get(this, "rat_1", Messages.titleCase(Dungeon.hero.name())); break;
-				case 2:
+				case 1:
 					questBoss = new GnollTrickster();
 					txt_quest = Messages.get(this, "gnoll_1", Messages.titleCase(Dungeon.hero.name())); break;
-				case 3:
+				case 2:
 					questBoss = new GreatCrab();
 					txt_quest = Messages.get(this, "crab_1", Messages.titleCase(Dungeon.hero.name())); break;
 			}
@@ -209,7 +210,7 @@ public class Ghost extends NPC {
 		private static boolean given;
 		private static boolean processed;
 		
-		private static int depth;
+		private static String level;
 		
 		public static Weapon weapon;
 		public static Armor armor;
@@ -231,7 +232,7 @@ public class Ghost extends NPC {
 		private static final String TYPE        = "type";
 		private static final String GIVEN		= "given";
 		private static final String PROCESSED	= "processed";
-		private static final String DEPTH		= "depth";
+		private static final String LEVEL		= "level";
 		private static final String WEAPON		= "weapon";
 		private static final String ARMOR		= "armor";
 		private static final String ENCHANT		= "enchant";
@@ -248,7 +249,7 @@ public class Ghost extends NPC {
 				node.put( TYPE, type );
 				
 				node.put( GIVEN, given );
-				node.put( DEPTH, depth );
+				node.put( LEVEL, level );
 				node.put( PROCESSED, processed );
 				
 				node.put( WEAPON, weapon );
@@ -273,7 +274,7 @@ public class Ghost extends NPC {
 				given	= node.getBoolean( GIVEN );
 				processed = node.getBoolean( PROCESSED );
 
-				depth	= node.getInt( DEPTH );
+				level	= node.getString( LEVEL );
 				
 				weapon	= (Weapon)node.get( WEAPON );
 				armor	= (Armor)node.get( ARMOR );
@@ -287,63 +288,59 @@ public class Ghost extends NPC {
 			}
 		}
 		
-		public static void spawn( SewerLevel level ) {
-			if (!spawned && Dungeon.depth > 1 && Random.Int( 5 - Dungeon.depth ) == 0) {
-				
-				Ghost ghost = new Ghost();
-				do {
-					ghost.pos = level.randomRespawnCell( ghost );
-				} while (ghost.pos == -1);
-				level.mobs.add( ghost );
-				
-				spawned = true;
-				//dungeon depth determines type of quest.
-				//depth2=fetid rat, 3=gnoll trickster, 4=great crab
-				type = Dungeon.depth-1;
-				
-				given = false;
-				processed = false;
-				depth = Dungeon.depth;
+		public static void spawn( Level lvl ) {
+			Ghost ghost = new Ghost();
+			do {
+				ghost.pos = lvl.randomRespawnCell( ghost );
+			} while (ghost.pos == -1);
+			lvl.mobs.add( ghost );
 
-				//50%:tier2, 30%:tier3, 15%:tier4, 5%:tier5
-				switch (Random.chances(new float[]{0, 0, 10, 6, 3, 1})){
-					default:
-					case 2: armor = new LeatherArmor(); break;
-					case 3: armor = new MailArmor();    break;
-					case 4: armor = new ScaleArmor();   break;
-					case 5: armor = new PlateArmor();   break;
-				}
-				//50%:tier2, 30%:tier3, 15%:tier4, 5%:tier5
-				int wepTier = Random.chances(new float[]{0, 0, 10, 6, 3, 1});
-				Generator.Category c = Generator.wepTiers[wepTier - 1];
-				weapon = (MeleeWeapon) Reflection.newInstance(c.classes[Random.chances(c.probs)]);
+			spawned = true;
+			//dungeon depth determines type of quest.
+			//depth2=fetid rat, 3=gnoll trickster, 4=great crab
+			type = (Dungeon.depth + 1) % 3;
 
-				//50%:+0, 30%:+1, 15%:+2, 5%:+3
-				float itemLevelRoll = Random.Float();
-				int itemLevel;
-				if (itemLevelRoll < 0.5f){
-					itemLevel = 0;
-				} else if (itemLevelRoll < 0.8f){
-					itemLevel = 1;
-				} else if (itemLevelRoll < 0.95f){
-					itemLevel = 2;
-				} else {
-					itemLevel = 3;
-				}
-				weapon.upgrade(itemLevel);
-				armor.upgrade(itemLevel);
+			given = false;
+			processed = false;
+			level = Dungeon.levelName;
 
-				//10% to be enchanted. We store it separately so enchant status isn't revealed early
-				if (Random.Int(10) == 0){
-					enchant = Weapon.Enchantment.random();
-					glyph = Armor.Glyph.random();
-				}
+			//50%:tier2, 30%:tier3, 15%:tier4, 5%:tier5
+			switch (Random.chances(new float[]{0, 0, 10, 6, 3, 1})){
+				default:
+				case 2: armor = new LeatherArmor(); break;
+				case 3: armor = new MailArmor();    break;
+				case 4: armor = new ScaleArmor();   break;
+				case 5: armor = new PlateArmor();   break;
+			}
+			//50%:tier2, 30%:tier3, 15%:tier4, 5%:tier5
+			int wepTier = Random.chances(new float[]{0, 0, 10, 6, 3, 1});
+			Generator.Category c = Generator.wepTiers[wepTier - 1];
+			weapon = (MeleeWeapon) Reflection.newInstance(c.classes[Random.chances(c.probs)]);
 
+			//50%:+0, 30%:+1, 15%:+2, 5%:+3
+			float itemLevelRoll = Random.Float();
+			int itemLevel;
+			if (itemLevelRoll < 0.5f){
+				itemLevel = 0;
+			} else if (itemLevelRoll < 0.8f){
+				itemLevel = 1;
+			} else if (itemLevelRoll < 0.95f){
+				itemLevel = 2;
+			} else {
+				itemLevel = 3;
+			}
+			weapon.upgrade(itemLevel);
+			armor.upgrade(itemLevel);
+
+			//10% to be enchanted. We store it separately so enchant status isn't revealed early
+			if (Random.Int(10) == 0){
+				enchant = Weapon.Enchantment.random();
+				glyph = Armor.Glyph.random();
 			}
 		}
 		
 		public static void process() {
-			if (spawned && given && !processed && (depth == Dungeon.depth)) {
+			if (spawned && given && !processed && (level.equals(Dungeon.levelName))) {
 				GLog.n( Messages.get(Ghost.class, "find_me") );
 				Sample.INSTANCE.play( Assets.Sounds.GHOST );
 				processed = true;

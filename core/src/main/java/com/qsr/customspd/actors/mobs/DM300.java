@@ -49,7 +49,6 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.EarthParticle;
 import com.qsr.customspd.effects.particles.SparkParticle;
 import com.qsr.customspd.items.artifacts.DriedRose;
-import com.qsr.customspd.items.artifacts.LloydsBeacon;
 import com.qsr.customspd.items.quest.MetalShard;
 import com.qsr.customspd.items.wands.WandOfBlastWave;
 import com.qsr.customspd.levels.Level;
@@ -561,16 +560,11 @@ public class DM300 extends Mob {
 			Dungeon.level.drop( new MetalShard(), pos + ofs ).sprite.drop( pos );
 		}
 
-		Badges.validateBossSlain();
+		Badges.validateBossSlain(DM300.class);
 		if (Statistics.qualifiedForBossChallengeBadge){
-			Badges.validateBossChallengeCompleted();
+			Badges.validateBossChallengeCompleted(DM300.class);
 		}
 		Statistics.bossScores[2] += 3000;
-
-		LloydsBeacon beacon = Dungeon.hero.belongings.getItem(LloydsBeacon.class);
-		if (beacon != null) {
-			beacon.upgrade();
-		}
 
 		yell( Messages.get(this, "defeated") );
 	}

@@ -61,7 +61,7 @@ public abstract class SpecialRoom extends Room {
 		return entrance;
 	}
 	
-	private static final String ENTRANCE = "entrance";
+	private static final String ENTRANCE = "surface";
 	
 	@Override
 	public void storeInBundle(Bundle bundle) {
@@ -106,7 +106,7 @@ public abstract class SpecialRoom extends Room {
 	public static ArrayList<Class<? extends Room>> runSpecials = new ArrayList<>();
 	public static ArrayList<Class<? extends Room>> floorSpecials = new ArrayList<>();
 	
-	private static int pitNeededDepth = -1;
+	private static String pitNeededLevel = "surface";
 	
 	public static void initForRun() {
 		runSpecials = new ArrayList<>();
@@ -125,7 +125,7 @@ public abstract class SpecialRoom extends Room {
 			if (!runConsSpecials.isEmpty())     runSpecials.add(runConsSpecials.remove(0));
 		}
 
-		pitNeededDepth = -1;
+		pitNeededLevel = "surface";
 	}
 	
 	public static void initForFloor(){
@@ -150,13 +150,13 @@ public abstract class SpecialRoom extends Room {
 		}
 	}
 
-	public static void resetPitRoom(int depth){
-		if (pitNeededDepth == depth) pitNeededDepth = -1;
+	public static void resetPitRoom(String level){
+		if (pitNeededLevel.equals(level)) pitNeededLevel = "surface";
 	}
 	
 	public static SpecialRoom createRoom(){
-		if (Dungeon.depth == pitNeededDepth){
-			pitNeededDepth = -1;
+		if (Dungeon.levelName.equals(pitNeededLevel)){
+			pitNeededLevel = "surface";
 			
 			useType( PitRoom.class );
 			return new PitRoom();
@@ -168,7 +168,7 @@ public abstract class SpecialRoom extends Room {
 		
 		} else {
 			
-			if (Dungeon.bossLevel(Dungeon.depth + 1)){
+			if (Dungeon.bossLevel(Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm())){
 				floorSpecials.remove(WeakFloorRoom.class);
 			}
 
@@ -179,7 +179,7 @@ public abstract class SpecialRoom extends Room {
 			Room r = Reflection.newInstance(floorSpecials.get( index ));
 
 			if (r instanceof WeakFloorRoom){
-				pitNeededDepth = Dungeon.depth + 1;
+				pitNeededLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm();
 			}
 			
 			useType( r.getClass() );
@@ -201,11 +201,11 @@ public abstract class SpecialRoom extends Room {
 			initForRun();
 			ShatteredPixelDungeon.reportException(new Exception("specials array didn't exist!"));
 		}
-		pitNeededDepth = bundle.getInt(PIT);
+		pitNeededLevel = bundle.getString(PIT);
 	}
 	
 	public static void storeRoomsInBundle( Bundle bundle ) {
 		bundle.put( ROOMS, runSpecials.toArray(new Class[0]) );
-		bundle.put( PIT, pitNeededDepth );
+		bundle.put( PIT, pitNeededLevel );
 	}
 }

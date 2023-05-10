@@ -40,7 +40,6 @@ import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.IconButton;
 import com.qsr.customspd.ui.ItemSlot;
@@ -259,7 +258,7 @@ public class AlchemyScene extends PixelScene {
 		align(energyIcon);
 		add(energyIcon);
 
-		energyAdd = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PLUS))){
+		energyAdd = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PLUS))){
 			@Override
 			protected void onClick() {
 				WndEnergizeItem.openItemSelector();
@@ -654,7 +653,7 @@ public class AlchemyScene extends PixelScene {
 					combine(slot);
 				}
 			};
-			button.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARROW)));
+			button.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ARROW)));
 			add(button);
 
 			costText = PixelScene.renderTextBlock(6);

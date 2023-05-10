@@ -58,6 +58,8 @@ import com.watabou.utils.DeviceCompat;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class InterlevelScene extends PixelScene {
 
@@ -77,8 +79,7 @@ public class InterlevelScene extends PixelScene {
 	public static Mode mode;
 
 	public static LevelTransition curTransition = null;
-	public static int returnDepth;
-	public static int returnBranch;
+	public static String returnLevel;
 	public static int returnPos;
 
 	public static boolean fallIntoPit;
@@ -112,58 +113,44 @@ public class InterlevelScene extends PixelScene {
 		fadeTime = NORM_FADE;
 		switch (mode){
 			default:
-				loadingDepth = Dungeon.depth;
 				scrollSpeed = 0;
 				break;
 			case CONTINUE:
-				loadingDepth = GamesInProgress.check(GamesInProgress.curSlot).depth;
 				scrollSpeed = 5;
 				break;
 			case DESCEND:
 				if (Dungeon.hero == null){
-					loadingDepth = 1;
 					fadeTime = SLOW_FADE;
 				} else {
-					if (curTransition != null)  loadingDepth = curTransition.destDepth;
-					else                        loadingDepth = Dungeon.depth+1;
+					loadingDepth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
 					if (Statistics.deepestFloor >= loadingDepth) {
 						fadeTime = FAST_FADE;
-					} else if (loadingDepth == 6 || loadingDepth == 11
-						|| loadingDepth == 16 || loadingDepth == 21) {
+					} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getBoss()) {
 						fadeTime = SLOW_FADE;
 					}
 				}
 				scrollSpeed = 5;
 				break;
 			case FALL:
-				loadingDepth = Dungeon.depth+1;
 				scrollSpeed = 50;
 				break;
 			case ASCEND:
 				fadeTime = FAST_FADE;
-				if (curTransition != null)  loadingDepth = curTransition.destDepth;
-				else                        loadingDepth = Dungeon.depth-1;
 				scrollSpeed = -5;
 				break;
 			case RETURN:
-				loadingDepth = returnDepth;
-				scrollSpeed = returnDepth > Dungeon.depth ? 15 : -15;
+				scrollSpeed = Dungeon.layout().getDungeon().get(returnLevel).getDepth() > Dungeon.depth ? 15 : -15;
 				break;
 		}
 
-		//flush the texture cache whenever moving between regions, helps reduce memory load
-		int region = (int)Math.ceil(loadingDepth / 5f);
-		if (region != lastRegion){
-			TextureCache.clear();
-			lastRegion = region;
-		}
+		// TODO: region logic
 
-		if      (lastRegion == 1)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_SEWERS);
-        else if (lastRegion == 2)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_PRISON);
-		else if (lastRegion == 3)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_CAVES);
-		else if (lastRegion == 4)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_CITY);
-		else if (lastRegion == 5)    loadingAsset = Asset.getAssetFileHandle(GeneralAsset.LOADING_HALLS);
-		else                         loadingAsset = Asset.getAssetFileHandle(GeneralAsset.SHADOW);
+		if      (lastRegion == 1)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_SEWERS);
+        else if (lastRegion == 2)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_PRISON);
+		else if (lastRegion == 3)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_CAVES);
+		else if (lastRegion == 4)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_CITY);
+		else if (lastRegion == 5)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_HALLS);
+		else                         loadingAsset = Asset.getAssetFilePath(GeneralAsset.SHADOW);
 
 		//slow down transition when displaying an install prompt
 		if (Updates.isInstallable()){
@@ -238,7 +225,7 @@ public class InterlevelScene extends PixelScene {
 					Updates.launchInstall();
 				}
 			};
-			install.icon(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)));
+			install.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)));
 			install.textColor(Window.SHPX_COLOR);
 			install.setSize(install.reqWidth()+5, 20);
 			install.setPos((Camera.main.width - install.width())/2, (Camera.main.height - message.bottom())/3 + message.bottom());
@@ -377,29 +364,29 @@ public class InterlevelScene extends PixelScene {
 			GameLog.wipe();
 
 			Level level = Dungeon.newLevel();
+			addLevelToVisited();
 			Dungeon.switchLevel( level, -1 );
 		} else {
 			Mob.holdAllies( Dungeon.level );
 			Dungeon.saveAll();
 
 			Level level;
-			Dungeon.depth = curTransition.destDepth;
-			Dungeon.branch = curTransition.destBranch;
-			//TODO this is brittle atm, assumes we're always going down in depth 1 at a time
-			if (curTransition.destDepth > Statistics.deepestFloor) {
-				level = Dungeon.newLevel();
-			} else {
+			Dungeon.depth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
+			Dungeon.levelName = curTransition.destLevel;
+			if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
 				level = Dungeon.loadLevel( GamesInProgress.curSlot );
+			} else {
+				level = Dungeon.newLevel();
+				addLevelToVisited();
 			}
 
-			LevelTransition destTransition = level.getTransition(curTransition.destType);
+			LevelTransition destTransition = level.getTransition(curTransition.destType, curTransition.departLevel);
 			curTransition = null;
 			Dungeon.switchLevel( level, destTransition.cell() );
 		}
 
 	}
 
-	//TODO atm falling always just increments depth by 1, do we eventually want to roll it into the transition system?
 	private void fall() throws IOException {
 
 		Mob.holdAllies( Dungeon.level );
@@ -408,11 +395,13 @@ public class InterlevelScene extends PixelScene {
 		Dungeon.saveAll();
 
 		Level level;
-		Dungeon.depth++;
-		if (Dungeon.depth > Statistics.deepestFloor) {
-			level = Dungeon.newLevel();
-		} else {
+		Dungeon.levelName = Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm();
+		Dungeon.depth = Dungeon.layout().getDungeon().get(Dungeon.levelName).getDepth();
+		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
 			level = Dungeon.loadLevel( GamesInProgress.curSlot );
+		} else {
+			level = Dungeon.newLevel();
+			addLevelToVisited();
 		}
 		Dungeon.switchLevel( level, level.fallCell( fallIntoPit ));
 	}
@@ -422,11 +411,17 @@ public class InterlevelScene extends PixelScene {
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
-		Dungeon.depth = curTransition.destDepth;
-		Dungeon.branch = curTransition.destBranch;
-		Level level = Dungeon.loadLevel( GamesInProgress.curSlot );
+		Dungeon.depth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
+		Dungeon.levelName = curTransition.destLevel;
+		Level level;
+		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
+			level = Dungeon.loadLevel( GamesInProgress.curSlot );
+		} else {
+			level = Dungeon.newLevel();
+			addLevelToVisited();
+		}
 
-		LevelTransition destTransition = level.getTransition(curTransition.destType);
+		LevelTransition destTransition = level.getTransition(curTransition.destType, curTransition.departLevel);
 		curTransition = null;
 		Dungeon.switchLevel( level, destTransition.cell() );
 	}
@@ -436,9 +431,15 @@ public class InterlevelScene extends PixelScene {
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
-		Dungeon.depth = returnDepth;
-		Dungeon.branch = returnBranch;
-		Level level = Dungeon.loadLevel( GamesInProgress.curSlot );
+		Dungeon.depth = Dungeon.layout().getDungeon().get(returnLevel).getDepth();
+		Dungeon.levelName = returnLevel;
+		Level level;
+		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
+			level = Dungeon.loadLevel( GamesInProgress.curSlot );
+		} else {
+			level = Dungeon.newLevel();
+			addLevelToVisited();
+		}
 		Dungeon.switchLevel( level, returnPos );
 	}
 
@@ -449,13 +450,15 @@ public class InterlevelScene extends PixelScene {
 		GameLog.wipe();
 
 		Dungeon.loadGame( GamesInProgress.curSlot );
-		if (Dungeon.depth == -1) {
-			Dungeon.depth = Statistics.deepestFloor;
-			Dungeon.switchLevel( Dungeon.loadLevel( GamesInProgress.curSlot ), -1 );
+
+		Level level;
+		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
+			level = Dungeon.loadLevel( GamesInProgress.curSlot );
 		} else {
-			Level level = Dungeon.loadLevel( GamesInProgress.curSlot );
-			Dungeon.switchLevel( level, Dungeon.hero.pos );
+			level = Dungeon.newLevel();
+			addLevelToVisited();
 		}
+		Dungeon.switchLevel( level, Dungeon.hero.pos );
 	}
 
 	private void resurrect() {
@@ -511,10 +514,16 @@ public class InterlevelScene extends PixelScene {
 
 		Mob.holdAllies( Dungeon.level );
 
-		SpecialRoom.resetPitRoom(Dungeon.depth+1);
+		SpecialRoom.resetPitRoom(Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm());
 
 		Level level = Dungeon.newLevel();
 		Dungeon.switchLevel( level, level.entrance() );
+	}
+
+	private void addLevelToVisited() {
+		List<String> tempVisited = new ArrayList<>(Arrays.asList(Dungeon.visited));
+		tempVisited.add(Dungeon.levelName);
+		Dungeon.visited = tempVisited.toArray(new String[]{});
 	}
 
 	@Override

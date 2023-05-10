@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -32,7 +31,7 @@ public class SheepSprite extends MobSprite {
 	public SheepSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.SHEEP) );
+		texture( Asset.getAssetFilePath(GeneralAsset.SHEEP) );
 		
 		TextureFilm frames = new TextureFilm( texture, 16, 15 );
 		

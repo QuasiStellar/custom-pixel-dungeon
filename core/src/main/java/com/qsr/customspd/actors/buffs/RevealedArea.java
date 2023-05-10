@@ -38,7 +38,8 @@ public class RevealedArea extends FlavourBuff{
 		type = Buff.buffType.POSITIVE;
 	}
 
-	public int pos, depth;
+	public int pos;
+	public String level;
 
 	@Override
 	public void detach() {
@@ -67,20 +68,20 @@ public class RevealedArea extends FlavourBuff{
 		return Messages.get(this, "desc", (int)visualcooldown());
 	}
 
-	private static final String DEPTH = "depth";
+	private static final String LEVEL = "level";
 	private static final String POS = "pos";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
-		bundle.put(DEPTH, depth);
+		bundle.put(LEVEL, level);
 		bundle.put(POS, pos);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		depth = bundle.getInt(DEPTH);
+		level = bundle.getString(LEVEL);
 		pos = bundle.getInt(POS);
 	}
 }

@@ -178,7 +178,7 @@ public class StartScene extends PixelScene {
 					hero = new Image(info.heroClass.spritesheet(), 0, 15*info.armorTier, 12, 15);
 					add(hero);
 					
-					steps = new Image(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_STAIRS)));
+					steps = new Image(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)));
 					add(steps);
 					depth = new BitmapText(PixelScene.pixelFont);
 					add(depth);

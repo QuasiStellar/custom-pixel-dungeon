@@ -73,7 +73,7 @@ public class AboutScene extends PixelScene {
 
 		CreditsBlock shpx = new CreditsBlock(true, Window.SHPX_COLOR,
 				"Shattered Pixel Dungeon",
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)),
 				"Developed by: _Evan Debenham_\nBased on Pixel Dungeon's open source",
 				"ShatteredPixel.com",
 				shpxLink);
@@ -86,7 +86,7 @@ public class AboutScene extends PixelScene {
 
 		CreditsBlock alex = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Hero Art & Design:",
-			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ALEKS)),
+			new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ALEKS)),
 				"Aleksandar Komitov",
 				"alekskomitov.com",
 				"https://www.alekskomitov.com");
@@ -98,7 +98,7 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(alex);
 
-		Image celestiIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CELESTI));
+		Image celestiIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CELESTI));
 		celestiIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock charlie = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Sound Effects:",
@@ -109,7 +109,7 @@ public class AboutScene extends PixelScene {
 		charlie.setRect(alex.right(), alex.top(), colWidth/2f, 0);
 		content.add(charlie);
 
-		Image kristjanIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_KRISTJAN));
+		Image kristjanIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_KRISTJAN));
 		kristjanIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock kristjan = new CreditsBlock(false, Window.SHPX_COLOR,
 				"Music:",
@@ -125,7 +125,7 @@ public class AboutScene extends PixelScene {
 		final int WATA_COLOR = 0x55AAFF;
 		CreditsBlock wata = new CreditsBlock(true, WATA_COLOR,
 				"Pixel Dungeon",
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WATA)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WATA)),
 				"Developed by: _Watabou_\nInspired by Brian Walker's Brogue",
 				"watabou.itch.io",
 				"https://watabou.itch.io/");
@@ -138,7 +138,7 @@ public class AboutScene extends PixelScene {
 
 		addLine(wata.top() - 4, content);
 
-		Image cubecodeIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CUBE_CODE));
+		Image cubecodeIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CUBE_CODE));
 		cubecodeIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock cube = new CreditsBlock(false, WATA_COLOR,
 				"Music:",
@@ -160,7 +160,7 @@ public class AboutScene extends PixelScene {
 		CreditsBlock gdx = new CreditsBlock(true,
 				GDX_COLOR,
 				"libGDX",
-			new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)),
+			new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LIBGDX)),
 				"ShatteredPD is powered by _libGDX_!",
 				"libgdx.com",
 				"https://libgdx.com/");
@@ -173,7 +173,7 @@ public class AboutScene extends PixelScene {
 
 		addLine(gdx.top() - 4, content);
 
-		Image arcnorIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ARCNOR));
+		Image arcnorIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ARCNOR));
 		arcnorIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock arcnor = new CreditsBlock(false, GDX_COLOR,
 				"Pixel Dungeon GDX:",
@@ -189,7 +189,7 @@ public class AboutScene extends PixelScene {
 		}
 		content.add(arcnor);
 
-		Image purigroIcon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PURIGRO));
+		Image purigroIcon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PURIGRO));
 		purigroIcon.scale.set(PixelScene.align(0.49f));
 		CreditsBlock purigro = new CreditsBlock(false, GDX_COLOR,
 				"Shattered GDX Help:",

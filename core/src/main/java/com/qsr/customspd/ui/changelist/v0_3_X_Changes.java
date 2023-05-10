@@ -27,7 +27,6 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -54,7 +53,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released May 1st, 2016\n" +
 				"_-_ 81 days after Shattered v0.3.4\n" +
 				"\n" +
@@ -62,7 +61,7 @@ public class v0_3_X_Changes {
 				"\n" +
 				"This was also the first time that I decided to split a major update into two smaller ones. Originally v0.4.0 was going to rework both the warrior and weapons, but part way through development I decided to split them in order to get an update out sooner. This approach was quite successful, but I ended up not properly using it again until v0.9.0!"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Rework!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Rework!",
 				"Warrior Rework:\n" +
 				"_-_ Starting STR down to 10, from 11\n" +
 				"_-_ Short sword dmg down to 1-10, from 1-12\n" +
@@ -72,7 +71,7 @@ public class v0_3_X_Changes {
 				"_-_ Seal grants shielding ontop of health\n" +
 				"_-_ Seal allows for one upgrade transfer"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 90, 12, 15), "Warrior Subclass Rework!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.WARRIOR), 0, 90, 12, 15), "Warrior Subclass Rework!",
 				"Berserker Rework:\n" +
 				"_-_ Bonus damage now scales with lost HP, instead of a flat 50% at 50% hp\n" +
 				"_-_ Berserker can now endure through death for a short time, with caveats\n" +
@@ -82,7 +81,7 @@ public class v0_3_X_Changes {
 				"_-_ Combo is now easier to stack\n" +
 				"_-_ Combo now unlocks special finisher moves"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Balance Tweaks:\n" +
 				"_-_ Spears can now reach enemies 1 tile away\n" +
 				"_-_ Wand of Blast Wave now pushes bosses less\n" +
@@ -98,7 +97,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released February 10th, 2016\n" +
 				"_-_ 54 days after Shattered v0.3.3\n" +
 				"\n" +
@@ -108,7 +107,7 @@ public class v0_3_X_Changes {
 				"\n" +
 				"The response from the community was and continues to be incredible! Even multiple years later Shattered's updates are still consistently translated into a number of languages."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), "Translations!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), "Translations!",
 				"Shattered Pixel Dungeon now supports multiple languages, thanks to a new community translation project!\n\n" +
 				"The Following languages are supported at release:\n" +
 				"_-_ English\n" +
@@ -122,7 +121,7 @@ public class v0_3_X_Changes {
 				"_-_ Polish\n" +
 				"_-_ Spanish"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Completely redesigned the text rendering system to support none-english characters\n\n" +
 				"New text system renders using either the default system font, or the original pixelated game font. None-latin languages must use system font.\n\n" +
 				"Balance Changes:\n" +
@@ -139,7 +138,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released December 18th, 2015\n" +
 				"_-_ 44 days after Shattered v0.3.2\n" +
 				"\n" +
@@ -147,14 +146,14 @@ public class v0_3_X_Changes {
 				"\n" +
 				"Google Play Games was the first online functionality ever added to Shattered. Some people were worried that this was the start of me turning Shattered into a game that would require internet. I tried to address this worry by making the functionality as optional as possible and heavily emphasizing that it was only for tiny extras like cloud sync and play games badges. Nowadays things are much more relaxed and Shattered has several internet-enabled features, but still none of them are needed to play the game itself."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), "Google Play Games",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), "Google Play Games",
 				"Added support for Google Play Games in the Google Play version:\n\n" +
 				"- Badges can now sync across devices\n" +
 				"- Five Google Play Achievements added\n" +
 				"- Rankings sync will come in future\n\n" +
 				"Shattered remains a 100% offline game if Google Play Games is not enabled"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Gameplay Changes:\n" +
 				"- Tengu's maze is now different each time\n" +
 				"- Items no longer auto-pickup when enemies are near\n" +
@@ -175,7 +174,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released November 4th, 2015\n" +
 				"_-_ 79 days after Shattered v0.3.1\n" +
 				"\n" +
@@ -183,7 +182,7 @@ public class v0_3_X_Changes {
 				"\n" +
 				"v0.3.2 was also another update with a controversial change: the removal of the tome of mastery from the start of the game. Prior to this change subclasses were available from floor 1 after you unlocked them. I changed this as I wanted to make subclasses more powerful and interesting, but having them available on floor 1 limited that."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.TENGU), 0, 0, 14, 16), "Prison Rework",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.TENGU), 0, 0, 14, 16), "Prison Rework",
 				"_-_ Tengu boss fight completely redone\n" +
 				"_-_ Corpse dust quest overhauled\n" +
 				"_-_ Rotberry quest overhauled\n" +
@@ -215,7 +214,7 @@ public class v0_3_X_Changes {
 				"_-_ Warden now heals 2 extra HP from dew \n" +
 				"_-_ Warlock completely overhauled"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Visual improvements from 1.9.1 source\n" +
 				"_-_ Improved golden UI for donators\n" +
 				"_-_ Fixed 'white line' graphical artifacts\n" +
@@ -230,7 +229,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released August 17th, 2015\n" +
 				"_-_ 83 days after Shattered v0.3.0\n" +
 				"\n" +
@@ -246,7 +245,7 @@ public class v0_3_X_Changes {
 				"_-_ Traps now get trickier deeper in the dungeon\n" +
 				"_-_ Trap room reworked to make use of new traps"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.MENU_BUTTON)), "Interface Improvements",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.MENU_BUTTON)), "Interface Improvements",
 				"_-_ Adjusted display scaling\n" +
 				"_-_ Search and Examine merged into one button (double tap to search)\n" +
 				"_-_ New max of 4 Quickslots!\n" +
@@ -258,7 +257,7 @@ public class v0_3_X_Changes {
 				"_-_ Recent changes can now be viewed from the title screen\n" +
 				"_-_ Added a health bar for bosses"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Balance changes:\n" +
 				"_-_ Ethereal chains now gain less charge the more charges they have\n" +
 				"_-_ Staff of regrowth grants more herbal healing\n" +
@@ -278,7 +277,7 @@ public class v0_3_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released May 26th, 2015\n" +
 				"_-_ 92 days after Shattered v0.2.4\n" +
 				"_-_ 253 days after Shattered v0.2.0\n" +
@@ -289,7 +288,7 @@ public class v0_3_X_Changes {
 				"\n" +
 				"Around this time I was also starting to include substantial smaller tweaks in each update. Nowadays every update includes a large amount of smaller changes, but back in these earlier days this was a newer development."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.MAGE), 0, 15, 12, 15), "Mage Rework!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.MAGE), 0, 15, 12, 15), "Mage Rework!",
 				"_-_ No longer starts with knuckledusters or a wand\n" +
 				"_-_ Can no longer equip wands\n" +
 				"_-_ Now starts with a unique mages staff, empowered with magic missile to start.\n\n" +
@@ -317,7 +316,7 @@ public class v0_3_X_Changes {
 				"_-_ Wand recharge effects now give charge over time.\n" +
 				"_-_ Wands can now be cursed!"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"New Artifacts:\n" +
 				"_-_ Ethereal Chains (replaces wand of blink)\n" +
 				"_-_ Lloyd's Beacon (replaces wand of teleportation)\n" +

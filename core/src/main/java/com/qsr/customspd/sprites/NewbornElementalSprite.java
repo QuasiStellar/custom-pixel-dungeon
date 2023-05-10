@@ -22,7 +22,6 @@
 package com.qsr.customspd.sprites;
 
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -34,7 +33,7 @@ public class NewbornElementalSprite extends MobSprite{
 	public NewbornElementalSprite() {
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.ELEMENTAL) );
+		texture( Asset.getAssetFilePath(GeneralAsset.ELEMENTAL) );
 
 		int ofs = 21;
 

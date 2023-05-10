@@ -29,7 +29,7 @@ import com.watabou.noosa.Image;
 public class WndError extends WndTitledMessage {
 
 	public WndError( String message ) {
-		super( new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARNING)), Messages.get(WndError.class, "title"), message );
+		super( new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)), Messages.get(WndError.class, "title"), message );
 	}
 
 }

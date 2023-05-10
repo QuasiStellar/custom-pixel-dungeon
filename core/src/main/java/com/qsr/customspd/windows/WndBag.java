@@ -37,7 +37,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.InventorySlot;
 import com.qsr.customspd.ui.QuickSlotButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -188,7 +187,7 @@ public class WndBag extends WndTabbed {
 			titleWidth = amt.x;
 		} else {
 
-			Image gold = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_COIN_SML));
+			Image gold = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_COIN_SML));
 			gold.x = width - gold.width() - 0.5f;
 			gold.y = 0;
 			PixelScene.align(gold);
@@ -204,7 +203,7 @@ public class WndBag extends WndTabbed {
 
 			titleWidth = amt.x;
 
-			Image energy = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ENERGY_SML));
+			Image energy = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ENERGY_SML));
 			energy.x = width - energy.width();
 			energy.y = gold.height();
 			PixelScene.align(energy);
@@ -397,15 +396,15 @@ public class WndBag extends WndTabbed {
 	
 	private Image icon( Bag bag ) {
 		if (bag instanceof VelvetPouch) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SEED_POUCH));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SEED_POUCH));
 		} else if (bag instanceof ScrollHolder) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SCROLL_HOLDER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SCROLL_HOLDER));
 		} else if (bag instanceof MagicalHolster) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WAND_HOLSTER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WAND_HOLSTER));
 		} else if (bag instanceof PotionBandolier) {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_POTION_BANDOLIER));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_POTION_BANDOLIER));
 		} else {
-			return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_BACKPACK));
+			return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BACKPACK));
 		}
 	}
 	

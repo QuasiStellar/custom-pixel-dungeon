@@ -21,13 +21,11 @@
 
 package com.qsr.customspd.ui;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
 
 //icons for hero subclasses and abilities atm, maybe add classes?
 public class HeroIcon extends Image {
@@ -75,14 +73,14 @@ public class HeroIcon extends Image {
 	public static final Asset MONK_ABILITIES  = GeneralAsset.HERO_ICON_MONK_ABILITIES;
 
 	public HeroIcon(HeroSubClass subCls) {
-		super( Asset.getAssetFileHandle(subCls.icon()) );
+		super( Asset.getAssetFilePath(subCls.icon()) );
 	}
 
 	public HeroIcon(ArmorAbility ability) {
-		super( Asset.getAssetFileHandle(ability.icon()) );
+		super( Asset.getAssetFilePath(ability.icon()) );
 	}
 
 	public HeroIcon(ActionIndicator.Action action){
-		super( Asset.getAssetFileHandle(action.actionIcon()) );
+		super( Asset.getAssetFilePath(action.actionIcon()) );
 	}
 }

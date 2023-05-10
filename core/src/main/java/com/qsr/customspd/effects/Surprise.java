@@ -38,7 +38,7 @@ public class Surprise extends Image {
 	private float time;
 
 	public Surprise() {
-		super(new Image(Asset.getAssetFileHandle(GeneralAsset.EXCLAMATION)));
+		super(new Image(Asset.getAssetFilePath(GeneralAsset.EXCLAMATION)));
 		origin.set(width / 2, height / 2);
 	}
 

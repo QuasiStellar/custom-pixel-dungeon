@@ -118,7 +118,7 @@ public class ChangesScene extends PixelScene {
 					rightPanel.innerHeight() + 2);
 			rightScroll.scrollTo(0, 0);
 
-			changeTitle = new IconTitle(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_CHANGES)), Messages.get(this, "right_title"));
+			changeTitle = new IconTitle(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)), Messages.get(this, "right_title"));
 			changeTitle.setPos(0, 1);
 			changeTitle.setSize(pw, 20);
 			rightScroll.content().add(changeTitle);

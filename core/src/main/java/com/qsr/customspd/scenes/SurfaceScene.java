@@ -230,7 +230,7 @@ public class SurfaceScene extends PixelScene {
 			window.add( patch );
 		}
 		
-		Image frame = new Image(Asset.getAssetFileHandle(GeneralAsset.SURFACE_FRAME));
+		Image frame = new Image(Asset.getAssetFilePath(GeneralAsset.SURFACE_FRAME));
 
 		frame.x = vx - FRAME_MARGIN_X;
 		frame.y = vy - FRAME_MARGIN_TOP;
@@ -408,7 +408,7 @@ public class SurfaceScene extends PixelScene {
 		private static final int HEIGHT	= 32;
 		
 		public Avatar( HeroClass cl ) {
-			super( Asset.getAssetFileHandle(GeneralAsset.AVATARS) );
+			super( Asset.getAssetFilePath(GeneralAsset.AVATARS) );
 			frame( new TextureFilm( texture, WIDTH, HEIGHT ).get( cl.ordinal() ) );
 		}
 	}

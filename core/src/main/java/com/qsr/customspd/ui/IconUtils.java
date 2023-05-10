@@ -33,15 +33,15 @@ public class IconUtils {
 	public static Image get( HeroClass cl ) {
 		switch (cl) {
 			case WARRIOR:
-				return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_WARRIOR));
+				return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARRIOR));
 			case MAGE:
-				return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_MAGE));
+				return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_MAGE));
 			case ROGUE:
-				return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_ROGUE));
+				return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_ROGUE));
 			case HUNTRESS:
-				return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_HUNTRESS));
+				return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_HUNTRESS));
 			case DUELIST:
-				return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DUELIST));
+				return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DUELIST));
 			default:
 				return null;
 		}
@@ -52,79 +52,79 @@ public class IconUtils {
 			if (Dungeon.dailyReplay){
 				switch (feeling){
 					case NONE: default:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DAILY_REPEAT));
 					case CHASM:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_CHASM_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_CHASM_DAILY_REPEAT));
 					case WATER:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_WATER_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_WATER_DAILY_REPEAT));
 					case GRASS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_GRASS_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_GRASS_DAILY_REPEAT));
 					case DARK:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DARK_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DARK_DAILY_REPEAT));
 					case LARGE:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_LARGE_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_LARGE_DAILY_REPEAT));
 					case TRAPS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_TRAPS_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_TRAPS_DAILY_REPEAT));
 					case SECRETS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_SECRETS_DAILY_REPEAT));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_SECRETS_DAILY_REPEAT));
 				}
 			} else {
 				switch (feeling){
 					case NONE: default:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DAILY));
 					case CHASM:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_CHASM_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_CHASM_DAILY));
 					case WATER:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_WATER_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_WATER_DAILY));
 					case GRASS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_GRASS_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_GRASS_DAILY));
 					case DARK:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DARK_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DARK_DAILY));
 					case LARGE:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_LARGE_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_LARGE_DAILY));
 					case TRAPS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_TRAPS_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_TRAPS_DAILY));
 					case SECRETS:
-						return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_SECRETS_DAILY));
+						return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_SECRETS_DAILY));
 				}
 			}
 		} else if (!Dungeon.customSeedText.isEmpty()){
 			switch (feeling){
 				case NONE: default:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_SEED));
 				case CHASM:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_CHASM_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_CHASM_SEED));
 				case WATER:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_WATER_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_WATER_SEED));
 				case GRASS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_GRASS_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_GRASS_SEED));
 				case DARK:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DARK_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DARK_SEED));
 				case LARGE:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_LARGE_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_LARGE_SEED));
 				case TRAPS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_TRAPS_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_TRAPS_SEED));
 				case SECRETS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_SECRETS_SEED));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_SECRETS_SEED));
 			}
 		} else {
 			switch (feeling){
 				case NONE: default:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH));
 				case CHASM:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_CHASM));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_CHASM));
 				case WATER:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_WATER));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_WATER));
 				case GRASS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_GRASS));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_GRASS));
 				case DARK:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_DARK));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_DARK));
 				case LARGE:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_LARGE));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_LARGE));
 				case TRAPS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_TRAPS));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_TRAPS));
 				case SECRETS:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_DEPTH_SECRETS));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_DEPTH_SECRETS));
 			}
 		}
 	}

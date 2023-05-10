@@ -50,7 +50,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -76,7 +75,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released October 2nd, 2019\n" +
 				"_-_ 76 days after Shattered v0.7.4\n" +
 				"\n" +
@@ -84,14 +83,14 @@ public class v0_7_X_Changes {
 				"\n" +
 				"The only major correction to these changes that I needed to make in the future were to Tengu's boss fight. In the second phase of the fight in v0.7.5 the player had to navigate around traps while Tengu was offscreen. I wanted this to be a bit of a break, but it felt more like it interrupted the fight than anything else. After v0.8.0 it was clear to me that multi-phase bosses did not need break phases, and so I removed the second phase from Tengu."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SNAKE), 12, 0, 12, 11), "Sewer Enemies",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SNAKE), 12, 0, 12, 11), "Sewer Enemies",
 				"Two new enemies have been added to the sewers!\n\n" +
 				"_- Snakes_ are an evasive enemy which mainly shows up on early floors, they help teach the importance of surprise attacks.\n" +
 				"_- Slimes_ primarily appear on floor 4, and are an enemy type which rewards defense over damage.\n\n" +
 				"Goo's level has also received significant changes. It now uses a new unique level layout pattern, and Goo itself always spawns in a new unique room type.\n\n" +
 				"I have also made slight balance changes to the Goo fight itself. 1x1 pillars have been mostly removed from Goo's arena to reduce surprise-attack spam, but Goo's damage has been reduced by 20% to compensate."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.TENGU), 0, 0, 14, 16), "Prison Enemies",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.TENGU), 0, 0, 14, 16), "Prison Enemies",
 				"_Necromancers_ have been added to the prison! These powerful enemies fight by summoning and buffing undead.\n\n" +
 				"The _Tengu_ boss fight has been totally reworked! The fight still takes place over 3 stages, and has a similar core theme, but I have totally ditched the tedious maze and chasing mechanics from stages 2&3, and have given Tengu several new abilities. Watch your step!\n\n" +
 				"As a part of this rework, Tengu's stats have also been adjusted:\n" +
@@ -100,7 +99,7 @@ public class v0_7_X_Changes {
 				"_-_ Damage reduced by 30%\n" +
 				"_-_ Accuracy reduced by 10%"));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)), "libGDX Text Rendering!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LIBGDX)), "libGDX Text Rendering!",
 				"The game's text renderer is now using libGDX freetype. This looks almost identical to the existing text but is slightly crisper, platform-independent, and much more efficient!\n\n" +
 				"Text rendering was the last bit of android-dependant code, so the game's core code modules (~98% of its code) are now being compiled as general code and not android-specific code!"));
 
@@ -108,7 +107,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( CharSprite.WARNING );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.RAT), 0, 15, 16, 15), "Enemy Changes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.RAT), 0, 15, 16, 15), "Enemy Changes",
 				"_-_ Significantly improved the consistency of enemy spawns (large numbers of the same enemy and large enemy groups should be less common)\n\n" +
 				"_-_ Adjusted enemy spawn chances on floors 1-10 to make room for new enemies\n\n" +
 				"_-_ Skeletons no longer rarely appear on floor 4\n\n" +
@@ -118,13 +117,13 @@ public class v0_7_X_Changes {
 				"_-_ Albino rats now grant 2 exp, up from 1\n" +
 				"_-_ Albino rats now drop mystery meat"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The game camera now smoothly follows the hero while they are moving, instead of snapping to their location.\n\n" +
 				"_-_ Standardized word use when attacks miss to reduce confusion. Enemies now always 'block' or 'dodge'.\n\n" +
 				"_-_ Various improvements to wording on the supporter menu for Google Play users.\n\n" +
 				"_-_ Various internal code improvements"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various stability issues caused by the libGDX conversion\n" +
 				"_-_ Bolts from wand of lightning not spreading in many cases where they should\n" +
@@ -138,7 +137,7 @@ public class v0_7_X_Changes {
 				"_-_ Small amounts of stuttering when the hero moves\n" +
 				"_-_ Various rare crash bugs"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Added new Language: Japanese!\n\n" +
 				"Updated Translations and Translator Credits!"));
 		
@@ -192,7 +191,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released July 18th, 2019\n" +
 				"_-_ 56 days after Shattered v0.7.3\n" +
 				"\n" +
@@ -210,7 +209,7 @@ public class v0_7_X_Changes {
 				"This new wand has a lower damage output, but grants significant defensive power. The rocks the wand shoots at enemies reform around the hero and absorb damage. If enough rock is built, it will form up into a rock guardian which fights with the player.\n\n" +
 				"The Wand of Living Earth is lacking in offensive output, but does a great job of pulling focus and damage away from the player."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LIBGDX)), "libGDX",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LIBGDX)), "libGDX",
 				"Large sections of Shattered's codebase is now using the multiplatform game library _libGDX._ Making the game's codebase less heavily tied to Android is a big step towards making the game available on other platforms!\n\n" +
 				"Keyboard input handling and text rendering are still coupled to Android however. I will convert these game systems to use libGDX in a later update.\n\n" +
 				"Note that Shattered will not immediately release on other platforms once libGDX conversion is complete, but it is a big step towards that."));
@@ -225,7 +224,7 @@ public class v0_7_X_Changes {
 				"_-_ Intelligent allies will follow the hero through stairs so long as they are near to them.\n\n" +
 				"Lastly, the hero can now swap places with any ally, even unintelligent ones."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Overhauled main menu interface to allow for more expandability.\n" +
 				"_-_ Updated hero icons in rankings and saved game screens.\n\n" +
 				"_-_ Class armor abilities no longer affect allies\n" +
@@ -237,7 +236,7 @@ public class v0_7_X_Changes {
 				"_-_ Shattered Pixel Dungeon now requires Android 2.3+ to run, up from Android 2.2+.\n" +
 				"_-_ Google Play Games and sharing gameplay data now requires android 4.1+, up from 4.0+."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Talisman of foresight warn effect not being saved/loaded\n" +
 				"_-_ Level visuals (e.g. prison torches) rarely bugging out\n" +
@@ -252,7 +251,7 @@ public class v0_7_X_Changes {
 				"_-_ Various rare bugs with heavy boomerangs\n" +
 				"_-_ Various minor text errors"));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
@@ -293,7 +292,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( CharSprite.NEGATIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.MAGE), 0, 90, 12, 15), "Subclass Adjustments",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.MAGE), 0, 90, 12, 15), "Subclass Adjustments",
 				"The Warlock is intended to require a source of physical damage in addition to a wand to be successful. Upgradeable ally wands are problematic for warlock as you can get magical power and physical damage in one item, which makes his abilities absurdly useful with them. The warlock should synergize with allies, but I have scaled the amount down to more reasonable levels:\n\n" +
 				"_-_ Soul mark healing increased to 40% of damage from 33%\n" +
 				"_-_ Soul mark is now 2/5 as effective when the damage-dealer isn't the hero.\n\n" +
@@ -322,7 +321,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released May 23rd, 2019\n" +
 				"_-_ 66 days after Shattered v0.7.2\n" +
 				"\n" +
@@ -358,7 +357,7 @@ public class v0_7_X_Changes {
 				"Tipped darts have had their shop price reduced by 33%, and can now be cleaned if you don't wish to use the effect.\n\n" +
 				"The alchemy guide has been adjusted due to the removal of dart tipping from alchemy. It now has 9 pages (down from 10), and the order of pages have been adjusted to put some simpler recipes earlier."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Shattered honeypots are now stackable, and can be sold for a small amount of gold.\n\n" +
 				"_-_ The changes list has been split into three separate groups, so that the game's entire change history isn't loaded all at once.\n\n" +
 				"_-_ Tengu now throws his shurikens one at a time, just like other ranged enemies. The speed of the shurikens has been increased to compensate, so that the player doesn't need to keep waiting while Tengu's attacks are in flight.\n\n" +
@@ -368,7 +367,7 @@ public class v0_7_X_Changes {
 				"_-_ Scrolls of transmutation can now be used on thrown weapons.\n\n" +
 				"_-_ Improved the coloration of crystal keys. They should now be more distinct from iron keys."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Prismatic images causing errors when falling into pits\n" +
 				"_-_ Secret rooms never spawning in the earlier parts of a region\n" +
@@ -381,14 +380,14 @@ public class v0_7_X_Changes {
 				"_-_ Various minor visual bugs\n" +
 				"_-_ Various rare crash bugs"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);
 		changes.hardlight( CharSprite.POSITIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 90, 12, 15), "Berserker & Gladiator",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.WARRIOR), 0, 90, 12, 15), "Berserker & Gladiator",
 				"Because of nerfs I have made to the scaling of the warrior's shield regen, I have some power budget to give to his subclasses!\n\n" +
 				"Berserker rate of rage loss decreased by 50%. It should now be easier to hold onto rage at higher health, but being injured will still help to retain it longer.\n\n" +
 				"Gladiator is now significantly more flexible:\n" +
@@ -424,7 +423,7 @@ public class v0_7_X_Changes {
 				"_-_ Tomahawk damage scaling increased to 2-4 per level, up from 2-2\n" +
 				"_-_ Tomahawk bleed damage now starts at 60% of damage, down from 100%"));
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Nerfs",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Nerfs",
 				"Warrior shielding regeneration scaling reduced. It is now a flat 1 shield every 30 turns. This is a very slight buff to the earlygame, and a significant nerf to the lategame.\n\n" +
 				"I made this change as too much of the warrior's power was put into his base class, and into a passive ability that players tend to ignore. By removing this power, I can put more power into the warrior's subclasses, which should make the warrior feel more fun and interesting without significantly nerfing him overall."));
 		
@@ -454,7 +453,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Mar 18th, 2019\n" +
 				"_-_ 90 days after Shattered v0.7.1\n" +
 				"\n" +
@@ -498,7 +497,7 @@ public class v0_7_X_Changes {
 				"_-_ Elixir of Vitality\n\n" +
 				"These items offered no unique gameplay and existed purely to give a few cheap recipes. Thanks to catalysts filling that role, they no longer have a reason to exist. FrostFire Brew in particular may return in some form."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ The Identification system has been adjusted to require EXP gain in addition to item uses. " +
 				"This change prevents exploits where an item could be used in unintended ways to rapidly ID it. " +
 				"Items should ID at about the same rate if exp is gained while using them.\n\n" +
@@ -518,7 +517,7 @@ public class v0_7_X_Changes {
 				"_-_ Improved how the game handles orientation changes and window resizing.\n" +
 				"_-_ Shocking enchantment no longer visually arcs lightning to the hero."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash bugs\n" +
 				"_-_ Various minor visual bugs\n" +
@@ -537,11 +536,11 @@ public class v0_7_X_Changes {
 				"_-_ Recycle not giving an item if inventory is full\n" +
 				"_-_ Rare cases where the game wouldn't save during alchemy"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations\n\n" +
 				"Updated Translator Credits"));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Major internal improvements to service integrations for Google Play version of the game:\n" +
 				"_-_ 'Share Gameplay Data' now uses Google Firebase Analytics instead of older Google Analytics. Data collected is unchanged.\n" +
 				"_-_ Many internal improvements to Google Play Games sync and Google Payment integration.\n" +
@@ -550,7 +549,7 @@ public class v0_7_X_Changes {
 				"_-_ Improved how the game handles orientation changes and window resizing.\n" +
 				"_-_ Shocking enchantment no longer visually arcs lightning to the hero."));
 
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed (existed before 0.7.2):\n" +
 				"_-_ Cloak of Shadows very rarely consuming more charges than it should\n" +
 				"_-_ Assassin's blink not working on enemies standing on traps\n" +
@@ -620,7 +619,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Dec 18th, 2018\n" +
 				"_-_ 61 days after Shattered v0.7.0\n" +
 				"\n" +
@@ -628,14 +627,14 @@ public class v0_7_X_Changes {
 				"\n" +
 				"I also finally made throwing weapons proper equipment in v0.7.1 by letting the player upgrade them! Upgraded thrown weapons are pretty niche, but its great to let the player invest in these items just like other pieces of equipment."));
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.HUNTRESS), 0, 15, 12, 15), "Huntress Reworked!",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.HUNTRESS), 0, 15, 12, 15), "Huntress Reworked!",
 				"The Huntress has received a class overhaul!\n\n" +
 				"Her boomerang has been replaced with a bow. The bow has infinite uses, like the boomerang, but cannot be upgraded directly, instead it will grow stronger as the huntress levels up.\n\n" +
 				"Her knuckledusters have been replaced with studded gloves. This change is purely cosmetic.\n\n" +
 				"Those with runs in progress will have their boomerang turn into a bow, and will regain most of the scrolls of upgrade spent on the boomerang.\n\n" +
 				"The huntress can now also move through grass without trampling it (she 'furrows' it instead)."));
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.HUNTRESS), 0, 90, 12, 15), "Huntress Subclasses Reworked!",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.HUNTRESS), 0, 90, 12, 15), "Huntress Subclasses Reworked!",
 				"Huntress subclasses have also received overhauls:\n\n" +
 				"The Sniper can now see 50% further, penetrates armor with ranged attacks, and can perform a special attack with her bow.\n\n" +
 				"The Warden can now see through grass and gains a variety of bonuses to plant interaction."));
@@ -660,14 +659,14 @@ public class v0_7_X_Changes {
 				"All heroes except the warrior now need to be unlocked via new badges. The requirements are quite simple, with the goal of giving new players some early goals. Players who have already unlocked characters will not need to re-unlock them.\n\n" +
 				"To help accelerate item identification for alchemy, all heroes now start with 3 identified items: The scroll of identify, a potion, and another scroll."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"Added a partial turn indicator to the game interface, which occupies the same spot as the busy icon. This should make it much easier to plan actions that take more or less than 1 turn.\n\n" +
 				"Rings now have better descriptions for their stats! All rings now show exactly how they affect you in a similar way to how other equipment gives direct stats.\n\n" +
 				"Precise descriptions have been added for weapons which block damage.\n\n" +
 				"Added item stats to the item catalog.\n\n" +
 				"Dropping an item now takes 1 turn, up from 0.5 turns."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ various crash bugs\n" +
 				"_-_ various minor visual bugs\n" +
@@ -686,7 +685,7 @@ public class v0_7_X_Changes {
 				"_-_ various specific errors when actions took more than 1 turn\n" +
 				"_-_ various freeze bugs caused by Tengu"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated translations\n\n" +
 				"Updated translator credits"));
 		
@@ -694,7 +693,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( CharSprite.POSITIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.ROGUE), 0, 15, 12, 15), "Hero Buffs",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.ROGUE), 0, 15, 12, 15), "Hero Buffs",
 				"_-_ Rogue's cloak of shadows base charge speed increased by ~11%, scaling reduced to compensate.\n\n" +
 				"_-_ Warlock's soul mark base chance increased to 15% from 10%, scaling reduced to compensate.\n\n" +
 				"_-_ Warlock's soul mark hunger restoration increased by 100%, health restoration increased by 33%."));
@@ -715,7 +714,7 @@ public class v0_7_X_Changes {
 				"_-_ glyph of potential wand charge bonus increased by 20%\n\n" +
 				"_-_ glyph of stone evasion conversion efficiency increased to 75% from 60%"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.KING), 1, 0, 14, 16), "Dwarf King",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.KING), 1, 0, 14, 16), "Dwarf King",
 				"While I would like to make more extensive changes to Dwarf King in the future, I've made a couple smaller tweaks for now to make him harder to cheese:\n\n" +
 				"_-_ Dwarf King is now able to summon skeletons even if he cannot see the hero\n" +
 				"_-_ Dwarf King is now resistant to fire and toxic gas"));
@@ -724,7 +723,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( CharSprite.NEGATIVE );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton( new Image(Asset.getAssetFileHandle(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Nerfs",
+		changes.addButton( new ChangeButton( new Image(Asset.getAssetFilePath(GeneralAsset.WARRIOR), 0, 15, 12, 15), "Warrior Nerfs",
 				"_-_ Warrior's shielding regen scaling reduced by ~15%. This is primarily a lategame nerf."));
 		
 		changes.addButton( new ChangeButton( new ItemSprite(GeneralAsset.RING_RUBY, null), "Ring Nerfs",
@@ -754,7 +753,7 @@ public class v0_7_X_Changes {
 		changes.hardlight( Window.TITLE_COLOR );
 		changeInfos.add(changes);
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SHPX)), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released Oct 18th, 2018\n" +
 				"_-_ 168 days after Shattered v0.6.5\n" +
 				"_-_ 501 days after Shattered v0.6.0\n" +
@@ -837,7 +836,7 @@ public class v0_7_X_Changes {
 				"_-_ Using the exotic variant of a scroll costs 2 charges instead of 1.\n\n" +
 				"_-_ Charge speed at low levels increased. Max charges increased to 8 from 6."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_-_ Potions which should be thrown can now be thrown from the quickslot, if they are IDed.\n" +
 				"_-_ Thrown items and wand zaps now go through tall grass.\n" +
 				"_-_ Expanded what items bags can carry. Most alchemy produce can fit in a bag, magical holster now holds bombs.\n\n" +
@@ -852,7 +851,7 @@ public class v0_7_X_Changes {
 				"_-_ Improved payment & sync functions on Google Play version.\n\n" +
 				"_-_ Adjusted bone pile functionality to make it more clear that a spawning wraith means an item is cursed."));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed:\n" +
 				"_-_ Various rare crash and freeze bugs\n" +
 				"_-_ Various audio and visual bugs\n" +
@@ -884,7 +883,7 @@ public class v0_7_X_Changes {
 				"_-_ Magical sleep rarely cancelling paralysis\n" +
 				"_-_ Exploits where bone piles could be used to check if an item was cursed"));
 		
-		changes.addButton( new ChangeButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_LANGS)), Messages.get(ChangesScene.class, "language"),
 				"Updated Translations\n\nUpdated translator credits\n\nAdded new language: Basque!"));
 		
 		changes = new ChangeInfo(Messages.get(ChangesScene.class, "buffs"), false, null);

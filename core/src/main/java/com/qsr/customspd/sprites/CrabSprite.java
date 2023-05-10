@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -31,7 +30,7 @@ public class CrabSprite extends MobSprite {
 	public CrabSprite() {
 		super();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.CRAB) );
+		texture( Asset.getAssetFilePath(GeneralAsset.CRAB) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 

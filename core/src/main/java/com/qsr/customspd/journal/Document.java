@@ -150,14 +150,14 @@ public enum Document {
 
 	public Image pageSprite(String page){
 		if (page.isEmpty() || !isPageFound(page) || this != ADVENTURERS_GUIDE){
-			return new Image(Asset.getAssetFileHandle(icon));
+			return new Image(Asset.getAssetFilePath(icon));
 		} else {
 			//special per-page visuals for guidebook
 			switch (page){
 				case Document.GUIDE_INTRO: default:
 					return new ItemSprite(GeneralAsset.MASTERY);
 				case "Examining":
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_MAGNIFY));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_MAGNIFY));
 				case "Surprise_Attacks":
 					return new ItemSprite( GeneralAsset.ASSASSINS_BLADE );
 				case "Identifying":
@@ -167,7 +167,7 @@ public enum Document {
 				case "Dieing":
 					return new ItemSprite( GeneralAsset.TOMB );
 				case Document.GUIDE_SEARCHING:
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_MAGNIFY));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_MAGNIFY));
 				case "Strength":
 					return new ItemSprite( GeneralAsset.GREATAXE );
 				case "Upgrades":
@@ -175,7 +175,7 @@ public enum Document {
 				case "Looting":
 					return new ItemSprite( GeneralAsset.CRYSTAL_KEY );
 				case "Levelling":
-					return new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_TALENT));
+					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_TALENT));
 				case "Positioning":
 					return new ItemSprite( GeneralAsset.SPIRIT_BOW );
 				case "Magic":

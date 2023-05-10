@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.levels.rooms.sewerboss;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.levels.Level;
@@ -63,7 +62,7 @@ public class SewerBossExitRoom extends ExitRoom {
 		
 		int exitCell = level.pointToCell(c);
 		Painter.set( level, exitCell, Terrain.LOCKED_EXIT );
-		LevelTransition exit = new LevelTransition(level, exitCell, LevelTransition.Type.REGULAR_EXIT);
+		LevelTransition exit = new LevelTransition(level, exitCell, LevelTransition.Type.REGULAR_EXIT, 0);
 		exit.top--;
 		exit.left--;
 		exit.right++;
@@ -82,7 +81,7 @@ public class SewerBossExitRoom extends ExitRoom {
 	public static class SewerExit extends CustomTilemap {
 		
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.SEWER_BOSS);
+			texture = Asset.getAssetFilePath(GeneralAsset.SEWER_BOSS);
 			
 			tileW = 3;
 			tileH = 3;
@@ -113,7 +112,7 @@ public class SewerBossExitRoom extends ExitRoom {
 	public static class SewerExitOverhang extends CustomTilemap {
 		
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.SEWER_BOSS);
+			texture = Asset.getAssetFilePath(GeneralAsset.SEWER_BOSS);
 			
 			tileW = 3;
 			tileH = 2;

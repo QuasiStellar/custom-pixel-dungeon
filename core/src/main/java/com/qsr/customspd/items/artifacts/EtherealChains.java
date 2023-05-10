@@ -41,7 +41,6 @@ import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.qsr.customspd.utils.BArray;
 import com.qsr.customspd.utils.GLog;
@@ -186,7 +185,7 @@ public class EtherealChains extends Artifact {
 		Sample.INSTANCE.play( Assets.Sounds.CHAINS );
 		hero.sprite.parent.add(new Chains(hero.sprite.center(),
 				enemy.sprite.center(),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ETHEREAL_CHAIN)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ETHEREAL_CHAIN)),
 				new Callback() {
 			public void call() {
 				Actor.add(new Pushing(enemy, enemy.pos, pulledPos, new Callback() {
@@ -250,7 +249,7 @@ public class EtherealChains extends Artifact {
 		Sample.INSTANCE.play( Assets.Sounds.CHAINS );
 		hero.sprite.parent.add(new Chains(hero.sprite.center(),
 				DungeonTilemap.raisedTileCenterToWorld(newHeroPos),
-				new Image(Asset.getAssetFileHandle(GeneralAsset.ETHEREAL_CHAIN)),
+				new Image(Asset.getAssetFilePath(GeneralAsset.ETHEREAL_CHAIN)),
 				new Callback() {
 			public void call() {
 				Actor.add(new Pushing(hero, hero.pos, newHeroPos, new Callback() {

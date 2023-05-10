@@ -40,7 +40,7 @@ public class PylonSprite extends MobSprite {
 		perspectiveRaise = 5/16f; //1 pixel less
 		renderShadow = false;
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.PYLON) );
+		texture( Asset.getAssetFilePath(GeneralAsset.PYLON) );
 
 		TextureFilm frames = new TextureFilm( texture, 10, 20 );
 

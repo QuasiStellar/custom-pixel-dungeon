@@ -67,7 +67,7 @@ public class DangerIndicator extends Tag {
 		number = new BitmapText( PixelScene.pixelFont);
 		add( number );
 		
-		icon = new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_SKULL));
+		icon = new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SKULL));
 		add( icon );
 	}
 	

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.noosa.TextureFilm;
@@ -31,7 +30,7 @@ public class CausticSlimeSprite extends MobSprite {
 	public CausticSlimeSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.SLIME) );
+		texture( Asset.getAssetFilePath(GeneralAsset.SLIME) );
 		
 		TextureFilm frames = new TextureFilm( texture, 14, 12 );
 		

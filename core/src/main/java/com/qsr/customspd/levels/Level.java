@@ -50,6 +50,8 @@ import com.qsr.customspd.actors.mobs.Bestiary;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Piranha;
 import com.qsr.customspd.actors.mobs.YogFist;
+import com.qsr.customspd.actors.mobs.npcs.Ghost;
+import com.qsr.customspd.actors.mobs.npcs.Imp;
 import com.qsr.customspd.actors.mobs.npcs.Sheep;
 import com.qsr.customspd.effects.particles.FlowParticle;
 import com.qsr.customspd.effects.particles.WindParticle;
@@ -142,9 +144,6 @@ public abstract class Level implements Bundlable {
 	public boolean[] openSpace;
 	
 	public Feeling feeling = Feeling.NONE;
-	
-	public int entrance;
-	public int exit;
 
 	public ArrayList<LevelTransition> transitions;
 
@@ -195,17 +194,14 @@ public abstract class Level implements Bundlable {
 				addItemToSpawn( new Torch() );
 			}
 
-			if (Dungeon.posNeeded()) {
+			if (Arrays.asList(Dungeon.posLevels).contains(Dungeon.levelName)) {
 				addItemToSpawn( new PotionOfStrength() );
-				Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
 			}
-			if (Dungeon.souNeeded()) {
+			if (Arrays.asList(Dungeon.souLevels).contains(Dungeon.levelName)) {
 				addItemToSpawn( new ScrollOfUpgrade() );
-				Dungeon.LimitedDrops.UPGRADE_SCROLLS.count++;
 			}
-			if (Dungeon.asNeeded()) {
+			if (Arrays.asList(Dungeon.asLevels).contains(Dungeon.levelName)) {
 				addItemToSpawn( new Stylus() );
-				Dungeon.LimitedDrops.ARCANE_STYLI.count++;
 			}
 			//one scroll of transmutation is guaranteed to spawn somewhere on chapter 2-4
 			int enchChapter = (int)((Dungeon.seed / 10) % 3) + 1;
@@ -346,21 +342,8 @@ public abstract class Level implements Bundlable {
 		mapped	= bundle.getBooleanArray( MAPPED );
 
 		transitions = new ArrayList<>();
-		if (bundle.contains(TRANSITIONS)){
-			for (Bundlable b : bundle.getCollection( TRANSITIONS )){
-				transitions.add((LevelTransition) b);
-			}
-		//pre-1.3.0 saves, converts old entrance/exit to new transitions
-		} else {
-			if (bundle.contains("entrance")){
-				transitions.add(new LevelTransition(
-						this,
-						bundle.getInt("entrance"),
-						Dungeon.depth == 1 ? LevelTransition.Type.SURFACE : LevelTransition.Type.REGULAR_ENTRANCE));
-			}
-			if (bundle.contains("exit")){
-				transitions.add(new LevelTransition(this, bundle.getInt("exit"), LevelTransition.Type.REGULAR_EXIT));
-			}
+		for (Bundlable b : bundle.getCollection( TRANSITIONS )){
+			transitions.add((LevelTransition) b);
 		}
 
 		locked      = bundle.getBoolean( LOCKED );
@@ -491,7 +474,10 @@ public abstract class Level implements Bundlable {
 
 	abstract protected void createMobs();
 
-	abstract protected void createItems();
+	protected void createItems() {
+		if (Dungeon.levelName.equals(Dungeon.ghostLevel)) Ghost.Quest.spawn( this );
+		if (Dungeon.levelName.equals(Dungeon.impLevel)) Imp.Quest.spawn( this );
+	}
 
 	public int entrance(){
 		LevelTransition l = getTransition(null);
@@ -511,6 +497,20 @@ public abstract class Level implements Bundlable {
 
 	public LevelTransition getTransition(LevelTransition.Type type){
 		for (LevelTransition transition : transitions){
+			//if we don't specify a type, prefer to return any entrance
+			if (type == null &&
+				(transition.type == LevelTransition.Type.REGULAR_ENTRANCE || transition.type == LevelTransition.Type.SURFACE)){
+				return transition;
+			} else if (transition.type == type){
+				return transition;
+			}
+		}
+		return (type == null && !transitions.isEmpty() ? transitions.get(0) : null);
+	}
+
+	public LevelTransition getTransition(LevelTransition.Type type, String destination){
+		for (LevelTransition transition : transitions){
+			if (!destination.equals(transition.destLevel)) continue;
 			//if we don't specify a type, prefer to return any entrance
 			if (type == null &&
 					(transition.type == LevelTransition.Type.REGULAR_ENTRANCE || transition.type == LevelTransition.Type.SURFACE)){
@@ -572,7 +572,7 @@ public abstract class Level implements Bundlable {
 			}
 		}
 		for (HeavyBoomerang.CircleBack b : Dungeon.hero.buffs(HeavyBoomerang.CircleBack.class)){
-			if (b.activeDepth() == Dungeon.depth) items.add(b.cancel());
+			if (b.activeLevel().equals(Dungeon.levelName)) items.add(b.cancel());
 		}
 		return items;
 	}
@@ -1323,7 +1323,7 @@ public abstract class Level implements Bundlable {
 			}
 
 			for (TalismanOfForesight.HeapAwareness h : c.buffs(TalismanOfForesight.HeapAwareness.class)){
-				if (Dungeon.depth != h.depth) continue;
+				if (!Dungeon.levelName.equals(h.level)) continue;
 				for (int i : PathFinder.NEIGHBOURS9) heroMindFov[h.pos+i] = true;
 			}
 
@@ -1340,7 +1340,7 @@ public abstract class Level implements Bundlable {
 			}
 
 			for (RevealedArea a : c.buffs(RevealedArea.class)){
-				if (Dungeon.depth != a.depth) continue;
+				if (!Dungeon.levelName.equals(a.level)) continue;
 				for (int i : PathFinder.NEIGHBOURS9) heroMindFov[a.pos+i] = true;
 			}
 
@@ -1363,7 +1363,7 @@ public abstract class Level implements Bundlable {
 
 	}
 
-	public boolean isLevelExplored( int depth ){
+	public boolean isLevelExplored( String levelName ){
 		return false;
 	}
 	

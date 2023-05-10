@@ -50,7 +50,7 @@ public class GooSprite extends MobSprite {
 	public GooSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.GOO) );
+		texture( Asset.getAssetFilePath(GeneralAsset.GOO) );
 		
 		TextureFilm frames = new TextureFilm( texture, 20, 14 );
 		

@@ -24,12 +24,10 @@ package com.qsr.customspd.effects;
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.Badges;
 import com.qsr.customspd.assets.Asset;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Point;
 import com.watabou.utils.PointF;
@@ -58,7 +56,7 @@ public class BadgeBanner extends Image {
 	
 	private BadgeBanner( Asset asset ) {
 		
-		super( Asset.getAssetFileHandle(asset) );
+		super( Asset.getAssetFilePath(asset) );
 		
 		setup(asset);
 	}
@@ -149,7 +147,7 @@ public class BadgeBanner extends Image {
 			p.y = highlightPositions.get(asset).y * image.scale.y;
 		} else {
 
-			SmartTexture tx = TextureCache.get(Asset.getAssetFileHandle(asset));
+			SmartTexture tx = TextureCache.get(Asset.getAssetFilePath(asset));
 
 			int size = 16;
 
@@ -199,6 +197,6 @@ public class BadgeBanner extends Image {
 	}
 	
 	public static Image image( Asset asset ) {
-		return new Image( Asset.getAssetFileHandle(asset) );
+		return new Image( Asset.getAssetFilePath(asset) );
 	}
 }

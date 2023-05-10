@@ -44,7 +44,6 @@ import com.qsr.customspd.mechanics.ConeAOE;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.CellSelector;
 import com.qsr.customspd.scenes.GameScene;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -387,10 +386,10 @@ public class TalismanOfForesight extends Artifact {
 	public static class HeapAwareness extends FlavourBuff {
 
 		public int pos;
-		public int depth = Dungeon.depth;
+		public String level = Dungeon.levelName;
 
 		private static final String POS = "pos";
-		private static final String DEPTH = "depth";
+		private static final String LEVEL = "level";
 
 		@Override
 		public void detach() {
@@ -403,14 +402,14 @@ public class TalismanOfForesight extends Artifact {
 		public void restoreFromBundle(Bundle bundle) {
 			super.restoreFromBundle(bundle);
 			pos = bundle.getInt(POS);
-			depth = bundle.getInt(DEPTH);
+			level = bundle.getString(LEVEL);
 		}
 
 		@Override
 		public void storeInBundle(Bundle bundle) {
 			super.storeInBundle(bundle);
 			bundle.put(POS, pos);
-			bundle.put(DEPTH, depth);
+			bundle.put(LEVEL, level);
 		}
 	}
 

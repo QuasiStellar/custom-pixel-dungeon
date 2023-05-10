@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -35,7 +34,7 @@ public class YogSprite extends MobSprite {
 
 		perspectiveRaise = 5 / 16f;
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.YOG) );
+		texture( Asset.getAssetFilePath(GeneralAsset.YOG) );
 		
 		TextureFilm frames = new TextureFilm( texture, 20, 19 );
 		

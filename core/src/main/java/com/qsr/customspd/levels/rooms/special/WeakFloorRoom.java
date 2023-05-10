@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.levels.rooms.special;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -77,7 +76,7 @@ public class WeakFloorRoom extends SpecialRoom {
 	public static class HiddenWell extends CustomTilemap {
 
 		{
-			texture = Asset.getAssetFileHandle(GeneralAsset.WEAK_FLOOR);
+			texture = Asset.getAssetFilePath(GeneralAsset.WEAK_FLOOR);
 			tileW = tileH = 1;
 		}
 

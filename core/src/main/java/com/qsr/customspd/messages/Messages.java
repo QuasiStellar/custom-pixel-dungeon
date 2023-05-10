@@ -100,7 +100,7 @@ public class Messages {
 
 		//strictly match the language code when fetching bundles however
 		bundles = new ArrayList<>();
-		for (String moddedFileHandle : ModManager.INSTANCE.getAllModdedAssetFileHandles(moddedAssetFile)) {
+		for (String moddedFileHandle : ModManager.INSTANCE.getAllModdedAssetFilePaths(moddedAssetFile)) {
 			bundles.add(I18NBundle.createBundle(FileUtils.getFileHandle(
 				Files.FileType.External,
 				FileUtils.defaultPath,

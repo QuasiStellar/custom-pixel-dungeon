@@ -59,7 +59,7 @@ public class LastShopLevel extends RegularLevel {
 	
 	@Override
 	public String waterTex() {
-		return Asset.getAssetFileHandle(GeneralAsset.WATER_CITY);
+		return Asset.getAssetFilePath(GeneralAsset.WATER_CITY);
 	}
 	
 	@Override

@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
@@ -40,7 +39,7 @@ public class WardSprite extends MobSprite {
 	public WardSprite(){
 		super();
 
-		texture(Asset.getAssetFileHandle(GeneralAsset.WARDS));
+		texture(Asset.getAssetFilePath(GeneralAsset.WARDS));
 
 		tierIdles[1] = new Animation( 1, true );
 		tierIdles[1].frames(texture.uvRect(0, 0, 9, 10));

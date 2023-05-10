@@ -21,7 +21,6 @@
 
 package com.qsr.customspd.sprites;
 
-import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -47,7 +46,7 @@ public class MimicSprite extends MobSprite {
 
 		int c = texOffset();
 
-		texture( Asset.getAssetFileHandle(GeneralAsset.MIMIC) );
+		texture( Asset.getAssetFilePath(GeneralAsset.MIMIC) );
 
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
 

@@ -34,6 +34,7 @@ import com.qsr.customspd.items.quest.DwarfToken;
 import com.qsr.customspd.items.rings.Ring;
 import com.qsr.customspd.journal.Notes;
 import com.qsr.customspd.levels.CityLevel;
+import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.ImpSprite;
@@ -202,49 +203,46 @@ public class Imp extends NPC {
 			}
 		}
 		
-		public static void spawn( CityLevel level ) {
-			if (!spawned && Dungeon.depth > 16 && Random.Int( 20 - Dungeon.depth ) == 0) {
-				
-				Imp npc = new Imp();
-				do {
-					npc.pos = level.randomRespawnCell( npc );
-				} while (
-						npc.pos == -1 ||
-						level.heaps.get( npc.pos ) != null ||
-						level.traps.get( npc.pos) != null ||
-						level.findMob( npc.pos ) != null ||
-						//The imp doesn't move, so he cannot obstruct a passageway
-						!(level.passable[npc.pos + PathFinder.CIRCLE4[0]] && level.passable[npc.pos + PathFinder.CIRCLE4[2]]) ||
-						!(level.passable[npc.pos + PathFinder.CIRCLE4[1]] && level.passable[npc.pos + PathFinder.CIRCLE4[3]]));
-				level.mobs.add( npc );
-				
-				spawned = true;
+		public static void spawn( Level level ) {
+			Imp npc = new Imp();
+			do {
+				npc.pos = level.randomRespawnCell( npc );
+			} while (
+					npc.pos == -1 ||
+					level.heaps.get( npc.pos ) != null ||
+					level.traps.get( npc.pos) != null ||
+					level.findMob( npc.pos ) != null ||
+					//The imp doesn't move, so he cannot obstruct a passageway
+					!(level.passable[npc.pos + PathFinder.CIRCLE4[0]] && level.passable[npc.pos + PathFinder.CIRCLE4[2]]) ||
+					!(level.passable[npc.pos + PathFinder.CIRCLE4[1]] && level.passable[npc.pos + PathFinder.CIRCLE4[3]]));
+			level.mobs.add( npc );
 
-				//always assigns monks on floor 17, golems on floor 19, and 50/50 between either on 18
-				switch (Dungeon.depth){
-					case 17: default:
-						alternative = true;
-						break;
-					case 18:
-						alternative = Random.Int(2) == 0;
-						break;
-					case 19:
-						alternative = false;
-						break;
-				}
-				
-				given = false;
-				
-				do {
-					reward = (Ring)Generator.random( Generator.Category.RING );
-				} while (reward.cursed);
-				reward.upgrade( 2 );
-				reward.cursed = true;
+			spawned = true;
+
+			//always assigns monks on floor 17, golems on floor 19, and 50/50 between either on 18
+			switch ((Dungeon.depth + 2) % 3){
+				case 0: default:
+					alternative = true;
+					break;
+				case 1:
+					alternative = Random.Int(2) == 0;
+					break;
+				case 2:
+					alternative = false;
+					break;
 			}
+
+			given = false;
+
+			do {
+				reward = (Ring)Generator.random( Generator.Category.RING );
+			} while (reward.cursed);
+			reward.upgrade( 2 );
+			reward.cursed = true;
 		}
 		
 		public static void process( Mob mob ) {
-			if (spawned && given && !completed && Dungeon.depth != 20) {
+			if (spawned && given && !completed && !Dungeon.bossLevel()) {
 				if ((alternative && mob instanceof Monk) ||
 					(!alternative && mob instanceof Golem)) {
 					

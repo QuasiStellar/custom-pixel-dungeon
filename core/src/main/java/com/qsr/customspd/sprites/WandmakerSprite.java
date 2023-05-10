@@ -37,7 +37,7 @@ public class WandmakerSprite extends MobSprite {
 	public WandmakerSprite() {
 		super();
 		
-		texture( Asset.getAssetFileHandle(GeneralAsset.MAKER) );
+		texture( Asset.getAssetFilePath(GeneralAsset.MAKER) );
 		
 		TextureFilm frames = new TextureFilm( texture, 12, 14 );
 		

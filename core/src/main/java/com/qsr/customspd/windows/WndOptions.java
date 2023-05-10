@@ -101,7 +101,7 @@ public class WndOptions extends Window {
 				btn.setRect(0, pos, width, BUTTON_HEIGHT);
 			} else {
 				btn.setRect(0, pos, width - BUTTON_HEIGHT, BUTTON_HEIGHT);
-				IconButton info = new IconButton(new Image(Asset.getAssetFileHandle(GeneralAsset.ICON_INFO))){
+				IconButton info = new IconButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_INFO))){
 					@Override
 					protected void onClick() {
 						onInfo( index );
