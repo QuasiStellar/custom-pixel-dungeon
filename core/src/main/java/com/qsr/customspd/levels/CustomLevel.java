@@ -80,10 +80,34 @@ public class CustomLevel extends Level {
 		this.layout = layout;
 		this.levelName = levelName;
 
-		color1 = layout.getLeafColor1();
-		color2 = layout.getLeafColor2();
+		setLeafColors();
 
 		viewDistance = layout.getViewDistance();
+	}
+
+	private void setLeafColors() {
+		switch (layout.getRegion()) {
+			case 1 -> {
+				color1 = 0x48763c;
+				color2 = 0x59994a;
+			}
+			case 2 -> {
+				color1 = 0x6a723d;
+				color2 = 0x88924c;
+			}
+			case 3 -> {
+				color1 = 0x534f3e;
+				color2 = 0xb9d661;
+			}
+			case 4 -> {
+				color1 = 0x4b6636;
+				color2 = 0xf2f2f2;
+			}
+			case 5 -> {
+				color1 = 0x801500;
+				color2 = 0xa68521;
+			}
+		}
 	}
 
 	@Override
@@ -264,7 +288,13 @@ public class CustomLevel extends Level {
 	@Override
 	public Group addVisuals () {
 		super.addVisuals();
-		HallsLevel.addHallsVisuals(this, visuals); // TODO
+		switch (layout.getRegion()) {
+			case 1 -> SewerLevel.addSewerVisuals(this, visuals);
+			case 2 -> PrisonLevel.addPrisonVisuals(this, visuals);
+			case 3 -> CavesLevel.addCavesVisuals(this, visuals);
+			case 4 -> CityLevel.addCityVisuals(this, visuals);
+			case 5 -> HallsLevel.addHallsVisuals(this, visuals);
+		}
 		return visuals;
 	}
 
@@ -274,8 +304,7 @@ public class CustomLevel extends Level {
 		this.layout = Dungeon.layout().getDungeon().get(Dungeon.levelName).getCustomLayout();
 		this.levelName = Dungeon.levelName;
 
-		color1 = layout.getLeafColor1();
-		color2 = layout.getLeafColor2();
+		setLeafColors();
 
 		viewDistance = layout.getViewDistance();
 	}

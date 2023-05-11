@@ -12,7 +12,13 @@
         "2"
       ],
       "chasm": "2",
-      "passage": "1"
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Rat",
+        "Rat",
+        "Snake"
+      ]
     },
     "2": {
       "depth": 2,
@@ -25,7 +31,14 @@
         "3"
       ],
       "chasm": "3",
-      "passage": "1"
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Rat",
+        "Snake",
+        "Gnoll",
+        "Gnoll"
+      ]
     },
     "3": {
       "depth": 3,
@@ -38,7 +51,16 @@
         "4"
       ],
       "chasm": "4",
-      "passage": "1"
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Snake",
+        "Gnoll",
+        "Gnoll",
+        "Gnoll",
+        "Swarm",
+        "Crab"
+      ]
     },
     "4": {
       "depth": 4,
@@ -51,7 +73,16 @@
         "5"
       ],
       "chasm": "5",
-      "passage": "1"
+      "passage": "1",
+      "bestiary": [
+        "Gnoll",
+        "Swarm",
+        "Crab",
+        "Crab",
+        "Slime",
+        "Slime"
+      ],
+      "rare_mob": "Thief"
     },
     "5": {
       "depth": 5,
@@ -65,7 +96,15 @@
       ],
       "chasm": "6",
       "passage": "1",
-      "boss": true
+      "boss": true,
+      "bestiary": [
+        "Gnoll",
+        "Swarm",
+        "Crab",
+        "Crab",
+        "Slime",
+        "Slime"
+      ]
     },
     "6": {
       "depth": 6,
@@ -80,7 +119,14 @@
       "chasm": "7",
       "passage": "1",
       "shop": true,
-      "price_multiplier": 2
+      "price_multiplier": 2,
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Skeleton",
+        "Thief",
+        "Swarm"
+      ]
     },
     "7": {
       "depth": 7,
@@ -93,7 +139,15 @@
         "8"
       ],
       "chasm": "8",
-      "passage": "6"
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "Guard"
+      ]
     },
     "8": {
       "depth": 8,
@@ -106,7 +160,17 @@
         "9"
       ],
       "chasm": "9",
-      "passage": "6"
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer"
+      ]
     },
     "9": {
       "depth": 9,
@@ -119,7 +183,18 @@
         "10"
       ],
       "chasm": "10",
-      "passage": "6"
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer",
+        "Necromancer"
+      ],
+      "rare_mob": "Bat"
     },
     "10": {
       "depth": 10,
@@ -133,7 +208,17 @@
       ],
       "chasm": "11",
       "passage": "6",
-      "boss": true
+      "boss": true,
+      "bestiary": [
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer",
+        "Necromancer"
+      ]
     },
     "11": {
       "depth": 11,
@@ -148,7 +233,14 @@
       "chasm": "12",
       "passage": "6",
       "shop": true,
-      "price_multiplier": 3
+      "price_multiplier": 3,
+      "bestiary": [
+        "Bat",
+        "Bat",
+        "Bat",
+        "Brute",
+        "Shaman"
+      ]
     },
     "12": {
       "depth": 12,
@@ -161,7 +253,15 @@
         "13"
       ],
       "chasm": "13",
-      "passage": "11"
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Bat",
+        "Brute",
+        "Brute",
+        "Shaman",
+        "Spinner"
+      ]
     },
     "13": {
       "depth": 13,
@@ -174,7 +274,17 @@
         "14"
       ],
       "chasm": "14",
-      "passage": "11"
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "Spinner",
+        "DM200",
+        "DM200"
+      ]
     },
     "14": {
       "depth": 14,
@@ -187,7 +297,18 @@
         "15"
       ],
       "chasm": "15",
-      "passage": "11"
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "Spinner",
+        "DM200",
+        "DM200"
+      ],
+      "rare_mob": "Ghoul"
     },
     "15": {
       "depth": 15,
@@ -201,7 +322,17 @@
       ],
       "chasm": "16",
       "passage": "11",
-      "boss": true
+      "boss": true,
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "Spinner",
+        "DM200",
+        "DM200"
+      ]
     },
     "16": {
       "depth": 16,
@@ -216,7 +347,14 @@
       "chasm": "17",
       "passage": "11",
       "shop": true,
-      "price_multiplier": 4
+      "price_multiplier": 4,
+      "bestiary": [
+        "Ghoul",
+        "Ghoul",
+        "Ghoul",
+        "Elemental",
+        "Warlock"
+      ]
     },
     "17": {
       "depth": 17,
@@ -229,7 +367,14 @@
         "18"
       ],
       "chasm": "18",
-      "passage": "16"
+      "passage": "16",
+      "bestiary": [
+        "Ghoul",
+        "Elemental",
+        "Elemental",
+        "Warlock",
+        "Monk"
+      ]
     },
     "18": {
       "depth": 18,
@@ -242,7 +387,16 @@
         "19"
       ],
       "chasm": "19",
-      "passage": "16"
+      "passage": "16",
+      "bestiary": [
+        "Ghoul",
+        "Elemental",
+        "Warlock",
+        "Warlock",
+        "Monk",
+        "Monk",
+        "Golem"
+      ]
     },
     "19": {
       "depth": 19,
@@ -255,7 +409,18 @@
         "20"
       ],
       "chasm": "20",
-      "passage": "16"
+      "passage": "16",
+      "bestiary": [
+        "Elemental",
+        "Warlock",
+        "Warlock",
+        "Monk",
+        "Monk",
+        "Golem",
+        "Golem",
+        "Golem"
+      ],
+      "rare_mob": "Succubus"
     },
     "20": {
       "depth": 20,
@@ -269,7 +434,17 @@
       ],
       "chasm": "21",
       "passage": "16",
-      "boss": true
+      "boss": true,
+      "bestiary": [
+        "Elemental",
+        "Warlock",
+        "Warlock",
+        "Monk",
+        "Monk",
+        "Golem",
+        "Golem",
+        "Golem"
+      ]
     },
     "21": {
       "depth": 21,
@@ -285,7 +460,12 @@
       "passage": "16",
       "spawner_cooldown": 60,
       "shop": true,
-      "price_multiplier": 5
+      "price_multiplier": 5,
+      "bestiary": [
+        "Succubus",
+        "Succubus",
+        "Eye"
+      ]
     },
     "22": {
       "depth": 22,
@@ -299,7 +479,11 @@
       ],
       "chasm": "23",
       "passage": "21",
-      "spawner_cooldown": 53.33
+      "spawner_cooldown": 53.33,
+      "bestiary": [
+        "Succubus",
+        "Eye"
+      ]
     },
     "23": {
       "depth": 23,
@@ -313,7 +497,13 @@
       ],
       "chasm": "24",
       "passage": "21",
-      "spawner_cooldown": 46.67
+      "spawner_cooldown": 46.67,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio"
+      ]
     },
     "24": {
       "depth": 24,
@@ -327,7 +517,15 @@
       ],
       "chasm": "25",
       "passage": "21",
-      "spawner_cooldown": 40
+      "spawner_cooldown": 40,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio"
+      ]
     },
     "25": {
       "depth": 25,
@@ -341,7 +539,15 @@
       ],
       "chasm": "26",
       "passage": "21",
-      "boss": true
+      "boss": true,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio"
+      ]
     },
     "26": {
       "depth": 26,
@@ -354,7 +560,15 @@
         "26"
       ],
       "chasm": "26",
-      "passage": "21"
+      "passage": "21",
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio"
+      ]
     }
   },
   "rat_king_level": "5",

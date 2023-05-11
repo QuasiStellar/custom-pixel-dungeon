@@ -15,6 +15,4 @@ data class CustomLevelLayout(
     val exits: List<Position> = emptyList(),
     val items: List<ItemSpawn> = emptyList(),
     val mobs: List<MobSpawn> = emptyList(),
-    @SerialName("leaf_color1") val leafColor1: Int = 0x004400,
-    @SerialName("leaf_color2") val leafColor2: Int = 0x88CC44,
 )

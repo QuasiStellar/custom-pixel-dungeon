@@ -58,7 +58,6 @@ public class LevelTransition extends Rect implements Bundlable {
 		departLevel = Dungeon.levelName;
 		switch (type) {
 			default -> {
-				System.out.println(Dungeon.levelName);
 				destLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getEntrances().get(destIndex);
 				destType = Type.REGULAR_EXIT;
 			}

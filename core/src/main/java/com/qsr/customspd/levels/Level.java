@@ -101,6 +101,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public abstract class Level implements Bundlable {
 	
@@ -460,11 +461,12 @@ public abstract class Level implements Bundlable {
 	
 	abstract protected boolean build();
 	
-	private ArrayList<Class<?extends Mob>> mobsToSpawn = new ArrayList<>();
+	private List<Class<?extends Mob>> mobsToSpawn = new ArrayList<>();
 	
 	public Mob createMob() {
 		if (mobsToSpawn == null || mobsToSpawn.isEmpty()) {
-			mobsToSpawn = Bestiary.getMobRotation(Dungeon.depth);
+			if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getBestiary() != null) mobsToSpawn = Bestiary.INSTANCE.getMobRotation();
+			else mobsToSpawn = new ArrayList<>();
 		}
 
 		Mob m = Reflection.newInstance(mobsToSpawn.remove(0));
