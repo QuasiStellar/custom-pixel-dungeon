@@ -48,6 +48,15 @@ class WndModDownload(
                 if (it.contains(mod.info.name)) {
                     Game.runOnRenderThread {
                         updateButton("delete")
+                        button.setSize(button.reqWidth(), 16f)
+                        button.setPos(
+                            if (link != null) title.left() + (title.width() - button.width() - GAP - link!!.width()) / 2 else title.left() + (title.width() - button.width()) / 2,
+                            (gameplayMod?.bottom() ?: license.bottom()) + GAP
+                        )
+                        link?.setPos(
+                            button.right() + GAP,
+                            button.top()
+                        )
                     }
                 }
             }
@@ -80,6 +89,7 @@ class WndModDownload(
     private lateinit var license: RenderedTextBlock
     private var gameplayMod: RenderedTextBlock? = null
     private lateinit var button: RedButton
+    private var link: RedButton? = null
     private lateinit var left: RedButton
     private lateinit var right: RedButton
 
@@ -137,10 +147,28 @@ class WndModDownload(
                 }
                 setSize(reqWidth(), 16f)
                 setPos(
-                    title.left() + (title.width() - width()) / 2,
+                    if (link != null) title.left() + (title.width() - button.width() - GAP - link!!.width()) / 2 else title.left() + (title.width() - button.width()) / 2,
                     (gameplayMod?.bottom() ?: license.bottom()) + GAP
                 )
+                link?.setPos(
+                    button.right() + GAP,
+                    button.top()
+                )
                 updateCallback.call()
+            }
+        }
+
+        if (mod.info.link != null) {
+            link = object : RedButton(
+                Messages.get(
+                    WndModInfo::class.java,
+                    "learn_more"
+                )
+            ) {
+                override fun onClick() {
+                    super.onClick()
+                    Game.platform.openURI(mod.info.link)
+                }
             }
         }
 
@@ -167,13 +195,7 @@ class WndModDownload(
 
     private fun updateButton(state: String) {
         if (!::button.isInitialized) return
-        button.text(Messages.get(this, state)) // My goals are
-        button.setSize(button.reqWidth(), 16f)
-        button.setPos(
-            title.left() + (title.width() - button.width()) / 2,
-            (gameplayMod?.bottom() ?: license.bottom()) + GAP
-        )
-        button.text(Messages.get(this, state)) // beyond your understanding
+        button.text(Messages.get(this, state))
     }
 
     private fun layoutFields() {
@@ -241,13 +263,21 @@ class WndModDownload(
         license.setPos(title.left(), (languages?.bottom() ?: version.bottom()) + GAP)
         add(license)
         gameplayMod?.setPos(title.left(), license.bottom() + GAP)
+        gameplayMod?.let { add(gameplayMod) }
         languages?.let { add(it) }
+        link?.setSize(link!!.reqWidth(), 16f)
         button.setSize(button.reqWidth(), 16f)
         button.setPos(
-            title.left() + (title.width() - button.width()) / 2,
+            if (link != null) title.left() + (title.width() - button.width() - GAP - link!!.width()) / 2 else title.left() + (title.width() - button.width()) / 2,
             (gameplayMod?.bottom() ?: license.bottom()) + GAP
         )
         add(button)
+        link?.setPos(
+            button.right() + GAP,
+            button.top()
+        )
+        link?.let { add(link) }
+
         resize(width, (button.bottom() + 2).toInt())
     }
 

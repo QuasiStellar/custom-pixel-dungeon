@@ -27,6 +27,7 @@ import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
+import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Callback;
 import java.util.List;
@@ -112,6 +113,17 @@ public class WndModInfo extends Window {
 			);
 		} else gameplayMod = null;
 
+		RedButton link = mod.getInfo().getLink() != null ? new RedButton(Messages.get(
+			this,
+			"learn_more"
+		)) {
+			@Override
+			protected void onClick() {
+				super.onClick();
+				Game.platform.openURI( mod.getInfo().getLink() );
+			}
+		} : null;
+
 		RedButton button = new RedButton(Messages.get(
 			this,
 			mod.isEnabled() ? "disable" : "enable"
@@ -125,8 +137,12 @@ public class WndModInfo extends Window {
 				text.text(Messages.get(WndModInfo.class, isEnabled ? "enable" : "disable"));
 				setSize(reqWidth(), 16);
 				setPos(
-					title.left() + (title.width() - width()) / 2,
+					link != null ? (title.left() + (title.width() - width() - GAP - link.width()) / 2) : (title.left() + (title.width() - width()) / 2),
 					(gameplayMod != null ? gameplayMod.bottom() : license.bottom()) + GAP
+				);
+				if (link != null) link.setPos(
+					right() + GAP,
+					top()
 				);
 				updateCallback.call();
 			}
@@ -152,7 +168,7 @@ public class WndModInfo extends Window {
 			}
 		};
 
-		layoutFields(title, description, author, version, languages, license, gameplayMod, button, left, right);
+		layoutFields(title, description, author, version, languages, license, gameplayMod, button, link, left, right);
 	}
 
 	private void layoutFields(
@@ -164,6 +180,7 @@ public class WndModInfo extends Window {
 		RenderedTextBlock license,
 		RenderedTextBlock gameplayMod,
 		RedButton button,
+		RedButton link,
 		RedButton left,
 		RedButton right
 	){
@@ -245,12 +262,24 @@ public class WndModInfo extends Window {
 			add( gameplayMod );
 		}
 
+		if (link != null) {
+			link.setSize(link.reqWidth(), 16);
+		}
+
 		button.setSize(button.reqWidth(), 16);
 		button.setPos(
-			title.left() + (title.width() - button.width()) / 2,
+			link != null ? (title.left() + (title.width() - button.width() - GAP - link.width()) / 2) : (title.left() + (title.width() - button.width()) / 2),
 			(gameplayMod != null ? gameplayMod.bottom() : license.bottom()) + GAP
 		);
 		add(button);
+
+		if (link != null) {
+			link.setPos(
+				button.right() + GAP,
+				button.top()
+			);
+			add(link);
+		}
 
 		resize(width, (int)(button.bottom() + 2));
 	}

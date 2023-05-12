@@ -50,8 +50,10 @@ import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.tiles.CustomTilemap;
 import com.qsr.customspd.tiles.DungeonTileSheet;
+import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.Group;
 import com.watabou.noosa.Tilemap;
 import com.watabou.noosa.audio.Music;
@@ -225,6 +227,18 @@ public class CustomLevel extends Level {
 			transitions.add(new LevelTransition(this, cell, type, i));
 		}
 
+		if (TextureCache.getBitmap(ModManager.INSTANCE.getModdedAssetFilePath("dungeon/" + Dungeon.levelName + "_tiles.png")) != null) {
+			CustomTilemap tiles = new CustomLevelTiles(Dungeon.levelName, width, height);
+			tiles.pos(0, 0);
+			customTiles.add(tiles);
+		}
+
+		if (TextureCache.getBitmap(ModManager.INSTANCE.getModdedAssetFilePath("dungeon/" + Dungeon.levelName + "_walls.png")) != null) {
+			CustomTilemap walls = new CustomLevelWalls(Dungeon.levelName, width, height);
+			walls.pos(0, 0);
+			customWalls.add(walls);
+		}
+
 		return true;
 	}
 
@@ -307,5 +321,83 @@ public class CustomLevel extends Level {
 		setLeafColors();
 
 		viewDistance = layout.getViewDistance();
+	}
+
+	public static class CustomLevelTiles extends CustomTilemap {
+
+		public CustomLevelTiles() {}
+
+		public CustomLevelTiles(String name, int width, int height) {
+			texture = ModManager.INSTANCE.getModdedAssetFilePath("dungeon/" + name + "_tiles.png");
+
+			tileW = width;
+			tileH = height;
+		}
+
+		@Override
+		public Tilemap create() {
+
+			Tilemap v = super.create();
+
+			int[] data = mapSimpleImage(0, 0, tileW * 16);
+
+			v.map(data, tileW);
+			return v;
+		}
+
+		private static final String TEXTURE  = "texture";
+
+		@Override
+		public void restoreFromBundle(Bundle bundle) {
+			super.restoreFromBundle(bundle);
+
+			texture = bundle.getString(TEXTURE);
+		}
+
+		@Override
+		public void storeInBundle(Bundle bundle) {
+			super.storeInBundle(bundle);
+
+			bundle.put(TEXTURE, texture.toString());
+		}
+	}
+
+	public static class CustomLevelWalls extends CustomTilemap {
+
+		public CustomLevelWalls() {}
+
+		public CustomLevelWalls(String name, int width, int height) {
+			texture = ModManager.INSTANCE.getModdedAssetFilePath("dungeon/" + name + "_walls.png");
+
+			tileW = width;
+			tileH = height;
+		}
+
+		@Override
+		public Tilemap create() {
+
+			Tilemap v = super.create();
+
+			int[] data = mapSimpleImage(0, 0, tileW * 16);
+
+			v.map(data, tileW);
+			return v;
+		}
+
+		private static final String TEXTURE  = "texture";
+
+		@Override
+		public void restoreFromBundle(Bundle bundle) {
+			super.restoreFromBundle(bundle);
+
+			texture = bundle.getString(TEXTURE);
+		}
+
+		@Override
+		public void storeInBundle(Bundle bundle) {
+			super.storeInBundle(bundle);
+
+			bundle.put(TEXTURE, texture.toString());
+		}
 	}
 }

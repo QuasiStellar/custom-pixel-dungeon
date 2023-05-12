@@ -11,6 +11,6 @@ data class ModInfo(
     val author: String,
     val languages: List<String>? = null,
     val license: String,
-    @SerialName("gameplay_mod") val gameplayMod: Boolean,
+    @SerialName("gameplay_mod") val gameplayMod: Boolean = false,
     val link: String? = null,
 )
