@@ -36,6 +36,7 @@ import com.qsr.customspd.dungeon.PlantSpawn;
 import com.qsr.customspd.dungeon.TrapSpawn;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
+import com.qsr.customspd.items.keys.Key;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.painters.Painter;
@@ -321,6 +322,13 @@ public class CustomLevel extends Level {
 					((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + itemSpawn.getEnchantment())));
 				} else if (item instanceof Weapon) {
 					((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + itemSpawn.getEnchantment())));
+				}
+			}
+			if (item instanceof Key) {
+				if (itemSpawn.getLevelName() == null) {
+					((Key) item).levelName = Dungeon.levelName;
+				} else {
+					((Key) item).levelName = itemSpawn.getLevelName();
 				}
 			}
 			drop(item, pos);

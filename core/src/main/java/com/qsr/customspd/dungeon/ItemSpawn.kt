@@ -1,5 +1,6 @@
 package com.qsr.customspd.dungeon
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,4 +13,5 @@ data class ItemSpawn(
     val enchantment: String? = null,
     val identified: Boolean = false,
     val cursed: Boolean = false,
+    @SerialName("level_name") val levelName: String? = null,
 )
