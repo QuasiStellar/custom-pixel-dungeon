@@ -49,6 +49,7 @@ import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Music;
 import com.watabou.utils.FileUtils;
+import com.watabou.utils.Random;
 
 import java.util.Collections;
 
@@ -113,8 +114,8 @@ public class WelcomeScene extends PixelScene {
 
 		align(title);
 
-		placeTorch(title.x + 22, title.y + 46);
-		placeTorch(title.x + title.width - 22, title.y + 46);
+		placeTorch(title.x + 22, title.y + 32);
+		placeTorch(title.x + title.width - 22, title.y + 32);
 
 		Image signs = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
 			private float time = 0;
@@ -122,7 +123,10 @@ public class WelcomeScene extends PixelScene {
 			public void update() {
 				super.update();
 				am = Math.max(0f, (float)Math.sin( time += Game.elapsed ));
-				if (time >= 1.5f*Math.PI) time = 0;
+				if (time >= 1.5f*Math.PI) {
+					time = 0;
+					color(Random.Int(16777216));
+				}
 			}
 			@Override
 			public void draw() {
