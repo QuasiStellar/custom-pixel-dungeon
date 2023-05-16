@@ -36,6 +36,7 @@ import com.qsr.customspd.ui.IconUtils;
 import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.Window;
 import com.qsr.customspd.windows.WndGameInProgress;
+import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Image;
@@ -51,6 +52,9 @@ public class StartScene extends PixelScene {
 	
 	@Override
 	public void create() {
+
+		TextureCache.clear();
+
 		super.create();
 		
 		Badges.loadGlobal();

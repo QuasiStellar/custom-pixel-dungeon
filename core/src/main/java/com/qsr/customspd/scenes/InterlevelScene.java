@@ -147,7 +147,44 @@ public class InterlevelScene extends PixelScene {
 				break;
 		}
 
-		// TODO: region logic
+		//flush the texture cache whenever moving between regions, helps reduce memory load
+		int region;
+		if (curTransition == null) {
+			region = -1;
+		} else if (Dungeon.layout().getDungeon().get(curTransition.destLevel).getCustomLayout() != null) {
+			region = Dungeon.layout().getDungeon().get(curTransition.destLevel).getCustomLayout().getRegion();
+		} else {
+			switch (Dungeon.layout().getDungeon().get(curTransition.destLevel).getLayout()) {
+				case "SewerLevel":
+				case "SewerBossLevel":
+					region = 1;
+					break;
+				case "PrisonLevel":
+				case "PrisonBossLevel":
+					region = 2;
+					break;
+				case "CavesLevel":
+				case "CavesBossLevel":
+					region = 3;
+					break;
+				case "CityLevel":
+				case "CityBossLevel":
+					region = 4;
+					break;
+				case "HallsLevel":
+				case "HallsBossLevel":
+				case "LastLevel":
+					region = 5;
+					break;
+				default:
+					region = -1;
+			}
+		}
+
+		if (region != lastRegion) {
+			TextureCache.clear();
+			lastRegion = region;
+		}
 
 		if      (lastRegion == 1)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_SEWERS);
         else if (lastRegion == 2)    loadingAsset = Asset.getAssetFilePath(GeneralAsset.LOADING_PRISON);
