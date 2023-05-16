@@ -57,18 +57,18 @@ public class LevelTransition extends Rect implements Bundlable {
 		this.type = type;
 		departLevel = Dungeon.levelName;
 		switch (type) {
-			default -> {
+			default:
 				destLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getEntrances().get(destIndex);
 				destType = Type.REGULAR_EXIT;
-			}
-			case REGULAR_EXIT -> {
+				break;
+			case REGULAR_EXIT:
 				destLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getExits().get(destIndex);
 				destType = Type.REGULAR_ENTRANCE;
-			}
-			case SURFACE -> {
+				break;
+			case SURFACE:
 				destLevel = "surface";
 				destType = null;
-			}
+				break;
 		}
 	}
 

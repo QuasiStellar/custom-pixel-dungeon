@@ -79,26 +79,26 @@ public class CustomLevel extends Level {
 
 	private void setLeafColors() {
 		switch (layout.getRegion()) {
-			case 1 -> {
+			case 1:
 				color1 = 0x48763c;
 				color2 = 0x59994a;
-			}
-			case 2 -> {
+				break;
+			case 2:
 				color1 = 0x6a723d;
 				color2 = 0x88924c;
-			}
-			case 3 -> {
+				break;
+			case 3:
 				color1 = 0x534f3e;
 				color2 = 0xb9d661;
-			}
-			case 4 -> {
+				break;
+			case 4:
 				color1 = 0x4b6636;
 				color2 = 0xf2f2f2;
-			}
-			case 5 -> {
+				break;
+			case 5:
 				color1 = 0x801500;
 				color2 = 0xa68521;
-			}
+				break;
 		}
 	}
 
@@ -122,21 +122,16 @@ public class CustomLevel extends Level {
 	@Override
 	public String tilesTex() {
 		switch (layout.getRegion()) {
-			case 1 -> {
+			case 1:
 				return Assets.Environment.TILES_SEWERS;
-			}
-			case 2 -> {
+			case 2:
 				return Assets.Environment.TILES_PRISON;
-			}
-			case 3 -> {
+			case 3:
 				return Assets.Environment.TILES_CAVES;
-			}
-			case 4 -> {
+			case 4:
 				return Assets.Environment.TILES_CITY;
-			}
-			case 5 -> {
+			case 5:
 				return Assets.Environment.TILES_HALLS;
-			}
 		}
 		return Assets.Environment.TILES_SEWERS;
 	}
@@ -144,21 +139,16 @@ public class CustomLevel extends Level {
 	@Override
 	public String waterTex() {
 		switch (layout.getRegion()) {
-			case 1 -> {
+			case 1:
 				return Asset.getAssetFilePath(GeneralAsset.WATER_SEWERS);
-			}
-			case 2 -> {
+			case 2:
 				return Asset.getAssetFilePath(GeneralAsset.WATER_PRISON);
-			}
-			case 3 -> {
+			case 3:
 				return Asset.getAssetFilePath(GeneralAsset.WATER_CAVES);
-			}
-			case 4 -> {
+			case 4:
 				return Asset.getAssetFilePath(GeneralAsset.WATER_CITY);
-			}
-			case 5 -> {
+			case 5:
 				return Asset.getAssetFilePath(GeneralAsset.WATER_HALLS);
-			}
 		}
 		return Asset.getAssetFilePath(GeneralAsset.WATER_SEWERS);
 	}
@@ -190,15 +180,15 @@ public class CustomLevel extends Level {
 		createItems();
 
 		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
-			case ONLY_VISIBLE -> {
+			case ONLY_VISIBLE:
 				for (int i=0; i < length; i++) {
 					if (discoverable[i]) {
 						visited[i] = true;
 					}
 				}
 				GameScene.updateFog();
-			}
-			case SECRETS -> {
+				break;
+			case SECRETS:
 				for (int i=0; i < length; i++) {
 					int terr = map[i];
 					if (discoverable[i]) {
@@ -209,7 +199,7 @@ public class CustomLevel extends Level {
 					}
 				}
 				GameScene.updateFog();
-			}
+				break;
 		}
 
 		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) seal();
@@ -292,11 +282,21 @@ public class CustomLevel extends Level {
 			}
 			if (mobSpawn.getAiState() != null) {
 				switch (mobSpawn.getAiState().toUpperCase()) {
-					case "SLEEPING" -> mob.state = mob.SLEEPING;
-					case "HUNTING" -> mob.state = mob.HUNTING;
-					case "WANDERING" -> mob.state = mob.WANDERING;
-					case "FLEEING" -> mob.state = mob.FLEEING;
-					case "PASSIVE" -> mob.state = mob.PASSIVE;
+					case "SLEEPING":
+						mob.state = mob.SLEEPING;
+						break;
+					case "HUNTING":
+						mob.state = mob.HUNTING;
+						break;
+					case "WANDERING":
+						mob.state = mob.WANDERING;
+						break;
+					case "FLEEING":
+						mob.state = mob.FLEEING;
+						break;
+					case "PASSIVE":
+						mob.state = mob.PASSIVE;
+						break;
 				}
 			}
 			mobs.add(mob);
@@ -350,11 +350,11 @@ public class CustomLevel extends Level {
 	public Group addVisuals () {
 		super.addVisuals();
 		switch (layout.getRegion()) {
-			case 1 -> SewerLevel.addSewerVisuals(this, visuals);
-			case 2 -> PrisonLevel.addPrisonVisuals(this, visuals);
-			case 3 -> CavesLevel.addCavesVisuals(this, visuals);
-			case 4 -> CityLevel.addCityVisuals(this, visuals);
-			case 5 -> HallsLevel.addHallsVisuals(this, visuals);
+			case 1: SewerLevel.addSewerVisuals(this, visuals);
+			case 2: PrisonLevel.addPrisonVisuals(this, visuals);
+			case 3: CavesLevel.addCavesVisuals(this, visuals);
+			case 4: CityLevel.addCityVisuals(this, visuals);
+			case 5: HallsLevel.addHallsVisuals(this, visuals);
 		}
 		return visuals;
 	}

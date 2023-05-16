@@ -216,7 +216,7 @@ public abstract class Level implements Bundlable {
 			}
 
 			switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLevelFeeling()) {
-				case "random" -> {
+				case "random":
 					if (Dungeon.depth > 1) {
 						//50% chance of getting a level feeling
 						//~7.15% chance for each feeling
@@ -251,14 +251,28 @@ public abstract class Level implements Bundlable {
 								break;
 						}
 					}
-				}
-				case "chasm" -> feeling = Feeling.CHASM;
-				case "water" -> feeling = Feeling.WATER;
-				case "grass" -> feeling = Feeling.GRASS;
-				case "dark" -> feeling = Feeling.DARK;
-				case "large" -> feeling = Feeling.LARGE;
-				case "traps" -> feeling = Feeling.TRAPS;
-				case "secrets" -> feeling = Feeling.SECRETS;
+					break;
+				case "chasm":
+					feeling = Feeling.CHASM;
+					break;
+				case "water":
+					feeling = Feeling.WATER;
+					break;
+				case "grass":
+					feeling = Feeling.GRASS;
+					break;
+				case "dark":
+					feeling = Feeling.DARK;
+					break;
+				case "large":
+					feeling = Feeling.LARGE;
+					break;
+				case "traps":
+					feeling = Feeling.TRAPS;
+					break;
+				case "secrets":
+					feeling = Feeling.SECRETS;
+					break;
 			}
 		}
 		
@@ -284,15 +298,15 @@ public abstract class Level implements Bundlable {
 		createItems();
 
 		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
-			case ONLY_VISIBLE -> {
+			case ONLY_VISIBLE:
 				for (int i=0; i < length; i++) {
 					if (discoverable[i]) {
 						visited[i] = true;
 					}
 				}
 				GameScene.updateFog();
-			}
-			case SECRETS -> {
+				break;
+			case SECRETS:
 				for (int i=0; i < length; i++) {
 					int terr = map[i];
 					if (discoverable[i]) {
@@ -303,7 +317,7 @@ public abstract class Level implements Bundlable {
 					}
 				}
 				GameScene.updateFog();
-			}
+				break;
 		}
 
 		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) seal();
