@@ -107,7 +107,7 @@ public class InterlevelScene extends PixelScene {
 	public void create() {
 		super.create();
 
-		if (Dungeon.level != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
+		if (Dungeon.level != null && Dungeon.hero != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
 			Dungeon.level.unseal();
 		}
 
