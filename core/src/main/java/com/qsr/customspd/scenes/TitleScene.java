@@ -160,9 +160,9 @@ public class TitleScene extends PixelScene {
 		btnBadges.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_BADGES)));
 		add(btnBadges);
 
-		StyledButton btnNews = new NewsButton(GREY_TR, Messages.get(this, "news"));
-		btnNews.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)));
-		add(btnNews);
+		StyledButton btnGuides = new GuidesButton(GREY_TR, Messages.get(this, "guides"));
+		btnGuides.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)));
+		add(btnGuides);
 
 		StyledButton btnChanges = new ChangesButton(GREY_TR, Messages.get(this, "changes"));
 		btnChanges.icon(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)));
@@ -191,9 +191,9 @@ public class TitleScene extends PixelScene {
 			btnMods.setRect(btnPlay.right()+2, btnPlay.top(), btnPlay.width(), BTN_HEIGHT);
 			btnRankings.setRect(btnPlay.left(), btnPlay.bottom()+ GAP, (btnPlay.width()*.67f)-1, BTN_HEIGHT);
 			btnBadges.setRect(btnRankings.left(), btnRankings.bottom()+GAP, btnRankings.width(), BTN_HEIGHT);
-			btnNews.setRect(btnRankings.right()+2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
-			btnChanges.setRect(btnNews.left(), btnNews.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
-			btnSettings.setRect(btnNews.right()+2, btnNews.top(), btnRankings.width(), BTN_HEIGHT);
+			btnGuides.setRect(btnRankings.right()+2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
+			btnChanges.setRect(btnGuides.left(), btnGuides.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
+			btnSettings.setRect(btnGuides.right()+2, btnGuides.top(), btnRankings.width(), BTN_HEIGHT);
 			btnAbout.setRect(btnSettings.left(), btnSettings.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
 		} else {
 			btnPlay.setRect(title.x, topRegion+GAP, title.width(), BTN_HEIGHT);
@@ -201,9 +201,9 @@ public class TitleScene extends PixelScene {
 			btnMods.setRect(btnPlay.left(), btnPlay.bottom()+ GAP, btnPlay.width(), BTN_HEIGHT);
 			btnRankings.setRect(btnPlay.left(), btnMods.bottom()+ GAP, (btnPlay.width()/2)-1, BTN_HEIGHT);
 			btnBadges.setRect(btnRankings.right()+2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
-			btnNews.setRect(btnRankings.left(), btnRankings.bottom()+ GAP, btnRankings.width(), BTN_HEIGHT);
-			btnChanges.setRect(btnNews.right()+2, btnNews.top(), btnNews.width(), BTN_HEIGHT);
-			btnSettings.setRect(btnNews.left(), btnNews.bottom()+GAP, btnRankings.width(), BTN_HEIGHT);
+			btnGuides.setRect(btnRankings.left(), btnRankings.bottom()+ GAP, btnRankings.width(), BTN_HEIGHT);
+			btnChanges.setRect(btnGuides.right()+2, btnGuides.top(), btnGuides.width(), BTN_HEIGHT);
+			btnSettings.setRect(btnGuides.left(), btnGuides.bottom()+GAP, btnRankings.width(), BTN_HEIGHT);
 			btnAbout.setRect(btnSettings.right()+2, btnSettings.top(), btnSettings.width(), BTN_HEIGHT);
 		}
 
@@ -229,43 +229,34 @@ public class TitleScene extends PixelScene {
 		add( fb );
 	}
 
-	private static class NewsButton extends StyledButton {
+	private static class GuidesButton extends StyledButton {
 
-		public NewsButton(Chrome.Type type, String label ){
+		public GuidesButton(Chrome.Type type, String label ){
 			super(type, label);
-			if (SPDSettings.news()) News.checkForNews();
-		}
-
-		int unreadCount = -1;
-
-		@Override
-		public void update() {
-			super.update();
-
-			if (unreadCount == -1 && News.articlesAvailable()){
-				long lastRead = SPDSettings.newsLastRead();
-				if (lastRead == 0){
-					if (News.articles().get(0) != null) {
-						SPDSettings.newsLastRead(News.articles().get(0).date.getTime());
-					}
-				} else {
-					unreadCount = News.unreadArticles(new Date(SPDSettings.newsLastRead()));
-					if (unreadCount > 0) {
-						unreadCount = Math.min(unreadCount, 9);
-						text(text() + "(" + unreadCount + ")");
-					}
-				}
-			}
-
-			if (unreadCount > 0){
-				textColor(ColorMath.interpolate( 0xFFFFFF, Window.SHPX_COLOR, 0.5f + (float)Math.sin(Game.timeTotal*5)/2f));
-			}
 		}
 
 		@Override
 		protected void onClick() {
 			super.onClick();
-			ShatteredPixelDungeon.switchNoFade( NewsScene.class );
+			ShatteredPixelDungeon.platform.openURI( "https://docs.google.com/document/d/e/2PACX-1vQvjWxI3z9CEp7aAeBzaDi2EBWc-mUOVZ4YbIdIVHvD-L3xq_0ga9PpZkEAxgX2NBaosjqkRssIOSqo/pub" );
+//			ShatteredPixelDungeon.scene().add(new WndOptions(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_NEWS)),
+//				Messages.get(TitleScene.class, "guides"),
+//				Messages.get(TitleScene.class, "guides_desc"),
+//				Messages.get(TitleScene.class, "guides_play"),
+//				Messages.get(TitleScene.class, "guides_create")) {
+//
+//				@Override
+//				protected void onSelect(int index) {
+//					switch (index) {
+//						case 0 -> {
+//
+//						}
+//						case 1 -> {
+//
+//						}
+//					}
+//				}
+//			});
 		}
 	}
 

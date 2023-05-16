@@ -9,6 +9,7 @@ data class DungeonLayout(
     val dungeon: Map<String, LevelScheme>,
     val gold: Int = 0,
     val energy: Int = 0,
+    val bones: Boolean = true,
     @SerialName("rat_king_level") val ratKingLevel: String = "surface",
     @SerialName("ghost_spawn_levels") val ghostSpawnLevels: List<String> = emptyList(),
     @SerialName("wandmaker_spawn_levels") val wandmakerSpawnLevels: List<String> = emptyList(),

@@ -70,6 +70,7 @@ import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Monk;
 import com.qsr.customspd.actors.mobs.Snake;
+import com.qsr.customspd.dungeon.DetectionLevel;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.CheckedCell;
 import com.qsr.customspd.effects.Speck;
@@ -147,7 +148,6 @@ import com.qsr.customspd.scenes.SurfaceScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
-import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.ui.QuickSlotButton;
@@ -2181,22 +2181,42 @@ public class Hero extends Char {
 						Trap trap = Dungeon.level.traps.get( curr );
 						float chance;
 
+						if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+							chance = 0f;
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+							chance = 0f;
+
 						//searches aided by foresight always succeed, even if trap isn't searchable
-						if (foresight){
+						} else if (foresight) {
 							chance = 1f;
+
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+							chance = 0f;
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+							chance = 0f;
 
 						//otherwise if the trap isn't searchable, searching always fails
 						} else if (trap != null && !trap.canBeSearched){
 							chance = 0f;
 
 						//intentional searches always succeed against regular traps and doors
-						} else if (intentional){
+						} else if (intentional) {
 							chance = 1f;
-						
+
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+							chance = 0f;
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+							chance = 0f;
+
 						//unintentional searches always fail with a cursed talisman
 						} else if (cursed) {
 							chance = 0f;
-							
+
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+							chance = 1f;
+						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+							chance = 1f;
+
 						//unintentional trap detection scales from 40% at floor 0 to 30% at floor 25
 						} else if (Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 0.4f - (Dungeon.depth / 250f);

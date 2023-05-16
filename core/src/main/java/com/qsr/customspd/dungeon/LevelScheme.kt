@@ -19,4 +19,8 @@ data class LevelScheme(
     val boss: Boolean = false,
     val shop: Boolean = false,
     @SerialName("price_multiplier") val priceMultiplier: Int = 1,
+    val visibility: LevelVisibility = LevelVisibility.DEFAULT,
+    @SerialName("trap_detection") val trapDetection: DetectionLevel = DetectionLevel.DEFAULT,
+    @SerialName("door_detection") val doorDetection: DetectionLevel = DetectionLevel.DEFAULT,
+    val levelFeeling: String = "random",
 )

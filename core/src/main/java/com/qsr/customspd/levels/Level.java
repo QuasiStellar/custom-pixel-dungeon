@@ -104,7 +104,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public abstract class Level implements Bundlable {
-	
+
 	public static enum Feeling {
 		NONE,
 		CHASM,
@@ -214,40 +214,51 @@ public abstract class Level implements Bundlable {
 			if ( Dungeon.depth == ((Dungeon.seed % 3) + 1)){
 				addItemToSpawn( new StoneOfIntuition() );
 			}
-			
-			if (Dungeon.depth > 1) {
-				//50% chance of getting a level feeling
-				//~7.15% chance for each feeling
-				switch (Random.Int( 14 )) {
-					case 0:
-						feeling = Feeling.CHASM;
-						break;
-					case 1:
-						feeling = Feeling.WATER;
-						break;
-					case 2:
-						feeling = Feeling.GRASS;
-						break;
-					case 3:
-						feeling = Feeling.DARK;
-						addItemToSpawn(new Torch());
-						viewDistance = Math.round(viewDistance/2f);
-						break;
-					case 4:
-						feeling = Feeling.LARGE;
-						addItemToSpawn(Generator.random(Generator.Category.FOOD));
-						//add a second torch to help with the larger floor
-						if (Dungeon.isChallenged(Challenges.DARKNESS)){
-							addItemToSpawn( new Torch() );
+
+			switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLevelFeeling()) {
+				case "random" -> {
+					if (Dungeon.depth > 1) {
+						//50% chance of getting a level feeling
+						//~7.15% chance for each feeling
+						switch (Random.Int( 14 )) {
+							case 0:
+								feeling = Feeling.CHASM;
+								break;
+							case 1:
+								feeling = Feeling.WATER;
+								break;
+							case 2:
+								feeling = Feeling.GRASS;
+								break;
+							case 3:
+								feeling = Feeling.DARK;
+								addItemToSpawn(new Torch());
+								viewDistance = Math.round(viewDistance/2f);
+								break;
+							case 4:
+								feeling = Feeling.LARGE;
+								addItemToSpawn(Generator.random(Generator.Category.FOOD));
+								//add a second torch to help with the larger floor
+								if (Dungeon.isChallenged(Challenges.DARKNESS)){
+									addItemToSpawn( new Torch() );
+								}
+								break;
+							case 5:
+								feeling = Feeling.TRAPS;
+								break;
+							case 6:
+								feeling = Feeling.SECRETS;
+								break;
 						}
-						break;
-					case 5:
-						feeling = Feeling.TRAPS;
-						break;
-					case 6:
-						feeling = Feeling.SECRETS;
-						break;
+					}
 				}
+				case "chasm" -> feeling = Feeling.CHASM;
+				case "water" -> feeling = Feeling.WATER;
+				case "grass" -> feeling = Feeling.GRASS;
+				case "dark" -> feeling = Feeling.DARK;
+				case "large" -> feeling = Feeling.LARGE;
+				case "traps" -> feeling = Feeling.TRAPS;
+				case "secrets" -> feeling = Feeling.SECRETS;
 			}
 		}
 		
@@ -271,6 +282,29 @@ public abstract class Level implements Bundlable {
 		
 		createMobs();
 		createItems();
+
+		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
+			case ONLY_VISIBLE -> {
+				for (int i=0; i < length; i++) {
+					if (discoverable[i]) {
+						visited[i] = true;
+					}
+				}
+				GameScene.updateFog();
+			}
+			case SECRETS -> {
+				for (int i=0; i < length; i++) {
+					int terr = map[i];
+					if (discoverable[i]) {
+						visited[i] = true;
+						if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
+							discover( i );
+						}
+					}
+				}
+				GameScene.updateFog();
+			}
+		}
 
 		Random.popGenerator();
 	}
@@ -847,6 +881,10 @@ public abstract class Level implements Bundlable {
 	public static void set( int cell, int terrain ){
 		set( cell, terrain, Dungeon.level );
 	}
+
+	public void setHere( int cell, int terrain ){
+		set( cell, terrain, this );
+	}
 	
 	public static void set( int cell, int terrain, Level level ) {
 		Painter.set( level, cell, terrain );
@@ -989,7 +1027,7 @@ public abstract class Level implements Bundlable {
 	}
 
 	public void discover( int cell ) {
-		set( cell, Terrain.discover( map[cell] ) );
+		setHere( cell, Terrain.discover( map[cell] ) );
 		Trap trap = traps.get( cell );
 		if (trap != null)
 			trap.reveal();

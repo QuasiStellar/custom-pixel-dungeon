@@ -63,6 +63,21 @@ public class AboutScene extends PixelScene {
 		Component content = list.content();
 		content.clear();
 
+		//*** Custom Pixel Dungeon Credits ***
+
+		String cpdLink = "https://quasistellar.xyz";
+
+		CreditsBlock qsr = new CreditsBlock(true, 0x00FFFF,
+			"Custom Pixel Dungeon",
+			new Image(Asset.getAssetFilePath(GeneralAsset.ICON_QSR)),
+			"Developed by: _QuasiStellar_\nBased on Shattered Pixel Dungeon's open source",
+			"quasistellar.xyz",
+			cpdLink);
+		qsr.setRect((w - fullWidth)/2f, 6, fullWidth, 0);
+		content.add(qsr);
+
+		addLine(qsr.bottom() + 4, content);
+
 		//*** Shattered Pixel Dungeon Credits ***
 
 		String shpxLink = "https://ShatteredPixel.com";
@@ -78,9 +93,9 @@ public class AboutScene extends PixelScene {
 				"ShatteredPixel.com",
 				shpxLink);
 		if (landscape()){
-			shpx.setRect((w - fullWidth)/2f - 6, 10, 120, 0);
+			shpx.setRect((w - fullWidth)/2f - 6, qsr.bottom() + 10, 120, 0);
 		} else {
-			shpx.setRect((w - fullWidth)/2f, 6, 120, 0);
+			shpx.setRect((w - fullWidth)/2f, qsr.bottom() + 6, 120, 0);
 		}
 		content.add(shpx);
 

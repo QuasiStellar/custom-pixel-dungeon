@@ -22,37 +22,28 @@
 package com.qsr.customspd.levels;
 
 import com.qsr.customspd.Assets;
-import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
-import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
-import com.qsr.customspd.actors.mobs.Goo;
+import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.dungeon.CustomLevelLayout;
 import com.qsr.customspd.dungeon.ItemSpawn;
 import com.qsr.customspd.dungeon.MobSpawn;
-import com.qsr.customspd.dungeon.Position;
-import com.qsr.customspd.items.Amulet;
-import com.qsr.customspd.items.Generator;
+import com.qsr.customspd.dungeon.PlantSpawn;
+import com.qsr.customspd.dungeon.TrapSpawn;
 import com.qsr.customspd.items.Item;
-import com.qsr.customspd.items.KindOfWeapon;
-import com.qsr.customspd.items.Stylus;
-import com.qsr.customspd.items.Torch;
 import com.qsr.customspd.items.armor.Armor;
-import com.qsr.customspd.items.potions.PotionOfStrength;
-import com.qsr.customspd.items.scrolls.ScrollOfUpgrade;
-import com.qsr.customspd.items.stones.StoneOfEnchantment;
-import com.qsr.customspd.items.stones.StoneOfIntuition;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.painters.Painter;
-import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.levels.traps.Trap;
 import com.qsr.customspd.modding.ModManager;
+import com.qsr.customspd.plants.Plant;
+import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.tiles.CustomTilemap;
-import com.qsr.customspd.tiles.DungeonTileSheet;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.Group;
 import com.watabou.noosa.Tilemap;
@@ -63,7 +54,6 @@ import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 import com.watabou.utils.SparseArray;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -199,6 +189,29 @@ public class CustomLevel extends Level {
 		createMobs();
 		createItems();
 
+		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
+			case ONLY_VISIBLE -> {
+				for (int i=0; i < length; i++) {
+					if (discoverable[i]) {
+						visited[i] = true;
+					}
+				}
+				GameScene.updateFog();
+			}
+			case SECRETS -> {
+				for (int i=0; i < length; i++) {
+					int terr = map[i];
+					if (discoverable[i]) {
+						visited[i] = true;
+						if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
+							discover( i );
+						}
+					}
+				}
+				GameScene.updateFog();
+			}
+		}
+
 		Random.popGenerator();
 	}
 
@@ -239,6 +252,26 @@ public class CustomLevel extends Level {
 			customWalls.add(walls);
 		}
 
+		for (TrapSpawn trap : layout.getOpenTraps()) {
+			if (map[trap.getX() + trap.getY() * width] != Terrain.TRAP) continue;
+			setTrap(((Trap) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels.traps." + trap.getType()))).reveal(), trap.getX() + trap.getY() * width);
+		}
+
+		for (TrapSpawn trap : layout.getHiddenTraps()) {
+			if (map[trap.getX() + trap.getY() * width] != Terrain.SECRET_TRAP) continue;
+			setTrap(((Trap) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels.traps." + trap.getType()))), trap.getX() + trap.getY() * width);
+		}
+
+		for (TrapSpawn trap : layout.getDisarmedTraps()) {
+			if (map[trap.getX() + trap.getY() * width] != Terrain.INACTIVE_TRAP) continue;
+			setTrap(((Trap) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels.traps." + trap.getType()))), trap.getX() + trap.getY() * width);
+			disarmTrap(trap.getX() + trap.getY() * width);
+		}
+
+		for (PlantSpawn plant : layout.getPlants()) {
+			plant(((Plant.Seed) Reflection.newInstance(Reflection.forName("com.qsr.customspd.plants." + plant.getType() + "$Seed"))), plant.getX() + plant.getY() * width);
+		}
+
 		return true;
 	}
 
@@ -251,6 +284,18 @@ public class CustomLevel extends Level {
 			if (mobSpawn.getAlignment() != null) mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
 			if (mobSpawn.getHp() != null) {
 				mob.HP = mobSpawn.getHp();
+			}
+			if (mobSpawn.getChampion() != null) {
+				Buff.affect(mob, Reflection.forName("com.qsr.customspd.actors.buffs.ChampionEnemy$" + mobSpawn.getChampion()));
+			}
+			if (mobSpawn.getAiState() != null) {
+				switch (mobSpawn.getAiState().toUpperCase()) {
+					case "SLEEPING" -> mob.state = mob.SLEEPING;
+					case "HUNTING" -> mob.state = mob.HUNTING;
+					case "WANDERING" -> mob.state = mob.WANDERING;
+					case "FLEEING" -> mob.state = mob.FLEEING;
+					case "PASSIVE" -> mob.state = mob.PASSIVE;
+				}
 			}
 			mobs.add(mob);
 		}

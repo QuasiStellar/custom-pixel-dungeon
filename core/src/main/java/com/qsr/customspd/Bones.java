@@ -148,7 +148,7 @@ public class Bones {
 
 		} else {
 			//heroes who are challenged or on a seeded run cannot find bones
-			if (level.equals(Dungeon.levelName) && Dungeon.challenges == 0 && Dungeon.customSeedText.isEmpty()) {
+			if (level.equals(Dungeon.levelName) && Dungeon.challenges == 0 && Dungeon.customSeedText.isEmpty() && Dungeon.layout().getBones()) {
 				Bundle emptyBones = new Bundle();
 				emptyBones.put(LEVEL, 0);
 				try {
