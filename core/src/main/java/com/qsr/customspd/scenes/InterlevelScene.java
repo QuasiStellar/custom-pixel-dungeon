@@ -107,6 +107,10 @@ public class InterlevelScene extends PixelScene {
 	public void create() {
 		super.create();
 
+		if (Dungeon.level != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
+			Dungeon.level.unseal();
+		}
+
 		String loadingAsset;
 		int loadingDepth;
 		final float scrollSpeed;
@@ -280,6 +284,10 @@ public class InterlevelScene extends PixelScene {
 					if (phase == Phase.STATIC && error == null) {
 						phase = Phase.FADE_OUT;
 						timeLeft = fadeTime;
+					}
+
+					if (Dungeon.level != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
+						Dungeon.level.seal();
 					}
 				}
 			};

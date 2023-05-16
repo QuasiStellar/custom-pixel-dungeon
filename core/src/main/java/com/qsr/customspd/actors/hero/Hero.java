@@ -1152,7 +1152,7 @@ public class Hero extends Char {
 			Camera.main.shake(1, 1f);
 			ready();
 			return false;
-		} else if (!Dungeon.level.locked && transition != null && transition.inside(pos)) {
+		} else if (transition != null && transition.inside(pos)) {
 
 			if (transition.type == LevelTransition.Type.SURFACE){
 				if (belongings.getItem( Amulet.class ) == null) {
@@ -1645,8 +1645,7 @@ public class Hero extends Char {
 			
 		} else if (Dungeon.level.getTransition(cell) != null
 				//moving to a transition doesn't automatically trigger it when enemies are near
-				&& (visibleEnemies.size() == 0 || cell == pos)
-				&& !Dungeon.level.locked) {
+				&& (visibleEnemies.size() == 0 || cell == pos)) {
 
 			curAction = new HeroAction.LvlTransition( cell );
 			

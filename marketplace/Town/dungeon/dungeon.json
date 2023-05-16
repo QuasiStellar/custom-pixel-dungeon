@@ -1,7 +1,7 @@
 {
-  "start": "City",
+  "start": "Town",
   "dungeon": {
-	"City": {
+	"Town": {
       "depth": 0,
       "type": "custom",
       "custom_layout": {
@@ -62,12 +62,6 @@
 			"x": 28,
 			"y": 3
 		  }
-		],
-		"items": [
-		  
-		],
-		"mobs": [
-		  
 		]
 	  },
       "entrances": [
@@ -77,14 +71,15 @@
         "1"
       ],
       "chasm": "1",
-      "passage": "City"
+      "passage": "Town",
+      "locked": true
     },
     "1": {
       "depth": 1,
       "type": "regular",
       "layout": "SewerLevel",
       "entrances": [
-        "City"
+        "Town"
       ],
       "exits": [
         "2"

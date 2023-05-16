@@ -212,6 +212,8 @@ public class CustomLevel extends Level {
 			}
 		}
 
+		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) seal();
+
 		Random.popGenerator();
 	}
 
