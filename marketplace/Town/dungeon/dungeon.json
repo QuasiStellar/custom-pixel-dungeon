@@ -62,6 +62,150 @@
 			"x": 28,
 			"y": 3
 		  }
+		],
+		"items": [
+		  {
+			"x": 19,
+			"y": 19,
+			"type": "Torch",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 20,
+			"y": 19,
+			"type": "armor.ClothArmor",
+			"level": 1,
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 21,
+			"y": 19,
+			"category": "MIS_T1",
+			"heap_type": "FOR_SALE",
+			"level": 1,
+			"quantity": 2,
+			"identified": true
+		  },
+		  {
+			"x": 22,
+			"y": 19,
+			"category": "WEP_T1",
+			"heap_type": "FOR_SALE",
+			"level": 1,
+			"cursed": false,
+			"enchantment": "none"
+		  },
+		  {
+			"x": 23,
+			"y": 19,
+			"type": "weapon.missiles.darts.TippedDart",
+			"heap_type": "FOR_SALE",
+			"quantity": 2
+		  },
+		  {
+			"x": 23,
+			"y": 20,
+			"type": "spells.Alchemize",
+			"heap_type": "FOR_SALE",
+			"quantity_min": 2,
+			"quantity_max": 3
+		  },
+		  {
+			"x": 23,
+			"y": 21,
+			"type": "potions.PotionOfHealing",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 23,
+			"y": 22,
+			"category": "POTION",
+			"ignore_deck": true,
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 23,
+			"y": 23,
+			"category": "POTION",
+			"ignore_deck": true,
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 19,
+			"y": 20,
+			"type": "scrolls.ScrollOfIdentify",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 19,
+			"y": 21,
+			"type": "scrolls.ScrollOfRemoveCurse",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 19,
+			"y": 22,
+			"type": "scrolls.ScrollOfMagicMapping",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 19,
+			"y": 23,
+			"category": "POTION",
+			"ignore_deck": true,
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 20,
+			"y": 23,
+			"category": "SCROLL",
+			"ignore_deck": true,
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 22,
+			"y": 23,
+			"type": "food.SmallRation",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 20,
+			"y": 20,
+			"type": "food.SmallRation",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 21,
+			"y": 20,
+			"type": "stones.StoneOfAugmentation",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 22,
+			"y": 20,
+			"type": "Ankh",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 20,
+			"y": 22,
+			"type": "bombs.Bomb",
+			"heap_type": "FOR_SALE"
+		  },
+		  {
+			"x": 22,
+			"y": 22,
+			"type": "Stylus",
+			"heap_type": "FOR_SALE"
+		  }
+		],
+		"shuffle_items": true,
+		"mobs": [
+		  {
+			"x": 21,
+			"y": 21,
+			"type": "npcs.Shopkeeper"
+		  }
 		]
 	  },
       "entrances": [
