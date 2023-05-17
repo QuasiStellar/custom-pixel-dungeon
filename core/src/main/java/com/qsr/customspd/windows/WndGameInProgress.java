@@ -124,7 +124,15 @@ public class WndGameInProgress extends Window {
 				super.onClick();
 
 				if (!Arrays.equals(info.gameplayMods, ModManager.INSTANCE.getEnabledGameplayModNames().toArray(new String[0]))) {
-					ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "gameplay", Arrays.toString(info.gameplayMods))));
+					String currentMods = Arrays.toString(ModManager.INSTANCE.getEnabledGameplayModNames().toArray(new String[0]));
+					String runMods = Arrays.toString(info.gameplayMods);
+					if (info.gameplayMods.length == 0) {
+						ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "no_gameplay_run", currentMods.substring(1, currentMods.length() - 1))));
+					} else if (ModManager.INSTANCE.getEnabledGameplayModNames().size() == 0) {
+						ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "no_gameplay_current", runMods.substring(1, runMods.length() - 1))));
+					} else {
+						ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndMods.class, "gameplay", runMods.substring(1, runMods.length() - 1), currentMods.substring(1, currentMods.length() - 1))));
+					}
 					return;
 				}
 
