@@ -14,6 +14,7 @@ data class CustomLevelLayout(
     val entrances: List<Position> = emptyList(),
     val exits: List<Position> = emptyList(),
     val items: List<ItemSpawn> = emptyList(),
+    @SerialName("shuffle_items") val shuffleItems: Boolean = false,
     val mobs: List<MobSpawn> = emptyList(),
     @SerialName("open_traps") val openTraps: List<TrapSpawn> = emptyList(),
     @SerialName("hidden_traps") val hiddenTraps: List<TrapSpawn> = emptyList(),

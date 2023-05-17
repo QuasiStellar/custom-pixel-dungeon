@@ -40,6 +40,7 @@ import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.keys.Key;
 import com.qsr.customspd.items.weapon.Weapon;
+import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.levels.features.LevelTransition;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.traps.Trap;
@@ -57,6 +58,7 @@ import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 import com.watabou.utils.SparseArray;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -312,24 +314,49 @@ public class CustomLevel extends Level {
 
 	@Override
 	protected void createItems() {
-		for (ItemSpawn itemSpawn : layout.getItems()) {
-			int pos = itemSpawn.getX() + itemSpawn.getY() * layout.getWidth();
+		List<ItemSpawn> itemsToSpawn = new ArrayList<>(layout.getItems());
+		if (layout.getShuffleItems()) Collections.shuffle(itemsToSpawn);
+		for (int i = 0; i < itemsToSpawn.size(); i++) {
+			ItemSpawn itemSpawn = itemsToSpawn.get(i);
+			int pos = layout.getItems().get(i).getX() + layout.getItems().get(i).getY() * layout.getWidth();
 			Item item;
 			try {
 				Generator.Category category = Generator.Category.valueOf(itemSpawn.getCategory());
-				item = Generator.random(category);
-			} catch (Exception e) {
-				item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
+				if (itemSpawn.getIgnoreDeck()) {
+					item = Generator.randomUsingDefaults(category);
+				} else {
+					item = Generator.random(category);
+				}
+			} catch (IllegalArgumentException | NullPointerException e) {
+				if (itemSpawn.getType().equals("weapon.missiles.darts.TippedDart")) {
+					item = TippedDart.randomTipped(1);
+				} else {
+					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
+				}
 			}
 			item.quantity(itemSpawn.getQuantity());
+			if (itemSpawn.getQuantityMin() != null && itemSpawn.getQuantityMax() != null) {
+				item.quantity(Random.IntRange(itemSpawn.getQuantityMin(), itemSpawn.getQuantityMax()));
+			}
 			item.level(itemSpawn.getLevel());
-			if (itemSpawn.getIdentified()) item.identify();
-			if (itemSpawn.getCursed()) item.cursed = true;
+			if (itemSpawn.getIdentified()) {
+				item.identify(itemSpawn.getHeapType() == null || Heap.Type.valueOf(itemSpawn.getHeapType()) != Heap.Type.FOR_SALE);
+			}
+			if (Boolean.TRUE.equals(itemSpawn.getCursed())) item.cursed = true;
+			if (Boolean.FALSE.equals(itemSpawn.getCursed())) item.cursed = false;
 			if (itemSpawn.getEnchantment() != null) {
 				if (item instanceof Armor) {
-					((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + itemSpawn.getEnchantment())));
+					if (itemSpawn.getEnchantment().equals("none")) {
+						((Armor) item).inscribe(null);
+					} else {
+						((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + itemSpawn.getEnchantment())));
+					}
 				} else if (item instanceof Weapon) {
-					((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + itemSpawn.getEnchantment())));
+					if (itemSpawn.getEnchantment().equals("none")) {
+						((Weapon) item).enchant(null);
+					} else {
+						((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + itemSpawn.getEnchantment())));
+					}
 				}
 			}
 			if (item instanceof Key) {
