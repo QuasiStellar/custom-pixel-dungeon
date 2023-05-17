@@ -599,6 +599,7 @@ enum class GeneralAsset(override val path: String) : Asset {
     ICON_WARRIOR("interfaces/icons/warrior.png"),
     ICON_WATA("interfaces/icons/wata.png"),
     ICON_QSR("interfaces/icons/qsr.png"),
+    ICON_DISCORD("interfaces/icons/discord.png"),
 
     LOADING_SEWERS("interfaces/loading_sewers.png"),
     LOADING_PRISON("interfaces/loading_prison.png"),

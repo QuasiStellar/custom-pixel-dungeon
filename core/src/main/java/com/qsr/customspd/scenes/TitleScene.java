@@ -33,11 +33,11 @@ import com.qsr.customspd.effects.Fireball;
 import com.qsr.customspd.messages.Languages;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.TileMapCompilationManager;
-import com.qsr.customspd.services.news.News;
 import com.qsr.customspd.services.updates.AvailableUpdateData;
 import com.qsr.customspd.services.updates.Updates;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.ui.Archs;
+import com.qsr.customspd.ui.DiscordButton;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
@@ -114,7 +114,12 @@ public class TitleScene extends PixelScene {
 		add( signs );
 
 		final Chrome.Type GREY_TR = Chrome.Type.GREY_BUTTON_TR;
-		
+
+		DiscordButton btnDiscord = new DiscordButton();
+		btnDiscord.setPos(5, 5);
+		btnDiscord.updateSize();
+		add(btnDiscord);
+
 		StyledButton btnPlay = new StyledButton(GREY_TR, Messages.get(this, "enter")){
 			@Override
 			protected void onClick() {
