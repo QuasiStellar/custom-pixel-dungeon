@@ -24,4 +24,6 @@ data class LevelScheme(
     @SerialName("door_detection") val doorDetection: DetectionLevel = DetectionLevel.DEFAULT,
     val levelFeeling: String = "random",
     val locked: Boolean = false,
+    @SerialName("extra_items") val extraItems: List<ExtraItemSpawn> = emptyList(),
+    @SerialName("extra_mobs") val extraMobs: List<ExtraMobSpawn> = emptyList(),
 )

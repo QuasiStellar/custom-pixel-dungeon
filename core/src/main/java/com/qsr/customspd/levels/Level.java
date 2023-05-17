@@ -524,12 +524,12 @@ public abstract class Level implements Bundlable {
 		return m;
 	}
 
-	abstract protected void createMobs();
-
-	protected void createItems() {
+	protected void createMobs() {
 		if (Dungeon.levelName.equals(Dungeon.ghostLevel)) Ghost.Quest.spawn( this );
 		if (Dungeon.levelName.equals(Dungeon.impLevel)) Imp.Quest.spawn( this );
 	}
+
+	abstract protected void createItems();
 
 	public int entrance(){
 		LevelTransition l = getTransition(null);

@@ -37,9 +37,13 @@ import com.qsr.customspd.actors.mobs.Statue;
 import com.qsr.customspd.actors.mobs.npcs.Blacksmith;
 import com.qsr.customspd.actors.mobs.npcs.Ghost;
 import com.qsr.customspd.actors.mobs.npcs.Wandmaker;
+import com.qsr.customspd.dungeon.ExtraItemSpawn;
+import com.qsr.customspd.dungeon.ExtraMobSpawn;
+import com.qsr.customspd.dungeon.ItemSpawn;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
+import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.artifacts.Artifact;
 import com.qsr.customspd.items.artifacts.DriedRose;
 import com.qsr.customspd.items.food.SmallRation;
@@ -48,6 +52,8 @@ import com.qsr.customspd.items.journal.GuidePage;
 import com.qsr.customspd.items.journal.RegionLorePage;
 import com.qsr.customspd.items.keys.GoldenKey;
 import com.qsr.customspd.items.keys.Key;
+import com.qsr.customspd.items.weapon.Weapon;
+import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.journal.Document;
 import com.qsr.customspd.journal.Notes;
 import com.qsr.customspd.levels.builders.Builder;
@@ -75,11 +81,13 @@ import com.qsr.customspd.levels.traps.WornDartTrap;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
+import com.watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 
 public abstract class RegularLevel extends Level {
 	
@@ -215,6 +223,9 @@ public abstract class RegularLevel extends Level {
 	
 	@Override
 	protected void createMobs() {
+
+		super.createMobs();
+
 		//on floor 1, 8 pre-set mobs are created so the player can get level 2.
 		int mobsToSpawn = Dungeon.depth == 1 ? 8 : mobLimit();
 
@@ -269,6 +280,58 @@ public abstract class RegularLevel extends Level {
 						mobs.add(mob);
 					}
 				}
+			}
+		}
+
+		for (ExtraMobSpawn mobSpawn : Dungeon.layout().getDungeon().get(Dungeon.levelName).getExtraMobs()) {
+			Mob mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
+			if (mobSpawn.getAlignment() != null) mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
+			if (mobSpawn.getHp() != null) {
+				mob.HP = mobSpawn.getHp();
+			}
+			if (mobSpawn.getChampion() != null) {
+				Buff.affect(mob, Reflection.forName("com.qsr.customspd.actors.buffs.ChampionEnemy$" + mobSpawn.getChampion()));
+			}
+			if (mobSpawn.getAiState() != null) {
+				switch (mobSpawn.getAiState().toUpperCase()) {
+					case "SLEEPING":
+						mob.state = mob.SLEEPING;
+						break;
+					case "HUNTING":
+						mob.state = mob.HUNTING;
+						break;
+					case "WANDERING":
+						mob.state = mob.WANDERING;
+						break;
+					case "FLEEING":
+						mob.state = mob.FLEEING;
+						break;
+					case "PASSIVE":
+						mob.state = mob.PASSIVE;
+						break;
+				}
+			}
+
+			Room roomToSpawn;
+
+			if (!stdRoomIter.hasNext()) {
+				stdRoomIter = stdRooms.iterator();
+			}
+			roomToSpawn = stdRoomIter.next();
+
+			int tries = 30;
+			do {
+				mob.pos = pointToCell(roomToSpawn.random());
+				tries--;
+			} while (tries >= 0 && (findMob(mob.pos) != null
+				|| !passable[mob.pos]
+				|| solid[mob.pos]
+				|| !roomToSpawn.canPlaceCharacter(cellToPoint(mob.pos), this)
+				|| mob.pos == exit()
+				|| (!openSpace[mob.pos] && mob.properties().contains(Char.Property.LARGE))));
+
+			if (tries >= 0) {
+				mobs.add(mob);
 			}
 		}
 
@@ -343,8 +406,6 @@ public abstract class RegularLevel extends Level {
 	@Override
 	protected void createItems() {
 
-		super.createItems();
-		
 		// drops 3/4/5 items 60%/30%/10% of the time
 		int nItems = 3 + Random.chances(new float[]{6, 3, 1});
 
@@ -406,6 +467,69 @@ public abstract class RegularLevel extends Level {
 				}
 			}
 			
+		}
+
+		for (ExtraItemSpawn itemSpawn : Dungeon.layout().getDungeon().get(Dungeon.levelName).getExtraItems()) {
+			int pos = randomDropCell();
+			Item item;
+			try {
+				Generator.Category category = Generator.Category.valueOf(itemSpawn.getCategory());
+				if (itemSpawn.getIgnoreDeck()) {
+					item = Generator.randomUsingDefaults(category);
+				} else {
+					item = Generator.random(category);
+				}
+			} catch (IllegalArgumentException | NullPointerException e) {
+				if (itemSpawn.getType().equals("weapon.missiles.darts.TippedDart")) {
+					item = TippedDart.randomTipped(1);
+				} else {
+					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
+				}
+			}
+			item.quantity(itemSpawn.getQuantity());
+			if (itemSpawn.getQuantityMin() != null && itemSpawn.getQuantityMax() != null) {
+				item.quantity(Random.IntRange(itemSpawn.getQuantityMin(), itemSpawn.getQuantityMax()));
+			}
+			item.level(itemSpawn.getLevel());
+			if (itemSpawn.getIdentified()) {
+				item.identify(itemSpawn.getHeapType() == null || Heap.Type.valueOf(itemSpawn.getHeapType()) != Heap.Type.FOR_SALE);
+			}
+			if (Boolean.TRUE.equals(itemSpawn.getCursed())) item.cursed = true;
+			if (Boolean.FALSE.equals(itemSpawn.getCursed())) item.cursed = false;
+			if (itemSpawn.getEnchantment() != null) {
+				if (item instanceof Armor) {
+					if (itemSpawn.getEnchantment().equals("none")) {
+						((Armor) item).inscribe(null);
+					} else {
+						((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + itemSpawn.getEnchantment())));
+					}
+				} else if (item instanceof Weapon) {
+					if (itemSpawn.getEnchantment().equals("none")) {
+						((Weapon) item).enchant(null);
+					} else {
+						((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + itemSpawn.getEnchantment())));
+					}
+				}
+			}
+			if (item instanceof Key) {
+				if (itemSpawn.getLevelName() == null) {
+					((Key) item).levelName = Dungeon.levelName;
+				} else {
+					((Key) item).levelName = itemSpawn.getLevelName();
+				}
+			}
+			Heap dropped = drop(item, pos);
+			if (itemSpawn.getHeapType() != null) {
+				Heap.Type type = Heap.Type.valueOf(itemSpawn.getHeapType());
+				dropped.type = type;
+				if (type == Heap.Type.SKELETON){
+					dropped.setHauntedIfCursed();
+				}
+			}
+			if (map[pos] == Terrain.HIGH_GRASS || map[pos] == Terrain.FURROWED_GRASS) {
+				map[pos] = Terrain.GRASS;
+				losBlocking[pos] = false;
+			}
 		}
 
 		for (Item item : itemsToSpawn) {

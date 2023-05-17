@@ -274,6 +274,9 @@ public class CustomLevel extends Level {
 
 	@Override
 	protected void createMobs() {
+
+		super.createMobs();
+
 		for (MobSpawn mobSpawn : layout.getMobs()) {
 			int pos = mobSpawn.getX() + mobSpawn.getY() * layout.getWidth();
 			Mob mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
