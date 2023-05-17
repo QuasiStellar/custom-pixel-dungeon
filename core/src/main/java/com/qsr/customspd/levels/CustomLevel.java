@@ -34,6 +34,8 @@ import com.qsr.customspd.dungeon.ItemSpawn;
 import com.qsr.customspd.dungeon.MobSpawn;
 import com.qsr.customspd.dungeon.PlantSpawn;
 import com.qsr.customspd.dungeon.TrapSpawn;
+import com.qsr.customspd.items.Generator;
+import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.keys.Key;
@@ -312,7 +314,13 @@ public class CustomLevel extends Level {
 	protected void createItems() {
 		for (ItemSpawn itemSpawn : layout.getItems()) {
 			int pos = itemSpawn.getX() + itemSpawn.getY() * layout.getWidth();
-			Item item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
+			Item item;
+			try {
+				Generator.Category category = Generator.Category.valueOf(itemSpawn.getCategory());
+				item = Generator.random(category);
+			} catch (Exception e) {
+				item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
+			}
 			item.quantity(itemSpawn.getQuantity());
 			item.level(itemSpawn.getLevel());
 			if (itemSpawn.getIdentified()) item.identify();
@@ -331,7 +339,14 @@ public class CustomLevel extends Level {
 					((Key) item).levelName = itemSpawn.getLevelName();
 				}
 			}
-			drop(item, pos);
+			Heap dropped = drop(item, pos);
+			if (itemSpawn.getHeapType() != null) {
+				Heap.Type type = Heap.Type.valueOf(itemSpawn.getHeapType());
+				dropped.type = type;
+				if (type == Heap.Type.SKELETON){
+					dropped.setHauntedIfCursed();
+				}
+			}
 		}
 	}
 
