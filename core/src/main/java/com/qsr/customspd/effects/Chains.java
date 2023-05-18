@@ -72,7 +72,7 @@ public class Chains extends Group {
 
 		chains = new Image[numChains];
 		for (int i = 0; i < chains.length; i++){
-			chains[i] = image;
+			chains[i] = new Image(image);
 			chains[i].angle = rotation;
 			chains[i].origin.set( chains[i].width()/ 2, chains[i].height() );
 			add(chains[i]);
