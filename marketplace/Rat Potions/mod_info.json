@@ -5,5 +5,5 @@
 	"author": "ivy",
 	"license": "GPLv3",
 	"gameplay_mod": false,
-	"min_cpd_version": 1
+	"min_cpd_version": 3
 }
