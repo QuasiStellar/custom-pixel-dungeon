@@ -41,6 +41,7 @@ import com.qsr.customspd.ui.DiscordButton;
 import com.qsr.customspd.ui.ExitButton;
 import com.qsr.customspd.ui.StyledButton;
 import com.qsr.customspd.ui.Window;
+import com.qsr.customspd.windows.WndHardNotification;
 import com.qsr.customspd.windows.WndMessage;
 import com.qsr.customspd.windows.WndMods;
 import com.qsr.customspd.windows.WndOptions;
@@ -284,6 +285,18 @@ public class TitleScene extends PixelScene {
 
 			if (!updateShown && (Updates.updateAvailable() || Updates.isInstallable())){
 				updateShown = true;
+
+				ShatteredPixelDungeon.scene().addToFront(new WndHardNotification(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)),
+					Messages.get(TitleScene.class, "update_title"),
+					Messages.get(TitleScene.class, "update_body"),
+					Messages.get(TitleScene.class, "update_okay"),
+					5){
+					@Override
+					public void onBackPressed() {
+						//do nothing, must press the okay button
+					}
+				});
+
 				if (Updates.isInstallable())    text(Messages.get(TitleScene.class, "install"));
 				else                            text(Messages.get(TitleScene.class, "update"));
 			}
