@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.files.FileHandle
 import com.qsr.customspd.utils.Archiver
 import com.qsr.customspd.utils.Network
+import com.watabou.noosa.Game
 import com.watabou.utils.Bundle
 import com.watabou.utils.FileUtils
 import io.ktor.client.request.get
@@ -72,7 +73,7 @@ object ModManager {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun getMarketplaceMods() = GlobalScope.launch {
+    fun receiveMarketplaceInfo() = GlobalScope.launch {
 
         if (_marketplaceMods.value.isNotEmpty()) return@launch
 
@@ -99,10 +100,12 @@ object ModManager {
                     }
                 },
             )
-        }.also {
-            getFileHandle(SUMMARY_PATH).deleteDirectory()
-            _marketplaceMods.emit(it)
         }
+            .filter { it.info.minCpdVersion <= Game.versionCode }
+            .also {
+                getFileHandle(SUMMARY_PATH).deleteDirectory()
+                _marketplaceMods.emit(it)
+            }
     }
 
     private fun getFileHandle(path: String): FileHandle =
@@ -130,7 +133,7 @@ object ModManager {
                 null
             }
         }
-    }.sortedBy { it.info.name }
+    }.filter { it.info.minCpdVersion <= Game.versionCode }.sortedBy { it.info.name }
 
     fun getInstalledModNames(): List<String> = storage.list().map { it.name() }.sortedBy { it }
 
@@ -140,8 +143,6 @@ object ModManager {
     }
 
     fun getEnabledMods(): List<Mod> = getEnabledModsWithoutSaving().also { saveToEnabled(it) }
-
-    fun getEnabledModNames(): List<String> = getEnabledModsWithoutSaving().map { it.info.name }
 
     fun getEnabledGameplayModNames(): List<String> = getEnabledModsWithoutSaving().filter { it.info.gameplayMod }.map { it.info.name }
 

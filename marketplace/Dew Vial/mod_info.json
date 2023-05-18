@@ -4,5 +4,6 @@
 	"description": "Leather waterskins are out of style...",
 	"author": "QuasiStellar",
 	"license": "GPLv3",
-	"gameplay_mod": false
+	"gameplay_mod": false,
+	"min_cpd_version": 1
 }

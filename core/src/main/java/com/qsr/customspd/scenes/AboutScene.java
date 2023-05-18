@@ -31,8 +31,10 @@ import com.qsr.customspd.ui.RenderedTextBlock;
 import com.qsr.customspd.ui.ScrollPane;
 import com.qsr.customspd.ui.Window;
 import com.watabou.input.PointerEvent;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.ColorBlock;
+import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.PointerArea;
@@ -264,7 +266,14 @@ public class AboutScene extends PixelScene {
 		freesound.setRect(transifex.left()-10, transifex.bottom() + 8, colWidth+20, 0);
 		content.add(freesound);
 
-		content.setSize( fullWidth, freesound.bottom()+10 );
+		BitmapText internalVersion = new BitmapText(String.valueOf(Game.versionCode), pixelFont);
+		internalVersion.measure();
+		internalVersion.hardlight( 0x888888 );
+		internalVersion.x = w / 2f - internalVersion.width() / 2f;
+		internalVersion.y = freesound.bottom() + 5;
+		content.add( internalVersion );
+
+		content.setSize( fullWidth, internalVersion.y + internalVersion.height() + 10 );
 
 		list.setRect( 0, 0, w, h );
 		list.scrollTo(0, 0);

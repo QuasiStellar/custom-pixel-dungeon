@@ -4,5 +4,6 @@
 	"description": "Furrowed vegetation now has a realistic yellow tone inherent in dried grass.",
 	"author": "QuasiStellar",
 	"license": "GPLv3",
-	"gameplay_mod": false
+	"gameplay_mod": false,
+	"min_cpd_version": 1
 }

@@ -3,5 +3,6 @@
 	"version": 1,
 	"description": "The newest consignment of potion bottles commissioned by the Rat King Himself!",
 	"author": "ivy",
-	"license": "GPLv3"
+	"license": "GPLv3",
+	"min_cpd_version": 1
 }

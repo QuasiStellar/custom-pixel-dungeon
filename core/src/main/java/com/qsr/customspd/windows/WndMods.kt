@@ -250,7 +250,7 @@ class WndMods : WndTabbed() {
                 }
             } ?: run {
                 loadingText.alpha(1f)
-                ModManager.getMarketplaceMods()
+                ModManager.receiveMarketplaceInfo()
             }
         }
     }

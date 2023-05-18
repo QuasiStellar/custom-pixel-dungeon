@@ -4,5 +4,6 @@
 	"description": "Adds Hollow Knight landscapes to your dungeon!",
 	"author": "QuasiStellar",
 	"license": "GPLv3",
-	"gameplay_mod": false
+	"gameplay_mod": false,
+	"min_cpd_version": 1
 }
