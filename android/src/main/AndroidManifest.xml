@@ -18,7 +18,6 @@
 	<!-- Note that the game doesn't truly support small screen resolutions,
 		it instead forces downscaling to work on these displays.-->
 	<supports-screens
-		android:smallScreens="true"
 		android:normalScreens="true"
 		android:largeScreens="true"
 		android:xlargeScreens="true"/>
