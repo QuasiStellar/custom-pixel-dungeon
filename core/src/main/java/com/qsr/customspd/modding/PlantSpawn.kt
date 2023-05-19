@@ -1,4 +1,4 @@
-package com.qsr.customspd.dungeon
+package com.qsr.customspd.modding
 
 import kotlinx.serialization.Serializable
 

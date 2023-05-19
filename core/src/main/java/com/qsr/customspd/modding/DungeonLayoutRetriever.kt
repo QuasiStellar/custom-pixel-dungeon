@@ -1,6 +1,5 @@
-package com.qsr.customspd.dungeon
+package com.qsr.customspd.modding
 
-import com.qsr.customspd.modding.ModManager
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.decodeFromString
 

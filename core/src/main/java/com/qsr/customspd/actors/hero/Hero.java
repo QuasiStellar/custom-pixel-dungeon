@@ -70,7 +70,7 @@ import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Monk;
 import com.qsr.customspd.actors.mobs.Snake;
-import com.qsr.customspd.dungeon.DetectionLevel;
+import com.qsr.customspd.modding.DetectionLevel;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.CheckedCell;
 import com.qsr.customspd.effects.Speck;

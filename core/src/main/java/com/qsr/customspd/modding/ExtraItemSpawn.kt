@@ -1,12 +1,10 @@
-package com.qsr.customspd.dungeon
+package com.qsr.customspd.modding
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ItemSpawn(
-    val x: Int,
-    val y: Int,
+data class ExtraItemSpawn(
     val type: String? = null,
     val category: String? = null,
     @SerialName("ignore_deck") val ignoreDeck: Boolean = false,

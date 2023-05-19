@@ -1,12 +1,10 @@
-package com.qsr.customspd.dungeon
+package com.qsr.customspd.modding
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MobSpawn(
-    val x: Int,
-    val y: Int,
+data class ExtraMobSpawn(
     val type: String,
     val hp: Int? = null,
     val alignment: String? = null,

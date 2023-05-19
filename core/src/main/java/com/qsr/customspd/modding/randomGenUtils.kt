@@ -1,5 +1,5 @@
 @file:JvmName("RandomGenUtils")
-package com.qsr.customspd.dungeon
+package com.qsr.customspd.modding
 
 fun calculateLevels(distributions: List<ItemDistribution>) =
     distributions.flatMap { it.levels.asSequence().shuffled().take(it.quantity) }.toTypedArray()
