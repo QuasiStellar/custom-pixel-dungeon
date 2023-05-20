@@ -97,7 +97,7 @@ public class Pickaxe extends MeleeWeapon {
 		
 		if (action.equals(AC_MINE)) {
 			
-			if (Dungeon.level instanceof CavesLevel || Dungeon.level instanceof CavesBossLevel) {
+			if (!(Dungeon.level instanceof CavesLevel || Dungeon.level instanceof CavesBossLevel)) {
 				GLog.w( Messages.get(this, "no_vein") );
 				return;
 			}
