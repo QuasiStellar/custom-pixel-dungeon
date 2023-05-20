@@ -435,6 +435,7 @@
       "chasm": "21",
       "passage": "16",
       "boss": true,
+      "price_multiplier": 5,
       "bestiary": [
         "Elemental",
         "Warlock",
