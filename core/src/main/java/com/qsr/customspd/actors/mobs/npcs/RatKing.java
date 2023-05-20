@@ -78,14 +78,14 @@ public class RatKing extends NPC {
 	@Override
 	protected void onAdd() {
 		super.onAdd();
-		if (!Dungeon.levelName.equals(Dungeon.layout().getRatKingLevel())){
+		if (!Dungeon.levelName.equals(Dungeon.layout.getRatKingLevel())){
 			yell(Messages.get(this, "confused"));
 		}
 	}
 
 	@Override
 	protected boolean act() {
-		if (!Dungeon.levelName.equals(Dungeon.layout().getRatKingLevel())){
+		if (!Dungeon.levelName.equals(Dungeon.layout.getRatKingLevel())){
 			if (pos == Dungeon.level.exit()){
 				destroy();
 				sprite.killAndErase();
