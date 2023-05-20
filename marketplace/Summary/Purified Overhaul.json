@@ -1,0 +1,12 @@
+{
+	"name": "Purified Overhaul",
+	"version": 1,
+	"description": "Changes item textures and some descriptions. Still in developement.",
+	"author": "Fid",
+	"license": "GPLv3",
+	"languages": [
+		"English"
+	],
+	"gameplay_mod": false,
+	"min_cpd_version": 3
+}
