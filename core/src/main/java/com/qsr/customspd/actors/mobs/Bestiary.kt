@@ -37,7 +37,7 @@ object Bestiary {
     }
 
     //returns a rotation of standard mobs, unshuffled.
-    private fun standardMobRotation(): MutableList<Class<out Mob?>> = Dungeon.layout().dungeon[Dungeon.levelName]!!.bestiary!!.map {
+    private fun standardMobRotation(): MutableList<Class<out Mob?>> = Dungeon.layout.dungeon[Dungeon.levelName]!!.bestiary!!.map {
         if (it == "Elemental") return@map Elemental.random()
         if (it == "Shaman") return@map Shaman.random()
         Reflection.forName("com.qsr.customspd.actors.mobs." + it) as Class<out Mob?>
@@ -45,7 +45,7 @@ object Bestiary {
 
     //has a chance to add a rarely spawned mobs to the rotation
     private fun addRareMobs(rotation: MutableList<Class<out Mob?>>) {
-        val mobClass = Dungeon.layout().dungeon[Dungeon.levelName]!!.rareMob
+        val mobClass = Dungeon.layout.dungeon[Dungeon.levelName]!!.rareMob
         if (Random.Float() < 0.025f && mobClass!= null) rotation.add(Reflection.forName("com.qsr.customspd.actors.mobs." + mobClass) as Class<out Mob?>)
     }
 

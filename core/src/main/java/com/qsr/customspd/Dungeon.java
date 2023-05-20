@@ -39,7 +39,7 @@ import com.qsr.customspd.actors.mobs.npcs.Ghost;
 import com.qsr.customspd.actors.mobs.npcs.Imp;
 import com.qsr.customspd.actors.mobs.npcs.Wandmaker;
 import com.qsr.customspd.modding.DungeonLayout;
-import com.qsr.customspd.modding.DungeonLayoutRetriever;
+import com.qsr.customspd.modding.JsonConfigRetriever;
 import com.qsr.customspd.modding.LevelType;
 import com.qsr.customspd.items.Amulet;
 import com.qsr.customspd.items.Generator;
@@ -199,24 +199,24 @@ public class Dungeon {
 	public static String blacksmithLevel;
 	public static String impLevel;
 
-	public static DungeonLayout layout() {
-		return DungeonLayoutRetriever.INSTANCE.retrieve();
-	}
+	public static DungeonLayout layout;
 	
 	public static void init() {
+
+		layout = JsonConfigRetriever.INSTANCE.retrieveDungeonLayout();
 
 		gameplayMods = ModManager.INSTANCE.getEnabledGameplayModNames().toArray(new String[]{});
 
 		visited = new String[]{};
 
-		posLevels = RandomGenUtils.calculateLevels(layout().getPosDistribution());
-		souLevels = RandomGenUtils.calculateLevels(layout().getSouDistribution());
-		asLevels = RandomGenUtils.calculateLevels(layout().getAsDistribution());
+		posLevels = RandomGenUtils.calculateLevels(layout.getPosDistribution());
+		souLevels = RandomGenUtils.calculateLevels(layout.getSouDistribution());
+		asLevels = RandomGenUtils.calculateLevels(layout.getAsDistribution());
 
-		ghostLevel = RandomGenUtils.calculateQuestLevel(layout().getGhostSpawnLevels());
-		wandmakerLevel = RandomGenUtils.calculateQuestLevel(layout().getWandmakerSpawnLevels());
-		blacksmithLevel = RandomGenUtils.calculateQuestLevel(layout().getBlacksmithSpawnLevels());
-		impLevel = RandomGenUtils.calculateQuestLevel(layout().getImpSpawnLevels());
+		ghostLevel = RandomGenUtils.calculateQuestLevel(layout.getGhostSpawnLevels());
+		wandmakerLevel = RandomGenUtils.calculateQuestLevel(layout.getWandmakerSpawnLevels());
+		blacksmithLevel = RandomGenUtils.calculateQuestLevel(layout.getBlacksmithSpawnLevels());
+		impLevel = RandomGenUtils.calculateQuestLevel(layout.getImpSpawnLevels());
 
 		initialVersion = version = Game.versionCode;
 		challenges = SPDSettings.challenges();
@@ -260,11 +260,11 @@ public class Dungeon {
 		QuickSlotButton.reset();
 		Toolbar.swappedQuickslots = false;
 		
-		depth = layout().getDungeon().get(layout().getStart()).getDepth();
-		levelName = layout().getStart();
+		depth = layout.getDungeon().get(layout.getStart()).getDepth();
+		levelName = layout.getStart();
 
-		gold = layout().getGold();
-		energy = layout().getEnergy();
+		gold = layout.getGold();
+		energy = layout.getEnergy();
 
 		droppedItems = new HashMap<>();
 
@@ -307,10 +307,10 @@ public class Dungeon {
 		}
 		
 		Level level;
-		if (layout().getDungeon().get(levelName).getType() == LevelType.REGULAR) {
-			level = (Level) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels." + layout().getDungeon().get(levelName).getLayout()));
+		if (layout.getDungeon().get(levelName).getType() == LevelType.REGULAR) {
+			level = (Level) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels." + layout.getDungeon().get(levelName).getLayout()));
 		} else {
-			level = new CustomLevel(layout().getDungeon().get(levelName).getCustomLayout(), levelName);
+			level = new CustomLevel(layout.getDungeon().get(levelName).getCustomLayout(), levelName);
 		}
 
 		level.create();
@@ -349,7 +349,7 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		return layout().getDungeon().get(Dungeon.levelName).getShop();
+		return layout.getDungeon().get(Dungeon.levelName).getShop();
 	}
 	
 	public static boolean bossLevel() {
@@ -357,7 +357,7 @@ public class Dungeon {
 	}
 
 	public static boolean bossLevel(String level) {
-		return layout().getDungeon().get(level).getBoss();
+		return layout.getDungeon().get(level).getBoss();
 	}
 
 	//value used for scaling of damage values and other effects.
@@ -431,7 +431,7 @@ public class Dungeon {
 	}
 
 	public static void dropToChasm( Item item ) {
-		String nextLevel = layout().getDungeon().get(Dungeon.levelName).getExits().get(0);
+		String nextLevel = layout.getDungeon().get(Dungeon.levelName).getExits().get(0);
 		ArrayList<Item> dropped = Dungeon.droppedItems.get( nextLevel );
 		if (dropped == null) {
 			Dungeon.droppedItems.put( nextLevel, dropped = new ArrayList<>() );
@@ -575,7 +575,9 @@ public class Dungeon {
 	}
 	
 	public static void loadGame( int save, boolean fullLoad ) throws IOException {
-		
+
+		layout = JsonConfigRetriever.INSTANCE.retrieveDungeonLayout();
+
 		Bundle bundle = FileUtils.bundleFromFile( GamesInProgress.gameFile( save ) );
 
 		initialVersion = bundle.getInt( VERSION );
@@ -670,7 +672,7 @@ public class Dungeon {
 		Generator.restoreFromBundle( bundle );
 
 		droppedItems = new HashMap<>();
-		for (String level : layout().getDungeon().keySet()) {
+		for (String level : layout.getDungeon().keySet()) {
 			
 			//dropped items
 			ArrayList<Item> items = new ArrayList<>();

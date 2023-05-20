@@ -37,6 +37,9 @@ import com.qsr.customspd.actors.mobs.Statue;
 import com.qsr.customspd.actors.mobs.npcs.Blacksmith;
 import com.qsr.customspd.actors.mobs.npcs.Ghost;
 import com.qsr.customspd.actors.mobs.npcs.Wandmaker;
+import com.qsr.customspd.items.BrokenSeal;
+import com.qsr.customspd.items.wands.Wand;
+import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.modding.ExtraItemSpawn;
 import com.qsr.customspd.modding.ExtraMobSpawn;
 import com.qsr.customspd.items.Generator;
@@ -282,7 +285,7 @@ public abstract class RegularLevel extends Level {
 			}
 		}
 
-		for (ExtraMobSpawn mobSpawn : Dungeon.layout().getDungeon().get(Dungeon.levelName).getExtraMobs()) {
+		for (ExtraMobSpawn mobSpawn : Dungeon.layout.getDungeon().get(Dungeon.levelName).getExtraMobs()) {
 			Mob mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
 			if (mobSpawn.getAlignment() != null) mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
 			if (mobSpawn.getHp() != null) {
@@ -468,7 +471,7 @@ public abstract class RegularLevel extends Level {
 			
 		}
 
-		for (ExtraItemSpawn itemSpawn : Dungeon.layout().getDungeon().get(Dungeon.levelName).getExtraItems()) {
+		for (ExtraItemSpawn itemSpawn : Dungeon.layout.getDungeon().get(Dungeon.levelName).getExtraItems()) {
 			int pos = randomDropCell();
 			Item item;
 			try {
@@ -485,6 +488,8 @@ public abstract class RegularLevel extends Level {
 					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
 				}
 			}
+			if (itemSpawn.getSeal() && item instanceof Armor) ((Armor)item).affixSeal(new BrokenSeal());
+			if (itemSpawn.getCoreWand() != null && item instanceof MagesStaff) item = new MagesStaff((Wand) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getCoreWand())));
 			item.quantity(itemSpawn.getQuantity());
 			if (itemSpawn.getQuantityMin() != null && itemSpawn.getQuantityMax() != null) {
 				item.quantity(Random.IntRange(itemSpawn.getQuantityMin(), itemSpawn.getQuantityMax()));

@@ -4,19 +4,15 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ExtraItemSpawn(
-    val type: String? = null,
-    val category: String? = null,
-    @SerialName("ignore_deck") val ignoreDeck: Boolean = false,
-    @SerialName("heap_type") val heapType: String? = null,
+data class ItemDescription(
+    val type: String,
     val quantity: Int = 1,
-    @SerialName("quantity_min") val quantityMin: Int? = null,
-    @SerialName("quantity_max") val quantityMax: Int? = null,
     val level: Int = 0,
     val enchantment: String? = null,
     val identified: Boolean = false,
-    val cursed: Boolean? = null,
+    val cursed: Boolean = false,
     @SerialName("level_name") val levelName: String? = null,
+    val quickslot: Boolean = false,
     val seal: Boolean = false,
     @SerialName("core_wand") val coreWand: String? = null,
 )

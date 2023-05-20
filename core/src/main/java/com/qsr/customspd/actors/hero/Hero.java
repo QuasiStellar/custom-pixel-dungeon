@@ -2180,18 +2180,18 @@ public class Hero extends Char {
 						Trap trap = Dungeon.level.traps.get( curr );
 						float chance;
 
-						if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+						if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 0f;
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.IMPOSSIBLE && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 0f;
 
 						//searches aided by foresight always succeed, even if trap isn't searchable
 						} else if (foresight) {
 							chance = 1f;
 
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 0f;
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_TALISMAN && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
 							chance = 0f;
 
 						//otherwise if the trap isn't searchable, searching always fails
@@ -2202,18 +2202,18 @@ public class Hero extends Char {
 						} else if (intentional) {
 							chance = 1f;
 
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 0f;
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ONLY_SEARCH && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
 							chance = 0f;
 
 						//unintentional searches always fail with a cursed talisman
 						} else if (cursed) {
 							chance = 0f;
 
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getTrapDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_TRAP) {
 							chance = 1f;
-						} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
+						} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getDoorDetection() == DetectionLevel.ALWAYS_FIND && Dungeon.level.map[curr] == Terrain.SECRET_DOOR) {
 							chance = 1f;
 
 						//unintentional trap detection scales from 40% at floor 0 to 30% at floor 25

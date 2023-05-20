@@ -127,7 +127,7 @@ public class DemonSpawner extends Mob {
 					Actor.addDelayed(new Pushing(spawn, pos, spawn.pos), -1);
 				}
 
-				spawnCooldown += Dungeon.layout().getDungeon().get(Dungeon.levelName).getSpawnerCooldown();
+				spawnCooldown += Dungeon.layout.getDungeon().get(Dungeon.levelName).getSpawnerCooldown();
 			}
 		}
 		alerted = false;

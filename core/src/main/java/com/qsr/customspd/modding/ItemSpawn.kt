@@ -19,4 +19,6 @@ data class ItemSpawn(
     val identified: Boolean = false,
     val cursed: Boolean? = null,
     @SerialName("level_name") val levelName: String? = null,
+    val seal: Boolean = false,
+    @SerialName("core_wand") val coreWand: String? = null,
 )

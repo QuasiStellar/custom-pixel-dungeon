@@ -107,7 +107,7 @@ public class InterlevelScene extends PixelScene {
 	public void create() {
 		super.create();
 
-		if (Dungeon.level != null && Dungeon.hero != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
+		if (Dungeon.level != null && Dungeon.hero != null && Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) {
 			Dungeon.level.unseal();
 		}
 
@@ -126,10 +126,10 @@ public class InterlevelScene extends PixelScene {
 				if (Dungeon.hero == null){
 					fadeTime = SLOW_FADE;
 				} else {
-					loadingDepth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
+					loadingDepth = Dungeon.layout.getDungeon().get(curTransition.destLevel).getDepth();
 					if (Statistics.deepestFloor >= loadingDepth) {
 						fadeTime = FAST_FADE;
-					} else if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getBoss()) {
+					} else if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getBoss()) {
 						fadeTime = SLOW_FADE;
 					}
 				}
@@ -143,7 +143,7 @@ public class InterlevelScene extends PixelScene {
 				scrollSpeed = -5;
 				break;
 			case RETURN:
-				scrollSpeed = Dungeon.layout().getDungeon().get(returnLevel).getDepth() > Dungeon.depth ? 15 : -15;
+				scrollSpeed = Dungeon.layout.getDungeon().get(returnLevel).getDepth() > Dungeon.depth ? 15 : -15;
 				break;
 		}
 
@@ -151,10 +151,10 @@ public class InterlevelScene extends PixelScene {
 		int region;
 		if (curTransition == null) {
 			region = -1;
-		} else if (Dungeon.layout().getDungeon().get(curTransition.destLevel).getCustomLayout() != null) {
-			region = Dungeon.layout().getDungeon().get(curTransition.destLevel).getCustomLayout().getRegion();
+		} else if (Dungeon.layout.getDungeon().get(curTransition.destLevel).getCustomLayout() != null) {
+			region = Dungeon.layout.getDungeon().get(curTransition.destLevel).getCustomLayout().getRegion();
 		} else {
-			switch (Dungeon.layout().getDungeon().get(curTransition.destLevel).getLayout()) {
+			switch (Dungeon.layout.getDungeon().get(curTransition.destLevel).getLayout()) {
 				case "SewerLevel":
 				case "SewerBossLevel":
 					region = 1;
@@ -323,7 +323,7 @@ public class InterlevelScene extends PixelScene {
 						timeLeft = fadeTime;
 					}
 
-					if (Dungeon.level != null && Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) {
+					if (Dungeon.level != null && Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) {
 						Dungeon.level.seal();
 					}
 				}
@@ -416,7 +416,7 @@ public class InterlevelScene extends PixelScene {
 			Dungeon.saveAll();
 
 			Level level;
-			Dungeon.depth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
+			Dungeon.depth = Dungeon.layout.getDungeon().get(curTransition.destLevel).getDepth();
 			Dungeon.levelName = curTransition.destLevel;
 			if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
 				level = Dungeon.loadLevel( GamesInProgress.curSlot );
@@ -440,8 +440,8 @@ public class InterlevelScene extends PixelScene {
 		Dungeon.saveAll();
 
 		Level level;
-		Dungeon.levelName = Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm();
-		Dungeon.depth = Dungeon.layout().getDungeon().get(Dungeon.levelName).getDepth();
+		Dungeon.levelName = Dungeon.layout.getDungeon().get(Dungeon.levelName).getChasm();
+		Dungeon.depth = Dungeon.layout.getDungeon().get(Dungeon.levelName).getDepth();
 		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
 			level = Dungeon.loadLevel( GamesInProgress.curSlot );
 		} else {
@@ -456,7 +456,7 @@ public class InterlevelScene extends PixelScene {
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
-		Dungeon.depth = Dungeon.layout().getDungeon().get(curTransition.destLevel).getDepth();
+		Dungeon.depth = Dungeon.layout.getDungeon().get(curTransition.destLevel).getDepth();
 		Dungeon.levelName = curTransition.destLevel;
 		Level level;
 		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
@@ -476,7 +476,7 @@ public class InterlevelScene extends PixelScene {
 		Mob.holdAllies( Dungeon.level );
 
 		Dungeon.saveAll();
-		Dungeon.depth = Dungeon.layout().getDungeon().get(returnLevel).getDepth();
+		Dungeon.depth = Dungeon.layout.getDungeon().get(returnLevel).getDepth();
 		Dungeon.levelName = returnLevel;
 		Level level;
 		if (Arrays.asList(Dungeon.visited).contains(Dungeon.levelName)) {
@@ -559,7 +559,7 @@ public class InterlevelScene extends PixelScene {
 
 		Mob.holdAllies( Dungeon.level );
 
-		SpecialRoom.resetPitRoom(Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm());
+		SpecialRoom.resetPitRoom(Dungeon.layout.getDungeon().get(Dungeon.levelName).getChasm());
 
 		Level level = Dungeon.newLevel();
 		Dungeon.switchLevel( level, level.entrance() );

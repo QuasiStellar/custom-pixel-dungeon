@@ -168,7 +168,7 @@ public abstract class SpecialRoom extends Room {
 		
 		} else {
 			
-			if (Dungeon.bossLevel(Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm())){
+			if (Dungeon.bossLevel(Dungeon.layout.getDungeon().get(Dungeon.levelName).getChasm())){
 				floorSpecials.remove(WeakFloorRoom.class);
 			}
 
@@ -179,7 +179,7 @@ public abstract class SpecialRoom extends Room {
 			Room r = Reflection.newInstance(floorSpecials.get( index ));
 
 			if (r instanceof WeakFloorRoom){
-				pitNeededLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getChasm();
+				pitNeededLevel = Dungeon.layout.getDungeon().get(Dungeon.levelName).getChasm();
 			}
 			
 			useType( r.getClass() );

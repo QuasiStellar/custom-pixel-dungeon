@@ -77,7 +77,7 @@ public class TerrainFeaturesTilemap extends DungeonTilemap {
 		}
 
 		int stage;
-		if (Dungeon.level instanceof CustomLevel) stage = Dungeon.layout().getDungeon().get(Dungeon.levelName).getCustomLayout().getRegion() - 1;
+		if (Dungeon.level instanceof CustomLevel) stage = Dungeon.layout.getDungeon().get(Dungeon.levelName).getCustomLayout().getRegion() - 1;
 		else if (Dungeon.level instanceof SewerLevel || Dungeon.level instanceof SewerBossLevel) stage = 0;
 		else if (Dungeon.level instanceof PrisonLevel || Dungeon.level instanceof PrisonBossLevel) stage = 1;
 		else if (Dungeon.level instanceof CavesLevel || Dungeon.level instanceof CavesBossLevel) stage = 2;

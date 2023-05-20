@@ -51,7 +51,7 @@ public class ScrollOfPassage extends ExoticScroll {
 
 		Level.beforeTransition();
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;
-		InterlevelScene.returnLevel = Dungeon.layout().getDungeon().get(Dungeon.levelName).getPassage();
+		InterlevelScene.returnLevel = Dungeon.layout.getDungeon().get(Dungeon.levelName).getPassage();
 		InterlevelScene.returnPos = -1;
 		Game.switchScene( InterlevelScene.class );
 	}

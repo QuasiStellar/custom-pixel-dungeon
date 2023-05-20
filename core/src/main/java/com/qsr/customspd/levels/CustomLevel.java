@@ -29,6 +29,9 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.items.BrokenSeal;
+import com.qsr.customspd.items.wands.Wand;
+import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.modding.CustomLevelLayout;
 import com.qsr.customspd.modding.ItemSpawn;
 import com.qsr.customspd.modding.MobSpawn;
@@ -184,7 +187,7 @@ public class CustomLevel extends Level {
 		createMobs();
 		createItems();
 
-		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
+		switch (Dungeon.layout.getDungeon().get(Dungeon.levelName).getVisibility()) {
 			case ONLY_VISIBLE:
 				for (int i=0; i < length; i++) {
 					if (discoverable[i]) {
@@ -207,7 +210,7 @@ public class CustomLevel extends Level {
 				break;
 		}
 
-		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) seal();
+		if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) seal();
 
 		Random.popGenerator();
 	}
@@ -223,7 +226,7 @@ public class CustomLevel extends Level {
 
 		for (int i = 0; i < layout.getEntrances().size(); i++) {
 			int cell = layout.getEntrances().get(i).getX() + layout.getEntrances().get(i).getY() * width;
-			LevelTransition.Type type = Dungeon.layout().getDungeon().get(levelName).getEntrances().get(i).equals("surface")
+			LevelTransition.Type type = Dungeon.layout.getDungeon().get(levelName).getEntrances().get(i).equals("surface")
 				? LevelTransition.Type.SURFACE
 				: LevelTransition.Type.REGULAR_ENTRANCE;
 			transitions.add(new LevelTransition(this, cell, type, i));
@@ -231,7 +234,7 @@ public class CustomLevel extends Level {
 
 		for (int i = 0; i < layout.getExits().size(); i++) {
 			int cell = layout.getExits().get(i).getX() + layout.getExits().get(i).getY() * width;
-			LevelTransition.Type type = Dungeon.layout().getDungeon().get(levelName).getExits().get(i).equals("surface")
+			LevelTransition.Type type = Dungeon.layout.getDungeon().get(levelName).getExits().get(i).equals("surface")
 				? LevelTransition.Type.SURFACE
 				: LevelTransition.Type.REGULAR_EXIT;
 			transitions.add(new LevelTransition(this, cell, type, i));
@@ -337,6 +340,8 @@ public class CustomLevel extends Level {
 					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
 				}
 			}
+			if (itemSpawn.getSeal() && item instanceof Armor) ((Armor)item).affixSeal(new BrokenSeal());
+			if (itemSpawn.getCoreWand() != null && item instanceof MagesStaff) item = new MagesStaff((Wand) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getCoreWand())));
 			item.quantity(itemSpawn.getQuantity());
 			if (itemSpawn.getQuantityMin() != null && itemSpawn.getQuantityMax() != null) {
 				item.quantity(Random.IntRange(itemSpawn.getQuantityMin(), itemSpawn.getQuantityMax()));
@@ -415,7 +420,7 @@ public class CustomLevel extends Level {
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
-		this.layout = Dungeon.layout().getDungeon().get(Dungeon.levelName).getCustomLayout();
+		this.layout = Dungeon.layout.getDungeon().get(Dungeon.levelName).getCustomLayout();
 		this.levelName = Dungeon.levelName;
 
 		setLeafColors();

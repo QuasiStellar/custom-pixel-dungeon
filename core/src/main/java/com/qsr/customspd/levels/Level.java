@@ -215,7 +215,7 @@ public abstract class Level implements Bundlable {
 				addItemToSpawn( new StoneOfIntuition() );
 			}
 
-			switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLevelFeeling()) {
+			switch (Dungeon.layout.getDungeon().get(Dungeon.levelName).getLevelFeeling()) {
 				case "random":
 					if (Dungeon.depth > 1) {
 						//50% chance of getting a level feeling
@@ -297,7 +297,7 @@ public abstract class Level implements Bundlable {
 		createMobs();
 		createItems();
 
-		switch (Dungeon.layout().getDungeon().get(Dungeon.levelName).getVisibility()) {
+		switch (Dungeon.layout.getDungeon().get(Dungeon.levelName).getVisibility()) {
 			case ONLY_VISIBLE:
 				for (int i=0; i < length; i++) {
 					if (discoverable[i]) {
@@ -320,7 +320,7 @@ public abstract class Level implements Bundlable {
 				break;
 		}
 
-		if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getLocked()) seal();
+		if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) seal();
 
 		Random.popGenerator();
 	}
@@ -515,7 +515,7 @@ public abstract class Level implements Bundlable {
 	
 	public Mob createMob() {
 		if (mobsToSpawn == null || mobsToSpawn.isEmpty()) {
-			if (Dungeon.layout().getDungeon().get(Dungeon.levelName).getBestiary() != null) mobsToSpawn = Bestiary.INSTANCE.getMobRotation();
+			if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getBestiary() != null) mobsToSpawn = Bestiary.INSTANCE.getMobRotation();
 			else mobsToSpawn = new ArrayList<>();
 		}
 

@@ -45,35 +45,54 @@ import com.qsr.customspd.actors.hero.abilities.warrior.Shockwave;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.BrokenSeal;
+import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
+import com.qsr.customspd.items.KindofMisc;
 import com.qsr.customspd.items.Waterskin;
+import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.armor.ClothArmor;
+import com.qsr.customspd.items.artifacts.Artifact;
 import com.qsr.customspd.items.artifacts.CloakOfShadows;
+import com.qsr.customspd.items.bags.MagicalHolster;
+import com.qsr.customspd.items.bags.PotionBandolier;
+import com.qsr.customspd.items.bags.ScrollHolder;
 import com.qsr.customspd.items.bags.VelvetPouch;
 import com.qsr.customspd.items.food.Food;
+import com.qsr.customspd.items.keys.Key;
 import com.qsr.customspd.items.potions.PotionOfHealing;
 import com.qsr.customspd.items.potions.PotionOfInvisibility;
 import com.qsr.customspd.items.potions.PotionOfLiquidFlame;
 import com.qsr.customspd.items.potions.PotionOfMindVision;
 import com.qsr.customspd.items.potions.PotionOfStrength;
+import com.qsr.customspd.items.rings.Ring;
 import com.qsr.customspd.items.scrolls.ScrollOfIdentify;
 import com.qsr.customspd.items.scrolls.ScrollOfLullaby;
 import com.qsr.customspd.items.scrolls.ScrollOfMagicMapping;
 import com.qsr.customspd.items.scrolls.ScrollOfMirrorImage;
 import com.qsr.customspd.items.scrolls.ScrollOfRage;
 import com.qsr.customspd.items.scrolls.ScrollOfUpgrade;
+import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.wands.WandOfMagicMissile;
 import com.qsr.customspd.items.weapon.SpiritBow;
+import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.items.weapon.melee.Dagger;
 import com.qsr.customspd.items.weapon.melee.Gloves;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
+import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
 import com.qsr.customspd.items.weapon.melee.Rapier;
 import com.qsr.customspd.items.weapon.melee.WornShortsword;
 import com.qsr.customspd.items.weapon.missiles.ThrowingKnife;
 import com.qsr.customspd.items.weapon.missiles.ThrowingSpike;
 import com.qsr.customspd.items.weapon.missiles.ThrowingStone;
+import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.HeroConfig;
+import com.qsr.customspd.modding.HeroesConfig;
+import com.qsr.customspd.modding.ItemDescription;
+import com.qsr.customspd.modding.JsonConfigRetriever;
 import com.watabou.utils.DeviceCompat;
+import com.watabou.utils.Random;
+import com.watabou.utils.Reflection;
 
 public enum HeroClass {
 
@@ -89,54 +108,38 @@ public enum HeroClass {
 		this.subClasses = subClasses;
 	}
 
+	private static int curQuickslot;
+
 	public void initHero( Hero hero ) {
 
 		hero.heroClass = this;
 		Talent.initClassTalents(hero);
 
-		Item i = new ClothArmor().identify();
-		if (!Challenges.isItemBlocked(i)) hero.belongings.armor = (ClothArmor)i;
+		HeroesConfig heroesConfig = JsonConfigRetriever.INSTANCE.retrieveHeroesConfig();
 
-		i = new Food();
-		if (!Challenges.isItemBlocked(i)) i.collect();
-
-		new VelvetPouch().collect();
-		Dungeon.LimitedDrops.VELVET_POUCH.drop();
-
-		Waterskin waterskin = new Waterskin();
-		waterskin.collect();
-
-		new ScrollOfIdentify().identify();
+		curQuickslot = 0;
+		setUp(heroesConfig.getAny(), hero);
 
 		switch (this) {
 			case WARRIOR:
-				initWarrior( hero );
+				setUp(heroesConfig.getWarrior(), hero);
 				break;
 
 			case MAGE:
-				initMage( hero );
+				setUp(heroesConfig.getMage(), hero);
 				break;
 
 			case ROGUE:
-				initRogue( hero );
+				setUp(heroesConfig.getRogue(), hero);
 				break;
 
 			case HUNTRESS:
-				initHuntress( hero );
+				setUp(heroesConfig.getHuntress(), hero);
 				break;
 
 			case DUELIST:
-				initDuelist( hero );
+				setUp(heroesConfig.getDuelist(), hero);
 				break;
-		}
-
-		if (SPDSettings.quickslotWaterskin()) {
-			for (int s = 0; s < QuickSlot.SIZE; s++) {
-				if (Dungeon.quickslot.getItem(s) == null) {
-					Dungeon.quickslot.setSlot(s, waterskin);
-					break;
-				}
-			}
 		}
 
 	}
@@ -157,76 +160,110 @@ public enum HeroClass {
 		return null;
 	}
 
-	private static void initWarrior( Hero hero ) {
-		(hero.belongings.weapon = new WornShortsword()).identify();
-		ThrowingStone stones = new ThrowingStone();
-		stones.quantity(3).collect();
-		Dungeon.quickslot.setSlot(0, stones);
-
-		if (hero.belongings.armor != null){
-			hero.belongings.armor.affixSeal(new BrokenSeal());
+	private static void setUp(HeroConfig config, Hero hero) {
+		if (config.getArmor() != null) {
+			Armor armor = (Armor) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getArmor().getType()));
+			if (config.getArmor().getSeal()) armor.affixSeal(new BrokenSeal());
+			armor.level(config.getArmor().getLevel());
+			if (config.getArmor().getIdentified()) armor.identify();
+			if (config.getArmor().getCursed()) armor.cursed = true;
+			if (config.getArmor().getEnchantment() != null) {
+				armor.inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + config.getArmor().getEnchantment())));
+			}
+			hero.belongings.armor = armor;
+			if (config.getArmor().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, armor);
 		}
 
-		new PotionOfHealing().identify();
-		new ScrollOfRage().identify();
-	}
+		if (config.getWeapon() != null) {
+			MeleeWeapon weapon = (MeleeWeapon) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getWeapon().getType()));
+			if (config.getWeapon().getCoreWand() != null && weapon instanceof MagesStaff) weapon = new MagesStaff((Wand) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getWeapon().getCoreWand())));
+			weapon.level(config.getWeapon().getLevel());
+			if (config.getWeapon().getIdentified()) weapon.identify();
+			if (config.getWeapon().getCursed()) weapon.cursed = true;
+			if (config.getWeapon().getEnchantment() != null) {
+				weapon.enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + config.getWeapon().getEnchantment())));
+			}
+			hero.belongings.weapon = weapon;
+			hero.belongings.weapon.activate(hero);
+			if (config.getWeapon().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, weapon);
+		}
 
-	private static void initMage( Hero hero ) {
-		MagesStaff staff;
+		if (config.getArtifact() != null) {
+			Artifact artifact = (Artifact) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getArtifact().getType()));
+			artifact.level(config.getArtifact().getLevel());
+			if (config.getArtifact().getIdentified()) artifact.identify();
+			if (config.getArtifact().getCursed()) artifact.cursed = true;
+			hero.belongings.artifact = artifact;
+			if (config.getArtifact().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, artifact);
+		}
 
-		staff = new MagesStaff(new WandOfMagicMissile());
+		if (config.getMisc() != null) {
+			KindofMisc misc = (KindofMisc) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getMisc().getType()));
+			misc.level(config.getMisc().getLevel());
+			if (config.getMisc().getIdentified()) misc.identify();
+			if (config.getMisc().getCursed()) misc.cursed = true;
+			hero.belongings.misc = misc;
+			if (config.getMisc().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, misc);
+		}
 
-		(hero.belongings.weapon = staff).identify();
-		hero.belongings.weapon.activate(hero);
+		if (config.getRing() != null) {
+			Ring ring = (Ring) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + config.getRing().getType()));
+			ring.level(config.getRing().getLevel());
+			if (config.getRing().getIdentified()) ring.identify();
+			if (config.getRing().getCursed()) ring.cursed = true;
+			hero.belongings.ring = ring;
+			if (config.getRing().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, ring);
+		}
 
-		Dungeon.quickslot.setSlot(0, staff);
+		for (ItemDescription itemDesc : config.getItems()) {
+			Item item;
+			if (itemDesc.getType().equals("weapon.missiles.darts.TippedDart")) {
+				item = TippedDart.randomTipped(1);
+			} else {
+				item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemDesc.getType()));
+			}
+			if (itemDesc.getSeal() && item instanceof Armor) ((Armor)item).affixSeal(new BrokenSeal());
+			if (itemDesc.getCoreWand() != null && item instanceof MagesStaff) item = new MagesStaff((Wand) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemDesc.getCoreWand())));
+			item.quantity(itemDesc.getQuantity());
+			item.level(itemDesc.getLevel());
+			if (itemDesc.getIdentified()) item.identify();
+			if (itemDesc.getCursed()) item.cursed = true;
+			if (itemDesc.getEnchantment() != null) {
+				if (item instanceof Armor) {
+					if (itemDesc.getEnchantment().equals("none")) {
+						((Armor) item).inscribe(null);
+					} else {
+						((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + itemDesc.getEnchantment())));
+					}
+				} else if (item instanceof Weapon) {
+					if (itemDesc.getEnchantment().equals("none")) {
+						((Weapon) item).enchant(null);
+					} else {
+						((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + itemDesc.getEnchantment())));
+					}
+				}
+			}
+			if (item instanceof Key) {
+				if (itemDesc.getLevelName() == null) {
+					((Key) item).levelName = Dungeon.levelName;
+				} else {
+					((Key) item).levelName = itemDesc.getLevelName();
+				}
+			}
+			item.collect();
+			if (item instanceof VelvetPouch) Dungeon.LimitedDrops.VELVET_POUCH.drop();
+			else if (item instanceof PotionBandolier) Dungeon.LimitedDrops.POTION_BANDOLIER.drop();
+			else if (item instanceof ScrollHolder) Dungeon.LimitedDrops.SCROLL_HOLDER.drop();
+			else if (item instanceof MagicalHolster) Dungeon.LimitedDrops.MAGICAL_HOLSTER.drop();
+			if (itemDesc.getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, item);
+			else if (SPDSettings.quickslotWaterskin() && item instanceof Waterskin) {
+				Dungeon.quickslot.setSlot(curQuickslot++, item);
+			}
+		}
 
-		new ScrollOfUpgrade().identify();
-		new PotionOfLiquidFlame().identify();
-	}
-
-	private static void initRogue( Hero hero ) {
-		(hero.belongings.weapon = new Dagger()).identify();
-
-		CloakOfShadows cloak = new CloakOfShadows();
-		(hero.belongings.artifact = cloak).identify();
-		hero.belongings.artifact.activate( hero );
-
-		ThrowingKnife knives = new ThrowingKnife();
-		knives.quantity(3).collect();
-
-		Dungeon.quickslot.setSlot(0, cloak);
-		Dungeon.quickslot.setSlot(1, knives);
-
-		new ScrollOfMagicMapping().identify();
-		new PotionOfInvisibility().identify();
-	}
-
-	private static void initHuntress( Hero hero ) {
-
-		(hero.belongings.weapon = new Gloves()).identify();
-		SpiritBow bow = new SpiritBow();
-		bow.identify().collect();
-
-		Dungeon.quickslot.setSlot(0, bow);
-
-		new PotionOfMindVision().identify();
-		new ScrollOfLullaby().identify();
-	}
-
-	private static void initDuelist( Hero hero ) {
-
-		(hero.belongings.weapon = new Rapier()).identify();
-		hero.belongings.weapon.activate(hero);
-
-		ThrowingSpike spikes = new ThrowingSpike();
-		spikes.quantity(2).collect();
-
-		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
-		Dungeon.quickslot.setSlot(1, spikes);
-
-		new PotionOfStrength().identify();
-		new ScrollOfMirrorImage().identify();
+		for (String itemType : config.getIdentified()) {
+			((Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemType))).identify();
+		}
 	}
 
 	public String title() {
