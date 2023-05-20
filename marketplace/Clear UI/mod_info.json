@@ -1,0 +1,9 @@
+{
+	"name": "Clear UI",
+	"version": 1,
+	"description": "Look, the UI has become transparent !\nRestart the game to take effect.",
+	"author": "落白彡",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 3
+}

@@ -1,0 +1,10 @@
+{
+	"name": "FiveExit",
+	"version": 4,
+	"description": "A large floor with five entrances, brings a new adventure.",
+	"author": "JDSALing (w/ Remixed Dungeon)",
+	"link":"https://lingasdj.github.io/Pixel-Dungeon-News/Mods/fiveexit.html",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 3
+}
