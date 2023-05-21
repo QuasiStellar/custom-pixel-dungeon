@@ -43,6 +43,9 @@
 		<activity
 			android:name=".AndroidMissingNativesHandler">
 		</activity>
+		<activity
+			android:name=".CrashActivity">
+		</activity>
 
 	</application>
 

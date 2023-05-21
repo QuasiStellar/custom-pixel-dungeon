@@ -59,6 +59,8 @@ public class AndroidLauncher extends AndroidApplication {
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
+
 		try {
 			Class.forName("dalvik.system.CloseGuard")
 				.getMethod("setEnabled", boolean.class)
