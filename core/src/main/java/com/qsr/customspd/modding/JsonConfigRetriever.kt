@@ -9,4 +9,9 @@ object JsonConfigRetriever {
 
     fun retrieveHeroesConfig(): HeroesConfig =
         Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("heroes/heroes.json")).readString())
+
+    fun customMobExists(name: String) = ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("mobs/$name.json")).exists()
+
+    fun retrieveMobScheme(name: String): CustomMobScheme =
+        Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("mobs/$name.json")).readString())
 }

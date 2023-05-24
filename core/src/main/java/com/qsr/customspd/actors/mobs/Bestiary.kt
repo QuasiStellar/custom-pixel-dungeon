@@ -23,6 +23,7 @@
 package com.qsr.customspd.actors.mobs
 
 import com.qsr.customspd.Dungeon
+import com.qsr.customspd.modding.JsonConfigRetriever.customMobExists
 import com.watabou.utils.Random
 import com.watabou.utils.Reflection
 import java.util.*
@@ -36,17 +37,22 @@ object Bestiary {
         return mobs
     }
 
+    fun getCustomMobs(): List<String> = Dungeon.layout.dungeon[Dungeon.levelName]!!.bestiary.filter {
+        customMobExists(it)
+    }
+
     //returns a rotation of standard mobs, unshuffled.
-    private fun standardMobRotation(): MutableList<Class<out Mob?>> = Dungeon.layout.dungeon[Dungeon.levelName]!!.bestiary!!.map {
+    private fun standardMobRotation(): MutableList<Class<out Mob?>> = Dungeon.layout.dungeon[Dungeon.levelName]!!.bestiary.map {
+        if (customMobExists(it)) return@map CustomMob::class.java
         if (it == "Elemental") return@map Elemental.random()
         if (it == "Shaman") return@map Shaman.random()
-        Reflection.forName("com.qsr.customspd.actors.mobs." + it) as Class<out Mob?>
+        Reflection.forName("com.qsr.customspd.actors.mobs.$it") as Class<out Mob?>
     }.toMutableList()
 
     //has a chance to add a rarely spawned mobs to the rotation
     private fun addRareMobs(rotation: MutableList<Class<out Mob?>>) {
         val mobClass = Dungeon.layout.dungeon[Dungeon.levelName]!!.rareMob
-        if (Random.Float() < 0.025f && mobClass!= null) rotation.add(Reflection.forName("com.qsr.customspd.actors.mobs." + mobClass) as Class<out Mob?>)
+        if (Random.Float() < 0.025f && mobClass != null) rotation.add(Reflection.forName("com.qsr.customspd.actors.mobs.$mobClass") as Class<out Mob?>)
     }
 
     //switches out regular mobs for their alt versions when appropriate

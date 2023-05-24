@@ -13,7 +13,7 @@ data class LevelScheme(
     val exits: List<String>,
     val chasm: String,
     val passage: String,
-    val bestiary: List<String>? = null,
+    val bestiary: List<String> = emptyList(),
     @SerialName("rare_mob") val rareMob: String? = null,
     @SerialName("spawner_cooldown") val spawnerCooldown: Float = 60f,
     val boss: Boolean = false,

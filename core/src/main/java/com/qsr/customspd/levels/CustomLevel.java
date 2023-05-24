@@ -26,6 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.actors.mobs.CustomMob;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -34,6 +35,7 @@ import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.modding.CustomLevelLayout;
 import com.qsr.customspd.modding.ItemSpawn;
+import com.qsr.customspd.modding.JsonConfigRetriever;
 import com.qsr.customspd.modding.MobSpawn;
 import com.qsr.customspd.modding.PlantSpawn;
 import com.qsr.customspd.modding.TrapSpawn;
@@ -282,7 +284,12 @@ public class CustomLevel extends Level {
 
 		for (MobSpawn mobSpawn : layout.getMobs()) {
 			int pos = mobSpawn.getX() + mobSpawn.getY() * layout.getWidth();
-			Mob mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
+			Mob mob;
+			if (JsonConfigRetriever.INSTANCE.customMobExists(mobSpawn.getType())) {
+				mob = new CustomMob(mobSpawn.getType());
+			} else {
+				mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
+			}
 			mob.pos = pos;
 			if (mobSpawn.getAlignment() != null) mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
 			if (mobSpawn.getHp() != null) {

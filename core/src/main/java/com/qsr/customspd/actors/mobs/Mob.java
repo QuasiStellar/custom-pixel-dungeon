@@ -57,21 +57,29 @@ import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.Surprise;
 import com.qsr.customspd.effects.Wound;
 import com.qsr.customspd.effects.particles.ShadowParticle;
+import com.qsr.customspd.items.BrokenSeal;
 import com.qsr.customspd.items.Generator;
+import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
+import com.qsr.customspd.items.armor.Armor;
 import com.qsr.customspd.items.artifacts.MasterThievesArmband;
 import com.qsr.customspd.items.artifacts.TimekeepersHourglass;
+import com.qsr.customspd.items.keys.Key;
 import com.qsr.customspd.items.rings.Ring;
 import com.qsr.customspd.items.rings.RingOfWealth;
 import com.qsr.customspd.items.stones.StoneOfAggression;
+import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.SpiritBow;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.items.weapon.enchantments.Lucky;
+import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.items.weapon.missiles.MissileWeapon;
 import com.qsr.customspd.items.weapon.missiles.darts.Dart;
+import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.features.Chasm;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.ExtraItemSpawn;
 import com.qsr.customspd.plants.Swiftthistle;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.CharSprite;
@@ -128,6 +136,7 @@ public abstract class Mob extends Char {
 	private static final String SEEN	= "seen";
 	private static final String TARGET	= "target";
 	private static final String MAX_LVL	= "max_lvl";
+	private static final String ALIGNMENT = "alignment";
 
 	private static final String ENEMY_ID	= "enemy_id";
 	
@@ -150,6 +159,7 @@ public abstract class Mob extends Char {
 		bundle.put( SEEN, enemySeen );
 		bundle.put( TARGET, target );
 		bundle.put( MAX_LVL, maxLvl );
+		bundle.put(ALIGNMENT, alignment.name());
 
 		if (enemy != null) {
 			bundle.put(ENEMY_ID, enemy.id() );
@@ -182,6 +192,10 @@ public abstract class Mob extends Char {
 
 		if (bundle.contains(ENEMY_ID)) {
 			enemyID = bundle.getInt(ENEMY_ID);
+		}
+
+		if (bundle.contains(ALIGNMENT)) {
+			alignment = Alignment.valueOf(bundle.getString(ALIGNMENT));
 		}
 	}
 
@@ -889,7 +903,59 @@ public abstract class Mob extends Char {
 
 		} else if (loot instanceof Class<?>) {
 
-			item = Generator.random( (Class<? extends Item>)loot );
+			item = Generator.random((Class<? extends Item>) loot);
+
+		} else if (loot instanceof ExtraItemSpawn) {
+
+			ExtraItemSpawn lootConfig = (ExtraItemSpawn)loot;
+			try {
+				Generator.Category category = Generator.Category.valueOf(lootConfig.getCategory());
+				if (lootConfig.getIgnoreDeck()) {
+					item = Generator.randomUsingDefaults(category);
+				} else {
+					item = Generator.random(category);
+				}
+			} catch (IllegalArgumentException | NullPointerException e) {
+				if (lootConfig.getType().equals("weapon.missiles.darts.TippedDart")) {
+					item = TippedDart.randomTipped(1);
+				} else {
+					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + lootConfig.getType()));
+				}
+			}
+			if (lootConfig.getSeal() && item instanceof Armor) ((Armor)item).affixSeal(new BrokenSeal());
+			if (lootConfig.getCoreWand() != null && item instanceof MagesStaff) item = new MagesStaff((Wand) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + lootConfig.getCoreWand())));
+			item.quantity(lootConfig.getQuantity());
+			if (lootConfig.getQuantityMin() != null && lootConfig.getQuantityMax() != null) {
+				item.quantity(Random.IntRange(lootConfig.getQuantityMin(), lootConfig.getQuantityMax()));
+			}
+			item.level(lootConfig.getLevel());
+			if (lootConfig.getIdentified()) {
+				item.identify(lootConfig.getHeapType() == null || Heap.Type.valueOf(lootConfig.getHeapType()) != Heap.Type.FOR_SALE);
+			}
+			if (Boolean.TRUE.equals(lootConfig.getCursed())) item.cursed = true;
+			if (Boolean.FALSE.equals(lootConfig.getCursed())) item.cursed = false;
+			if (lootConfig.getEnchantment() != null) {
+				if (item instanceof Armor) {
+					if (lootConfig.getEnchantment().equals("none")) {
+						((Armor) item).inscribe(null);
+					} else {
+						((Armor) item).inscribe((Armor.Glyph) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.armor." + lootConfig.getEnchantment())));
+					}
+				} else if (item instanceof Weapon) {
+					if (lootConfig.getEnchantment().equals("none")) {
+						((Weapon) item).enchant(null);
+					} else {
+						((Weapon) item).enchant((Weapon.Enchantment) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + lootConfig.getEnchantment())));
+					}
+				}
+			}
+			if (item instanceof Key) {
+				if (lootConfig.getLevelName() == null) {
+					((Key) item).levelName = Dungeon.levelName;
+				} else {
+					((Key) item).levelName = lootConfig.getLevelName();
+				}
+			}
 
 		} else {
 

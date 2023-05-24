@@ -24,6 +24,7 @@ package com.qsr.customspd.ui;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.SPDAction;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.actors.mobs.CustomMob;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.scenes.PixelScene;
@@ -149,7 +150,7 @@ public class AttackIndicator extends Tag {
 			sprite = null;
 		}
 		
-		sprite = Reflection.newInstance(lastTarget.spriteClass);
+		sprite = lastTarget.sprite();
 		active = true;
 		sprite.linkVisuals(lastTarget);
 		sprite.idle();

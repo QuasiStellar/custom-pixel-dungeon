@@ -47,6 +47,7 @@ import com.qsr.customspd.actors.hero.HeroSubClass;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.huntress.SpiritHawk;
 import com.qsr.customspd.actors.mobs.Bestiary;
+import com.qsr.customspd.actors.mobs.CustomMob;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Piranha;
 import com.qsr.customspd.actors.mobs.YogFist;
@@ -454,6 +455,12 @@ public abstract class Level implements Bundlable {
 			}
 		}
 
+		if (bundle.contains( "custom_mobs_to_spawn" )) {
+			for (String mob : bundle.getStringArray("custom_mobs_to_spawn")) {
+				if (mob != null) customMobsToSpawn.add(mob);
+			}
+		}
+
 		if (bundle.contains( "respawner" )){
 			respawner = (Respawner) bundle.get("respawner");
 		}
@@ -482,6 +489,7 @@ public abstract class Level implements Bundlable {
 		bundle.put( BLOBS, blobs.values() );
 		bundle.put( FEELING, feeling );
 		bundle.put( "mobs_to_spawn", mobsToSpawn.toArray(new Class[0]));
+		bundle.put( "custom_mobs_to_spawn", customMobsToSpawn.toArray(new String[0]));
 		bundle.put( "respawner", respawner );
 	}
 	
@@ -512,14 +520,21 @@ public abstract class Level implements Bundlable {
 	abstract protected boolean build();
 	
 	private List<Class<?extends Mob>> mobsToSpawn = new ArrayList<>();
+	private List<String> customMobsToSpawn = new ArrayList<>();
 	
 	public Mob createMob() {
 		if (mobsToSpawn == null || mobsToSpawn.isEmpty()) {
-			if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getBestiary() != null) mobsToSpawn = Bestiary.INSTANCE.getMobRotation();
-			else mobsToSpawn = new ArrayList<>();
+			mobsToSpawn = Bestiary.INSTANCE.getMobRotation();
+			customMobsToSpawn = Bestiary.INSTANCE.getCustomMobs();
 		}
 
-		Mob m = Reflection.newInstance(mobsToSpawn.remove(0));
+		Class<? extends Mob> mobClass = mobsToSpawn.remove(0);
+		Mob m;
+		if (mobClass == CustomMob.class) {
+			m = new CustomMob(Random.element(customMobsToSpawn));
+		} else {
+			m = Reflection.newInstance(mobClass);
+		}
 		ChampionEnemy.rollForChampion(m);
 		return m;
 	}
