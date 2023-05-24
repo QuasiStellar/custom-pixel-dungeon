@@ -205,6 +205,16 @@
 			"x": 21,
 			"y": 21,
 			"type": "npcs.Shopkeeper"
+		  },
+		  {
+			"x": 21,
+			"y": 10,
+			"type": "guard"
+		  },
+		  {
+			"x": 25,
+			"y": 10,
+			"type": "guard"
 		  }
 		]
 	  },
