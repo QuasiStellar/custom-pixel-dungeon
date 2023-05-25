@@ -56,7 +56,7 @@ class ExceptionHandler(private val context: Activity) : Thread.UncaughtException
         """.trimIndent()
 
         val clipboard: ClipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("Copied crash report to the clipboard", stackTrace.toString())
+        val clip = ClipData.newPlainText("Copied crash report to the clipboard", errorReport)
         clipboard.setPrimaryClip(clip)
 
         val intent = Intent(context, CrashActivity::class.java)
