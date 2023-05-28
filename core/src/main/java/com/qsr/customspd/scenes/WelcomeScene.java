@@ -241,6 +241,7 @@ public class WelcomeScene extends PixelScene {
 	@Override
 	public void update() {
 		super.update();
+		if (torches.size() == 0) return;
 		for (int i = 0; i < 8; i++) {
 			torches.get(i).setPos(
 				title.center().x - (float)Math.sin(time + i * Math.PI / 4f) * 40 * direction,
