@@ -35,7 +35,6 @@ import com.qsr.customspd.windows.WndTitledMessage
 import com.watabou.noosa.Game
 import com.watabou.utils.Bundle
 import com.watabou.utils.Random
-import com.watabou.utils.Reflection
 
 class CustomMob : Mob {
 
@@ -119,6 +118,14 @@ class CustomMob : Mob {
     } else {
         super.interact(c)
     }
+
+    override fun getCloser(target: Int): Boolean =
+        if (properties.contains(Property.IMMOVABLE)) true
+        else super.getCloser(target)
+
+    override fun getFurther(target: Int): Boolean =
+        if (properties.contains(Property.IMMOVABLE)) true
+        else super.getFurther(target)
 
     override fun damageRoll(): Int = Random.NormalIntRange(sc.minDamage, sc.maxDamage)
 
