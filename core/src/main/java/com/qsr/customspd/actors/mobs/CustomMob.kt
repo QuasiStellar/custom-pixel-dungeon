@@ -66,6 +66,7 @@ class CustomMob : Mob {
         alignment = Alignment.valueOf(sc.alignment.uppercase())
         if (angered) alignment = Alignment.ENEMY
         if (alignment == Alignment.NEUTRAL) state = PASSIVE
+        flying = sc.flying
 
         for (property in sc.properties) {
             properties.add(Property.valueOf(property.uppercase()))

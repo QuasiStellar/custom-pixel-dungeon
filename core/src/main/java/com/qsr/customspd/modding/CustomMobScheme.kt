@@ -20,6 +20,7 @@ data class CustomMobScheme(
     val loot: ExtraItemSpawn? = null,
     @SerialName("loot_chance") val lootChance: Float = 1f,
     val properties: List<String> = emptyList(),
+    val flying: Boolean = false,
     val alignment: String = "enemy",
     val dialogues: Int = 0,
     @SerialName("talk_via_log") val talkViaLog: Boolean = false,
