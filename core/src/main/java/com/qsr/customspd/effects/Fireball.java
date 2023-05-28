@@ -42,6 +42,7 @@ public class Fireball extends Component {
 	private Image fLight;
 	private Emitter emitter;
 	private Group sparks;
+	private int color = 0;
 	
 	@Override
 	protected void createChildren() {
@@ -60,11 +61,13 @@ public class Fireball extends Component {
 			public void emit(Emitter emitter, int index, float x, float y) {
 				Flame p = (Flame)emitter.recycle( Flame.class );
 				p.reset();
+				p.fireball = Fireball.this;
 				p.heightLimit(Fireball.this.y - 30);
 				p.x = x - p.width / 2;
 				p.y = y - p.height / 2;
+				p.color(color);
 			}
-		}, 0.1f );
+		}, 0.15f );
 		add( emitter );
 		
 		fLight = new Image(Asset.getAssetFilePath(GeneralAsset.F_LIGHT));
@@ -103,6 +106,7 @@ public class Fireball extends Component {
 				Random.Float( -40, +40 ),
 				Random.Float( -60, +20 ) );
 			spark.acc.set( 0, +80 );
+			spark.color(color);
 			sparks.add( spark );
 		}
 	}
@@ -112,6 +116,17 @@ public class Fireball extends Component {
 		Blending.setLightMode();
 		super.draw();
 		Blending.setNormalMode();
+	}
+
+	public void setAlpha(float am) {
+		bLight.am = am;
+		fLight.am = am;
+	}
+
+	public void setColor(int color) {
+		bLight.color(color);
+		fLight.color(color);
+		this.color = color;
 	}
 	
 	public static class Flame extends Image {
@@ -123,6 +138,7 @@ public class Fireball extends Component {
 		
 		private float timeLeft;
 		private float heightLimit;
+		public Fireball fireball;
 		
 		public Flame() {
 			
@@ -168,6 +184,9 @@ public class Fireball extends Component {
 				alpha( p > 0.8f ? (1 - p) * 5f : p * 1.25f );
 				
 			}
+
+			color(fireball.color);
+			am = fireball.fLight.am;
 		}
 	}
 }

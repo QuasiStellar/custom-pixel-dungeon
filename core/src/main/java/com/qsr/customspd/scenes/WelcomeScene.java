@@ -51,6 +51,7 @@ import com.watabou.noosa.audio.Music;
 import com.watabou.utils.FileUtils;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class WelcomeScene extends PixelScene {
@@ -59,6 +60,12 @@ public class WelcomeScene extends PixelScene {
 
 	//used so that the game does not keep showing the window forever if cleaning fails
 	private static boolean triedCleaningTemp = false;
+
+	private float time = 0;
+	private int direction = 1;
+	ArrayList<Fireball> torches = new ArrayList<>();
+	Image title;
+	int color = Random.Int(16777216);
 
 	@Override
 	public void create() {
@@ -104,7 +111,11 @@ public class WelcomeScene extends PixelScene {
 		//darkens the arches
 		add(new ColorBlock(w, h, 0x88000000));
 
-		Image title = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON));
+		for (int i = 0; i < 8; i++) {
+			torches.add(placeTorch());
+		}
+
+		title = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON));
 		add( title );
 
 		float topRegion = Math.max(title.height - 6, h*0.45f);
@@ -114,19 +125,12 @@ public class WelcomeScene extends PixelScene {
 
 		align(title);
 
-		placeTorch(title.x + 22, title.y + 32);
-		placeTorch(title.x + title.width - 22, title.y + 32);
-
 		Image signs = new Image(Asset.getAssetFilePath(GeneralAsset.PIXEL_DUNGEON_SIGNS)) {
-			private float time = 0;
 			@Override
 			public void update() {
 				super.update();
-				am = Math.max(0f, (float)Math.sin( time += Game.elapsed ));
-				if (time >= 1.5f*Math.PI) {
-					time = 0;
-					color(Random.Int(16777216));
-				}
+				am = Math.max(0f, (float)Math.sin(time / 2f));
+				color(color);
 			}
 			@Override
 			public void draw() {
@@ -234,10 +238,29 @@ public class WelcomeScene extends PixelScene {
 		}
 	}
 
-	private void placeTorch( float x, float y ) {
+	@Override
+	public void update() {
+		super.update();
+		for (int i = 0; i < 8; i++) {
+			torches.get(i).setPos(
+				title.center().x - (float)Math.sin(time + i * Math.PI / 4f) * 40 * direction,
+				title.center().y + (float)Math.cos(time + i * Math.PI / 4f) * 40
+			);
+			torches.get(i).setAlpha(Math.max(0f, (float)Math.sin(time/ 2f)));
+			torches.get(i).setColor(color);
+		}
+		time += Game.elapsed * 2;
+		if (time >= 2f * Math.PI) {
+			time = 0;
+			direction *= -1;
+			color = Random.Int(16777216);
+		}
+	}
+
+	private Fireball placeTorch() {
 		Fireball fb = new Fireball();
-		fb.setPos( x, y );
 		add( fb );
+		return fb;
 	}
 
 	private void updateVersion(int previousVersion){
