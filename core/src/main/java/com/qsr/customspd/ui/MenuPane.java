@@ -163,7 +163,7 @@ public class MenuPane extends Component {
 		PixelScene.align(depthIcon);
 
 		depthText.scale.set(PixelScene.align(0.67f));
-		depthText.x = depthIcon.x + (depthIcon.width() - depthText.width())/2f;
+		depthText.x = depthIcon.x + depthIcon.width() - depthText.width();
 		depthText.y = depthIcon.y + depthIcon.height();
 		PixelScene.align(depthText);
 
