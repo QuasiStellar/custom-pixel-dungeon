@@ -125,6 +125,16 @@ object ModManager {
         _downloadedMods.value += modName
     }
 
+    fun updateMarketplaceMods() = marketplaceMods.value.forEach {
+        if (it.info.name in getInstalledModNames() &&
+            it.info.version > (getInstalledMods().find { m ->
+                m.info.name == it.info.name
+            }?.info?.version ?: 0)) {
+            delete(it.info.name)
+            download(it.info.name)
+        }
+    }
+
     fun getInstalledMods(): List<Mod> = storage.list().mapNotNull { modFolder ->
         modFolder.child(MOD_INFO_FILE).takeIf { it.exists() }?.let {
             try {

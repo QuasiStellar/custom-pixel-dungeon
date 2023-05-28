@@ -22,12 +22,16 @@ package com.qsr.customspd.windows
 
 import com.qsr.customspd.SPDSettings
 import com.qsr.customspd.ShatteredPixelDungeon
+import com.qsr.customspd.assets.Asset
+import com.qsr.customspd.assets.GeneralAsset
 import com.qsr.customspd.messages.Messages
+import com.qsr.customspd.modding.MarketplaceMod
 import com.qsr.customspd.modding.ModManager
 import com.qsr.customspd.modding.TileMapCompilationManager
 import com.qsr.customspd.scenes.PixelScene
 import com.qsr.customspd.ui.RenderedTextBlock
 import com.qsr.customspd.ui.ScrollingListPane
+import com.qsr.customspd.ui.TalentsPane
 import com.qsr.customspd.utils.Pixmap
 import com.watabou.noosa.Game
 import com.watabou.noosa.Image
@@ -198,6 +202,29 @@ class WndMods : WndTabbed() {
                         Game.runOnRenderThread {
                             loadingText.alpha(0f)
                             updateList()
+                            for (mod: MarketplaceMod in ModManager.marketplaceMods.value) {
+                                if (mod.info.name in ModManager.getInstalledModNames() &&
+                                    mod.info.version > (ModManager.getInstalledMods().find { m ->
+                                        m.info.name == mod.info.name
+                                    }?.info?.version ?: 0)
+                                ) {
+                                    ShatteredPixelDungeon.scene().addToFront(object : WndOptions(
+                                        Image(Asset.getAssetFilePath(GeneralAsset.ICON_WARNING)),
+                                        Messages.titleCase(Messages.get(WndMods::class.java, "update_title")),
+                                        Messages.get(WndMods::class.java, "update_desc"),
+                                        Messages.get(WndMods::class.java, "update_yes"),
+                                        Messages.get(WndMods::class.java, "update_no"),
+                                    ) {
+                                        override fun onSelect(index: Int) {
+                                            when (index) {
+                                                0 -> ModManager.updateMarketplaceMods()
+                                                1 -> onBackPressed()
+                                            }
+                                        }
+                                    })
+                                    break
+                                }
+                            }
                         }
                     }
                 }
@@ -208,6 +235,7 @@ class WndMods : WndTabbed() {
             scope.cancel()
             super.destroy()
         }
+
         override fun createChildren() {
             list = ScrollingListPane()
             add(list)
