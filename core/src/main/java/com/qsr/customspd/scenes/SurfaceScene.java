@@ -373,7 +373,7 @@ public class SurfaceScene extends PixelScene {
 					break;
 			}
 
-			texture(asset);
+			texture(Asset.getAssetFilePath(asset));
 			
 			lastIndex = index;
 			
@@ -460,7 +460,7 @@ public class SurfaceScene extends PixelScene {
 					break;
 			}
 
-			texture(asset);
+			texture(Asset.getAssetFilePath(asset));
 			
 			this.tx = tx;
 			this.ty = ty;
