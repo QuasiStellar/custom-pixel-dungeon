@@ -194,6 +194,7 @@ public enum HeroClass {
 			if (config.getArtifact().getIdentified()) artifact.identify();
 			if (config.getArtifact().getCursed()) artifact.cursed = true;
 			hero.belongings.artifact = artifact;
+			hero.belongings.artifact.activate(hero);
 			if (config.getArtifact().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, artifact);
 		}
 
@@ -203,6 +204,7 @@ public enum HeroClass {
 			if (config.getMisc().getIdentified()) misc.identify();
 			if (config.getMisc().getCursed()) misc.cursed = true;
 			hero.belongings.misc = misc;
+			hero.belongings.misc.activate(hero);
 			if (config.getMisc().getQuickslot()) Dungeon.quickslot.setSlot(curQuickslot++, misc);
 		}
 
