@@ -1,0 +1,9 @@
+{
+	"name": "Cape of Thorns",
+	"version": 1,
+	"description": "Start the game with this forgotten artifact.",
+	"author": "QuasiStellar",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 5
+}
