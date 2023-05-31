@@ -212,13 +212,7 @@ public class HeroSelectScene extends PixelScene {
 		updateOptionsColor();
 		btnOptions.visible = false;
 
-		if (DeviceCompat.isDebug()){
-			add(btnOptions);
-		} else {
-			Dungeon.challenges = 0;
-			SPDSettings.challenges(0);
-			SPDSettings.customSeed("");
-		}
+		add(btnOptions);
 
 		if (landscape()){
 			float leftArea = Math.max(100, Camera.main.width/3f);
