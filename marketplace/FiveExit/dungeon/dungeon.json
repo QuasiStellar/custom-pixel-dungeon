@@ -233,7 +233,8 @@
           "21"
         ],
         "chasm": "1",
-        "passage": "FiveExit"
+        "passage": "FiveExit",
+        "boss": true
       },
       "1": {
         "depth": 1,

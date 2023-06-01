@@ -30,6 +30,7 @@ import com.qsr.customspd.actors.mobs.*;
 import com.qsr.customspd.actors.mobs.npcs.Shopkeeper;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.items.Amulet;
+import com.qsr.customspd.levels.CustomLevel;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
@@ -210,14 +211,15 @@ public class AscensionChallenge extends Buff {
 			} else {
 				stacks += 2f;
 
-				//clears any existing mobs from the level and adds one initial one
-				//this helps balance difficulty between levels with lots of mobs left, and ones with few
-				for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
-					if (!mob.reset()) {
-						Dungeon.level.mobs.remove( mob );
+				if (!(Dungeon.level instanceof CustomLevel)) {                //clears any existing mobs from the level and adds one initial one
+					//this helps balance difficulty between levels with lots of mobs left, and ones with few
+					for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+						if (!mob.reset()) {
+							Dungeon.level.mobs.remove(mob);
+						}
 					}
+					Dungeon.level.spawnMob(12);
 				}
-				Dungeon.level.spawnMob(12);
 
 			}
 		}
