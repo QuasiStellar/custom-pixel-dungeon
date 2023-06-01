@@ -1,0 +1,22 @@
+{
+  "armor": {
+    "type": "armor.ClothArmor",
+    "identified": true,
+    "seal": true
+  },
+  "weapon": {
+    "type": "weapon.melee.WornShortsword",
+    "identified": true
+  },
+  "items": [
+    {
+      "type": "weapon.missiles.ThrowingStone",
+      "quantity": 3,
+      "quickslot": true
+    }
+  ],
+  "identified": [
+    "potions.PotionOfHealing",
+    "scrolls.ScrollOfRage"
+  ]
+}

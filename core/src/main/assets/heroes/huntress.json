@@ -1,0 +1,17 @@
+{
+  "weapon": {
+    "type": "weapon.melee.Gloves",
+    "identified": true
+  },
+  "items": [
+    {
+      "type": "weapon.SpiritBow",
+      "identified": true,
+      "quickslot": true
+    }
+  ],
+  "identified": [
+    "potions.PotionOfMindVision",
+    "scrolls.ScrollOfLullaby"
+  ]
+}

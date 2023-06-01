@@ -1,0 +1,12 @@
+{
+  "weapon": {
+    "type": "weapon.melee.MagesStaff",
+    "identified": true,
+    "core_wand": "wands.WandOfMagicMissile",
+    "quickslot": true
+  },
+  "identified": [
+    "potions.PotionOfLiquidFlame",
+    "scrolls.ScrollOfUpgrade"
+  ]
+}

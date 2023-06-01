@@ -7,8 +7,8 @@ object JsonConfigRetriever {
     fun retrieveDungeonLayout(): DungeonLayout =
         Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("dungeon/dungeon.json")).readString())
 
-    fun retrieveHeroesConfig(): HeroesConfig =
-        Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("heroes/heroes.json")).readString())
+    fun retrieveHeroConfig(type: String): HeroConfig =
+        Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("heroes/$type.json")).readString())
 
     fun customMobExists(name: String) = ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("mobs/$name.json")).exists()
 

@@ -1,0 +1,22 @@
+{
+  "weapon": {
+    "type": "weapon.melee.Dagger",
+    "identified": true
+  },
+  "artifact": {
+    "type": "artifacts.CloakOfShadows",
+    "identified": true,
+    "quickslot": true
+  },
+  "items": [
+    {
+      "type": "weapon.missiles.ThrowingKnife",
+      "quantity": 3,
+      "quickslot": true
+    }
+  ],
+  "identified": [
+    "potions.PotionOfInvisibility",
+    "scrolls.ScrollOfMagicMapping"
+  ]
+}

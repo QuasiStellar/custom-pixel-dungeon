@@ -1,0 +1,20 @@
+{
+  "armor": {
+    "type": "armor.ClothArmor",
+    "identified": true
+  },
+  "items": [
+    {
+      "type": "food.Food"
+    },
+    {
+      "type": "bags.VelvetPouch"
+    },
+    {
+      "type": "Waterskin"
+    }
+  ],
+  "identified": [
+    "scrolls.ScrollOfIdentify"
+  ]
+}

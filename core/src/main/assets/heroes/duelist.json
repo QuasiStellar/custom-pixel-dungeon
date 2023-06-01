@@ -1,0 +1,18 @@
+{
+  "weapon": {
+    "type": "weapon.melee.Rapier",
+    "identified": true,
+    "quickslot": true
+  },
+  "items": [
+    {
+      "type": "weapon.missiles.ThrowingSpike",
+      "quantity": 2,
+      "quickslot": true
+    }
+  ],
+  "identified": [
+    "potions.PotionOfStrength",
+    "scrolls.ScrollOfMirrorImage"
+  ]
+}

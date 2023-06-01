@@ -22,9 +22,7 @@
 package com.qsr.customspd.actors.hero;
 
 import com.qsr.customspd.Badges;
-import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
-import com.qsr.customspd.QuickSlot;
 import com.qsr.customspd.SPDSettings;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;
 import com.qsr.customspd.actors.hero.abilities.duelist.Challenge;
@@ -45,53 +43,27 @@ import com.qsr.customspd.actors.hero.abilities.warrior.Shockwave;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.BrokenSeal;
-import com.qsr.customspd.items.Heap;
 import com.qsr.customspd.items.Item;
 import com.qsr.customspd.items.KindofMisc;
 import com.qsr.customspd.items.Waterskin;
 import com.qsr.customspd.items.armor.Armor;
-import com.qsr.customspd.items.armor.ClothArmor;
 import com.qsr.customspd.items.artifacts.Artifact;
-import com.qsr.customspd.items.artifacts.CloakOfShadows;
 import com.qsr.customspd.items.bags.MagicalHolster;
 import com.qsr.customspd.items.bags.PotionBandolier;
 import com.qsr.customspd.items.bags.ScrollHolder;
 import com.qsr.customspd.items.bags.VelvetPouch;
-import com.qsr.customspd.items.food.Food;
 import com.qsr.customspd.items.keys.Key;
-import com.qsr.customspd.items.potions.PotionOfHealing;
-import com.qsr.customspd.items.potions.PotionOfInvisibility;
-import com.qsr.customspd.items.potions.PotionOfLiquidFlame;
-import com.qsr.customspd.items.potions.PotionOfMindVision;
-import com.qsr.customspd.items.potions.PotionOfStrength;
 import com.qsr.customspd.items.rings.Ring;
-import com.qsr.customspd.items.scrolls.ScrollOfIdentify;
-import com.qsr.customspd.items.scrolls.ScrollOfLullaby;
-import com.qsr.customspd.items.scrolls.ScrollOfMagicMapping;
-import com.qsr.customspd.items.scrolls.ScrollOfMirrorImage;
-import com.qsr.customspd.items.scrolls.ScrollOfRage;
-import com.qsr.customspd.items.scrolls.ScrollOfUpgrade;
 import com.qsr.customspd.items.wands.Wand;
-import com.qsr.customspd.items.wands.WandOfMagicMissile;
-import com.qsr.customspd.items.weapon.SpiritBow;
 import com.qsr.customspd.items.weapon.Weapon;
-import com.qsr.customspd.items.weapon.melee.Dagger;
-import com.qsr.customspd.items.weapon.melee.Gloves;
 import com.qsr.customspd.items.weapon.melee.MagesStaff;
 import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
-import com.qsr.customspd.items.weapon.melee.Rapier;
-import com.qsr.customspd.items.weapon.melee.WornShortsword;
-import com.qsr.customspd.items.weapon.missiles.ThrowingKnife;
-import com.qsr.customspd.items.weapon.missiles.ThrowingSpike;
-import com.qsr.customspd.items.weapon.missiles.ThrowingStone;
 import com.qsr.customspd.items.weapon.missiles.darts.TippedDart;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.HeroConfig;
-import com.qsr.customspd.modding.HeroesConfig;
 import com.qsr.customspd.modding.ItemDescription;
 import com.qsr.customspd.modding.JsonConfigRetriever;
 import com.watabou.utils.DeviceCompat;
-import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
 public enum HeroClass {
@@ -115,30 +87,30 @@ public enum HeroClass {
 		hero.heroClass = this;
 		Talent.initClassTalents(hero);
 
-		HeroesConfig heroesConfig = JsonConfigRetriever.INSTANCE.retrieveHeroesConfig();
+		HeroConfig any = JsonConfigRetriever.INSTANCE.retrieveHeroConfig("any");
 
 		curQuickslot = 0;
-		setUp(heroesConfig.getAny(), hero);
+		setUp(any, hero);
 
 		switch (this) {
 			case WARRIOR:
-				setUp(heroesConfig.getWarrior(), hero);
+				setUp(JsonConfigRetriever.INSTANCE.retrieveHeroConfig("warrior"), hero);
 				break;
 
 			case MAGE:
-				setUp(heroesConfig.getMage(), hero);
+				setUp(JsonConfigRetriever.INSTANCE.retrieveHeroConfig("mage"), hero);
 				break;
 
 			case ROGUE:
-				setUp(heroesConfig.getRogue(), hero);
+				setUp(JsonConfigRetriever.INSTANCE.retrieveHeroConfig("rogue"), hero);
 				break;
 
 			case HUNTRESS:
-				setUp(heroesConfig.getHuntress(), hero);
+				setUp(JsonConfigRetriever.INSTANCE.retrieveHeroConfig("huntress"), hero);
 				break;
 
 			case DUELIST:
-				setUp(heroesConfig.getDuelist(), hero);
+				setUp(JsonConfigRetriever.INSTANCE.retrieveHeroConfig("duelist"), hero);
 				break;
 		}
 
