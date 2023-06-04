@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class HeroConfig(
+    val merge: Boolean = false,
     val weapon: ItemDescription? = null,
     val armor: ItemDescription? = null,
     val artifact: ItemDescription? = null,

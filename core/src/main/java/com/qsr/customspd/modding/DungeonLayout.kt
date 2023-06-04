@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DungeonLayout(
+    val merge: Boolean = false,
     val start: String,
     val dungeon: Map<String, LevelScheme>,
     val gold: Int = 0,
