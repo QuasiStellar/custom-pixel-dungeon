@@ -14,4 +14,5 @@ data class ModInfo(
     @SerialName("gameplay_mod") val gameplayMod: Boolean = false,
     @SerialName("min_cpd_version") val minCpdVersion: Int,
     val link: String? = null,
+    val dependencies: List<String> = emptyList(),
 )

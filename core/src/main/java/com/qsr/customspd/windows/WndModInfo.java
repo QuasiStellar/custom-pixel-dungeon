@@ -21,8 +21,10 @@
 
 package com.qsr.customspd.windows;
 
+import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.Mod;
+import com.qsr.customspd.modding.ModManager;
 import com.qsr.customspd.scenes.PixelScene;
 import com.qsr.customspd.ui.RedButton;
 import com.qsr.customspd.ui.RenderedTextBlock;
@@ -30,6 +32,7 @@ import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.utils.Callback;
+import java.util.Arrays;
 import java.util.List;
 
 public class WndModInfo extends Window {
@@ -133,7 +136,16 @@ public class WndModInfo extends Window {
 				super.onClick();
 				boolean isEnabled = mod.isEnabled();
 				if (isEnabled) mod.disable();
-				else mod.enable();
+				else {
+					for (String dependency : mod.getInfo().getDependencies()) {
+						if (!ModManager.INSTANCE.isEnabled(dependency)) {
+							String deps = Arrays.toString(mod.getInfo().getDependencies().toArray(new String[0]));
+							ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndModInfo.class, "dependencies", deps.substring(1, deps.length() - 1))));
+							return;
+						}
+					}
+					mod.enable();
+				}
 				text.text(Messages.get(WndModInfo.class, isEnabled ? "enable" : "disable"));
 				setSize(reqWidth(), 16);
 				setPos(

@@ -20,7 +20,7 @@ object JsonConfigRetriever {
 
     fun retrieveDungeonLayout(): DungeonLayout =
         Json.decodeFromString(
-            ModManager.getAllModdedAssetFilePaths("dungeon/dungeon.json").fold(
+            ModManager.getAllModdedAssetFilePaths("dungeon/dungeon.json").reversed().fold(
                 parseToJsonElement(ModManager.getAssetFileHandle("dungeon/dungeon.json").readString()),
                 ::mergeDungeonLayouts
             ).toString()
@@ -28,7 +28,7 @@ object JsonConfigRetriever {
 
     fun retrieveHeroConfig(type: String): HeroConfig =
         Json.decodeFromString(
-            ModManager.getAllModdedAssetFilePaths("heroes/$type.json").fold(
+            ModManager.getAllModdedAssetFilePaths("heroes/$type.json").reversed().fold(
                 parseToJsonElement(ModManager.getAssetFileHandle("heroes/$type.json").readString()),
                 ::mergeHeroConfigs
             ).toString()

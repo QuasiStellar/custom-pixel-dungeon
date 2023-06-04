@@ -158,6 +158,8 @@ object ModManager {
 
     fun isEnabled(mod: Mod): Boolean = mod.info.name in lazyEnabledModNames.map { it }
 
+    fun isEnabled(mod: String): Boolean = mod in lazyEnabledModNames.map { it }
+
     fun enableMod(modName: String) = saveToEnabled(arrayOf(modName) + enabledModNames())
 
     fun disableMod(modName: String) = saveToEnabled((enabledModNames().toList() - modName).toTypedArray())

@@ -31,7 +31,6 @@ import com.qsr.customspd.modding.TileMapCompilationManager
 import com.qsr.customspd.scenes.PixelScene
 import com.qsr.customspd.ui.RenderedTextBlock
 import com.qsr.customspd.ui.ScrollingListPane
-import com.qsr.customspd.ui.TalentsPane
 import com.qsr.customspd.utils.Pixmap
 import com.watabou.noosa.Game
 import com.watabou.noosa.Image
