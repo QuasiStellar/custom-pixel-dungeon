@@ -234,7 +234,7 @@
         ],
         "chasm": "1",
         "passage": "FiveExit",
-        "boss": true
+        "locked": true
       },
       "1": {
         "depth": 1,

@@ -1,0 +1,7 @@
+{
+  "merge": true,
+  "artifact": {
+    "type": "artifacts.CapeOfThorns",
+    "identified": true
+  }
+}
