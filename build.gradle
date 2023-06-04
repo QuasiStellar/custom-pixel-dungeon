@@ -14,8 +14,8 @@ allprojects {
         appName = 'Custom Pixel Dungeon'
         appPackageName = 'com.qsr.customspd'
 
-        appVersionCode = 5
-        appVersionName = '2.0.2-0.5'
+        appVersionCode = 6
+        appVersionName = '2.0.2-0.6'
 
         appJavaCompatibility = JavaVersion.VERSION_1_8
 
