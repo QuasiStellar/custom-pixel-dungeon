@@ -78,7 +78,7 @@ public class RatKing extends NPC {
 	@Override
 	protected void onAdd() {
 		super.onAdd();
-		if (!Dungeon.levelName.equals(Dungeon.layout.getRatKingLevel())){
+		if (firstAdded && !Dungeon.levelName.equals(Dungeon.layout.getRatKingLevel())){
 			yell(Messages.get(this, "confused"));
 		}
 	}

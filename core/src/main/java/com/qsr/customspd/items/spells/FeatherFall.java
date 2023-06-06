@@ -55,6 +55,7 @@ public class FeatherFall extends Spell {
 		
 		detach( curUser.belongings.backpack );
 		updateQuickslot();
+		Invisibility.dispel();
 		hero.spendAndNext( 1f );
 	}
 	

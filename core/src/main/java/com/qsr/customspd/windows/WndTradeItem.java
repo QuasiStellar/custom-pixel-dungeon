@@ -55,12 +55,22 @@ public class WndTradeItem extends WndInfoItem {
 
 		float pos = height;
 
+		//find the shopkeeper in the current level
+		Shopkeeper shop = null;
+		for (Char ch : Actor.chars()){
+			if (ch instanceof Shopkeeper){
+				shop = (Shopkeeper) ch;
+				break;
+			}
+		}
+		final Shopkeeper finalShop = shop;
+
 		if (item.quantity() == 1) {
 
 			RedButton btnSell = new RedButton( Messages.get(this, "sell", item.value()) ) {
 				@Override
 				protected void onClick() {
-					sell( item );
+					sell( item, finalShop);
 					hide();
 				}
 			};
@@ -76,7 +86,7 @@ public class WndTradeItem extends WndInfoItem {
 			RedButton btnSell1 = new RedButton( Messages.get(this, "sell_1", priceAll / item.quantity()) ) {
 				@Override
 				protected void onClick() {
-					sellOne( item );
+					sellOne( item, finalShop );
 					hide();
 				}
 			};
@@ -86,7 +96,7 @@ public class WndTradeItem extends WndInfoItem {
 			RedButton btnSellAll = new RedButton( Messages.get(this, "sell_all", priceAll ) ) {
 				@Override
 				protected void onClick() {
-					sell( item );
+					sell( item, finalShop );
 					hide();
 				}
 			};
@@ -176,9 +186,13 @@ public class WndTradeItem extends WndInfoItem {
 		}
 		if (selling) Shopkeeper.sell();
 	}
-	
+
 	public static void sell( Item item ) {
-		
+		sell(item, null);
+	}
+
+	public static void sell( Item item, Shopkeeper shop ) {
+
 		Hero hero = Dungeon.hero;
 		
 		if (item.isEquipped( hero ) && !((EquipableItem)item).doUnequip( hero, false )) {
@@ -190,12 +204,23 @@ public class WndTradeItem extends WndInfoItem {
 		hero.spend(-hero.cooldown());
 
 		new Gold( item.value() ).doPickUp( hero );
+
+		if (shop != null){
+			shop.buybackItems.add(item);
+			while (shop.buybackItems.size() > Shopkeeper.MAX_BUYBACK_HISTORY){
+				shop.buybackItems.remove(0);
+			}
+		}
 	}
 
 	public static void sellOne( Item item ) {
-		
+		sellOne( item, null );
+	}
+
+	public static void sellOne( Item item, Shopkeeper shop ) {
+
 		if (item.quantity() <= 1) {
-			sell( item );
+			sell( item, shop );
 		} else {
 			
 			Hero hero = Dungeon.hero;
@@ -206,6 +231,13 @@ public class WndTradeItem extends WndInfoItem {
 			hero.spend(-hero.cooldown());
 
 			new Gold( item.value() ).doPickUp( hero );
+
+			if (shop != null){
+				shop.buybackItems.add(item);
+				while (shop.buybackItems.size() > Shopkeeper.MAX_BUYBACK_HISTORY){
+					shop.buybackItems.remove(0);
+				}
+			}
 		}
 	}
 	

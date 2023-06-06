@@ -296,8 +296,12 @@ public class Badges {
 		}
 	}
 
-	public static void saveGlobal() {
-		if (saveNeeded) {
+	public static void saveGlobal(){
+		saveGlobal(false);
+	}
+
+	public static void saveGlobal(boolean force) {
+		if (saveNeeded || force) {
 
 			Bundle bundle = new Bundle();
 			store( bundle, global );
@@ -343,13 +347,13 @@ public class Badges {
 			badge = Badge.MONSTERS_SLAIN_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateGoldCollected() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.GOLD_COLLECTED_1 ) && Statistics.goldCollected >= 250) {
 			if (badge != null) unlock(badge);
 			badge = Badge.GOLD_COLLECTED_1;
@@ -375,13 +379,13 @@ public class Badges {
 			badge = Badge.GOLD_COLLECTED_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateLevelReached() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.LEVEL_REACHED_1 ) && Dungeon.hero.lvl >= 6) {
 			badge = Badge.LEVEL_REACHED_1;
 			local.add( badge );
@@ -406,13 +410,13 @@ public class Badges {
 			badge = Badge.LEVEL_REACHED_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateStrengthAttained() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.STRENGTH_ATTAINED_1 ) && Dungeon.hero.STR >= 12) {
 			badge = Badge.STRENGTH_ATTAINED_1;
 			local.add( badge );
@@ -437,13 +441,13 @@ public class Badges {
 			badge = Badge.STRENGTH_ATTAINED_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateFoodEaten() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.FOOD_EATEN_1 ) && Statistics.foodEaten >= 10) {
 			badge = Badge.FOOD_EATEN_1;
 			local.add( badge );
@@ -468,13 +472,13 @@ public class Badges {
 			badge = Badge.FOOD_EATEN_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateItemsCrafted() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.ITEMS_CRAFTED_1 ) && Statistics.itemsCrafted >= 3) {
 			badge = Badge.ITEMS_CRAFTED_1;
 			local.add( badge );
@@ -499,23 +503,23 @@ public class Badges {
 			badge = Badge.ITEMS_CRAFTED_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validatePiranhasKilled() {
 		Badge badge = null;
-
+		
 		if (!local.contains( Badge.PIRANHAS ) && Statistics.piranhasKilled >= 6) {
 			badge = Badge.PIRANHAS;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateItemLevelAquired( Item item ) {
-
+		
 		// This method should be called:
 		// 1) When an item is obtained (Item.collect)
 		// 2) When an item is upgraded (ScrollOfUpgrade, ScrollOfWeaponUpgrade, ShortSword, WandOfMagicMissile)
@@ -529,7 +533,7 @@ public class Badges {
 		if (item instanceof MeleeWeapon){
 			validateDuelistUnlock();
 		}
-
+		
 		Badge badge = null;
 		if (!local.contains( Badge.ITEM_LEVEL_1 ) && item.level() >= 3) {
 			badge = Badge.ITEM_LEVEL_1;
@@ -555,12 +559,12 @@ public class Badges {
 			badge = Badge.ITEM_LEVEL_5;
 			local.add( badge );
 		}
-
+		
 		displayBadge( badge );
 	}
-
+	
 	public static void validateAllBagsBought( Item bag ) {
-
+		
 		Badge badge = null;
 		if (bag instanceof VelvetPouch) {
 			badge = Badge.BAG_BOUGHT_VELVET_POUCH;
@@ -571,26 +575,26 @@ public class Badges {
 		} else if (bag instanceof MagicalHolster) {
 			badge = Badge.BAG_BOUGHT_MAGICAL_HOLSTER;
 		}
-
+		
 		if (badge != null) {
-
+			
 			local.add( badge );
-
+			
 			if (!local.contains( Badge.ALL_BAGS_BOUGHT ) &&
 				local.contains( Badge.BAG_BOUGHT_VELVET_POUCH ) &&
 				local.contains( Badge.BAG_BOUGHT_SCROLL_HOLDER ) &&
 				local.contains( Badge.BAG_BOUGHT_POTION_BANDOLIER ) &&
 				local.contains( Badge.BAG_BOUGHT_MAGICAL_HOLSTER )) {
-
+						
 					badge = Badge.ALL_BAGS_BOUGHT;
 					local.add( badge );
 					displayBadge( badge );
 			}
 		}
 	}
-
+	
 	public static void validateItemsIdentified() {
-
+		
 		for (Catalog cat : Catalog.values()){
 			if (cat.allSeen()){
 				Badge b = Catalog.catalogBadges.get(cat);
@@ -599,7 +603,7 @@ public class Badges {
 				}
 			}
 		}
-
+		
 		if (isUnlocked( Badge.ALL_WEAPONS_IDENTIFIED ) &&
 				isUnlocked( Badge.ALL_ARMOR_IDENTIFIED ) &&
 				isUnlocked( Badge.ALL_WANDS_IDENTIFIED ) &&
@@ -614,36 +618,36 @@ public class Badges {
 			}
 		}
 	}
-
+	
 	public static void validateDeathFromFire() {
 		Badge badge = Badge.DEATH_FROM_FIRE;
 		local.add( badge );
 		displayBadge( badge );
-
+		
 		validateDeathFromAll();
 	}
-
+	
 	public static void validateDeathFromPoison() {
 		Badge badge = Badge.DEATH_FROM_POISON;
 		local.add( badge );
 		displayBadge( badge );
-
+		
 		validateDeathFromAll();
 	}
-
+	
 	public static void validateDeathFromGas() {
 		Badge badge = Badge.DEATH_FROM_GAS;
 		local.add( badge );
 		displayBadge( badge );
-
+		
 		validateDeathFromAll();
 	}
-
+	
 	public static void validateDeathFromHunger() {
 		Badge badge = Badge.DEATH_FROM_HUNGER;
 		local.add( badge );
 		displayBadge( badge );
-
+		
 		validateDeathFromAll();
 	}
 
@@ -662,7 +666,7 @@ public class Badges {
 
 		validateDeathFromAll();
 	}
-
+	
 	public static void validateDeathFromFriendlyMagic() {
 		Badge badge = Badge.DEATH_FROM_FRIENDLY_MAGIC;
 		local.add( badge );
@@ -686,7 +690,7 @@ public class Badges {
 
 		validateDeathFromAll();
 	}
-
+	
 	private static void validateDeathFromAll() {
 		if (isUnlocked( Badge.DEATH_FROM_FIRE ) &&
 				isUnlocked( Badge.DEATH_FROM_POISON ) &&
@@ -752,7 +756,7 @@ public class Badges {
 		if (badge != null) {
 			local.add( badge );
 			displayBadge( badge );
-
+			
 			if (badge == Badge.BOSS_SLAIN_1) {
 				badge = firstBossClassBadges.get(Dungeon.hero.heroClass);
 				if (badge == null) return;
@@ -767,7 +771,7 @@ public class Badges {
 					}
 				}
 				if (allUnlocked) {
-
+					
 					badge = Badge.BOSS_SLAIN_1_ALL_CLASSES;
 					if (!isUnlocked( badge )) {
 						displayBadge( badge );
@@ -816,9 +820,9 @@ public class Badges {
 			displayBadge(badge);
 		}
 	}
-
+	
 	public static void validateMastery() {
-
+		
 		Badge badge = null;
 		switch (Dungeon.hero.heroClass) {
 			case WARRIOR:
@@ -837,26 +841,26 @@ public class Badges {
 				badge = Badge.MASTERY_DUELIST;
 				break;
 		}
-
+		
 		unlock(badge);
 	}
 
 	public static void validateRatmogrify(){
 		unlock(Badge.FOUND_RATMOGRIFY);
 	}
-
+	
 	public static void validateMageUnlock(){
 		if (Statistics.upgradesUsed >= 1 && !isUnlocked(Badge.UNLOCK_MAGE)){
 			displayBadge( Badge.UNLOCK_MAGE );
 		}
 	}
-
+	
 	public static void validateRogueUnlock(){
 		if (Statistics.sneakAttacks >= 10 && !isUnlocked(Badge.UNLOCK_ROGUE)){
 			displayBadge( Badge.UNLOCK_ROGUE );
 		}
 	}
-
+	
 	public static void validateHuntressUnlock(){
 		if (Statistics.thrownAttacks >= 10 && !isUnlocked(Badge.UNLOCK_HUNTRESS)){
 			displayBadge( Badge.UNLOCK_HUNTRESS );
@@ -879,7 +883,7 @@ public class Badges {
 			}
 		}
 	}
-
+	
 	public static void validateMasteryCombo( int n ) {
 		if (!local.contains( Badge.MASTERY_COMBO ) && n == 10) {
 			Badge badge = Badge.MASTERY_COMBO;
@@ -887,7 +891,7 @@ public class Badges {
 			displayBadge( badge );
 		}
 	}
-
+	
 	public static void validateVictory() {
 
 		Badge badge = Badge.VICTORY;
@@ -919,7 +923,7 @@ public class Badges {
 			displayBadge( badge );
 		}
 	}
-
+	
 	public static void validateGrimWeapon() {
 		if (!local.contains( Badge.GRIM_WEAPON )) {
 			Badge badge = Badge.GRIM_WEAPON;
@@ -927,25 +931,29 @@ public class Badges {
 			displayBadge( badge );
 		}
 	}
-
+	
 	public static void validateGamesPlayed() {
 		Badge badge = null;
 		if (Rankings.INSTANCE.totalNumber >= 10 || Rankings.INSTANCE.wonNumber >= 1) {
 			badge = Badge.GAMES_PLAYED_1;
 		}
 		if (Rankings.INSTANCE.totalNumber >= 25 || Rankings.INSTANCE.wonNumber >= 3) {
+			unlock(badge);
 			badge = Badge.GAMES_PLAYED_2;
 		}
 		if (Rankings.INSTANCE.totalNumber >= 50 || Rankings.INSTANCE.wonNumber >= 5) {
+			unlock(badge);
 			badge = Badge.GAMES_PLAYED_3;
 		}
 		if (Rankings.INSTANCE.totalNumber >= 200 || Rankings.INSTANCE.wonNumber >= 10) {
+			unlock(badge);
 			badge = Badge.GAMES_PLAYED_4;
 		}
 		if (Rankings.INSTANCE.totalNumber >= 1000 || Rankings.INSTANCE.wonNumber >= 25) {
+			unlock(badge);
 			badge = Badge.GAMES_PLAYED_5;
 		}
-
+		
 		displayBadge( badge );
 	}
 
@@ -978,14 +986,14 @@ public class Badges {
 
 		displayBadge( badge );
 	}
-
+	
 	//necessary in order to display the happy end badge in the surface scene
 	public static void silentValidateHappyEnd() {
 		if (!local.contains( Badge.HAPPY_END )){
 			local.add( Badge.HAPPY_END );
 		}
 	}
-
+	
 	public static void validateHappyEnd() {
 		displayBadge( Badge.HAPPY_END );
 	}
@@ -1007,45 +1015,45 @@ public class Badges {
 		local.add(badge);
 		displayBadge( badge );
 	}
-
+	
 	private static void displayBadge( Badge badge ) {
-
+		
 		if (badge == null || !Dungeon.customSeedText.isEmpty()) {
 			return;
 		}
-
+		
 		if (isUnlocked( badge )) {
-
+			
 			if (!badge.meta) {
 				GLog.h( Messages.get(Badges.class, "endorsed", badge.title()) );
 				GLog.newLine();
 			}
-
+			
 		} else {
-
+			
 			unlock(badge);
-
+			
 			GLog.h( Messages.get(Badges.class, "new", badge.title() + " (" + badge.desc() + ")") );
 			GLog.newLine();
 			PixelScene.showBadge( badge );
 		}
 	}
-
+	
 	public static boolean isUnlocked( Badge badge ) {
 		return global.contains( badge );
 	}
-
+	
 	public static HashSet<Badge> allUnlocked(){
 		loadGlobal();
 		return new HashSet<>(global);
 	}
-
+	
 	public static void disown( Badge badge ) {
 		loadGlobal();
 		global.remove( badge );
 		saveNeeded = true;
 	}
-
+	
 	public static void unlock( Badge badge ){
 		if (!isUnlocked(badge) && Dungeon.customSeedText.isEmpty()){
 			global.add( badge );
@@ -1115,7 +1123,7 @@ public class Badges {
 			{Badge.ALL_POTIONS_IDENTIFIED, Badge.ALL_ITEMS_IDENTIFIED},
 			{Badge.ALL_SCROLLS_IDENTIFIED, Badge.ALL_ITEMS_IDENTIFIED}
 	};
-
+	
 	public static List<Badge> filterReplacedBadges( List<Badge> badges ) {
 
 		for (Badge[] tierReplace : tierBadgeReplacements){
@@ -1125,10 +1133,10 @@ public class Badges {
 		for (Badge[] metaReplace : summaryBadgeReplacements){
 			leaveBest( badges, metaReplace );
 		}
-
+		
 		return badges;
 	}
-
+	
 	private static void leaveBest( Collection<Badge> list, Badge...badges ) {
 		for (int i=badges.length-1; i > 0; i--) {
 			if (list.contains( badges[i])) {

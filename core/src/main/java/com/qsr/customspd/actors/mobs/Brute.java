@@ -131,7 +131,7 @@ public class Brute extends Mob {
 				return true;
 			}
 			
-			absorbDamage( 4 );
+			absorbDamage( Math.round(4*AscensionChallenge.statModifier(target)));
 			
 			if (shielding() <= 0){
 				target.die(null);

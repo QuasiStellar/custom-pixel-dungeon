@@ -140,7 +140,9 @@ public class BeaconOfReturning extends Spell {
 				}
 			}
 
-			if (!ScrollOfTeleportation.teleportToLocation(hero, returnPos)){
+			if (ScrollOfTeleportation.teleportToLocation(hero, returnPos)){
+				hero.spendAndNext( 1f );
+			} else {
 				return;
 			}
 
@@ -152,12 +154,12 @@ public class BeaconOfReturning extends Spell {
 			}
 
 			Level.beforeTransition();
+			Invisibility.dispel();
 			InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 			InterlevelScene.returnLevel = returnLevel;
 			InterlevelScene.returnPos = returnPos;
 			Game.switchScene( InterlevelScene.class );
 		}
-		hero.spendAndNext( 1f );
 		detach(hero.belongings.backpack);
 	}
 	

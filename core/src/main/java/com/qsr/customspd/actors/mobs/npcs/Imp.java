@@ -219,26 +219,27 @@ public class Imp extends NPC {
 
 			spawned = true;
 
-			//always assigns monks on floor 17, golems on floor 19, and 50/50 between either on 18
-			switch ((Dungeon.depth + 2) % 3){
-				case 0: default:
-					alternative = true;
-					break;
-				case 1:
-					alternative = Random.Int(2) == 0;
-					break;
-				case 2:
-					alternative = false;
-					break;
+				//always assigns monks on floor 17, golems on floor 19, and 50/50 between either on 18
+				switch ((Dungeon.depth + 2) % 3){
+					case 0: default:
+						alternative = true;
+						break;
+					case 1:
+						alternative = Random.Int(2) == 0;
+						break;
+					case 2:
+						alternative = false;
+						break;
+				}
+				
+				given = false;
+				
+				do {
+					reward = (Ring)Generator.randomUsingDefaults( Generator.Category.RING );
+				} while (reward.cursed);
+				reward.upgrade( 2 );
+				reward.cursed = true;
 			}
-
-			given = false;
-
-			do {
-				reward = (Ring)Generator.random( Generator.Category.RING );
-			} while (reward.cursed);
-			reward.upgrade( 2 );
-			reward.cursed = true;
 		}
 		
 		public static void process( Mob mob ) {

@@ -298,7 +298,7 @@ public class ElementalBlast extends ArmorAbility {
 												knockback,
 												true,
 												true,
-												ElementalBlast.this.getClass());
+												ElementalBlast.this);
 									}
 
 								//*** Wand of Frost ***

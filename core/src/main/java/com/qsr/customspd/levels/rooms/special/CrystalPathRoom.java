@@ -137,12 +137,12 @@ public class CrystalPathRoom extends SpecialRoom {
 					item = Generator.random(Generator.Category.SCROLL);
 					break;
 				case 3:
-					if (Random.Int(2) == 0){
-						item = Generator.random(Random.oneOf(Generator.Category.POTION, Generator.Category.SCROLL));
-					} else if (Random.Int(2) == 0) {
-						item = new PotionOfExperience();
-					} else {
-						item = new ScrollOfTransmutation();
+					switch (Random.Int(4)){
+						default:
+						case 0: item = new StoneOfAugmentation(); break;
+						case 1: item = new ScrollOfTransmutation(); break;
+						case 2: item = new Starflower.Seed(); break;
+						case 3: item = new PotionOfExperience(); break;
 					}
 					break;
 			}

@@ -43,6 +43,14 @@ public class StormCloud extends Blob {
 					if (fire != null){
 						fire.clear(i);
 					}
+
+					//fiery enemies take damage as if they are in toxic gas
+					Char ch = Actor.findChar(i);
+					if (ch != null
+							&& !ch.isImmune(getClass())
+							&& Char.hasProp(ch, Char.Property.FIERY)){
+						ch.damage(1 + Dungeon.scalingDepth()/5, this);
+					}
 				}
 			}
 		}

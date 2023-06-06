@@ -31,7 +31,8 @@ import kotlin.Pair;
 public class LockedFloor extends Buff {
 
 	//the amount of turns remaining before beneficial passive effects turn off
-	private float left = 50; //starts at 50 turns
+	//starts at 50 turns normally, 20 with badder bosses
+	private float left = Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 20 : 50;
 
 	@Override
 	public boolean act() {
@@ -48,6 +49,7 @@ public class LockedFloor extends Buff {
 
 	public void addTime(float time){
 		left += time;
+		left = Math.min(left, 50); //cannot build to more than 50
 	}
 
 	public void removeTime(float time){

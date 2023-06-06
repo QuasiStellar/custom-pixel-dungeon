@@ -139,6 +139,19 @@ public abstract class YogFist extends Mob {
 		}
 	}
 
+	@Override
+	public void damage(int dmg, Object src) {
+		int preHP = HP;
+		super.damage(dmg, src);
+		int dmgTaken = HP - preHP;
+
+		LockedFloor lock = Dungeon.hero.buff(LockedFloor.class);
+		if (dmgTaken > 0 && lock != null){
+			if (Dungeon.isChallenged(Challenges.STRONGER_BOSSES))   lock.addTime(dmgTaken/4f);
+			else                                                    lock.addTime(dmgTaken/2f);
+		}
+	}
+
 	protected abstract void zap();
 
 	public void onZapComplete(){
@@ -250,6 +263,9 @@ public abstract class YogFist extends Mob {
 
 		{
 			immunities.add(Frost.class);
+
+			resistances.add(StormCloud.class);
+			resistances.add(GeyserTrap.class);
 		}
 
 	}
@@ -372,7 +388,9 @@ public abstract class YogFist extends Mob {
 
 		@Override
 		public void damage(int dmg, Object src) {
-			if (!isInvulnerable(src.getClass()) && !(src instanceof Bleeding)){
+			if (!isInvulnerable(src.getClass())
+					&& !(src instanceof Bleeding)
+					&& buff(Sickle.HarvestBleedTracker.class) == null){
 				dmg = Math.round( dmg * resist( src.getClass() ));
 				if (dmg < 0){
 					return;
@@ -480,7 +498,7 @@ public abstract class YogFist extends Mob {
 
 				if (!enemy.isAlive() && enemy == Dungeon.hero) {
 					Badges.validateDeathFromEnemyMagic();
-					Dungeon.fail( getClass() );
+					Dungeon.fail( this );
 					GLog.n( Messages.get(Char.class, "kill", name()) );
 				}
 
@@ -550,7 +568,7 @@ public abstract class YogFist extends Mob {
 
 				if (!enemy.isAlive() && enemy == Dungeon.hero) {
 					Badges.validateDeathFromEnemyMagic();
-					Dungeon.fail( getClass() );
+					Dungeon.fail( this );
 					GLog.n( Messages.get(Char.class, "kill", name()) );
 				}
 

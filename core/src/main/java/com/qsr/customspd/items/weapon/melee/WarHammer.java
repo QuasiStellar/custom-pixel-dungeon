@@ -49,8 +49,17 @@ public class WarHammer extends MeleeWeapon {
 	}
 
 	@Override
+	public float abilityChargeUse(Hero hero, Char target) {
+		if (target == null || (target instanceof Mob && ((Mob) target).surprisedBy(hero))) {
+			return super.abilityChargeUse(hero, target);
+		} else {
+			return 2*super.abilityChargeUse(hero, target);
+		}
+	}
+
+	@Override
 	protected void duelistAbility(Hero hero, Integer target) {
-		Mace.heavyBlowAbility(hero, target, 1.50f, this);
+		Mace.heavyBlowAbility(hero, target, 1.30f, this);
 	}
 
 }

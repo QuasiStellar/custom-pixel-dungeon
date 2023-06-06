@@ -217,8 +217,8 @@ public class HornOfPlenty extends Artifact {
 		if (level() >= 10) return;
 		
 		storedFoodEnergy += food.energy;
-		//Pasties are worth two upgrades instead of 1.5, meat pies are worth 4 instead of 3!
-		if (food instanceof Pasty){
+		//Pasties and phantom meat are worth two upgrades instead of 1.5, meat pies are worth 4 instead of 3!
+		if (food instanceof Pasty || food instanceof PhantomMeat){
 			storedFoodEnergy += Hunger.HUNGRY/2;
 		} else if (food instanceof MeatPie){
 			storedFoodEnergy += Hunger.HUNGRY;

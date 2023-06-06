@@ -44,6 +44,32 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 	}
 
 	@Override
+	public void doRead() {
+		TormentedSpirit spirit = null;
+		for (int i : PathFinder.NEIGHBOURS8){
+			if (Actor.findChar(curUser.pos+i) instanceof TormentedSpirit){
+				spirit = (TormentedSpirit) Actor.findChar(curUser.pos+i);
+			}
+		}
+		if (spirit != null){
+			identify();
+			Sample.INSTANCE.play( Assets.Sounds.READ );
+			readAnimation();
+
+			new Flare( 6, 32 ).show( curUser.sprite, 2f );
+
+			if (curUser.buff(Degrade.class) != null) {
+				Degrade.detach(curUser, Degrade.class);
+			}
+
+			GLog.p(Messages.get(this, "spirit"));
+			spirit.cleanse();
+		} else {
+			super.doRead();
+		}
+	}
+
+	@Override
 	protected boolean usableOnItem(Item item) {
 		return uncursable(item);
 	}

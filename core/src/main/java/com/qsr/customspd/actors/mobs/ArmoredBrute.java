@@ -76,7 +76,7 @@ public class ArmoredBrute extends Brute {
 				return true;
 			}
 			
-			absorbDamage( 1 );
+			absorbDamage( Math.round(AscensionChallenge.statModifier(target)) );
 			
 			if (shielding() <= 0){
 				target.die(null);

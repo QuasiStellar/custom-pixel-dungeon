@@ -111,6 +111,8 @@ public class SummonElemental extends Spell {
 			elemental.setSummonedALly();
 			elemental.HP = elemental.HT;
 			ScrollOfTeleportation.appear( elemental, Random.element(spawnPoints) );
+			Invisibility.dispel(curUser);
+			curUser.sprite.operate(curUser.pos);
 			curUser.spendAndNext(Actor.TICK);
 
 			summonClass = Elemental.AllyNewBornElemental.class;

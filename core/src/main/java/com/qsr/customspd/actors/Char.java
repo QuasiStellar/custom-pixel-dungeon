@@ -212,7 +212,10 @@ public abstract class Char extends Actor {
 			return true;
 		}
 
-		int curPos = pos;
+		//we do a little raw position shuffling here so that the characters are never
+		// on the same cell when logic such as occupyCell() is triggered
+		int oldPos = pos;
+		int newPos = c.pos;
 
 		//warp instantly with allies in this case
 		if (c == Dungeon.hero && Dungeon.hero.hasTalent(Talent.ALLY_WARP)){
@@ -220,8 +223,10 @@ public abstract class Char extends Actor {
 			if (PathFinder.distance[pos] == Integer.MAX_VALUE){
 				return true;
 			}
-			ScrollOfTeleportation.appear(this, c.pos);
-			ScrollOfTeleportation.appear(c, curPos);
+			pos = newPos;
+			c.pos = oldPos;
+			ScrollOfTeleportation.appear(this, newPos);
+			ScrollOfTeleportation.appear(c, oldPos);
 			Dungeon.observe();
 			GameScene.updateFog();
 			return true;
@@ -232,11 +237,13 @@ public abstract class Char extends Actor {
 			return true;
 		}
 
-		moveSprite( pos, c.pos );
-		move( c.pos );
-		
-		c.sprite.move( c.pos, curPos );
-		c.move( curPos );
+		c.pos = oldPos;
+		moveSprite( oldPos, newPos );
+		move( newPos );
+
+		c.pos = newPos;
+		c.sprite.move( newPos, oldPos );
+		c.move( oldPos );
 		
 		c.spend( 1 / c.speed() );
 
@@ -445,7 +452,7 @@ public abstract class Char extends Actor {
 			if (combinedLethality != null){
 				if ( enemy.isAlive() && enemy.alignment != alignment && !Char.hasProp(enemy, Property.BOSS)
 						&& !Char.hasProp(enemy, Property.MINIBOSS) && this instanceof Hero &&
-						(enemy.HP/(float)enemy.HT) <= 0.10f*((Hero)this).pointsInTalent(Talent.COMBINED_LETHALITY)) {
+						(enemy.HP/(float)enemy.HT) <= 0.4f*((Hero)this).pointsInTalent(Talent.COMBINED_LETHALITY)/3f) {
 					enemy.HP = 0;
 					if (!enemy.isAlive()) {
 						enemy.die(this);
@@ -473,7 +480,7 @@ public abstract class Char extends Actor {
 							|| this instanceof MirrorImage || this instanceof PrismaticImage){
 						Badges.validateDeathFromFriendlyMagic();
 					}
-					Dungeon.fail( getClass() );
+					Dungeon.fail( this );
 					GLog.n( Messages.capitalize(Messages.get(Char.class, "kill", name())) );
 					
 				} else if (this == Dungeon.hero) {
@@ -507,6 +514,10 @@ public abstract class Char extends Actor {
 		float acuStat = attacker.attackSkill( defender );
 		float defStat = defender.defenseSkill( attacker );
 
+		if (defender instanceof Hero && ((Hero) defender).damageInterrupt){
+			((Hero) defender).interrupt();
+		}
+
 		//invisible chars always hit (for the hero this is surprise attacking)
 		if (attacker.invisible > 0 && attacker.canSurpriseAttack()){
 			acuStat = INFINITE_ACCURACY;
@@ -514,6 +525,8 @@ public abstract class Char extends Actor {
 
 		if (defender.buff(MonkEnergy.MonkAbility.Focus.FocusBuff.class) != null && !magic){
 			defStat = INFINITE_EVASION;
+			defender.buff(MonkEnergy.MonkAbility.Focus.FocusBuff.class).detach();
+			Buff.affect(defender, MonkEnergy.MonkAbility.Focus.FocusActivation.class, 0);
 		}
 
 		//if accuracy or evasion are large enough, treat them as infinite.
@@ -527,6 +540,7 @@ public abstract class Char extends Actor {
 		float acuRoll = Random.Float( acuStat );
 		if (attacker.buff(Bless.class) != null) acuRoll *= 1.25f;
 		if (attacker.buff(  Hex.class) != null) acuRoll *= 0.8f;
+		if (attacker.buff( Daze.class) != null) acuRoll *= 0.5f;
 		for (ChampionEnemy buff : attacker.buffs(ChampionEnemy.class)){
 			acuRoll *= buff.evasionAndAccuracyFactor();
 		}
@@ -535,6 +549,7 @@ public abstract class Char extends Actor {
 		float defRoll = Random.Float( defStat );
 		if (defender.buff(Bless.class) != null) defRoll *= 1.25f;
 		if (defender.buff(  Hex.class) != null) defRoll *= 0.8f;
+		if (defender.buff( Daze.class) != null) defRoll *= 0.5f;
 		for (ChampionEnemy buff : defender.buffs(ChampionEnemy.class)){
 			defRoll *= buff.evasionAndAccuracyFactor();
 		}
@@ -634,7 +649,6 @@ public abstract class Char extends Actor {
 		for (ChampionEnemy buff : buffs(ChampionEnemy.class)){
 			dmg = (int) Math.ceil(dmg * buff.damageTakenFactor());
 		}
-		dmg = (int)Math.ceil(dmg / AscensionChallenge.statModifier(this));
 
 		if (!(src instanceof LifeLink) && buff(LifeLink.class) != null){
 			HashSet<LifeLink> links = buffs(LifeLink.class);
@@ -693,7 +707,26 @@ public abstract class Char extends Actor {
 			dmg -= Random.NormalIntRange(0, buff(ArcaneArmor.class).level());
 			if (dmg < 0) dmg = 0;
 		}
-		
+
+		if (buff(Sickle.HarvestBleedTracker.class) != null){
+			if (isImmune(Bleeding.class)){
+				sprite.showStatus(CharSprite.POSITIVE, Messages.titleCase(Messages.get(this, "immune")));
+				buff(Sickle.HarvestBleedTracker.class).detach();
+				return;
+			}
+
+			Bleeding b = buff(Bleeding.class);
+			if (b == null){
+				b = new Bleeding();
+			}
+			b.announced = false;
+			b.set(dmg*buff(Sickle.HarvestBleedTracker.class).bleedFactor, Sickle.HarvestBleedTracker.class);
+			b.attachTo(this);
+			sprite.showStatus(CharSprite.WARNING, Messages.titleCase(b.name()) + " " + (int)b.level());
+			buff(Sickle.HarvestBleedTracker.class).detach();
+			return;
+		}
+
 		if (buff( Paralysis.class ) != null) {
 			buff( Paralysis.class ).processDamage(dmg);
 		}
@@ -709,7 +742,24 @@ public abstract class Char extends Actor {
 		shielded -= dmg;
 		HP -= dmg;
 
-		if (HP < 0 && src instanceof Char){
+		if (HP > 0 && buff(Grim.GrimTracker.class) != null){
+
+			float finalChance = buff(Grim.GrimTracker.class).maxChance;
+			finalChance *= (float)Math.pow( ((HT - HP) / (float)HT), 2);
+
+			if (Random.Float() < finalChance) {
+				int extraDmg = Math.round(HP*resist(Grim.class));
+				dmg += extraDmg;
+				HP -= extraDmg;
+
+				sprite.emitter().burst( ShadowParticle.UP, 5 );
+				if (!isAlive() && buff(Grim.GrimTracker.class).qualifiesForBadge){
+					Badges.validateGrimWeapon();
+				}
+			}
+		}
+
+		if (HP < 0 && src instanceof Char && alignment == Alignment.ENEMY){
 			if (((Char) src).buff(Kinetic.KineticTracker.class) != null){
 				int dmgToAdd = -HP;
 				dmgToAdd -= ((Char) src).buff(Kinetic.KineticTracker.class).conservedDamage;
@@ -753,6 +803,14 @@ public abstract class Char extends Actor {
 			}
 			if (ch.buff(SnipersMark.class) != null && ch.buff(SnipersMark.class).object == id()){
 				ch.buff(SnipersMark.class).detach();
+			}
+			if (ch.buff(Talent.FollowupStrikeTracker.class) != null
+					&& ch.buff(Talent.FollowupStrikeTracker.class).object == id()){
+				ch.buff(Talent.FollowupStrikeTracker.class).detach();
+			}
+			if (ch.buff(Talent.DeadlyFollowupTracker.class) != null
+					&& ch.buff(Talent.DeadlyFollowupTracker.class).object == id()){
+				ch.buff(Talent.DeadlyFollowupTracker.class).detach();
 			}
 		}
 	}

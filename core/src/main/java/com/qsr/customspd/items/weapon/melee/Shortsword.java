@@ -37,11 +37,11 @@ public class Shortsword extends MeleeWeapon {
 	}
 
 	@Override
-	public float abilityChargeUse( Hero hero ) {
+	public float abilityChargeUse(Hero hero, Char target) {
 		if (hero.buff(Sword.CleaveTracker.class) != null){
 			return 0;
 		} else {
-			return super.abilityChargeUse( hero );
+			return super.abilityChargeUse( hero, target);
 		}
 	}
 
