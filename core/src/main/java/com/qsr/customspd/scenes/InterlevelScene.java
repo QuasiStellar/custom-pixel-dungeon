@@ -28,6 +28,7 @@ import com.qsr.customspd.ShatteredPixelDungeon;
 import com.qsr.customspd.Statistics;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -325,6 +326,7 @@ public class InterlevelScene extends PixelScene {
 
 					if (Dungeon.level != null && Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) {
 						Dungeon.level.seal();
+						Dungeon.hero.buff(LockedFloor.class).removeTime(50);
 					}
 				}
 			};

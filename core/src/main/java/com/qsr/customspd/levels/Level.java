@@ -321,8 +321,6 @@ public abstract class Level implements Bundlable {
 				break;
 		}
 
-		if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) seal();
-
 		Random.popGenerator();
 	}
 	

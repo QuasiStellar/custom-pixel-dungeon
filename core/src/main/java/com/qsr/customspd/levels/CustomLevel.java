@@ -26,6 +26,7 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
+import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.mobs.CustomMob;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
@@ -211,8 +212,6 @@ public class CustomLevel extends Level {
 				GameScene.updateFog();
 				break;
 		}
-
-		if (Dungeon.layout.getDungeon().get(Dungeon.levelName).getLocked()) seal();
 
 		Random.popGenerator();
 	}
