@@ -58,7 +58,7 @@ public class DiscordButton extends Button {
 
     @Override
     protected void onClick() {
-        ShatteredPixelDungeon.platform.openURI("https://discord.gg/Uqpyq7X4");
+        ShatteredPixelDungeon.platform.openURI("https://discord.gg/QTxcTMC4bU");
     }
 
     public void updateSize() {
