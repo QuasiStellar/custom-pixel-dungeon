@@ -22,6 +22,7 @@
 package com.qsr.customspd.actors.mobs;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.actors.buffs.AscensionChallenge;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.Item;

@@ -31,6 +31,7 @@ import com.qsr.customspd.actors.blobs.Electricity;
 import com.qsr.customspd.actors.buffs.Amok;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Dread;
+import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.buffs.Paralysis;
 import com.qsr.customspd.actors.buffs.Sleep;
 import com.qsr.customspd.actors.buffs.Terror;

@@ -159,7 +159,7 @@ public enum Document {
 				case "Examining":
 					return new Image(Asset.getAssetFilePath(GeneralAsset.ICON_MAGNIFY));
 				case "Surprise_Attacks":
-					return new ItemSprite( GeneralAsset.SNAKE );
+					return new ItemSprite( GeneralAsset.ICON_SNAKE );
 				case "Identifying":
 					return new ItemSprite( new ScrollOfIdentify() );
 				case "Food":

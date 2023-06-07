@@ -38,6 +38,7 @@ import com.qsr.customspd.actors.buffs.Chill;
 import com.qsr.customspd.actors.buffs.Corrosion;
 import com.qsr.customspd.actors.buffs.Corruption;
 import com.qsr.customspd.actors.buffs.Cripple;
+import com.qsr.customspd.actors.buffs.Daze;
 import com.qsr.customspd.actors.buffs.Doom;
 import com.qsr.customspd.actors.buffs.Dread;
 import com.qsr.customspd.actors.buffs.Drowsy;

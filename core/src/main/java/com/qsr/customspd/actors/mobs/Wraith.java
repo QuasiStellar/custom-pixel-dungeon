@@ -24,6 +24,7 @@ package com.qsr.customspd.actors.mobs;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.effects.particles.ChallengeParticle;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.WraithSprite;

@@ -29,13 +29,17 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.ui.AttackIndicator;
+import com.qsr.customspd.ui.BuffIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
+
+import kotlin.Pair;
 
 public class Sai extends MeleeWeapon {
 
@@ -122,7 +126,7 @@ public class Sai extends MeleeWeapon {
 		public int[] hits = new int[DURATION];
 
 		@Override
-		public int icon() {
+		public Pair<Asset, Asset> icon() {
 			//pre-v2.1 saves
 			if (totalHits() == 0) return BuffIndicator.NONE;
 

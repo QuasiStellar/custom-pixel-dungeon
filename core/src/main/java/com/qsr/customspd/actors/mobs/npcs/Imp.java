@@ -240,7 +240,6 @@ public class Imp extends NPC {
 				reward.upgrade( 2 );
 				reward.cursed = true;
 			}
-		}
 		
 		public static void process( Mob mob ) {
 			if (spawned && given && !completed && !Dungeon.bossLevel()) {

@@ -29,6 +29,7 @@ import com.qsr.customspd.actors.buffs.BlobImmunity;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.Doom;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
+import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.Talent;
 import com.qsr.customspd.actors.hero.abilities.ArmorAbility;

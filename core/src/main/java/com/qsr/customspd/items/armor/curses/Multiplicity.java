@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.PinCushion;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
 import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.Statue;

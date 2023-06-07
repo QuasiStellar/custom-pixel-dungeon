@@ -230,6 +230,7 @@ public class Toolbar extends Component {
 				return true;
 			}
 		});
+		btnWait.icon(GeneralAsset.WAIT_ICON);
 
 		//hidden button for rest keybind
 		add(new Button(){
@@ -316,6 +317,7 @@ public class Toolbar extends Component {
 				return true;
 			}
 		});
+		btnSearch.icon(GeneralAsset.SEARCH_ICON);
 		
 		add(btnInventory = new Tool(GeneralAsset.INVENTORY) {
 			private CurrencyIndicator ind;
@@ -388,6 +390,7 @@ public class Toolbar extends Component {
 				super.enable(value);
 			}
 		});
+		btnInventory.icon(GeneralAsset.INVENTORY_ICON);
 
 		//hidden button for inventory selector keybind
 		add(new Button(){
@@ -721,12 +724,10 @@ public class Toolbar extends Component {
 			this.height = height;
 		}
 
-		public void icon( int x, int y, int width, int height){
-			if (icon == null) icon = new Image( Assets.Interfaces.TOOLBAR );
+		public void icon(Asset asset) {
+			if (icon == null) icon = new Image(Asset.getAssetFilePath(asset));
 			add(icon);
-
-			icon.frame( x, y, width, height);
-		} // FIXME
+		}
 
 		@Override
 		protected void createChildren() {

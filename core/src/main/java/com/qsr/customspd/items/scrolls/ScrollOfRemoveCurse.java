@@ -21,10 +21,13 @@
 
 package com.qsr.customspd.items.scrolls;
 
+import com.qsr.customspd.Assets;
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.buffs.Degrade;
 import com.qsr.customspd.actors.hero.Belongings;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.actors.mobs.TormentedSpirit;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Flare;
 import com.qsr.customspd.effects.particles.ShadowParticle;
@@ -35,6 +38,8 @@ import com.qsr.customspd.items.wands.Wand;
 import com.qsr.customspd.items.weapon.Weapon;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.utils.GLog;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.PathFinder;
 
 public class ScrollOfRemoveCurse extends InventoryScroll {
 

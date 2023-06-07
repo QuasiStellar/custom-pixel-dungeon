@@ -21,6 +21,7 @@
 
 package com.qsr.customspd.actors.mobs;
 
+import com.qsr.customspd.Badges;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.items.Generator;
 import com.qsr.customspd.items.journal.Guidebook;

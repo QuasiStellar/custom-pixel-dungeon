@@ -29,11 +29,13 @@ import com.qsr.customspd.items.keys.CrystalKey;
 import com.qsr.customspd.items.keys.IronKey;
 import com.qsr.customspd.items.potions.PotionOfExperience;
 import com.qsr.customspd.items.scrolls.ScrollOfTransmutation;
+import com.qsr.customspd.items.stones.StoneOfAugmentation;
 import com.qsr.customspd.levels.Level;
 import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.rooms.Room;
 import com.qsr.customspd.levels.rooms.standard.EmptyRoom;
+import com.qsr.customspd.plants.Starflower;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 

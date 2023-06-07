@@ -238,7 +238,7 @@ public enum Talent {
 	public static class PatientStrikeTracker extends Buff {
 		public int pos;
 		{ type = Buff.buffType.POSITIVE; }
-		public int icon() { return BuffIndicator.TIME; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.TIME; }
 		public void tintIcon(Image icon) { icon.hardlight(0.5f, 0f, 1f); }
 		@Override
 		public boolean act() {
@@ -300,7 +300,7 @@ public enum Talent {
 	public static class DeadlyFollowupTracker extends FlavourBuff{
 		public int object;
 		{ type = Buff.buffType.POSITIVE; }
-		public int icon() { return BuffIndicator.INVERT_MARK; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.INVERT_MARK; }
 		public void tintIcon(Image icon) { icon.hardlight(0.5f, 0f, 1f); }
 		public float iconFadePercent() { return Math.max(0, 1f - (visualcooldown() / 5)); }
 		private static final String OBJECT    = "object";
@@ -317,7 +317,7 @@ public enum Talent {
 	}
 	public static class PreciseAssaultTracker extends FlavourBuff{
 		{ type = buffType.POSITIVE; }
-		public int icon() { return BuffIndicator.INVERT_MARK; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.INVERT_MARK; }
 		public void tintIcon(Image icon) { icon.hardlight(1f, 1f, 0.0f); }
 		public float iconFadePercent() { return Math.max(0, 1f - (visualcooldown() / 5)); }
 	};
@@ -726,7 +726,7 @@ public enum Talent {
 	public static class FollowupStrikeTracker extends FlavourBuff{
 		public int object;
 		{ type = Buff.buffType.POSITIVE; }
-		public int icon() { return BuffIndicator.INVERT_MARK; }
+		public Pair<Asset, Asset> icon() { return BuffIndicator.INVERT_MARK; }
 		public void tintIcon(Image icon) { icon.hardlight(0f, 0.75f, 1f); }
 		public float iconFadePercent() { return Math.max(0, 1f - (visualcooldown() / 5)); }
 		private static final String OBJECT    = "object";

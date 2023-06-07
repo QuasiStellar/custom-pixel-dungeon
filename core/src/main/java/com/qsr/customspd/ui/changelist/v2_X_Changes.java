@@ -29,6 +29,8 @@ import com.qsr.customspd.scenes.ChangesScene;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.HeroSprite;
 import com.qsr.customspd.sprites.ItemSprite;
+import com.qsr.customspd.sprites.ShopkeeperSprite;
+import com.qsr.customspd.sprites.TormentedSpiritSprite;
 import com.qsr.customspd.ui.Window;
 import com.watabou.noosa.Image;
 
@@ -48,18 +50,18 @@ public class v2_X_Changes {
 		changes.hardlight(0xCCCCCC);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Overview",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Overview",
 				"The next update will be v2.2.0, and will include a complete rework of the blacksmith quest!\n" +
 				"\n" +
 				"I'll probably start to have a more clear idea of how long v2.2.0 will take after I finish releasing patches for v2.1.0, but I think that a total dev time of 3 months or so is a relatively safe bet. Please keep in mind that while I always try to keep to the ETAs I provide, they are just estimates. If you don't hear from me by the ETA, it means I'm still busy with the update!"));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.CHANGES), "Larger Patches",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_CHANGES)), "Larger Patches",
 				"There is a decent amount of technical work that still needs to be done for v2.2.0, and I can easily introduce that into the game via some patches to v2.1.0. Because of this, I expect that v2.1 is going to have a longer patch cycle than usual, as I'll be both including those technical changes and taking the opportunity to fix a bunch of smaller issues sooner than if I waiting to release them in v2.2.0."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.PICKAXE), "Blacksmith Questt",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.PICKAXE)), "Blacksmith Questt",
 				"I plan to completely rework the blacksmith's quest in v2.2.0, to feature a new sub area and a unique mining mechanic. The player will need to mine out walls both to collect treasure and to navigate around hazards. I expect the quest will be notably more involved and challenging, but there will be new rewards on offer a well!"));
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.PREFS), "Smaller Changes/Fixes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), "Smaller Changes/Fixes",
 				"As always, there will be some amount of smaller improvements, fixes, and additions both in v2.2.0 and during v2.1's longer than usual patch cycle. I expect that v2.2.0 is going to be mainly focused on the blacksmith quest though, so any new additions aside from that will be relatively minor. In terms of fixes, I plan to keep an eye on the Duelist and weapons in general after the changes in v2.1.0."));
 
 	}
@@ -74,12 +76,12 @@ public class v2_X_Changes {
 		changes.hardlight(Window.TITLE_COLOR);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.get(Icons.SHPX), "Developer Commentary",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_SHPX)), "Developer Commentary",
 				"_-_ Released June 2nd, 2023\n" +
 				"_-_ 83 days after Shattered v2.0.0\n\n" +
 				"Dev commentary will be added here in the future."));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.WAR_SCYTHE), "New Weapons!",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.WAR_SCYTHE)), "New Weapons!",
 				"Three new weapons have been added to the game!\n" +
 				"\n" +
 				"_The Katana_ is a tier-4 defensive weapon that was designed to respond to the common feedback point of players wanting a higher tier weapon with the rapier's ability. Just like with her rapier, the Duelist can _lunge_ at enemies with a katana, dealing +50% damage.\n" +
@@ -102,18 +104,18 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.WARNING);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(Icons.STAIRS.get(), "Ascension Changes",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_STAIRS)), "Ascension Changes",
 				"I've made several changes to the Ascension challenge to make it more fun, mesh better with some items/effects, and to smooth out its difficulty:\n\n" +
 				"_-_ Enemies now gain increased max HP during ascent, instead of damage resistance\n\n" +
 				"_-_ Enemies now grant exp to the hero up to level 30 while ascending\n" +
 				"_-_ Even at level 30, on-exp-gain effects will now still trigger as long as the amulet's curse is being weakened\n\n" +
 				"_-_ Increased enemy stat scaling in the earlier floors of the caves and prison"));
 
-		changes.addButton( new ChangeButton(new TalentIcon(Talent.PRECISE_ASSAULT), "Precise Assault",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.TALENT_ICON_PRECISE_ASSAULT)), "Precise Assault",
 				"The _Lightweight Charge_ talent has been completely replaced with a new talent: _Precise Assault_. This new talent grants a big accuracy boost for 1 attack after using a weapon ability, encouraging interweaving special and regular attacks.\n\n" +
 				"Lightweight Charge is removed as it was originally designed much earlier in the Duelist's development process. This was before mechanics like Swift Equip, the Champion's Dual wielding, or Unencumbered Spirit existed. Those mechanics do a much better job of encouraging using abilities on lower tier weapons."));
 
-		changes.addButton(new ChangeButton(Icons.get(Icons.PREFS), Messages.get(ChangesScene.class, "misc"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.ICON_PREFS)), Messages.get(ChangesScene.class, "misc"),
 				"_Highlights:_\n" +
 				"_-_ Enemy misses now interrupt the hero, just like hits\n" +
 				"_-_ Boss regen limits are now less permissive, especially with badder bosses enabled\n" +
@@ -132,7 +134,7 @@ public class v2_X_Changes {
 				"_-_ Improved the icon for the locked floor status\n" +
 				"_-_ Magical fire can now burn items placed next to it by the player"));
 
-		changes.addButton(new ChangeButton(new Image(Assets.Sprites.SPINNER, 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER)), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed the following bugs:\n" +
 				"_Highlights:_\n" +
 				"_-_ Various rare crash errors\n" +
@@ -184,11 +186,11 @@ public class v2_X_Changes {
 		changes.hardlight(CharSprite.POSITIVE);
 		changeInfos.add(changes);
 
-		changes.addButton( new ChangeButton(new Whip(),
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.WHIP)),
 				"The whip is getting a quick and simple buff, as it is performing a bit worse than its T3 counterparts:\n\n" +
 				"_- Whip_ base damage increased to 3-15 from 3-12"));
 
-		changes.addButton( new ChangeButton(new ItemSprite(ItemSpriteSheet.WAR_HAMMER), "Weapon Abilities",
+		changes.addButton( new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.WAR_HAMMER)), "Weapon Abilities",
 				"Several of the Duelist's weapon abilities have not been performing as well as I'd hoped, even after the buffs in v2.0.1. It seems that I've overestimated how much the drawbacks I added have held back many of these abilities. My hope with these changes is to better balance other abilities versus the simple-yet-effective Cleave.\n" +
 				"\n" +
 				"Firstly, some abilities need relatively little help:\n" +

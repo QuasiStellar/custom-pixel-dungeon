@@ -22,6 +22,7 @@
 package com.qsr.customspd.scenes;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.Badges;
 import com.qsr.customspd.Chrome;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.GamesInProgress;
@@ -32,6 +33,7 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Fireball;
 import com.qsr.customspd.journal.Document;
+import com.qsr.customspd.journal.Journal;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.ui.Archs;

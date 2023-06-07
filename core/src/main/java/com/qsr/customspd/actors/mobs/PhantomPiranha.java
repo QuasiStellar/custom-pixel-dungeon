@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.qsr.shatteredpixeldungeon.actors.mobs;
+package com.qsr.customspd.actors.mobs;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;

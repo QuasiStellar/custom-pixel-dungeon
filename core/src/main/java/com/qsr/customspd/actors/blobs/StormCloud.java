@@ -22,6 +22,8 @@
 package com.qsr.customspd.actors.blobs;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.actors.Actor;
+import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.effects.BlobEmitter;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;

@@ -22,7 +22,9 @@
 package com.qsr.customspd.items.weapon.enchantments;
 
 import com.qsr.customspd.Badges;
+import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.items.weapon.Weapon;

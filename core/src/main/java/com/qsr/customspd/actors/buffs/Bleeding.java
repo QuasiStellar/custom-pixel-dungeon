@@ -26,6 +26,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.effects.Splash;
 import com.qsr.customspd.items.weapon.curses.Sacrificial;
+import com.qsr.customspd.items.weapon.melee.MeleeWeapon;
+import com.qsr.customspd.items.weapon.melee.Sickle;
 import com.qsr.customspd.levels.features.Chasm;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.ui.BuffIndicator;

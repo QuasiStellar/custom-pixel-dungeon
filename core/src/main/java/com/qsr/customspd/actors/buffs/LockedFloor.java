@@ -21,6 +21,7 @@
 
 package com.qsr.customspd.actors.buffs;
 
+import com.qsr.customspd.Challenges;
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.ui.BuffIndicator;

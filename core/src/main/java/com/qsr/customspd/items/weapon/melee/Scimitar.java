@@ -22,6 +22,7 @@
 package com.qsr.customspd.items.weapon.melee;
 
 import com.qsr.customspd.Assets;
+import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.hero.Hero;

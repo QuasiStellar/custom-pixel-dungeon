@@ -22,6 +22,8 @@
 package com.qsr.customspd.windows;
 
 import com.qsr.customspd.Dungeon;
+import com.qsr.customspd.actors.Actor;
+import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.actors.mobs.npcs.Shopkeeper;

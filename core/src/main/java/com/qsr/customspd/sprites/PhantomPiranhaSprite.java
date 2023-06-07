@@ -23,6 +23,8 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.Assets;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.assets.Asset;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.MovieClip;
@@ -39,7 +41,7 @@ public class PhantomPiranhaSprite extends MobSprite {
 		renderShadow = false;
 		perspectiveRaise = 0.2f;
 
-		texture( Assets.Sprites.PIRANHA );
+		texture( Asset.getAssetFilePath(GeneralAsset.PIRANHA) );
 
 		TextureFilm frames = new TextureFilm( texture, 12, 16 );
 

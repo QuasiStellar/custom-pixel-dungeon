@@ -40,6 +40,7 @@ import com.qsr.customspd.items.food.Blandfruit;
 import com.qsr.customspd.items.food.Food;
 import com.qsr.customspd.items.food.MeatPie;
 import com.qsr.customspd.items.food.Pasty;
+import com.qsr.customspd.items.food.PhantomMeat;
 import com.qsr.customspd.items.rings.RingOfEnergy;
 import com.qsr.customspd.messages.Messages;
 import com.qsr.customspd.assets.GeneralAsset;

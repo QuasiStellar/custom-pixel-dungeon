@@ -23,6 +23,7 @@ package com.qsr.customspd.actors.mobs;
 
 import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Char;
+import com.qsr.customspd.actors.buffs.AscensionChallenge;
 import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.ShieldBuff;
 import com.qsr.customspd.actors.buffs.Terror;
@@ -131,7 +132,7 @@ public class Brute extends Mob {
 				return true;
 			}
 			
-			absorbDamage( Math.round(4*AscensionChallenge.statModifier(target)));
+			absorbDamage( Math.round(4* AscensionChallenge.statModifier(target)));
 			
 			if (shielding() <= 0){
 				target.die(null);

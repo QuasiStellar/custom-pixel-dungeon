@@ -29,8 +29,8 @@ import com.qsr.customspd.actors.buffs.Buff;
 import com.qsr.customspd.actors.buffs.FlavourBuff;
 import com.qsr.customspd.actors.buffs.Invisibility;
 import com.qsr.customspd.actors.hero.Hero;
+import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.messages.Messages;
-import com.qsr.customspd.sprites.ItemSpriteSheet;
 import com.qsr.customspd.ui.AttackIndicator;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.audio.Sample;
@@ -39,7 +39,7 @@ import com.watabou.utils.Callback;
 public class Sickle extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.SICKLE;
+		image = GeneralAsset.SICKLE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 
