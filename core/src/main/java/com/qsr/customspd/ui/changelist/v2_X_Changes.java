@@ -134,7 +134,7 @@ public class v2_X_Changes {
 				"_-_ Improved the icon for the locked floor status\n" +
 				"_-_ Magical fire can now burn items placed next to it by the player"));
 
-		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER)), Messages.get(ChangesScene.class, "bugfixes"),
+		changes.addButton(new ChangeButton(new Image(Asset.getAssetFilePath(GeneralAsset.SPINNER), 144, 0, 16, 16), Messages.get(ChangesScene.class, "bugfixes"),
 				"Fixed the following bugs:\n" +
 				"_Highlights:_\n" +
 				"_-_ Various rare crash errors\n" +
