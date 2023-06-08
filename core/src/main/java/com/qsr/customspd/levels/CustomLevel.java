@@ -414,11 +414,21 @@ public class CustomLevel extends Level {
 	public Group addVisuals () {
 		super.addVisuals();
 		switch (layout.getRegion()) {
-			case 1: SewerLevel.addSewerVisuals(this, visuals);
-			case 2: PrisonLevel.addPrisonVisuals(this, visuals);
-			case 3: CavesLevel.addCavesVisuals(this, visuals);
-			case 4: CityLevel.addCityVisuals(this, visuals);
-			case 5: HallsLevel.addHallsVisuals(this, visuals);
+			case 1:
+				SewerLevel.addSewerVisuals(this, visuals);
+				break;
+			case 2:
+				PrisonLevel.addPrisonVisuals(this, visuals);
+				break;
+			case 3:
+				CavesLevel.addCavesVisuals(this, visuals);
+				break;
+			case 4:
+				CityLevel.addCityVisuals(this, visuals);
+				break;
+			case 5:
+				HallsLevel.addHallsVisuals(this, visuals);
+				break;
 		}
 		return visuals;
 	}
