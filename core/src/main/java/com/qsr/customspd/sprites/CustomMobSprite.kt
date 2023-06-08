@@ -61,11 +61,17 @@ class CustomMobSprite(private val scheme: MobAnimationScheme) : MobSprite() {
     override fun onComplete(anim: Animation) {
         if (anim === zap) {
             idle()
-            (parent.recycle(MissileSprite::class.java) as MissileSprite).reset(
-                this,
-                cellToAttack,
-                Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + scheme.missile)) as Item,
-            ) { ch.onAttackComplete() }
+
+            if (scheme.missile != null) {
+                (parent.recycle(MissileSprite::class.java) as MissileSprite).reset(
+                    this,
+                    cellToAttack,
+                    Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + scheme.missile)) as Item,
+                ) { ch.onAttackComplete() }
+            } else {
+                ch.onAttackComplete()
+                super.onComplete(anim)
+            }
         } else {
             super.onComplete(anim)
         }
