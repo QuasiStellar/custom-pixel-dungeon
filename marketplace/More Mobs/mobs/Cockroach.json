@@ -1,0 +1,33 @@
+{
+  "animation": {
+	"texture" : "mobs/cockroach.png",
+	"width": 16,
+	"height": 16,
+	"idle_fps": 1,
+	"idle_frames": [0, 0, 0, 1, 0, 0, 1, 1],
+	"run_fps": 15,
+	"run_frames": [2, 3, 4, 5],
+	"attack_fps": 10,
+	"attack_frames": [10, 11, 12],
+	"die_fps": 15,
+	"die_frames": [6, 7, 8, 9]
+  },
+  "hp": 7,
+  "exp": 4,
+  "max_lvl": 4,
+  "speed": 1.33,
+  "evasion": 5,
+  "accuracy": 10,
+  "min_damage": 0,
+  "max_damage": 4,
+  "min_armor": 0,
+  "max_armor": 9,
+  "loot": {
+	"type": "potions.PotionOfToxicGas"
+  },
+  "loot_chance": 0.15
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}

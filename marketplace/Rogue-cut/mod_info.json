@@ -1,0 +1,9 @@
+{
+	"name": "Rogue-cut",
+	"version": 1,
+	"description": "Never go to the barber your friends reccommend, especially if that friend is the rogue. All heroes now have rogue's haircut",
+	"author": "CeruleanBlue",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 3
+}

@@ -1,0 +1,33 @@
+{
+  "animation": {
+	"texture" : "mobs/paul.png",
+	"width": 12,
+	"height": 16,
+	"idle_fps": 6,
+	"idle_frames": [0, 1, 2, 3],
+	"run_fps": 10,
+	"run_frames": [4, 5, 6, 7, 8, 9,10,11,12],
+	"attack_fps": 10,
+	"attack_frames": [17, 18, 19,20],
+	"die_fps": 13,
+	"die_frames": [13, 14, 15,16]
+  },
+  "hp": 33,
+  "exp": 10,
+  "max_lvl": 12,
+  "evasion": 14,
+  "speed": 1,
+  "accuracy": 18,
+  "min_damage": 12,
+  "max_damage": 25,
+  "min_armor": 0,
+  "max_armor": 6,
+  "loot": {
+	"type": "potions.PotionOfLiquidFlame"
+  },
+  "loot_chance": 0.16
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}

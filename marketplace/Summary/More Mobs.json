@@ -1,0 +1,12 @@
+{
+	"name": "More Mobs",
+	"version": 2,
+	"description": "Adds 2 more mobs to each region and makes some mobs rarely spawn earlier.",
+	"author": "harakat",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"languages": [
+	    "English"
+	],
+	"min_cpd_version": 8
+}

@@ -1,0 +1,37 @@
+{
+  "animation": {
+	"texture" : "mobs/Tengu_copy.png",
+	"width": 14,
+	"height": 16,
+	"idle_fps": 1,
+	"idle_frames": [0, 0, 0, 1, 0, 0, 1, 1],
+	"run_fps": 10,
+	"run_frames": [0],
+	"attack_fps": 10,
+	"attack_frames": [6, 7],
+	"die_fps": 15,
+	"die_frames": [8, 9,10],
+	"missile": "weapon.missiles.Shuriken",
+	"zap_frames": [0],
+	"zap_fps": 10
+  },
+  "hp": 10,
+  "exp": 8,
+  "max_lvl": 14,
+  "evasion": 120,
+  "accuracy": 14,
+  "ranged": true,
+  "min_damage": 5,
+  "max_damage": 15,
+  "loot": {
+	"type": "scrolls.ScrollOfMirrorImage"
+  },
+  "loot_chance": 0.16
+  "min_armor": 0,
+  "max_armor": 1,
+  "properties": ["UNDEAD"],
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}

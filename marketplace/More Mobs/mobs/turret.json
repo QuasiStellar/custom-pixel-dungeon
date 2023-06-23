@@ -1,0 +1,37 @@
+{
+  "animation": {
+	"texture" : "mobs/turret.png",
+	"width": 14,
+	"height": 20,
+	"idle_fps": 3,
+	"idle_frames": [0, 1, 2, 3,3, 2, 1, 0],
+	"run_frames": [0, 1, 2, 3,3, 2, 1, 0],
+	"attack_fps":10,
+	"zap_fps":10,
+	"run_fps": 3,
+	"die_fps": 16,
+	"die_frames": [4, 5,6,7,8,9,10,11,12,13],
+	"missile": "weapon.missiles.darts.Dart"
+  },
+  "hp": 30,
+  "exp": 16,
+  "max_lvl": 21,
+  "evasion": 0,
+  "accuracy": 24,
+  "ranged": true,
+  "min_damage": 10,
+  "max_damage": 20,
+  "min_armor": 4,
+  "max_armor": 16,
+  "properties": ["IMMOVABLE","LARGE","ACIDIC"],
+  "loot": {
+	"type": "spells.Recycle",
+	"quantity_min": 1,
+	"quantity_max": 2
+  },
+  "loot_chance":0.17
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}

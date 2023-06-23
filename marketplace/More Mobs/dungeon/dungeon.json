@@ -1,0 +1,633 @@
+{
+"merge": true,
+  "start": "1",
+  "dungeon": {
+    "1": {
+      "depth": 1,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "surface"
+      ],
+      "exits": [
+        "2"
+      ],
+      "chasm": "2",
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Rat",
+        "Rat",
+        "Snake"
+      ],
+      "rare_mob": "noob"
+    },
+    "2": {
+      "depth": 2,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "1"
+      ],
+      "exits": [
+        "3"
+      ],
+      "chasm": "3",
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Rat",
+        "Snake",
+        "Gnoll",
+        "Gnoll",
+        "cockroach",
+        "cockroach"
+      ],
+      "rare_mob": "Novicescout"
+    },
+    "3": {
+      "depth": 3,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "2"
+      ],
+      "exits": [
+        "4"
+      ],
+      "chasm": "4",
+      "passage": "1",
+      "bestiary": [
+        "Rat",
+        "Snake",
+        "Gnoll",
+        "Gnoll",
+        "Swarm",
+        "Crab",
+        "cockroach",
+        "Novicescout",
+        "cockroach"
+      ],
+      "rare_mob": "Thief"
+    },
+    "4": {
+      "depth": 4,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "3"
+      ],
+      "exits": [
+        "5"
+      ],
+      "chasm": "5",
+      "passage": "1",
+      "bestiary": [
+        "Gnoll",
+        "Swarm",
+        "Crab",
+        "Crab",
+        "Slime",
+        "Slime",
+        "Novicescout",
+        "cockroach",
+        "cockroach"
+      ],
+      "rare_mob": "Skeleton"
+    },
+    "5": {
+      "depth": 5,
+      "type": "regular",
+      "layout": "SewerBossLevel",
+      "entrances": [
+        "4"
+      ],
+      "exits": [
+        "6"
+      ],
+      "chasm": "6",
+      "passage": "1",
+      "boss": true,
+      "bestiary": [
+        "Gnoll",
+        "Swarm",
+        "Crab",
+        "Crab",
+        "Slime",
+        "Slime"
+      ]
+    },
+    "6": {
+      "depth": 6,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "5"
+      ],
+      "exits": [
+        "7"
+      ],
+      "chasm": "7",
+      "passage": "1",
+      "shop": true,
+      "price_multiplier": 2,
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Skeleton",
+        "paul",
+        "Thief",
+        "Swarm",
+        "Novicescout"
+      ],
+      "rare_mob": "Tengucopymobile"
+    },
+    "7": {
+      "depth": 7,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "6"
+      ],
+      "exits": [
+        "8"
+      ],
+      "chasm": "8",
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Skeleton",
+        "paul",
+        "paul",
+        "Thief",
+        "DM100",
+        "Tengucopymobile",
+        "Guard"
+      ],
+      "rare_mob": "Bat"
+    },
+    "8": {
+      "depth": 8,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "7"
+      ],
+      "exits": [
+        "9"
+      ],
+      "chasm": "9",
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer",
+        "paul",
+        "paul",
+        "Tengucopymobile",
+        "Tengucopymobile"
+      ],
+      "rare_mob": "Brute"
+    },
+    "9": {
+      "depth": 9,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "8"
+      ],
+      "exits": [
+        "10"
+      ],
+      "chasm": "10",
+      "passage": "6",
+      "bestiary": [
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer",
+        "paul",
+        "paul",
+        "Necromancer",
+        "Tengucopymobile",
+        "Tengucopymobile"
+      ],
+      "rare_mob": "goblin"
+    },
+    "10": {
+      "depth": 10,
+      "type": "regular",
+      "layout": "PrisonBossLevel",
+      "entrances": [
+        "9"
+      ],
+      "exits": [
+        "11"
+      ],
+      "chasm": "11",
+      "passage": "6",
+      "boss": true,
+      "bestiary": [
+        "Skeleton",
+        "Thief",
+        "DM100",
+        "DM100",
+        "Guard",
+        "Guard",
+        "Necromancer",
+        "Necromancer"
+      ]
+    },
+    "11": {
+      "depth": 11,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "10"
+      ],
+      "exits": [
+        "12"
+      ],
+      "chasm": "12",
+      "passage": "6",
+      "shop": true,
+      "price_multiplier": 3,
+      "bestiary": [
+        "Bat",
+        "Bat",
+        "Bat",
+        "Tengucopymobile",
+        "Brute",
+        "popeteer",
+        "Shaman"
+      ],
+      "rare_mob":"turret"
+    },
+    "12": {
+      "depth": 12,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "11"
+      ],
+      "exits": [
+        "13"
+      ],
+      "chasm": "13",
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Bat",
+        "Brute",
+        "Brute",
+        "goblin",
+        "Shaman",
+        "popeteer",
+        "goblin",
+        "Spinner"
+      ],
+      "rare_mob":"turret"
+    },
+    "13": {
+      "depth": 13,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "12"
+      ],
+      "exits": [
+        "14"
+      ],
+      "chasm": "14",
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "Spinner",
+        "DM200",
+        "goblin",
+        "goblin",
+        "popeteer",
+        "popeteer",
+        "DM200"
+      ],
+      "rare_mob": "Warlock"
+    },
+    "14": {
+      "depth": 14,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "13"
+      ],
+      "exits": [
+        "15"
+      ],
+      "chasm": "15",
+      "passage": "11",
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "popeteer",
+        "popeteer",
+        "goblin",
+        "goblin",
+        "Spinner",
+        "DM200",
+        "DM200"
+      ],
+      "rare_mob": "Ghoul"
+    },
+    "15": {
+      "depth": 15,
+      "type": "regular",
+      "layout": "CavesBossLevel",
+      "entrances": [
+        "14"
+      ],
+      "exits": [
+        "16"
+      ],
+      "chasm": "16",
+      "passage": "11",
+      "boss": true,
+      "bestiary": [
+        "Bat",
+        "Brute",
+        "Shaman",
+        "Shaman",
+        "Spinner",
+        "Spinner",
+        "DM200",
+        "DM200"
+      ]
+    },
+    "16": {
+      "depth": 16,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "15"
+      ],
+      "exits": [
+        "17"
+      ],
+      "chasm": "17",
+      "passage": "11",
+      "shop": true,
+      "price_multiplier": 4,
+      "bestiary": [
+        "Ghoul",
+        "Ghoul",
+        "Ghoul",
+        "armordwarf",
+        "Elemental",
+        "turret",
+        "Warlock"
+      ],
+      "rare_mob":"RipperDemon"
+    },
+    "17": {
+      "depth": 17,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "16"
+      ],
+      "exits": [
+        "18"
+      ],
+      "chasm": "18",
+      "passage": "16",
+      "bestiary": [
+        "Ghoul",
+        "Elemental",
+        "Elemental",
+        "armordwarf2",
+        "Warlock",
+        "turret",
+        "Monk"
+      ],
+      "rare_mob":"Scorpio"
+    },
+    "18": {
+      "depth": 18,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "17"
+      ],
+      "exits": [
+        "19"
+      ],
+      "chasm": "19",
+      "passage": "16",
+      "bestiary": [
+        "Ghoul",
+        "Elemental",
+        "Warlock",
+        "armordwarf",
+        "Warlock",
+        "Monk",
+        "Monk",
+        "turret",
+        "Golem"
+      ],
+      "rare_mob":"Eye"
+    },
+    "19": {
+      "depth": 19,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "18"
+      ],
+      "exits": [
+        "20"
+      ],
+      "chasm": "20",
+      "passage": "16",
+      "bestiary": [
+        "Elemental",
+        "Warlock",
+        "Warlock",
+        "Monk",
+        "turret",
+        "turret",
+        "Monk",
+        "Golem",
+        "armordwarf",
+        "armordwarf2",
+        "Golem",
+        "Golem"
+      ],
+      "rare_mob": "Succubus"
+    },
+    "20": {
+      "depth": 20,
+      "type": "regular",
+      "price_multiplier": 5,
+      "layout": "CityBossLevel",
+      "entrances": [
+        "19"
+      ],
+      "exits": [
+        "21"
+      ],
+      "chasm": "21",
+      "passage": "16",
+      "boss": true,
+      "bestiary": [
+        "Elemental",
+        "Warlock",
+        "Warlock",
+        "Monk",
+        "Monk",
+        "Golem",
+        "Golem",
+        "Golem"
+      ]
+    },
+    "21": {
+      "depth": 21,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "20"
+      ],
+      "exits": [
+        "22"
+      ],
+      "chasm": "22",
+      "passage": "16",
+      "spawner_cooldown": 60,
+      "bestiary": [
+        "Succubus",
+        "Succubus",
+        "Eye",
+        "0"
+      ]
+    },
+    "22": {
+      "depth": 22,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "21"
+      ],
+      "exits": [
+        "23"
+      ],
+      "chasm": "23",
+      "passage": "21",
+      "spawner_cooldown": 53.33,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "1"
+      ]
+    },
+    "23": {
+      "depth": 23,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "22"
+      ],
+      "exits": [
+        "24"
+      ],
+      "chasm": "24",
+      "passage": "21",
+      "spawner_cooldown": 46.67,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "2"
+      ]
+    },
+    "24": {
+      "depth": 24,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "23"
+      ],
+      "exits": [
+        "25"
+      ],
+      "chasm": "25",
+      "passage": "21",
+      "spawner_cooldown": 40,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio",
+        "3"
+      ]
+    },
+    "25": {
+      "depth": 25,
+      "type": "regular",
+      "layout": "HallsBossLevel",
+      "entrances": [
+        "24"
+      ],
+      "exits": [
+        "26"
+      ],
+      "chasm": "26",
+      "passage": "21",
+      "boss": true,
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio"
+      ]
+    },
+    "26": {
+      "depth": 26,
+      "type": "regular",
+      "layout": "LastLevel",
+      "entrances": [
+        "25"
+      ],
+      "exits": [
+        "26"
+      ],
+      "chasm": "26",
+      "passage": "21",
+      "bestiary": [
+        "Succubus",
+        "Eye",
+        "Eye",
+        "Scorpio",
+        "Scorpio",
+        "Scorpio"
+      ]
+    }
+  }
+}

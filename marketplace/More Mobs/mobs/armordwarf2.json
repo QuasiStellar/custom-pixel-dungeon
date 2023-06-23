@@ -1,0 +1,34 @@
+{
+  "animation": {
+	"texture" : "mobs/armordwarf.png",
+	"width": 20,
+	"height": 16,
+	"idle_fps": 1,
+	"idle_frames": [0, 1,0,1,1,0,0],
+	"run_fps": 10,
+	"run_frames": [2,3,4, 5, 6],
+	"attack_fps": 10,
+	"attack_frames": [7,8,9,10,11,12,13],
+	"die_fps": 12,
+	"die_frames": [14,15,16,17,18]
+  },
+  "hp": 70,
+  "exp": 12,
+  "max_lvl": 22,
+  "evasion":2,
+  "speed": 1,
+  "accuracy": 28,
+  "min_damage": -10,
+  "max_damage": 30,
+  "properties": ["UNDEAD"],
+  "min_armor": 0,
+  "max_armor": 32,
+  "loot": {
+	"type": "armor.PlateArmor"
+  },
+  "loot_chance": 0.2
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}
