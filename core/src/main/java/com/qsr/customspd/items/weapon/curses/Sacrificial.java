@@ -33,16 +33,19 @@ public class Sacrificial extends Weapon.Enchantment {
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override
-	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
-
-		float procChance = 1/12f * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance) {
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
 			float missingPercent = attacker.HP/(float)attacker.HT;
 			float bleedAmt = (float)(Math.pow(missingPercent, 2) * attacker.HT)/5;
 			Buff.affect(attacker, Bleeding.class).set(Math.max(1, bleedAmt), getClass());
 		}
 
 		return damage;
+	}
+
+	@Override
+	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(1/12f * procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 
 	@Override

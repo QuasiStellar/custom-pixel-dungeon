@@ -38,16 +38,19 @@ public class Wayward extends Weapon.Enchantment {
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override
-	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
-		float procChance = 1/4f * procChanceMultiplier(attacker);
-
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
 		if (attacker.buff(WaywardBuff.class) != null){
 			Buff.detach(attacker, WaywardBuff.class);
-		} else if (Random.Float() < procChance){
+		} else if (Random.Float() < probability){
 			Buff.prolong(attacker, WaywardBuff.class, WaywardBuff.DURATION);
 		}
 
 		return damage;
+	}
+
+	@Override
+	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 
 	@Override

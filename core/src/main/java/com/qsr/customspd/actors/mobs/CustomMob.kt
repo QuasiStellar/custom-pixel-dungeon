@@ -20,21 +20,26 @@
  */
 package com.qsr.customspd.actors.mobs
 
+import com.qsr.customspd.Dungeon
 import com.qsr.customspd.actors.Char
 import com.qsr.customspd.actors.buffs.Buff
 import com.qsr.customspd.effects.CellEmitter
 import com.qsr.customspd.effects.particles.ElmoParticle
+import com.qsr.customspd.items.weapon.Weapon.Enchantment
 import com.qsr.customspd.mechanics.Ballistica
 import com.qsr.customspd.messages.Messages
+import com.qsr.customspd.modding.CustomMobEnchantment
 import com.qsr.customspd.modding.CustomMobScheme
 import com.qsr.customspd.modding.JsonConfigRetriever
 import com.qsr.customspd.scenes.GameScene
 import com.qsr.customspd.sprites.CharSprite
 import com.qsr.customspd.sprites.CustomMobSprite
+import com.qsr.customspd.utils.GLog
 import com.qsr.customspd.windows.WndTitledMessage
 import com.watabou.noosa.Game
 import com.watabou.utils.Bundle
 import com.watabou.utils.Random
+import com.watabou.utils.Reflection
 
 class CustomMob : Mob {
 
@@ -88,6 +93,29 @@ class CustomMob : Mob {
                 alignment = Alignment.ENEMY
             }
         }
+    }
+
+    override fun attackProc(enemy: Char, damage: Int): Int {
+        var dmg = super.attackProc(enemy, damage)
+        val random = Random.Float()
+        var enchantment: CustomMobEnchantment? = null
+        var counter = 0f
+        for (enchant in sc.enchantments) {
+            counter += enchant.chance
+            if (counter > random) {
+                enchantment = enchant
+                break
+            }
+        }
+        enchantment?.let {
+            dmg = (Reflection.newInstance(Reflection.forName("com.qsr.customspd.items.weapon." + enchantment.type)) as Enchantment)
+                .proc(enchantment.strength, this, enemy, damage)
+        }
+        if (!enemy.isAlive && enemy === Dungeon.hero) {
+            Dungeon.fail(this)
+            GLog.n(Messages.capitalize(Messages.get(Char::class.java, "kill", name())))
+        }
+        return dmg
     }
 
     override fun add(buff: Buff): Boolean {

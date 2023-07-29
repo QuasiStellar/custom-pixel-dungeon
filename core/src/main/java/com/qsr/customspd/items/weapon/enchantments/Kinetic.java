@@ -37,7 +37,12 @@ import kotlin.Pair;
 public class Kinetic extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xFFFF00 );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		return 0;
+	}
+
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		

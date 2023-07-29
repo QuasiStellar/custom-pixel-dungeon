@@ -34,7 +34,18 @@ import com.watabou.utils.Random;
 public class Lucky extends Weapon.Enchantment {
 
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x00FF00 );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (defender.HP <= damage && Random.Float() < probability){
+			//default is -5: 80% common, 20% uncommon, 0% rare
+			//ring level increases by 1 for each 20% above 100% proc rate
+			Buff.affect(defender, LuckProc.class).ringLevel = -10 + strength;
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		int level = Math.max( 0, weapon.buffedLvl() );

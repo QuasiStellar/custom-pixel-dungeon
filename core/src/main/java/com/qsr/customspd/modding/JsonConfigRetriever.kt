@@ -11,7 +11,6 @@ import kotlinx.serialization.json.buildJsonArray
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
-
 object JsonConfigRetriever {
     fun customMobExists(name: String) = ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("mobs/$name.json")).exists()
 
@@ -104,3 +103,4 @@ object JsonConfigRetriever {
         }
     }
 }
+

@@ -41,6 +41,30 @@ public class Shocking extends Weapon.Enchantment {
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF, 0.5f );
 
 	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
+
+			affected.clear();
+			arcs.clear();
+
+			arc(attacker, defender, 2, affected, arcs);
+
+			affected.remove(defender); //defender isn't hurt by lightning
+			for (Char ch : affected) {
+				if (ch.alignment != attacker.alignment) {
+					ch.damage(Math.round(damage * 0.01f * strength), this);
+				}
+			}
+
+			attacker.sprite.parent.addToFront( new Lightning( arcs, null ) );
+			Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
+
+		}
+
+		return damage;
+	}
+
+	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		int level = Math.max( 0, weapon.buffedLvl() );
 
@@ -51,12 +75,12 @@ public class Shocking extends Weapon.Enchantment {
 		if (Random.Float() < procChance) {
 
 			float powerMulti = Math.max(1f, procChance);
-			
+
 			affected.clear();
 			arcs.clear();
-			
+
 			arc(attacker, defender, 2, affected, arcs);
-			
+
 			affected.remove(defender); //defender isn't hurt by lightning
 			for (Char ch : affected) {
 				if (ch.alignment != attacker.alignment) {
@@ -66,11 +90,10 @@ public class Shocking extends Weapon.Enchantment {
 
 			attacker.sprite.parent.addToFront( new Lightning( arcs, null ) );
 			Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
-			
+
 		}
 
 		return damage;
-
 	}
 
 	@Override

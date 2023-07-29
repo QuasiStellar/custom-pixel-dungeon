@@ -36,7 +36,34 @@ import com.watabou.utils.Random;
 public class Corrupting extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x440066 );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (damage >= defender.HP
+			&& Random.Float() < probability
+			&& !defender.isImmune(Corruption.class)
+			&& defender.buff(Corruption.class) == null
+			&& defender instanceof Mob
+			&& defender.isAlive()){
+
+			Mob enemy = (Mob) defender;
+			Hero hero = (attacker instanceof Hero) ? (Hero) attacker : Dungeon.hero;
+
+			Corruption.corruptionHeal(enemy);
+
+			AllyBuff.affectAndLoot(enemy, hero, Corruption.class);
+
+			if (strength > 0){
+				//1 turn of adrenaline for each 20% above 100% proc rate
+				Buff.affect(enemy, Adrenaline.class, strength);
+			}
+
+			return 0;
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		int level = Math.max( 0, weapon.buffedLvl() );
@@ -46,12 +73,12 @@ public class Corrupting extends Weapon.Enchantment {
 		// lvl 2 ~ 26%
 		float procChance = (level+5f)/(level+25f) * procChanceMultiplier(attacker);
 		if (damage >= defender.HP
-				&& Random.Float() < procChance
-				&& !defender.isImmune(Corruption.class)
-				&& defender.buff(Corruption.class) == null
-				&& defender instanceof Mob
-				&& defender.isAlive()){
-			
+			&& Random.Float() < procChance
+			&& !defender.isImmune(Corruption.class)
+			&& defender.buff(Corruption.class) == null
+			&& defender instanceof Mob
+			&& defender.isAlive()){
+
 			Mob enemy = (Mob) defender;
 			Hero hero = (attacker instanceof Hero) ? (Hero) attacker : Dungeon.hero;
 
@@ -64,10 +91,10 @@ public class Corrupting extends Weapon.Enchantment {
 				//1 turn of adrenaline for each 20% above 100% proc rate
 				Buff.affect(enemy, Adrenaline.class, Math.round(5*(powerMulti-1f)));
 			}
-			
+
 			return 0;
 		}
-		
+
 		return damage;
 	}
 	

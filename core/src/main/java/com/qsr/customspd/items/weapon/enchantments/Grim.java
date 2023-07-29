@@ -35,7 +35,12 @@ import com.watabou.utils.Random;
 public class Grim extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		return 0;
+	}
+
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 

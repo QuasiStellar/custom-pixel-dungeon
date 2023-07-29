@@ -47,6 +47,11 @@ public class Unstable extends Weapon.Enchantment {
 	};
 
 	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		return 0;
+	}
+
+	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		
 		int conservedDamage = 0;

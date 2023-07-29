@@ -29,17 +29,19 @@ import com.watabou.utils.Random;
 public class Polarized extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
-	
-	@Override
-	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 
-		float procChance = 1/2f * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance) {
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
 			return Math.round(1.5f*damage);
 		} else {
 			return 0;
 		}
-		
+	}
+
+	@Override
+	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(1/2f * procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 	
 	@Override

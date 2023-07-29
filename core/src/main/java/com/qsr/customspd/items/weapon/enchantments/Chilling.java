@@ -33,7 +33,26 @@ import com.watabou.utils.Random;
 public class Chilling extends Weapon.Enchantment {
 
 	private static ItemSprite.Glowing TEAL = new ItemSprite.Glowing( 0x00FFFF );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
+
+			//adds 3 turns of chill per proc, with a cap of 6 turns
+			float durationToAdd = strength;
+			Chill existing = defender.buff(Chill.class);
+			if (existing != null){
+				durationToAdd = Math.min(durationToAdd, (2 * strength)-existing.cooldown());
+			}
+
+			Buff.affect( defender, Chill.class, durationToAdd );
+			Splash.at( defender.sprite.center(), 0xFFB2D6FF, 5);
+
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		int level = Math.max( 0, weapon.buffedLvl() );
@@ -43,7 +62,6 @@ public class Chilling extends Weapon.Enchantment {
 		// lvl 2 - 50%
 		float procChance = (level+1f)/(level+4f) * procChanceMultiplier(attacker);
 		if (Random.Float() < procChance) {
-
 			float powerMulti = Math.max(1f, procChance);
 
 			//adds 3 turns of chill per proc, with a cap of 6 turns
@@ -52,7 +70,7 @@ public class Chilling extends Weapon.Enchantment {
 			if (existing != null){
 				durationToAdd = Math.min(durationToAdd, (6f*powerMulti)-existing.cooldown());
 			}
-			
+
 			Buff.affect( defender, Chill.class, durationToAdd );
 			Splash.at( defender.sprite.center(), 0xFFB2D6FF, 5);
 

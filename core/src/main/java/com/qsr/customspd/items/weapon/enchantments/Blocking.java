@@ -40,7 +40,18 @@ import kotlin.Pair;
 public class Blocking extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability){
+			BlockBuff b = Buff.affect(attacker, BlockBuff.class);
+			b.setShield(strength);
+			attacker.sprite.emitter().burst(Speck.factory(Speck.LIGHT), 5);
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		
@@ -50,15 +61,8 @@ public class Blocking extends Weapon.Enchantment {
 		// lvl 1 ~ 12%
 		// lvl 2 ~ 14%
 		float procChance = (level+4f)/(level+40f) * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance){
-			float powerMulti = Math.max(1f, procChance);
-
-			BlockBuff b = Buff.affect(attacker, BlockBuff.class);
-			b.setShield(Math.round(powerMulti * (2 + weapon.buffedLvl())));
-			attacker.sprite.emitter().burst(Speck.factory(Speck.LIGHT), 5);
-		}
-		
-		return damage;
+		float powerMulti = Math.max(1f, procChance);
+		return proc(procChance, Math.round(powerMulti * (2 + weapon.buffedLvl())), attacker, defender, damage);
 	}
 	
 	@Override

@@ -32,24 +32,27 @@ import com.watabou.utils.Random;
 public class Friendly extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
-	
-	@Override
-	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
 
-		float procChance = 1/10f * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance) {
-			
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
+
 			Buff.affect( attacker, Charm.class, Charm.DURATION ).object = defender.id();
 			attacker.sprite.centerEmitter().start( Speck.factory( Speck.HEART ), 0.2f, 5 );
-			
+
 			Charm c = Buff.affect( defender, Charm.class, Charm.DURATION/2 );
 			c.ignoreNextHit = true;
 			c.object = attacker.id();
 			defender.sprite.centerEmitter().start( Speck.factory( Speck.HEART ), 0.2f, 5 );
-			
+
 		}
-		
+
 		return damage;
+	}
+
+	@Override
+	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(1/10f * procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 	
 	@Override

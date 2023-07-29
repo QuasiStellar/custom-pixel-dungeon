@@ -32,7 +32,27 @@ import com.watabou.utils.Random;
 public class Vampiric extends Weapon.Enchantment {
 
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0x660022 );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability){
+
+			//heals for 50% of damage dealt
+			int healAmt = Math.round(damage * 0.01f * strength);
+			healAmt = Math.min( healAmt, attacker.HT - attacker.HP );
+
+			if (healAmt > 0 && attacker.isAlive()) {
+
+				attacker.HP += healAmt;
+				attacker.sprite.emitter().start( Speck.factory( Speck.HEALING ), 0.4f, 1 );
+				attacker.sprite.showStatus( CharSprite.POSITIVE, Integer.toString( healAmt ) );
+
+			}
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 		
@@ -41,21 +61,21 @@ public class Vampiric extends Weapon.Enchantment {
 		float healChance = 0.05f + .25f*missingPercent;
 
 		healChance *= procChanceMultiplier(attacker);
-		
+
 		if (Random.Float() < healChance){
 
 			float powerMulti = Math.max(1f, healChance);
-			
+
 			//heals for 50% of damage dealt
 			int healAmt = Math.round(damage * 0.5f * powerMulti);
 			healAmt = Math.min( healAmt, attacker.HT - attacker.HP );
-			
+
 			if (healAmt > 0 && attacker.isAlive()) {
-				
+
 				attacker.HP += healAmt;
 				attacker.sprite.emitter().start( Speck.factory( Speck.HEALING ), 0.4f, 1 );
 				attacker.sprite.showStatus( CharSprite.POSITIVE, Integer.toString( healAmt ) );
-				
+
 			}
 		}
 

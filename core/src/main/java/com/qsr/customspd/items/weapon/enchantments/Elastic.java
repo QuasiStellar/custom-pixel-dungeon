@@ -33,7 +33,27 @@ import com.watabou.utils.Random;
 public class Elastic extends Weapon.Enchantment {
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF00FF );
-	
+
+	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
+
+			//trace a ballistica to our target (which will also extend past them
+			Ballistica trajectory = new Ballistica(attacker.pos, defender.pos, Ballistica.STOP_TARGET);
+			//trim it to just be the part that goes past them
+			trajectory = new Ballistica(trajectory.collisionPos, trajectory.path.get(trajectory.path.size()-1), Ballistica.PROJECTILE);
+			//knock them back along that ballistica
+			WandOfBlastWave.throwChar(defender,
+				trajectory,
+				strength,
+				true,
+				true,
+				this);
+		}
+
+		return damage;
+	}
+
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
 		int level = Math.max( 0, weapon.buffedLvl() );

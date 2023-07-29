@@ -15,6 +15,7 @@ import java.io.File
 import java.net.UnknownHostException
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -86,6 +87,8 @@ object ModManager {
         } catch (e: UnknownHostException) {
             return@launch
         }, storage.file().absolutePath)
+
+        delay(100)
 
         Json.decodeFromString<List<String>>(
             getFileHandle(MOD_LIST_PATH).readString()

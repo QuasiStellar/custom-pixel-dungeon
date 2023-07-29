@@ -38,10 +38,8 @@ public class Dazzling extends Weapon.Enchantment {
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override
-	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
-
-		float procChance = 1/10f * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance) {
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
 			for (Char ch : Actor.chars()){
 				if (ch.fieldOfView != null && ch.fieldOfView[defender.pos]){
 					Buff.prolong(ch, Blindness.class, ch == attacker ? Blindness.DURATION : Blindness.DURATION/2f);
@@ -56,6 +54,11 @@ public class Dazzling extends Weapon.Enchantment {
 		}
 
 		return damage;
+	}
+
+	@Override
+	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(1/10f * procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 
 	@Override

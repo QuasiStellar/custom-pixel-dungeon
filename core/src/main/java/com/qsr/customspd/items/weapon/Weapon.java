@@ -379,8 +379,13 @@ abstract public class Weapon extends KindOfWeapon {
 				Annoying.class, Displacing.class, Dazzling.class, Explosive.class,
 				Sacrificial.class, Wayward.class, Polarized.class, Friendly.class
 		};
-		
-			
+
+		public int proc(int strength, Char attacker, Char defender, int damage) {
+			return proc(1f, strength, attacker, defender, damage);
+		}
+
+		public abstract int proc(float probability, int strength, Char attacker, Char defender, int damage);
+
 		public abstract int proc( Weapon weapon, Char attacker, Char defender, int damage );
 
 		protected float procChanceMultiplier( Char attacker ){

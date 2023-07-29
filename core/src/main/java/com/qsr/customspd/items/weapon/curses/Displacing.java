@@ -36,10 +36,8 @@ public class Displacing extends Weapon.Enchantment {
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override
-	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
-
-		float procChance = 1/12f * procChanceMultiplier(attacker);
-		if (Random.Float() < procChance && !defender.properties().contains(Char.Property.IMMOVABLE)){
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability && !defender.properties().contains(Char.Property.IMMOVABLE)){
 
 			int oldpos = defender.pos;
 			if (ScrollOfTeleportation.teleportChar(defender)){
@@ -54,6 +52,11 @@ public class Displacing extends Weapon.Enchantment {
 		}
 
 		return damage;
+	}
+
+	@Override
+	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
+		return proc(1/12f * procChanceMultiplier(attacker), 0, attacker, defender, damage);
 	}
 
 	@Override

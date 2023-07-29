@@ -44,6 +44,27 @@ public class Explosive extends Weapon.Enchantment {
 	private int durability = 100;
 
 	@Override
+	public int proc(float probability, int strength, Char attacker, Char defender, int damage) {
+		if (Random.Float() < probability) {
+			int explosionPos = -1;
+			for (int i : PathFinder.NEIGHBOURS8){
+				if (!Dungeon.level.solid[defender.pos+i] &&
+					(explosionPos == -1 ||
+						Dungeon.level.trueDistance(attacker.pos, defender.pos+i) < Dungeon.level.trueDistance(attacker.pos, explosionPos))){
+					explosionPos = defender.pos+i;
+				}
+			}
+			if (explosionPos == -1) {
+				explosionPos = defender.pos;
+			}
+
+			new Bomb.MagicalBomb().explode(explosionPos);
+		}
+
+		return damage;
+	}
+
+	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
 
 		//average value of 5, or 20 hits to an explosion
