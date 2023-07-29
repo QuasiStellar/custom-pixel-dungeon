@@ -1,0 +1,38 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "Torch"
+    },
+    {
+      "type": "potions.PotionOfHealing"
+    },
+    {
+      "type": "potions.exotic.PotionOfMastery"
+    },
+    {
+      "type": "spells.Alchemize",
+      "quantity": 4
+    },
+    {
+      "type": "stones.StoneOfIntuition"
+    },
+    {
+      "type": "weapon.missiles.darts.TippedDart",
+      "quantity": "2"
+    },
+    {
+      "type": "bombs.Bomb"
+    },
+    {
+      "type": "Honeypot"
+    },
+    {
+      "type": "scrolls.ScrollOfIdentify"
+    }
+  ],
+  "identified": [
+    "potions.PotionOfHealing",
+    "potions.PotionOfStrength"
+  ]
+}

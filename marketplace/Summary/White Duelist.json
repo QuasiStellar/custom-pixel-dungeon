@@ -1,0 +1,9 @@
+{
+	"name": "White Duelist",
+	"version": 1,
+	"description": "Changes duelist's skin color.",
+	"author": "AxMx",
+	"license": "GPLv3",
+	"min_cpd_version": 8,
+	"gameplay_mod": false
+}

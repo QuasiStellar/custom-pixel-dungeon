@@ -1,0 +1,9 @@
+{
+	"name": "Starter Pack",
+	"version": 2,
+	"description": "Adds more Starter items: Torch, Healing Potion, Mastery Potion, 4 Alchemize, Intuition Stone, 2 random Tipped Dart, Bomb, Honeypot, Identify Scroll.",
+	"author": "MinecraftGuy",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

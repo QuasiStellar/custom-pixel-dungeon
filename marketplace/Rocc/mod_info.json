@@ -1,0 +1,9 @@
+{
+	"name": "Rocc",
+	"version": 2,
+	"description": "Adds Rocc to the inventory.",
+	"author": "MinecraftGuy",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

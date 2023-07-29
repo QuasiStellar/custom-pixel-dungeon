@@ -1,0 +1,9 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "weapon.missiles.ThrowingStone",
+      "level": 16
+    }
+  ]
+}
