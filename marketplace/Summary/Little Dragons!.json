@@ -1,0 +1,9 @@
+{
+"name":"Little Dragons!",
+"version": 3,
+"description": "Adds little and fierces dragons to the Dungeon!, This mod adds various types of monsters to fight, making the dungeon experience more challenging.",
+"author": "Hkaos",
+"license": "GPLv3",
+"gameplay_mod": true,
+"min_cpd_version":9
+}

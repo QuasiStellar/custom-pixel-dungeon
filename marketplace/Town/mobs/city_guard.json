@@ -1,0 +1,33 @@
+{
+  "animation": {
+	"texture" : "mobs/city_guard.png",
+	"width": 12,
+	"height": 16,
+	"idle_fps": 1,
+	"idle_frames": [0, 0, 0, 1, 0, 0, 1, 1],
+	"run_fps": 15,
+	"run_frames": [2, 3, 4, 5, 6, 7],
+	"attack_fps": 10,
+	"attack_frames": [8, 9, 10, 0],
+	"die_fps": 15,
+	"die_frames": [11, 12, 13, 14, 15, 14]
+  },
+  "hp": 100,
+  "exp": 20,
+  "max_lvl": 30,
+  "evasion": 20,
+  "accuracy": 30,
+  "min_damage": 20,
+  "max_damage": 30,
+  "min_armor": 0,
+  "max_armor": 10,
+  "loot": {
+	"type": "Gold",
+	"quantity_min": 100,
+	"quantity_max": 500
+  },
+  "alignment": "neutral",
+  "dialogues": 3,
+  "anger_yell": true,
+  "death_yell": true
+}

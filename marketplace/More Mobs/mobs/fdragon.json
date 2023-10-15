@@ -1,0 +1,57 @@
+{
+  "animation": {
+	"texture" : "mobs/fdragon.png",
+	"width": 20,
+	"height": 20,
+	"idle_fps": 10,
+	"idle_frames": [0, 1, 2, 3],
+	"run_fps": 10,
+	"run_frames": [0,1,2,3],
+	"attack_fps": 10,
+	"attack_frames": [4,5,6,7,8,9,10],
+	"die_fps": 11,
+	"die_frames": [11,12,13, 14, 15,16,17]
+  },
+  "hp": 50,
+  "exp": 13,
+  "max_lvl": 14,
+  "evasion": 12,
+  "speed": 1,
+  "flying": true,
+  "accuracy": 50,
+  "min_damage": 2,
+  "max_damage": 12,
+  "enchantments": [
+  {
+  "type": "enchantments.Blazing",
+  "chance": 0.25,
+  "strength": 1
+  },
+  {
+  "type": "enchantments.Blazing",
+  "chance": 0.25,
+  "strength": 2
+  },
+  {
+  "type": "enchantments.Blazing",
+  "chance": 0.25,
+  "strength": 3
+  },
+  {
+  "type": "enchantments.Blazing",
+  "chance": 0.25,
+  "strength": 4
+  }
+  ],
+  "min_armor": 4,
+  "max_armor": 12,
+  "loot": {
+	"type": "potions.brews.InfernalBrew"
+  },
+  "loot_chance": 0.17
+  "alignment": "enemy",
+  "properties": ["FIERY"],
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}

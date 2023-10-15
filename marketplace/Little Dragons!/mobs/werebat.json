@@ -1,0 +1,49 @@
+{
+    "animation":{
+        "texture":"mobs/werebat.png",
+        "width":16,
+        "height":20,
+        "idle_fps":7,
+        "idle_frames":[0,0,0,0,0,0,0,0,1,2,2,2,1,0,0,0],
+        "run_fps":12,
+        "run_frames":[3,4,5,6],
+        "attack_fps":12,
+        "attack_frames":[7,8,9,10,11,10,9],
+        "die_fps":12,
+        "die_frames":[12,13,14,15]
+    },
+    "hp":50,
+    "exp":9,
+    "max_lvl":16,
+    "speed":2,
+    "evasion":5,
+    "accuracy":25,
+    "min_damage":5,
+    "max_damage":16,
+    "min_armor":4,
+    "max_armor":10,
+    "loot":{"type":"scrolls.ScrollOfRage"},
+       
+    "loot_chance":0.05,
+
+    "enchantments":[
+       {"type":"enchantments.Vampiric",
+        "chance":0.45,
+        "strength":40
+        },
+        {"type":"enchantments.Vampiric",
+        "chance":0.30,
+        "strength":80
+        },
+        {
+            "type": "curses.Annoying",
+            "chance": 0.15
+        }
+    ],
+    "properties":["DEMONIC"], 
+    "alignment":"enemy",
+    "dialogues":1,
+    "anger_yell": false,
+    "death_yell": false
+
+}

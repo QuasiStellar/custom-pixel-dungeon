@@ -1,0 +1,40 @@
+{
+  "animation": {
+	"texture" : "mobs/taur.png",
+	"width": 17,
+	"height": 16,
+	"idle_fps": 1,
+	"idle_frames": [0,0,1,0,1,1],
+	"run_fps": 10,
+	"attack_frames": [2,3,4,5, 6, 7, 8, 9,10,11,12,13,14,15,16],
+	"attack_fps": 16,
+	"run_frames": [17, 18, 19,20,21,22,23,24,25],
+	"die_fps": 4,
+	"die_frames": [26, 27, 28]
+  },
+  "hp": 60,
+  "exp": 14,
+  "max_lvl": 21,
+  "evasion": 23,
+  "speed": 1,
+  "accuracy": 60,
+  "min_damage": 0,
+  "max_damage": 30,
+  "enchantments": [
+  {
+  "type": "curses.Annoying",
+  "chance": 0.5
+  }
+  ],
+  "min_armor": 0,
+  "max_armor": 6,
+  "loot": {
+	"type": "Gold",
+	"quantity_min": 250,
+	"quantity_max": 450
+  },
+  "alignment": "enemy",
+  "dialogues": 0,
+  "anger_yell": false,
+  "death_yell": false
+}
