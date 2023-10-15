@@ -23,7 +23,9 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class GnollSprite extends MobSprite {
 	
@@ -31,8 +33,12 @@ public class GnollSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.GNOLL) );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.GNOLL);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );

@@ -29,6 +29,7 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.mechanics.Ballistica;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
@@ -36,8 +37,8 @@ import com.watabou.noosa.particles.Emitter.Factory;
 import com.watabou.noosa.particles.PixelParticle;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class GooSprite extends MobSprite {
 	
@@ -51,8 +52,12 @@ public class GooSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.GOO) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.GOO);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 20, 14 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, 2, 1, 0, 0, 1 );

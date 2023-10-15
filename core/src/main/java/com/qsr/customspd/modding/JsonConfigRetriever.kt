@@ -17,6 +17,14 @@ object JsonConfigRetriever {
     fun retrieveMobScheme(name: String): CustomMobScheme =
         Json.decodeFromString(ModManager.getAssetFileHandle(ModManager.getModdedAssetFilePath("mobs/$name.json")).readString())
 
+    fun retrieveSpriteSizes(): Map<String, List<Int>> =
+        Json.decodeFromString(
+            ModManager.getAllModdedAssetFilePaths("config/sprite_sizes.json").reversed().fold(
+                parseToJsonElement(ModManager.getAssetFileHandle("config/sprite_sizes.json").readString()),
+                ::mergeSpriteSizes
+            ).toString()
+        )
+
     fun retrieveDungeonLayout(): DungeonLayout =
         Json.decodeFromString(
             ModManager.getAllModdedAssetFilePaths("dungeon/dungeon.json").reversed().fold(
@@ -100,6 +108,20 @@ object JsonConfigRetriever {
             if (!base.containsKey(entry.key)) {
                 put(entry.key, entry.value)
             }
+        }
+    }
+
+    private fun mergeSpriteSizes(base: JsonElement, mod: String): JsonElement = mergeSpriteSizes(
+        base as JsonObject,
+        parseToJsonElement(ModManager.getAssetFileHandle(mod).readString()) as JsonObject
+    )
+
+    private fun mergeSpriteSizes(base: JsonObject, mod: JsonObject): JsonObject = buildJsonObject {
+        for (entry in base.entries) {
+            if (!mod.containsKey(entry.key))
+                put(entry.key, entry.value)
+            else
+                put(entry.key, mod[entry.key]!!)
         }
     }
 }

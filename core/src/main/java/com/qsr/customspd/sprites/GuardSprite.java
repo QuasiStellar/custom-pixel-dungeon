@@ -24,8 +24,10 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.ShadowParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class GuardSprite extends MobSprite {
 
@@ -34,7 +36,11 @@ public class GuardSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.GUARD) );
 
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.GUARD);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );

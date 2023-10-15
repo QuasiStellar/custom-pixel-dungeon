@@ -29,9 +29,11 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Lightning;
 import com.qsr.customspd.effects.Speck;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PointF;
+import java.util.List;
 
 public class DM100Sprite extends MobSprite {
 	
@@ -39,8 +41,12 @@ public class DM100Sprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.DM100) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.DM100);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 16, 14 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 1, true );
 		idle.frames( frames, 0, 1 );

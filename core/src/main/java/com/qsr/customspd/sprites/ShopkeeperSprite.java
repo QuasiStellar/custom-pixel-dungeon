@@ -23,8 +23,10 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.PixelParticle;
+import java.util.List;
 
 public class ShopkeeperSprite extends MobSprite {
 	
@@ -34,7 +36,12 @@ public class ShopkeeperSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.KEEPER) );
-		TextureFilm film = new TextureFilm( texture, 14, 14 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.KEEPER);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm film = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( film, 1, 1, 1, 1, 1, 0, 0, 0, 0 );

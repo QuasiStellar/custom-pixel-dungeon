@@ -26,8 +26,8 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.actors.Actor;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.buffs.Buff;
-import com.qsr.customspd.actors.buffs.LockedFloor;
 import com.qsr.customspd.actors.mobs.CustomMob;
+import com.qsr.customspd.actors.mobs.Mimic;
 import com.qsr.customspd.actors.mobs.Mob;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
@@ -265,8 +265,8 @@ public class CustomLevel extends Level {
 
 		for (TrapSpawn trap : layout.getDisarmedTraps()) {
 			if (map[trap.getX() + trap.getY() * width] != Terrain.INACTIVE_TRAP) continue;
-			setTrap(((Trap) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels.traps." + trap.getType()))), trap.getX() + trap.getY() * width);
-			disarmTrap(trap.getX() + trap.getY() * width);
+			setTrap(((Trap) Reflection.newInstance(Reflection.forName("com.qsr.customspd.levels.traps." + trap.getType()))).reveal(), trap.getX() + trap.getY() * width)
+				.active = false;
 		}
 
 		for (PlantSpawn plant : layout.getPlants()) {
@@ -290,7 +290,8 @@ public class CustomLevel extends Level {
 				mob = (Mob) Reflection.newInstance(Reflection.forName("com.qsr.customspd.actors.mobs." + mobSpawn.getType()));
 			}
 			mob.pos = pos;
-			if (mobSpawn.getAlignment() != null) mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
+			if (mobSpawn.getAlignment() != null)
+				mob.alignment = Char.Alignment.valueOf(mobSpawn.getAlignment().toUpperCase(Locale.ENGLISH));
 			if (mobSpawn.getHp() != null) {
 				mob.HP = mobSpawn.getHp();
 			}
@@ -315,6 +316,9 @@ public class CustomLevel extends Level {
 						mob.state = mob.PASSIVE;
 						break;
 				}
+			}
+			if (mob instanceof Mimic) {
+				((Mimic) mob).setLevel( Dungeon.depth );
 			}
 			mobs.add(mob);
 		}
@@ -342,6 +346,8 @@ public class CustomLevel extends Level {
 			} catch (IllegalArgumentException | NullPointerException e) {
 				if (itemSpawn.getType().equals("weapon.missiles.darts.TippedDart")) {
 					item = TippedDart.randomTipped(1);
+				} else if (itemSpawn.getType().startsWith("plants.")) {
+					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd." + itemSpawn.getType()));
 				} else {
 					item = (Item) Reflection.newInstance(Reflection.forName("com.qsr.customspd.items." + itemSpawn.getType()));
 				}

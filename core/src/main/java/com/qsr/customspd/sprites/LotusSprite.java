@@ -28,11 +28,12 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.items.wands.WandOfRegrowth;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.Emitter;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class LotusSprite extends MobSprite {
 
@@ -45,7 +46,11 @@ public class LotusSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.LOTUS) );
 
-		TextureFilm frames = new TextureFilm( texture, 19, 16 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.LOTUS);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new MovieClip.Animation( 1, true );
 		idle.frames( frames, 0 );

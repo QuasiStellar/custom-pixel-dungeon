@@ -22,7 +22,7 @@ data class LevelScheme(
     val visibility: LevelVisibility = LevelVisibility.DEFAULT,
     @SerialName("trap_detection") val trapDetection: DetectionLevel = DetectionLevel.DEFAULT,
     @SerialName("door_detection") val doorDetection: DetectionLevel = DetectionLevel.DEFAULT,
-    val levelFeeling: String = "random",
+    @SerialName("level_feeling") val levelFeeling: String = "random",
     val locked: Boolean = false,
     @SerialName("extra_items") val extraItems: List<ExtraItemSpawn> = emptyList(),
     @SerialName("extra_mobs") val extraMobs: List<ExtraMobSpawn> = emptyList(),

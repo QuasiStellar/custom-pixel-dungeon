@@ -27,9 +27,11 @@ import com.qsr.customspd.actors.mobs.Spinner;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 //TODO improvements here
 public class SpinnerSprite extends MobSprite {
@@ -40,8 +42,12 @@ public class SpinnerSprite extends MobSprite {
 		perspectiveRaise = 0f;
 
 		texture( Asset.getAssetFilePath(GeneralAsset.SPINNER) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SPINNER);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, 0, 0, 0, 0, 0, 1, 0, 1 );

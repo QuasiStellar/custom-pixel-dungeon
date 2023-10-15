@@ -23,7 +23,9 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class SwarmSprite extends MobSprite {
 	
@@ -31,8 +33,12 @@ public class SwarmSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.SWARM) );
-		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SWARM);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 15, true );
 		idle.frames( frames, 0, 1, 2, 3, 4, 5 );

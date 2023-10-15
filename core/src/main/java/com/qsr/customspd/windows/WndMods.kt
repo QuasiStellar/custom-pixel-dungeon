@@ -27,6 +27,7 @@ import com.qsr.customspd.assets.GeneralAsset
 import com.qsr.customspd.messages.Messages
 import com.qsr.customspd.modding.MarketplaceMod
 import com.qsr.customspd.modding.ModManager
+import com.qsr.customspd.modding.SpriteSizeConfig
 import com.qsr.customspd.modding.TileMapCompilationManager
 import com.qsr.customspd.scenes.PixelScene
 import com.qsr.customspd.ui.RenderedTextBlock
@@ -97,6 +98,7 @@ class WndMods : WndTabbed() {
         super.hide()
         TileMapCompilationManager.compileTileMaps()
         Messages.setup(SPDSettings.language())
+        SpriteSizeConfig.update()
     }
 
     private class EnabledModsTab : Component() {

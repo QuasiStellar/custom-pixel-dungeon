@@ -24,7 +24,9 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class LarvaSprite extends MobSprite {
 	
@@ -32,8 +34,12 @@ public class LarvaSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.LARVA) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.LARVA);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 8 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 5, true );
 		idle.frames( frames, 4, 4, 4, 4, 4, 5, 5 );

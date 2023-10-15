@@ -25,9 +25,14 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.MovieClip;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.Emitter;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class RotHeartSprite extends MobSprite {
 
@@ -40,7 +45,11 @@ public class RotHeartSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.ROT_HEART) );
 
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.ROT_HEART);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new MovieClip.Animation( 1, true );
 		idle.frames( frames, 0);

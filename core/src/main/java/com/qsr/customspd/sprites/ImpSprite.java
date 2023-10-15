@@ -26,7 +26,9 @@ import com.qsr.customspd.actors.mobs.npcs.Imp;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class ImpSprite extends MobSprite {
 	
@@ -34,8 +36,12 @@ public class ImpSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.IMP) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.IMP);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 14 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames,

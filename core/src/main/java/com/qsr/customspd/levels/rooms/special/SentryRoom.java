@@ -44,6 +44,7 @@ import com.qsr.customspd.levels.Terrain;
 import com.qsr.customspd.levels.painters.Painter;
 import com.qsr.customspd.levels.rooms.standard.EmptyRoom;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.sprites.CharSprite;
 import com.qsr.customspd.sprites.MobSprite;
 import com.qsr.customspd.tiles.DungeonTilemap;
@@ -55,6 +56,10 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Rect;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class SentryRoom extends SpecialRoom {
 
@@ -350,8 +355,12 @@ public class SentryRoom extends SpecialRoom {
 		public SentrySprite(){
 			texture( Asset.getAssetFilePath(GeneralAsset.RED_SENTRY) );
 
+			List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.RED_SENTRY);
+			int frameWidth = frameSizes.get(0);
+			int frameHeight = frameSizes.get(1);
+
 			idle = new Animation(1, true);
-			idle.frames(texture.uvRect(0, 0, 8, 15));
+			idle.frames(texture.uvRect(0, 0, frameWidth, frameHeight));
 
 			run = idle.clone();
 			attack = idle.clone();

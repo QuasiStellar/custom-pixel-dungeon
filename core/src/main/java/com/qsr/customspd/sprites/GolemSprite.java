@@ -28,10 +28,12 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.particles.ElmoParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public class GolemSprite extends MobSprite {
 
@@ -41,8 +43,12 @@ public class GolemSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.GOLEM) );
-		
-		TextureFilm frames = new TextureFilm( texture, 17, 19 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.GOLEM);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 4, true );
 		idle.frames( frames, 0, 1 );

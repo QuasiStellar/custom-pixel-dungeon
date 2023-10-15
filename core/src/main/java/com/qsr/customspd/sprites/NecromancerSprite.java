@@ -29,9 +29,11 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.CellEmitter;
 import com.qsr.customspd.effects.Speck;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
+import java.util.List;
 
 public class NecromancerSprite extends MobSprite {
 	
@@ -42,7 +44,12 @@ public class NecromancerSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.NECRO) );
-		TextureFilm film = new TextureFilm( texture, 16, 16 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.NECRO);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm film = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 1, true );
 		idle.frames( film, 0, 0, 0, 1, 0, 0, 0, 0, 1 );

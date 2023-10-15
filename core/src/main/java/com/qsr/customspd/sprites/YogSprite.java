@@ -25,7 +25,12 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class YogSprite extends MobSprite {
 	
@@ -35,8 +40,12 @@ public class YogSprite extends MobSprite {
 		perspectiveRaise = 5 / 16f;
 
 		texture( Asset.getAssetFilePath(GeneralAsset.YOG) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.YOG);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 20, 19 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, 0, 1, 2, 2, 1, 0, 3, 4, 4, 3, 0, 5, 6, 6, 5 );

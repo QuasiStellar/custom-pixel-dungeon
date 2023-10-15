@@ -34,12 +34,17 @@ import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.effects.particles.LeafParticle;
 import com.qsr.customspd.effects.particles.ShadowParticle;
 import com.qsr.customspd.effects.particles.SparkParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Callback;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public abstract class FistSprite extends MobSprite {
 
@@ -59,7 +64,11 @@ public abstract class FistSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.FISTS) );
 
-		TextureFilm frames = new TextureFilm( texture, 24, 17 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.FISTS);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 2, true );
 		idle.frames( frames, c+0, c+0, c+1 );

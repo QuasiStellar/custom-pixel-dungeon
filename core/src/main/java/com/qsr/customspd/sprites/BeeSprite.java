@@ -23,7 +23,12 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class BeeSprite extends MobSprite {
 	
@@ -31,8 +36,12 @@ public class BeeSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.BEE) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.BEE);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 12, true );
 		idle.frames( frames, 0, 1, 1, 0, 2, 2 );

@@ -25,8 +25,10 @@ import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.effects.particles.ShaftParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.glwrap.Blending;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class GhostSprite extends MobSprite {
 	
@@ -34,8 +36,12 @@ public class GhostSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.GHOST) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.GHOST);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 14, 15 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 5, true );
 		idle.frames( frames, 0, 1 );

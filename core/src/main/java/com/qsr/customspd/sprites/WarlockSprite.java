@@ -26,9 +26,14 @@ import com.qsr.customspd.actors.mobs.Warlock;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class WarlockSprite extends MobSprite {
 	
@@ -36,8 +41,12 @@ public class WarlockSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.WARLOCK) );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.WARLOCK);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );

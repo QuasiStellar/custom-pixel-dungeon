@@ -23,7 +23,12 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class BatSprite extends MobSprite {
 	
@@ -31,8 +36,12 @@ public class BatSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.BAT) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.BAT);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 15, 15 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 8, true );
 		idle.frames( frames, 0, 1 );

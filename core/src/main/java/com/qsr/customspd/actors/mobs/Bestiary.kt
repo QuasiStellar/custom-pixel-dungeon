@@ -29,12 +29,10 @@ import com.watabou.utils.Reflection
 import java.util.*
 
 object Bestiary {
-    fun getMobRotation(): List<Class<out Mob?>> {
-        val mobs = standardMobRotation()
-        addRareMobs(mobs)
-        swapMobAlts(mobs)
-        Random.shuffle(mobs)
-        return mobs
+    fun getMobRotation(): List<Class<out Mob?>> = standardMobRotation().also {
+        addRareMobs(it)
+        swapMobAlts(it)
+        Random.shuffle(it)
     }
 
     fun getCustomMobs(): List<String> = Dungeon.layout.dungeon[Dungeon.levelName]!!.bestiary.filter {

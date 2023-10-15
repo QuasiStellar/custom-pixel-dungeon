@@ -25,8 +25,10 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public class ScorpioSprite extends MobSprite {
 	
@@ -36,8 +38,12 @@ public class ScorpioSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.SCORPIO) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SCORPIO);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 17, 17 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 12, true );
 		idle.frames( frames, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 2, 1, 2 );

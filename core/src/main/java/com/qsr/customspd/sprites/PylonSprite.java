@@ -27,8 +27,13 @@ import com.qsr.customspd.actors.mobs.Pylon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.particles.BlastParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
+
+import java.util.List;
+
+import kotlin.Pair;
 
 public class PylonSprite extends MobSprite {
 
@@ -42,7 +47,11 @@ public class PylonSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.PYLON) );
 
-		TextureFilm frames = new TextureFilm( texture, 10, 20 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.PYLON);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 1, false );
 		idle.frames( frames, 0 );

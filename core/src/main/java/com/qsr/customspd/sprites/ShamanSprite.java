@@ -26,9 +26,11 @@ import com.qsr.customspd.actors.mobs.Shaman;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public abstract class ShamanSprite extends MobSprite {
 	
@@ -42,8 +44,12 @@ public abstract class ShamanSprite extends MobSprite {
 		int c = texOffset();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.SHAMAN) );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SHAMAN);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, c+0, c+0, c+0, c+1, c+0, c+0, c+1, c+1 );

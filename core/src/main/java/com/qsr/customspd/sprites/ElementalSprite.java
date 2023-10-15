@@ -32,11 +32,13 @@ import com.qsr.customspd.effects.particles.ElmoParticle;
 import com.qsr.customspd.effects.particles.FlameParticle;
 import com.qsr.customspd.effects.particles.RainbowParticle;
 import com.qsr.customspd.effects.particles.SparkParticle;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.tiles.DungeonTilemap;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public abstract class ElementalSprite extends MobSprite {
 	
@@ -53,8 +55,12 @@ public abstract class ElementalSprite extends MobSprite {
 		int c = texOffset();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.ELEMENTAL) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.ELEMENTAL);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 14 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 10, true );
 		idle.frames( frames, c+0, c+1, c+2 );

@@ -26,9 +26,13 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.actors.hero.abilities.Ratmogrify;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 
 import java.util.Calendar;
+import java.util.List;
+
+import kotlin.Pair;
 
 public class RatKingSprite extends MobSprite {
 
@@ -56,7 +60,11 @@ public class RatKingSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.RATKING) );
 
-		TextureFilm frames = new TextureFilm( texture, 16, 17 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.RATKING);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 2, true );
 		idle.frames( frames, c+0, c+0, c+0, c+1 );

@@ -21,6 +21,7 @@
 
 package com.qsr.customspd;
 
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.modding.TileMapCompilationManager;
 import com.qsr.customspd.modding.TileMapCompiler;
 import com.qsr.customspd.scenes.GameScene;
@@ -50,6 +51,7 @@ public class ShatteredPixelDungeon extends Game {
 		super.create();
 
 		TileMapCompilationManager.compileTileMaps();
+		SpriteSizeConfig.update();
 
 		updateSystemUI();
 		SPDAction.loadBindings();

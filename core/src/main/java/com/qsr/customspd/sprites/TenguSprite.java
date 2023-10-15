@@ -25,9 +25,11 @@ import com.qsr.customspd.Dungeon;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.items.Item;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public class TenguSprite extends MobSprite {
 	
@@ -35,8 +37,12 @@ public class TenguSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.TENGU) );
-		
-		TextureFilm frames = new TextureFilm( texture, 14, 16 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.TENGU);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 2, true );
 		idle.frames( frames, 0, 0, 0, 1 );

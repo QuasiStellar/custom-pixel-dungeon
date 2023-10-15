@@ -23,7 +23,9 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class SnakeSprite extends MobSprite {
 	
@@ -31,8 +33,12 @@ public class SnakeSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.SNAKE) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SNAKE);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 11 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		//many frames here as we want the rising/falling to be slow but the tongue to be fast
 		idle = new Animation( 10, true );

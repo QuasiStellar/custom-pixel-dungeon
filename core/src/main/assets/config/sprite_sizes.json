@@ -1,0 +1,242 @@
+{
+  "sprites/chars/warrior.png": [
+    12,
+    15
+  ],
+  "sprites/chars/mage.png": [
+    12,
+    15
+  ],
+  "sprites/chars/rogue.png": [
+    12,
+    15
+  ],
+  "sprites/chars/huntress.png": [
+    12,
+    15
+  ],
+  "sprites/chars/duelist.png": [
+    12,
+    15
+  ],
+  "sprites/chars/pet.png": [
+    16,
+    15
+  ],
+  "sprites/chars/rat.png": [
+    16,
+    15
+  ],
+  "sprites/chars/brute.png": [
+    12,
+    16
+  ],
+  "sprites/chars/spinner.png": [
+    16,
+    16
+  ],
+  "sprites/chars/dm300.png": [
+    25,
+    22
+  ],
+  "sprites/chars/wraith.png": [
+    14,
+    15
+  ],
+  "sprites/chars/undead.png": [
+    12,
+    16
+  ],
+  "sprites/chars/king.png": [
+    16,
+    16
+  ],
+  "sprites/chars/piranha.png": [
+    12,
+    16
+  ],
+  "sprites/chars/eye.png": [
+    16,
+    18
+  ],
+  "sprites/chars/gnoll.png": [
+    12,
+    15
+  ],
+  "sprites/chars/crab.png": [
+    16,
+    16
+  ],
+  "sprites/chars/goo.png": [
+    20,
+    14
+  ],
+  "sprites/chars/swarm.png": [
+    16,
+    16
+  ],
+  "sprites/chars/skeleton.png": [
+    12,
+    15
+  ],
+  "sprites/chars/shaman.png": [
+    12,
+    15
+  ],
+  "sprites/chars/thief.png": [
+    12,
+    13
+  ],
+  "sprites/chars/tengu.png": [
+    14,
+    16
+  ],
+  "sprites/chars/sheep.png": [
+    16,
+    15
+  ],
+  "sprites/chars/shopkeeper.png": [
+    14,
+    14
+  ],
+  "sprites/chars/bat.png": [
+    15,
+    15
+  ],
+  "sprites/chars/elemental.png": [
+    12,
+    14
+  ],
+  "sprites/chars/monk.png": [
+    15,
+    14
+  ],
+  "sprites/chars/warlock.png": [
+    12,
+    15
+  ],
+  "sprites/chars/golem.png": [
+    17,
+    19
+  ],
+  "sprites/chars/statue.png": [
+    12,
+    15
+  ],
+  "sprites/chars/succubus.png": [
+    12,
+    15
+  ],
+  "sprites/chars/scorpio.png": [
+    17,
+    17
+  ],
+  "sprites/chars/yog_fists.png": [
+    24,
+    17
+  ],
+  "sprites/chars/yog.png": [
+    20,
+    19
+  ],
+  "sprites/chars/larva.png": [
+    12,
+    8
+  ],
+  "sprites/chars/ghost.png": [
+    14,
+    15
+  ],
+  "sprites/chars/wandmaker.png": [
+    12,
+    14
+  ],
+  "sprites/chars/blacksmith.png": [
+    13,
+    16
+  ],
+  "sprites/chars/demon.png": [
+    12,
+    14
+  ],
+  "sprites/chars/ratking.png": [
+    16,
+    17
+  ],
+  "sprites/chars/bee.png": [
+    16,
+    16
+  ],
+  "sprites/chars/mimic.png": [
+    16,
+    16
+  ],
+  "sprites/chars/rot_lasher.png": [
+    12,
+    16
+  ],
+  "sprites/chars/rot_heart.png": [
+    16,
+    16
+  ],
+  "sprites/chars/guard.png": [
+    12,
+    16
+  ],
+  "sprites/chars/guardian.png": [
+    12,
+    15
+  ],
+  "sprites/chars/slime.png": [
+    14,
+    12
+  ],
+  "sprites/chars/snake.png": [
+    12,
+    11
+  ],
+  "sprites/chars/necromancer.png": [
+    16,
+    16
+  ],
+  "sprites/chars/ghoul.png": [
+    12,
+    14
+  ],
+  "sprites/chars/ripper.png": [
+    15,
+    14
+  ],
+  "sprites/chars/spawner.png": [
+    16,
+    16
+  ],
+  "sprites/chars/dm100.png": [
+    16,
+    14
+  ],
+  "sprites/chars/pylon.png": [
+    10,
+    20
+  ],
+  "sprites/chars/dm200.png": [
+    21,
+    18
+  ],
+  "sprites/chars/lotus.png": [
+    19,
+    16
+  ],
+  "sprites/chars/ninja_log.png": [
+    11,
+    12
+  ],
+  "sprites/chars/spirit_hawk.png": [
+    15,
+    15
+  ],
+  "sprites/chars/red_sentry.png": [
+    8,
+    15
+  ]
+}

@@ -24,8 +24,10 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class PiranhaSprite extends MobSprite {
 	
@@ -36,8 +38,12 @@ public class PiranhaSprite extends MobSprite {
 		perspectiveRaise = 0.2f;
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.PIRANHA) );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.PIRANHA);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 8, true );
 		idle.frames( frames, 0, 1, 2, 1 );

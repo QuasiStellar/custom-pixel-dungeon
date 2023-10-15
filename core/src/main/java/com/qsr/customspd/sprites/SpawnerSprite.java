@@ -24,9 +24,11 @@ package com.qsr.customspd.sprites;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Splash;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.PointF;
+import java.util.List;
 
 public class SpawnerSprite extends MobSprite {
 
@@ -35,12 +37,16 @@ public class SpawnerSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.SPAWNER) );
 
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SPAWNER);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
 		perspectiveRaise = 8 / 16f;
 		shadowOffset = 1.25f;
 		shadowHeight = 0.4f;
 		shadowWidth = 1f;
 
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 8, true );
 		idle.frames( frames, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 );

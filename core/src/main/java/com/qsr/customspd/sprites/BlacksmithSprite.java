@@ -27,9 +27,11 @@ import com.qsr.customspd.actors.Char;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.Speck;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
+import java.util.List;
 
 public class BlacksmithSprite extends MobSprite {
 	
@@ -39,8 +41,12 @@ public class BlacksmithSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.TROLL) );
-		
-		TextureFilm frames = new TextureFilm( texture, 13, 16 );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.TROLL);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 15, true );
 		idle.frames( frames, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3 );

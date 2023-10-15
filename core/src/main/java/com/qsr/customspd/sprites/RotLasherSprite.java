@@ -23,7 +23,9 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class RotLasherSprite extends MobSprite {
 
@@ -32,7 +34,11 @@ public class RotLasherSprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.ROT_LASH) );
 
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.ROT_LASH);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 0, true );
 		idle.frames( frames, 0);

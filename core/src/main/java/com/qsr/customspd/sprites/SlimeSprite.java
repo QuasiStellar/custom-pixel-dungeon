@@ -23,7 +23,9 @@ package com.qsr.customspd.sprites;
 
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.watabou.noosa.TextureFilm;
+import java.util.List;
 
 public class SlimeSprite extends MobSprite {
 	
@@ -31,8 +33,12 @@ public class SlimeSprite extends MobSprite {
 		super();
 		
 		texture( Asset.getAssetFilePath(GeneralAsset.SLIME) );
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SLIME);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
 		
-		TextureFilm frames = new TextureFilm( texture, 14, 12 );
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 		
 		idle = new Animation( 3, true );
 		idle.frames( frames, 0, 1, 1, 0 );

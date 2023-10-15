@@ -286,6 +286,21 @@ public enum HeroClass {
 		}
 	}
 
+	public GeneralAsset asset() {
+		switch (this) {
+			case WARRIOR: default:
+				return GeneralAsset.WARRIOR;
+			case MAGE:
+				return GeneralAsset.MAGE;
+			case ROGUE:
+				return GeneralAsset.ROGUE;
+			case HUNTRESS:
+				return GeneralAsset.HUNTRESS;
+			case DUELIST:
+				return GeneralAsset.DUELIST;
+		}
+	}
+
 	public String splashArt(){
 		switch (this) {
 			case WARRIOR: default:

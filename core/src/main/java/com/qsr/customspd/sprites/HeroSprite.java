@@ -26,6 +26,7 @@ import com.qsr.customspd.actors.hero.Hero;
 import com.qsr.customspd.actors.hero.HeroClass;
 import com.qsr.customspd.assets.Asset;
 import com.qsr.customspd.assets.GeneralAsset;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.scenes.GameScene;
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.gltextures.TextureCache;
@@ -36,11 +37,12 @@ import com.watabou.noosa.TextureFilm;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
 import com.watabou.utils.RectF;
+import java.util.List;
 
 public class HeroSprite extends CharSprite {
 	
-	private static final int FRAME_WIDTH	= 12;
-	private static final int FRAME_HEIGHT	= 15;
+	private final int frameWidth;
+	private final int frameHeight;
 	
 	private static final int RUN_FRAMERATE	= 20;
 	
@@ -51,6 +53,10 @@ public class HeroSprite extends CharSprite {
 
 	public HeroSprite() {
 		super();
+
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(Dungeon.hero.heroClass.asset());
+		frameWidth = frameSizes.get(0);
+		frameHeight = frameSizes.get(1);
 		
 		texture( Dungeon.hero.heroClass.spritesheet() );
 		updateArmor();
@@ -65,7 +71,7 @@ public class HeroSprite extends CharSprite {
 	
 	public void updateArmor() {
 
-		TextureFilm film = new TextureFilm( tiers(), Dungeon.hero.tier(), FRAME_WIDTH, FRAME_HEIGHT );
+		TextureFilm film = new TextureFilm( tiers(), Dungeon.hero.tier(), frameWidth, frameHeight );
 		
 		idle = new Animation( 1, true );
 		idle.frames( film, 0, 0, 0, 1, 0, 0, 1, 1 );
@@ -162,7 +168,9 @@ public class HeroSprite extends CharSprite {
 	public static TextureFilm tiers() {
 		if (tiers == null) {
 			SmartTexture texture = TextureCache.get( Asset.getAssetFilePath(GeneralAsset.ROGUE) );
-			tiers = new TextureFilm( texture, texture.width, FRAME_HEIGHT );
+			List<Integer> frameSizes = SpriteSizeConfig.getSizes(HeroClass.ROGUE.asset());
+			int frameHeight = frameSizes.get(1);
+			tiers = new TextureFilm( texture, texture.width, frameHeight );
 		}
 		
 		return tiers;
@@ -172,7 +180,8 @@ public class HeroSprite extends CharSprite {
 		
 		RectF patch = tiers().get( armorTier );
 		Image avatar = new Image( cl.spritesheet() );
-		RectF frame = avatar.texture.uvRect( 1, 0, FRAME_WIDTH, FRAME_HEIGHT );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(cl.asset());
+		RectF frame = avatar.texture.uvRect( 1, 0, frameSizes.get(0), frameSizes.get(1) );
 		frame.shift( patch.left, patch.top );
 		avatar.frame( frame );
 		

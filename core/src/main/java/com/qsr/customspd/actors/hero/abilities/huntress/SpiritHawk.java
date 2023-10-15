@@ -41,6 +41,7 @@ import com.qsr.customspd.effects.particles.ShaftParticle;
 import com.qsr.customspd.items.armor.ClassArmor;
 import com.qsr.customspd.items.scrolls.ScrollOfTeleportation;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.scenes.GameScene;
 import com.qsr.customspd.sprites.MobSprite;
 import com.qsr.customspd.ui.HeroIcon;
@@ -52,6 +53,9 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import kotlin.Pair;
 
 public class SpiritHawk extends ArmorAbility {
 
@@ -285,7 +289,11 @@ public class SpiritHawk extends ArmorAbility {
 
 			texture( Asset.getAssetFilePath(GeneralAsset.SPIRIT_HAWK) );
 
-			TextureFilm frames = new TextureFilm( texture, 15, 15 );
+			List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.SPIRIT_HAWK);
+			int frameWidth = frameSizes.get(0);
+			int frameHeight = frameSizes.get(1);
+
+			TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 			int c = 0;
 

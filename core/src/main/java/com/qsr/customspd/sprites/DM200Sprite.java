@@ -28,10 +28,12 @@ import com.qsr.customspd.assets.GeneralAsset;
 import com.qsr.customspd.effects.MagicMissile;
 import com.qsr.customspd.effects.Speck;
 import com.qsr.customspd.messages.Messages;
+import com.qsr.customspd.modding.SpriteSizeConfig;
 import com.qsr.customspd.utils.GLog;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
+import java.util.List;
 
 public class DM200Sprite extends MobSprite {
 
@@ -40,7 +42,11 @@ public class DM200Sprite extends MobSprite {
 
 		texture( Asset.getAssetFilePath(GeneralAsset.DM200) );
 
-		TextureFilm frames = new TextureFilm( texture, 21, 18 );
+		List<Integer> frameSizes = SpriteSizeConfig.getSizes(GeneralAsset.DM200);
+		int frameWidth = frameSizes.get(0);
+		int frameHeight = frameSizes.get(1);
+
+		TextureFilm frames = new TextureFilm( texture, frameWidth, frameHeight );
 
 		idle = new Animation( 10, true );
 		idle.frames( frames, 0, 1 );
