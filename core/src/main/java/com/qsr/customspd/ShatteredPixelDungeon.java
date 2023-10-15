@@ -37,7 +37,7 @@ import com.watabou.utils.PlatformSupport;
 public class ShatteredPixelDungeon extends Game {
 
 	public static final int LAST_SUPPORTED_SAVES_VERSION = 1;
-	public static final int v2_1_0_0_9 = 9;
+	public static final int v2_1_0_1_0 = 10;
 
 	public static TileMapCompiler tileMapCompiler;
 	
