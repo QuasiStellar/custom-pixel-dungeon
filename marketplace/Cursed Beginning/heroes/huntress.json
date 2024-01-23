@@ -1,0 +1,8 @@
+{
+  "merge": true,
+  "artifact": {
+    "type": "artifacts.EtherealChains",
+    "cursed": true,
+    "quickslot": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "merge": true,
+  "misc": {
+    "type": "artifacts.MasterThievesArmband",
+    "cursed": true,
+    "quickslot": true
+  }
+}

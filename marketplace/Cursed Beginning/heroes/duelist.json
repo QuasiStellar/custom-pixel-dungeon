@@ -1,0 +1,8 @@
+{
+  "merge": true,
+  "artifact": {
+    "type": "artifacts.ChaliceOfBlood",
+    "cursed": true,
+    "quickslot": true
+  }
+}

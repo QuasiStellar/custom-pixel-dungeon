@@ -1,0 +1,9 @@
+{
+	"name": "Cursed Beginning",
+	"version": 1,
+	"description": "This simple mod focuses on the beginning of the game making it a little more difficult, adding a new starting set to each hero, they will start with 1 artifact depending on their class, however this one will be cursed!",
+	"author": "Internet Explorer",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

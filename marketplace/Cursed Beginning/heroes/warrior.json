@@ -1,0 +1,8 @@
+{
+  "merge": true,
+  "artifact": {
+    "type": "artifacts.HornOfPlenty",
+    "cursed": true,
+    "quickslot": true
+  }
+}
