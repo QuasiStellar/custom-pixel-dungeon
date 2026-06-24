@@ -1,0 +1,12 @@
+{
+	"name": "Terraria Wands",
+	"version": 1,
+	"description": "Replace the wands with versions from Terraria!/nThree options are provided:/n14x14 pixel version, original texture version, and hybrid version (default)./nWhile CustomPD supports textures of different sizes, overly large textures will look particularly poor and unnatural. The hybrid version only replaces oversized textures with the 14x14 versions./nThe three versions can be switched manually by renaming the corresponding folders./nThe wards texture for the wandofwarding is currently being redrawn./nweapon texture replacements may be added in the future.",
+	"author": "罐装狐腻",
+	"license": "GPLv3",
+	"languages": [
+		"all"
+	],
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

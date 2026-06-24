@@ -1,0 +1,57 @@
+{
+  "animation": {
+    "texture": "mobs/pukhrajguard.png",
+    "width": 12,
+    "height": 16,
+    "idle_fps": 4,
+    "idle_frames": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "run_fps": 15,
+    "run_frames": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "attack_fps": 12,
+    "attack_frames": [
+      8,
+      9,
+      10,
+      0
+    ],
+    "die_fps": 19,
+    "die_frames": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "blood_color": 534698000
+  },
+  "hp": 150,
+  "exp": 12,
+  "max_lvl": 22,
+  "evasion": 10,
+  "speed": 1,
+  "accuracy": 30,
+  "min_damage": 15,
+  "max_damage": 25,
+  "min_armor": 15,
+  "max_armor": 25,
+  "loot": {
+    "type": "armor.PlateArmor"
+  },
+  "loot_chance": 0.04
+}

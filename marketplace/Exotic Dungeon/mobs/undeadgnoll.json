@@ -1,0 +1,66 @@
+{
+  "animation": {
+    "texture": "mobs/undeadgnoll.png",
+    "width": 12,
+    "height": 15,
+    "idle_fps": 1,
+    "idle_frames": [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "run_fps": 12,
+    "run_frames": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "attack_fps": 10,
+    "attack_frames": [
+      2,
+      3,
+      0
+    ],
+    "die_fps": 12,
+    "die_frames": [
+      8,
+      9,
+      10
+    ],
+    "blood_color": 12050000
+  },
+  "hp": 15,
+  "exp": 2,
+  "max_lvl": 8,
+  "evasion": 3,
+  "speed": 1,
+  "accuracy": 10,
+  "min_damage": 3,
+  "max_damage": 7,
+  "min_armor": 0,
+  "max_armor": 2,
+  "loot": {
+    "type": "potions.PotionOfParalyticGas"
+  },
+  "loot_chance": 0.1,
+  "enchantments": [
+    {
+      "type": "enchantments.Vampiric",
+      "chance": 0.2,
+      "strength": 50
+    },
+    {
+      "type": "enchantments.Vampiric",
+      "chance": 0.1,
+      "strength": 100
+    },
+    {
+      "type": "enchantments.Vampiric",
+      "chance": 0.05,
+      "strength": 200
+    }
+  ]
+}

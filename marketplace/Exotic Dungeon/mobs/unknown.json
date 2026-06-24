@@ -1,0 +1,61 @@
+{
+  "animation": {
+    "texture": "mobs/unknown.png",
+    "width": 12,
+    "height": 16,
+    "idle_fps": 6,
+    "idle_frames": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      2,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "run_fps": 15,
+    "run_frames": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "attack_fps": 12,
+    "attack_frames": [
+      9,
+      10,
+      11,
+      0
+    ],
+    "die_fps": 12,
+    "die_frames": [
+      0
+    ]
+  },
+  "hp": 100,
+  "exp": 12,
+  "max_lvl": 25,
+  "evasion": 30,
+  "speed": 1,
+  "accuracy": 50,
+  "min_damage": 30,
+  "max_damage": 35,
+  "min_armor": 3,
+  "max_armor": 12,
+  "loot": {
+    "type": "potions.PotionOfInvisibility"
+  },
+  "loot_chance": 0.1
+}

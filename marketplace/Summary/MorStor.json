@@ -1,0 +1,9 @@
+{
+	"name": "MorStor",
+	"version": 1,
+	"description": "Start off with the extra inventory slots for wands, potions, and scrolls.",
+	"author": "UnabashedVoice",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

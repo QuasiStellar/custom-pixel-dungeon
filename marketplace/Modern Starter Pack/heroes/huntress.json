@@ -1,0 +1,35 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "food.Berry",
+      "quantity": "4"
+    },
+    {
+      "type": "potions.PotionOfHealing"
+    },
+    {
+      "type": "potions.exotic.PotionOfMastery"
+    },
+    {
+      "type": "rings.RingOfAccuracy"
+    },
+    {
+      "type": "potions.PotionOfHaste"
+    },
+    {
+      "type": "bombs.Flashbang",
+      "quantity": "3"
+    },
+    {
+      "type": "scrolls.ScrollOfUpgrade"
+    },
+    {
+      "type": "scrolls.ScrollOfIdentify"
+    }
+  ],
+  "identified": [
+    "potions.PotionOfHealing",
+    "potions.PotionOfStrength"
+  ]
+}

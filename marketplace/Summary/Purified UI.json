@@ -1,0 +1,13 @@
+{
+	"name": "Purified UI",
+	"version": 2,
+	"description": "Changes the UI and icons to better complement the Purified Overhaul texturepack (Can be used separately).",
+	"author": "Fid",
+	"license": "GPLv3",
+	"languages": [
+		"English"
+	],
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+
+}

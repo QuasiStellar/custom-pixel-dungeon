@@ -1,0 +1,41 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "artifacts.AlchemistsToolkit"
+    },
+    {
+      "type": "artifacts.CapeOfThorns"
+    },
+    {
+      "type": "artifacts.ChaliceOfBlood"
+    },
+	{
+      "type": "artifacts.CloakOfShadows"
+    },
+    {
+      "type": "artifacts.DriedRose"
+    },
+    {
+      "type": "artifacts.EtherealChains"
+    },
+    {
+      "type": "artifacts.HornOfPlenty"
+    },
+    {
+      "type": "artifacts.MasterThievesArmband"
+    },
+    {
+      "type": "artifacts.SandalsOfNature"
+    },
+    {
+      "type": "artifacts.TalismanOfForesight"
+    },
+    {
+      "type": "artifacts.TimekeepersHourglass"
+    },
+    {
+      "type": "artifacts.UnstableSpellbook"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Slugcat skins",
+  "version": 1,
+  "description": "A simple mod that makes all heros look like slugcats from rain world.\nim not an artist and also i made them look smaller than normal skins on purpose so expect it to look weird! i may add more rain world textures in future.",
+  "author": "Toast6631",
+  "license": "GPLv3",
+  "gameplay_mod": false,
+  "min_cpd_version": 10,
+  "languages": [
+    "English"
+  ]
+}

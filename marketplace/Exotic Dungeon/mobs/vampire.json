@@ -1,0 +1,60 @@
+{
+  "animation": {
+    "texture": "mobs/vampire.png",
+    "width": 15,
+    "height": 15,
+    "idle_fps": 1,
+    "idle_frames": [
+      7,
+      7,
+      7,
+      8,
+      8
+    ],
+    "run_fps": 8,
+    "run_frames": [
+      0,
+      1
+    ],
+    "attack_fps": 12,
+    "attack_frames": [
+      9,
+      10,
+      11,
+      7
+    ],
+    "die_fps": 15,
+    "die_frames": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      15
+    ]
+  },
+  "hp": 45,
+  "exp": 7,
+  "max_lvl": 15,
+  "evasion": 20,
+  "speed": 2,
+  "accuracy": 20,
+  "min_damage": 7,
+  "max_damage": 20,
+  "min_armor": 0,
+  "max_armor": 6,
+  "loot": {
+    "type": "potions.PotionOfHealing",
+    "quantity_min": 1,
+    "quantity_max": 1
+  },
+  "loot_chance": 0.15,
+  "flying": true,
+  "enchantments": [
+    {
+      "type": "enchantments.Vampiric",
+      "chance": 0.5,
+      "strength": 75
+    }
+  ]
+}

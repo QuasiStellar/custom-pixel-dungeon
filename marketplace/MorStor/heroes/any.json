@@ -1,0 +1,14 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "bags.MagicalHolster"
+    },
+    {
+      "type": "bags.PotionBandolier"
+    },
+    {
+      "type": "bags.ScrollHolder"
+    }
+  ]
+}

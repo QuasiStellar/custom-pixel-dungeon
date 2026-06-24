@@ -1,0 +1,578 @@
+{
+  "merge": true,
+  "start": "1",
+  "dungeon": {
+    "1": {
+      "depth": 1,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "surface"
+      ],
+      "exits": [
+        "2"
+      ],
+      "chasm": "2",
+      "passage": "1",
+      "bestiary": [
+        "Albino",
+        "Albino",
+        "Albino",
+        "blackmamba"
+      ]
+    },
+    "2": {
+      "depth": 2,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "1"
+      ],
+      "exits": [
+        "3"
+      ],
+      "chasm": "3",
+      "passage": "1",
+      "bestiary": [
+        "Albino",
+        "Albino",
+        "undeadgnoll",
+        "undeadgnoll",
+        "blackmamba"
+      ]
+    },
+    "3": {
+      "depth": 3,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "2"
+      ],
+      "exits": [
+        "4"
+      ],
+      "chasm": "4",
+      "passage": "1",
+      "bestiary": [
+        "Albino",
+        "blackmamba",
+        "undeadgnoll",
+        "undeadgnoll",
+        "undeadgnoll",
+        "fiddlercrab",
+        "firefly"
+      ]
+    },
+    "4": {
+      "depth": 4,
+      "type": "regular",
+      "layout": "SewerLevel",
+      "entrances": [
+        "3"
+      ],
+      "exits": [
+        "5"
+      ],
+      "chasm": "5",
+      "passage": "1",
+      "bestiary": [
+        "firefly",
+        "fiddlercrab",
+        "fiddlercrab",
+        "CausticSlime",
+        "CausticSlime",
+        "undeadgnoll"
+      ],
+      "rare_mob": "Bandit"
+    },
+    "5": {
+      "depth": 5,
+      "type": "regular",
+      "layout": "SewerBossLevel",
+      "entrances": [
+        "4"
+      ],
+      "exits": [
+        "6"
+      ],
+      "chasm": "6",
+      "passage": "1",
+      "boss": true,
+      "bestiary": [
+        "Rat"
+      ]
+    },
+    "6": {
+      "depth": 6,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "5"
+      ],
+      "exits": [
+        "7"
+      ],
+      "chasm": "7",
+      "passage": "1",
+      "shop": true,
+      "price_multiplier": 2,
+      "bestiary": [
+        "hauntedcorpse",
+        "hauntedcorpse",
+        "hauntedcorpse",
+        "Bandit",
+        "firefly"
+      ]
+    },
+    "7": {
+      "depth": 7,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "6"
+      ],
+      "exits": [
+        "8"
+      ],
+      "chasm": "8",
+      "passage": "6",
+      "bestiary": [
+        "hauntedcorpse",
+        "hauntedcorpse",
+        "hauntedcorpse",
+        "Bandit",
+        "ghostlyguard",
+        "dm101"
+      ]
+    },
+    "8": {
+      "depth": 8,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "7"
+      ],
+      "exits": [
+        "9"
+      ],
+      "chasm": "9",
+      "passage": "6",
+      "bestiary": [
+        "hauntedcorpse",
+        "hauntedcorpse",
+        "Bandit",
+        "ghostlyguard",
+        "ghostlyguard",
+        "dm101",
+        "dm101",
+        "SpectralNecromancer"
+      ]
+    },
+    "9": {
+      "depth": 9,
+      "type": "regular",
+      "layout": "PrisonLevel",
+      "entrances": [
+        "8"
+      ],
+      "exits": [
+        "10"
+      ],
+      "chasm": "10",
+      "passage": "6",
+      "bestiary": [
+        "Bandit",
+        "hauntedcorpse",
+        "ghostlyguard",
+        "ghostlyguard",
+        "dm101",
+        "dm101",
+        "SpectralNecromancer",
+        "SpectralNecromancer"
+      ],
+      "rare_mob": "ArmoredBrute"
+    },
+    "10": {
+      "depth": 10,
+      "type": "regular",
+      "layout": "PrisonBossLevel",
+      "entrances": [
+        "9"
+      ],
+      "exits": [
+        "11"
+      ],
+      "chasm": "11",
+      "passage": "6",
+      "boss": true,
+      "bestiary": [
+        "Rat"
+      ]
+    },
+    "11": {
+      "depth": 11,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "10"
+      ],
+      "exits": [
+        "12"
+      ],
+      "chasm": "12",
+      "passage": "6",
+      "shop": true,
+      "price_multiplier": 3,
+      "bestiary": [
+        "vampire",
+        "vampire",
+        "Bat",
+        "ArmoredBrute",
+        "huntergnoll"
+      ]
+    },
+    "12": {
+      "depth": 12,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "11"
+      ],
+      "exits": [
+        "13"
+      ],
+      "chasm": "13",
+      "passage": "11",
+      "bestiary": [
+        "vampire",
+        "vampire",
+        "Bat",
+        "ArmoredBrute",
+        "ArmoredBrute",
+        "ArmoredBrute",
+        "ArmoredBrute",
+        "huntergnoll",
+        "huntergnoll",
+        "tarantula",
+        "tarantula"
+      ]
+    },
+    "13": {
+      "depth": 13,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "12"
+      ],
+      "exits": [
+        "14"
+      ],
+      "chasm": "14",
+      "passage": "11",
+      "bestiary": [
+        "vampire",
+        "ArmoredBrute",
+        "huntergnoll",
+        "huntergnoll",
+        "tarantula",
+        "tarantula",
+        "DM201",
+        "DM201"
+      ]
+    },
+    "14": {
+      "depth": 14,
+      "type": "regular",
+      "layout": "CavesLevel",
+      "entrances": [
+        "13"
+      ],
+      "exits": [
+        "15"
+      ],
+      "chasm": "15",
+      "passage": "11",
+      "bestiary": [
+        "vampire",
+        "ArmoredBrute",
+        "huntergnoll",
+        "huntergnoll",
+        "tarantula",
+        "tarantula",
+        "DM201",
+        "DM201"
+      ],
+      "rare_mob": "Senior"
+    },
+    "15": {
+      "depth": 15,
+      "type": "regular",
+      "layout": "CavesBossLevel",
+      "entrances": [
+        "14"
+      ],
+      "exits": [
+        "16"
+      ],
+      "chasm": "16",
+      "passage": "11",
+      "boss": true,
+      "bestiary": [
+        "Rat"
+      ]
+    },
+    "16": {
+      "depth": 16,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "15"
+      ],
+      "exits": [
+        "17"
+      ],
+      "chasm": "17",
+      "passage": "11",
+      "shop": true,
+      "price_multiplier": 4,
+      "bestiary": [
+        "olddwarf",
+        "olddwarf",
+        "olddwarf",
+        "multielemental",
+        "masterwarlock"
+      ]
+    },
+    "17": {
+      "depth": 17,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "16"
+      ],
+      "exits": [
+        "18"
+      ],
+      "chasm": "18",
+      "passage": "16",
+      "bestiary": [
+        "olddwarf",
+        "multielemental",
+        "multielemental",
+        "Senior",
+        "masterwarlock"
+      ]
+    },
+    "18": {
+      "depth": 18,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "17"
+      ],
+      "exits": [
+        "19"
+      ],
+      "chasm": "19",
+      "passage": "16",
+      "bestiary": [
+        "olddwarf",
+        "olddwarf",
+        "pukhrajguard",
+        "pukhrajguard",
+        "Golem",
+        "multielemental",
+        "multielemental",
+        "Senior",
+        "Senior",
+        "Senior",
+        "Senior",
+        "masterwarlock",
+        "masterwarlock",
+        "masterwarlock",
+        "masterwarlock"
+      ]
+    },
+    "19": {
+      "depth": 19,
+      "type": "regular",
+      "layout": "CityLevel",
+      "entrances": [
+        "18"
+      ],
+      "exits": [
+        "20"
+      ],
+      "chasm": "20",
+      "passage": "16",
+      "bestiary": [
+        "Golem",
+        "pukhrajguard",
+        "pukhrajguard",
+        "pukhrajguard",
+        "pukhrajguard",
+        "pukhrajguard",
+        "Senior",
+        "Senior",
+        "Senior",
+        "Senior",
+        "masterwarlock",
+        "masterwarlock",
+        "masterwarlock",
+        "masterwarlock",
+        "multielemental",
+        "multielemental"
+      ],
+      "rare_mob": "Acidic"
+    },
+    "20": {
+      "depth": 20,
+      "type": "regular",
+      "layout": "CityBossLevel",
+      "entrances": [
+        "19"
+      ],
+      "exits": [
+        "21"
+      ],
+      "chasm": "21",
+      "passage": "16",
+      "boss": true,
+      "bestiary": [
+        "Rat"
+      ],
+      "price_multiplier": 5
+    },
+    "21": {
+      "depth": 21,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "20"
+      ],
+      "exits": [
+        "22"
+      ],
+      "chasm": "22",
+      "passage": "16",
+      "spawner_cooldown": 60,
+      "bestiary": [
+        "unknown",
+        "unknown",
+        "unknown",
+        "unknown",
+        "whiteeye",
+        "whiteeye",
+        "tentacle"
+      ]
+    },
+    "22": {
+      "depth": 22,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "21"
+      ],
+      "exits": [
+        "23"
+      ],
+      "chasm": "23",
+      "passage": "21",
+      "spawner_cooldown": 50,
+      "bestiary": [
+        "unknown",
+        "unknown",
+        "tentacle",
+        "whiteeye",
+        "whiteeye"
+      ]
+    },
+    "23": {
+      "depth": 23,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "22"
+      ],
+      "exits": [
+        "24"
+      ],
+      "chasm": "24",
+      "passage": "21",
+      "spawner_cooldown": 40,
+      "bestiary": [
+        "unknown",
+        "whiteeye",
+        "whiteeye",
+        "darkmimic",
+        "Acidic",
+        "tentacle"
+      ]
+    },
+    "24": {
+      "depth": 24,
+      "type": "regular",
+      "layout": "HallsLevel",
+      "entrances": [
+        "23"
+      ],
+      "exits": [
+        "25"
+      ],
+      "chasm": "25",
+      "passage": "21",
+      "spawner_cooldown": 30,
+      "bestiary": [
+        "unknown",
+        "whiteeye",
+        "whiteeye",
+        "Acidic",
+        "Acidic",
+        "Acidic",
+        "darkmimic",
+        "darkmimic",
+        "tentacle",
+        "tentacle"
+      ]
+    },
+    "25": {
+      "depth": 25,
+      "type": "regular",
+      "layout": "HallsBossLevel",
+      "entrances": [
+        "24"
+      ],
+      "exits": [
+        "26"
+      ],
+      "chasm": "26",
+      "passage": "21",
+      "boss": true,
+      "bestiary": [
+        "Rat"
+      ]
+    },
+    "26": {
+      "depth": 26,
+      "type": "regular",
+      "layout": "LastLevel",
+      "entrances": [
+        "25"
+      ],
+      "exits": [
+        "26"
+      ],
+      "chasm": "26",
+      "passage": "21",
+      "bestiary": [
+        "Rat"
+      ]
+    }
+  },
+  "blacksmith_spawn_levels": [
+    "12"
+  ],
+  "imp_spawn_levels": [
+    "17"
+  ]
+}

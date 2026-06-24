@@ -1,0 +1,62 @@
+{
+  "animation": {
+    "texture": "mobs/dm101.png",
+    "width": 16,
+    "height": 19,
+    "idle_fps": 1,
+    "idle_frames": [
+      0,
+      1
+    ],
+    "run_fps": 12,
+    "run_frames": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "attack_fps": 10,
+    "attack_frames": [
+      2,
+      3,
+      0
+    ],
+    "die_fps": 12,
+    "die_frames": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "blood_color": 73492824
+  },
+  "hp": 25,
+  "exp": 6,
+  "max_lvl": 13,
+  "evasion": 10,
+  "speed": 1,
+  "accuracy": 15,
+  "min_damage": 2,
+  "max_damage": 8,
+  "min_armor": 1,
+  "max_armor": 4,
+  "loot": {
+    "type": "LiquidMetal",
+    "quantity_min": 5,
+    "quantity_max": 10
+  },
+  "loot_chance": 0.15,
+  "enchantments": [
+    {
+      "type": "enchantments.Shocking",
+      "chance": 0.25,
+      "strength": 20
+    },
+    {
+      "type": "curses.Annoying",
+      "chance": 0.1
+    }
+  ]
+}

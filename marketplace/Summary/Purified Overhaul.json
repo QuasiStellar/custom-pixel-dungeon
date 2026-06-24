@@ -1,12 +1,12 @@
 {
 	"name": "Purified Overhaul",
-	"version": 5,
-	"description": "Changes many different sprites and textures. Still in developement.",
+	"version": 8,
+	"description": "Changes many different sprites and textures. Still somewhat in developement. (Also check out the Purified UI mod!)",
 	"author": "Fid",
 	"license": "GPLv3",
 	"languages": [
 		"English"
 	],
 	"gameplay_mod": false,
-	"min_cpd_version": 3
+	"min_cpd_version": 10
 }

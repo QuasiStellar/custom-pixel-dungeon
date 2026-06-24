@@ -1,0 +1,9 @@
+{
+	"name": "Huntress Handmade Cloak",
+	"version": 1,
+	"description": "Changes Some Sprites For Huntress.",
+	"author": "FluFWon32",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

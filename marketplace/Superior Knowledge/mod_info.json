@@ -1,0 +1,9 @@
+{
+  "name": "Superior Knowledge",
+  "version": 1,
+  "description": "Having mastered the original game, why bother identifying all the items in this version? All items will be identified when you start the game. Artifacts, wands, armor and weapons you find later will remain unidentified.",
+  "author": "Dark-Shadow",
+  "license": "GPLv3",
+  "gameplay_mod": true,
+  "min_cpd_version": 10
+}

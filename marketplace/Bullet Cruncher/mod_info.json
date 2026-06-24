@@ -1,0 +1,9 @@
+{
+	"name": "Bullet Cruncher",
+	"version": 1,
+	"description": "Ever get bored of healing with plain old water? Well, in bullet cruncher, you can, you guessed it, crunch down on bullets! Waterskins are so last update, have a Desert Eagle instead! Cleanse your spirit with the taste of gunpowder!",
+	"author": "Baljeet",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

@@ -1,0 +1,12 @@
+{
+	"name": "Jowiro's Class Reskins",
+	"version": 1,
+	"description": "Just some new hero designs. Ideally used with Purified Overhaul. Simply (de/re)activate this mod so that this mod's priority is higher.",
+	"author": "Jowiro92",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"languages": [
+	    "English"
+	],
+	"min_cpd_version": 10
+}

@@ -1,0 +1,12 @@
+{
+	"name": "Language Patch",
+	"version": 1,
+	"description": "This is a translated text patch for non-English languages, which has synchronized the new text and fixed the problem of displaying floor numbers in the game.\nSince I am not familiar with the 16 languages except Chinese, I have not translated the relevant languages, but I have organized the relevant text, if necessary, you can further modify the file at the corresponding messages.properties! :) \nPS: The language patch requires a restart of the game to take effect",
+	"author": "罐装狐腻",
+	"license": "GPLv3",
+	"languages": [
+		"English,Čeština,Deutsch,Ελληνική γλώσσα,Lengua española,Français,Magyar nyelv,Bahasa Indonesia,Italiano,日本語,한국어,Nederlands,Polski,Português,Русский,Türkçe,Українська,Tiếng Việt,中文"
+	],
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Exotic Dungeon",
+  "version": 3,
+  "description": "The dark miasma in the dungeon is stronger than ever! A dungeon that becomes much more challenging with exotic enemies. Some enemies have never been discovered by any hero before. Bosses also seem to be affected by this new dark force. Something is definitely wrong with this dungeon. ",
+  "author": "Dark-Shadow",
+  "license": "GPLv3",
+  "gameplay_mod": true,
+  "min_cpd_version": 10,
+  "languages": [
+    "English"
+  ]
+}

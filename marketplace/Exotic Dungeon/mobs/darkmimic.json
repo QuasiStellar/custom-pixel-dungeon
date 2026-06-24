@@ -1,0 +1,56 @@
+{
+  "animation": {
+    "texture": "mobs/darkmimic.png",
+    "width": 16,
+    "height": 16,
+    "idle_fps": 2,
+    "idle_frames": [
+      2,
+      3
+    ],
+    "run_fps": 17,
+    "run_frames": [
+      2,
+      3,
+      4,
+      4,
+      5,
+      5,
+      5,
+      4,
+      4,
+      3,
+      2
+    ],
+    "attack_fps": 15,
+    "attack_frames": [
+      6,
+      7,
+      7,
+      6,
+      8
+    ],
+    "die_fps": 12,
+    "die_frames": [
+      9,
+      10,
+      11
+    ]
+  },
+  "hp": 225,
+  "exp": 14,
+  "max_lvl": 27,
+  "evasion": 30,
+  "speed": 1.5,
+  "accuracy": 250,
+  "min_damage": 35,
+  "max_damage": 65,
+  "min_armor": 5,
+  "max_armor": 15,
+  "loot": {
+    "type": "bombs.Noisemaker",
+    "quantity_min": 1,
+    "quantity_max": 2
+  },
+  "loot_chance": 0.05
+}

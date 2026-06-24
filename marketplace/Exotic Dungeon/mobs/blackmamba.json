@@ -1,0 +1,69 @@
+{
+  "animation": {
+    "texture": "mobs/blackmamba.png",
+    "width": 12,
+    "height": 11,
+    "idle_fps": 8,
+    "idle_frames": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      2,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "run_fps": 8,
+    "run_frames": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "attack_fps": 15,
+    "attack_frames": [
+      8,
+      9,
+      10,
+      0
+    ],
+    "die_fps": 10,
+    "die_frames": [
+      11,
+      12,
+      13
+    ],
+    "blood_color": 100925473
+  },
+  "hp": 7,
+  "exp": 2,
+  "max_lvl": 7,
+  "evasion": 50,
+  "speed": 1.33,
+  "accuracy": 10,
+  "min_damage": 1,
+  "max_damage": 4,
+  "min_armor": 0,
+  "max_armor": 2,
+  "loot": {
+    "type": "rings.RingOfEvasion"
+  },
+  "loot_chance": 0.01
+}

@@ -1,0 +1,9 @@
+{
+	"name": "Modern Starter Pack",
+	"version": 2,
+	"description": "U are bored of Starter Pack mod? You think it's very common? This mod will add to your inventory a scroll of upgrade, 3 different types of bomb and rings, a single potion for each class, +small rations for the first time.",
+	"author": "Trafaret",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

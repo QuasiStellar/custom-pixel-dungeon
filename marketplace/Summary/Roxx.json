@@ -1,0 +1,9 @@
+{
+	"name": "Roxx",
+	"version": 1,
+	"description": "Based on 'Rocc' by MinecraftGuy. This one is +20, and you get a stack of them.",
+	"author": "UnabashedVoice",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

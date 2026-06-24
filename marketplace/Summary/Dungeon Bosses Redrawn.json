@@ -1,0 +1,9 @@
+{
+	"name": "Dungeon Bosses Redrawn",
+	"version": 1,
+	"description": "A mod that resprites the bosses! Only Goo and Tengu are done right now.",
+	"author": "Gold",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

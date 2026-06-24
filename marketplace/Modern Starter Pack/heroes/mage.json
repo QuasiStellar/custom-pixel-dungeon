@@ -1,0 +1,35 @@
+{
+  "merge": true,
+  "items": [
+    {
+      "type": "food.SmallRation",
+      "quantity": "3"
+    },
+    {
+      "type": "potions.PotionOfHealing"
+    },
+    {
+      "type": "potions.exotic.PotionOfMastery"
+    },
+    {
+      "type": "rings.RingOfEnergy"
+    },
+    {
+      "type": "potions.PotionOfMindVision"
+    },
+    {
+      "type": "bombs.Firebomb",
+      "quantity": "3"
+    },
+    {
+      "type": "scrolls.ScrollOfUpgrade"
+    },
+    {
+      "type": "scrolls.ScrollOfIdentify"
+    }
+  ],
+  "identified": [
+    "potions.PotionOfHealing",
+    "potions.PotionOfStrength"
+  ]
+}

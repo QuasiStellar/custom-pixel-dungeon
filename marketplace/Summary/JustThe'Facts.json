@@ -1,0 +1,9 @@
+{
+	"name": "JustThe'Facts",
+	"version": 1,
+	"description": "Adds all artifacts to your starting inventory, but you'll need to identify them.",
+	"author": "UnabashedVoice",
+	"license": "GPLv3",
+	"gameplay_mod": true,
+	"min_cpd_version": 8
+}

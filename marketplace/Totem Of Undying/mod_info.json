@@ -1,0 +1,9 @@
+{
+	"name": "Totem Of Undying",
+	"version": 1,
+	"description": "Changes the ankh sprite to the totem of undying from minecraft.",
+	"author": "sanekooo and forgetbeauty",
+	"license": "GPLv3",
+	"gameplay_mod": false,
+	"min_cpd_version": 10
+}

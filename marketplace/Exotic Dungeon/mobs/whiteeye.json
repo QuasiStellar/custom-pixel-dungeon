@@ -1,0 +1,56 @@
+{
+  "animation": {
+    "texture": "mobs/whiteeye.png",
+    "width": 16,
+    "height": 18,
+    "idle_fps": 8,
+    "idle_frames": [
+      0,
+      1,
+      2
+    ],
+    "run_fps": 12,
+    "run_frames": [
+      5,
+      6
+    ],
+    "attack_fps": 25,
+    "attack_frames": [
+      4,
+      4,
+      4,
+      4,
+      10,
+      10,
+      10,
+      10
+    ],
+    "die_fps": 10,
+    "die_frames": [
+      7,
+      8,
+      9
+    ]
+  },
+  "hp": 120,
+  "exp": 13,
+  "max_lvl": 26,
+  "evasion": 30,
+  "speed": 1,
+  "accuracy": 40,
+  "min_damage": 25,
+  "max_damage": 35,
+  "min_armor": 5,
+  "max_armor": 15,
+  "loot": {
+    "type": "bombs.Flashbang"
+  },
+  "loot_chance": 0.075,
+  "enchantments": [
+    {
+      "type": "curses.Dazzling",
+      "chance": 0.3
+    }
+  ],
+  "flying": true
+}
