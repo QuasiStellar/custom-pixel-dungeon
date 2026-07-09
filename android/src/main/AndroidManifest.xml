@@ -29,7 +29,8 @@
 		android:resizeableActivity="true"
 		android:allowBackup="true"
 		android:fullBackupOnly="true"
-		android:backupAgent=".AndroidBackupHandler">
+		android:backupAgent=".AndroidBackupHandler"
+		android:name="androidx.multidex.MultiDexApplication" >
 		<activity
 			android:name=".AndroidLauncher"
 			android:screenOrientation="nosensor"

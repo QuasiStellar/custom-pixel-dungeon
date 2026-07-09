@@ -1,0 +1,33 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "margarita" ]
+  pull_request:
+    branches: [ "margarita" ]
+
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: set up JDK 
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew  assembleDebug  #build
+    - uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact
+        path: '**/*.apk'
+
